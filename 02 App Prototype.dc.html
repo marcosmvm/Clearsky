@@ -324,7 +324,7 @@ class Component extends DCLogic {
           e('span', { style: { width: '38px', height: '38px', borderRadius: '50%', background: '#8FAFD5', flex: 'none' } }),
           e('span', { style: { fontSize: '14.5px', fontWeight: 600, color: INK, flex: 1 } }, 'Priya Nair'),
           e('span', { style: { width: '24px', height: '24px', borderRadius: '50%', background: '#3F6339', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' } }, '\u2713')) : null,
-        e('span', { onClick: () => this.setState({ extraPerson: true }), style: { fontSize: '13px', fontWeight: 700, color: this.state.extraPerson ? '#8FA2BD' : '#27406B', cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center' } }, this.state.extraPerson ? 'Added Priya Nair' : '+ Add someone else')),
+        e('span', { onClick: () => this.setState({ extraPerson: true }), style: { fontSize: '13px', fontWeight: 700, color: this.state.extraPerson ? '#5B6F8E' : '#27406B', cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center' } }, this.state.extraPerson ? 'Added Priya Nair' : '+ Add someone else')),
       e('div', { style: { padding: '10px 18px 18px', borderTop: '1px solid ' + LINE } },
         this.btn('Continue', () => this.go('notif'))));
   }
@@ -383,7 +383,7 @@ class Component extends DCLogic {
     return this.scroll([
       e('div', { key: 'h', style: { background: '#FDFEFF', borderBottom: '1px solid ' + LINE, padding: '48px 18px 14px', display: 'flex', alignItems: 'flex-end', gap: '14px' } },
         e('span', { style: { display: 'flex', flexDirection: 'column', gap: '1px', flex: 1 } },
-          e('span', { style: { fontSize: '10.5px', letterSpacing: '0.2em', fontWeight: 700, color: '#8FA2BD' } }, 'THURSDAY 4 SEPTEMBER'),
+          e('span', { style: { fontSize: '10.5px', letterSpacing: '0.2em', fontWeight: 700, color: '#5B6F8E' } }, 'THURSDAY 4 SEPTEMBER'),
           e('span', { style: { fontSize: '26px', fontWeight: 700, color: INK, lineHeight: 1.1 } }, 'Today')),
         e('span', { onClick: () => this.go('triage'), style: { width: '52px', height: '52px', borderRadius: '50%', background: 'conic-gradient(' + ringInk + ' 0% ' + pct + '%, #E9F1F9 ' + pct + '% 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 'none', cursor: 'pointer' } },
           e('span', { style: { width: '40px', height: '40px', borderRadius: '50%', background: '#FDFEFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' } },
@@ -411,7 +411,7 @@ class Component extends DCLogic {
             e('span', { onClick: () => this.go('calendar'), style: { fontSize: '12px', fontWeight: 700, color: '#27406B', cursor: 'pointer', minHeight: '30px', display: 'flex', alignItems: 'center' } }, 'Calendar \u203A')),
           e('div', { onClick: () => this.go('calendar'), style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '18px', padding: '6px 14px', cursor: 'pointer' } },
             timeline.map(([t, label, c, sub], i) => e('div', { key: i, style: { display: 'flex', gap: '12px', alignItems: 'center', padding: '11px 0', borderTop: i ? '1px solid #F0F5FA' : 'none' } },
-              e('span', { style: { fontSize: '11.5px', fontFamily: 'ui-monospace,Menlo,monospace', color: '#8FA2BD', width: '40px', flex: 'none' } }, t),
+              e('span', { style: { fontSize: '11.5px', fontFamily: 'ui-monospace,Menlo,monospace', color: '#5B6F8E', width: '40px', flex: 'none' } }, t),
               e('span', { style: { width: '3px', alignSelf: 'stretch', minHeight: '30px', borderRadius: '99px', background: c, flex: 'none' } }),
               e('span', { style: { display: 'flex', flexDirection: 'column', gap: '1px' } },
                 e('span', { style: { fontSize: '13.5px', fontWeight: 600, color: INK } }, label),
@@ -427,7 +427,7 @@ class Component extends DCLogic {
                 e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 } },
                   e('span', { style: { fontSize: '14px', fontWeight: 600, color: INK } }, p.what),
                   e('span', { style: { fontSize: '12px', color: MUTE } }, p.who)),
-                e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A')))
+                e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A')))
             : e('div', { style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '16px', padding: '14px', fontSize: '13px', color: MUTE, lineHeight: 1.5 } }, open.length ? 'Nothing due today. ' + open.length + ' promises sit later in the week.' : 'Every promise is kept.'))
       )
     ]);
@@ -461,9 +461,9 @@ class Component extends DCLogic {
       if (next) this.go(next);
     };
     const ACTS = {
-      respond: { label: 'Respond now', outcome: 'Replied', key: 'responded', go: 'thread' },
+      respond: { label: 'Respond now', outcome: 'Responded', key: 'responded', go: 'thread' },
       plan:    { label: 'Plan a time', outcome: 'Planned',  key: 'planned',   go: 'promiseNew' },
-      snooze:  { label: 'Snooze',      outcome: 'Back Thursday', key: 'snoozed', go: null },
+      snooze:  { label: 'Snooze',      outcome: 'Snoozed', detail: 'Back Thursday', key: 'snoozed', go: null },
       waiting: { label: 'Waiting on them', outcome: 'Waiting on them', key: 'waiting', go: null },
       release: { label: 'Let go',      outcome: 'Let go',   key: 'released',  go: null }
     };
@@ -579,10 +579,10 @@ class Component extends DCLogic {
       this.head('New promise', () => this.go(this.state.from || 'thread')),
       e('div', { style: { flex: 1, padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: '11px' } },
         e('div', { style: { display: 'flex', flexDirection: 'column', gap: '5px' } },
-          e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'WHAT YOU SAID'),
+          e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#5B6F8E' } }, 'WHAT YOU SAID'),
           e('div', { style: { border: '1px solid #DCE7F3', borderRadius: '14px', padding: '13px 14px', fontSize: '14px', color: INK } }, this.state.who ? 'Get back to ' + this.state.who + ' with a time' : 'Have lunch with Mum on Sunday')),
         e('div', { style: { display: 'flex', flexDirection: 'column', gap: '5px' } },
-          e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'WHEN'),
+          e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#5B6F8E' } }, 'WHEN'),
           e('div', { style: { display: 'flex', gap: '7px' } },
             ['Sunday 13:00', 'Sunday 18:00', 'Pick\u2026'].map((l, i) => e('span', { key: l, style: { flex: 1, minHeight: '44px', borderRadius: '13px', border: i === 0 ? '1.5px solid ' + INK : '1px solid #DCE7F3', background: i === 0 ? '#EDF4FB' : '#FDFEFF', fontSize: '12.5px', fontWeight: 600, color: INK, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' } }, l)))),
         e('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid #DCE7F3', borderRadius: '14px', padding: '12px 14px' } },
@@ -616,7 +616,7 @@ class Component extends DCLogic {
               e('span', { style: { width: '26px', height: '26px', borderRadius: '50%', background: mode === 'kept' ? '#3F6339' : 'transparent', border: mode === 'kept' ? 'none' : '2px dashed #C6D4E4', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' } }, mode === 'kept' ? '\u2713' : '')),
         e('span', { style: { display: 'flex', flexDirection: 'column', gap: '3px', flex: 1 } },
           e('span', { style: { fontSize: '9.5px', fontWeight: 700, letterSpacing: '0.12em', color: mode === 'live' ? k.ink : '#9DAFC6' } }, k.label),
-          e('span', { style: { fontSize: '14px', fontWeight: 600, color: mode === 'live' ? INK : '#8FA2BD', textDecoration: mode === 'gone' ? 'line-through' : 'none' } }, p.what),
+          e('span', { style: { fontSize: '14px', fontWeight: 600, color: mode === 'live' ? INK : '#5B6F8E', textDecoration: mode === 'gone' ? 'line-through' : 'none' } }, p.what),
           e('span', { style: { fontSize: '11.5px', color: MUTE } }, p.who + ' \u00b7 ' + p.due)),
         p.urgent && mode === 'live' ? e('span', { style: { width: '8px', height: '8px', borderRadius: '50%', background: '#C0492B', flex: 'none' } }) : null);
     };
@@ -771,7 +771,7 @@ class Component extends DCLogic {
             e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '25px', color: INK } }, n),
             e('span', { style: { fontSize: '11px', color: MUTE } }, l)))),
         this.card([
-          e('span', { key: 1, style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'THE MOMENTS'),
+          e('span', { key: 1, style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#5B6F8E' } }, 'THE MOMENTS'),
           e('div', { key: 2, style: { display: 'flex', flexDirection: 'column', gap: '9px' } },
             [['Mum', 'Sunday lunch \u2014 you went', '#E7C589'], ['Sam Reyes', 'Climbing, Thursday evening', '#C9A6D8'], ['Theo', 'Booked the birthday table', '#A9C6A2']].map(([who, what, c], i) =>
               e('div', { key: i, style: { display: 'flex', gap: '10px', alignItems: 'center' } },
@@ -781,7 +781,7 @@ class Component extends DCLogic {
                   e('span', { style: { fontSize: '12px', color: MUTE } }, what)))))
         ]),
         this.card([
-          e('span', { key: 1, style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'ONE THING TO WATCH'),
+          e('span', { key: 1, style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#5B6F8E' } }, 'ONE THING TO WATCH'),
           e('span', { key: 2, style: { fontSize: '13.5px', color: '#41567A', lineHeight: 1.6 } }, 'Dani has waited four days for the handover doc. It is the only promise that slipped.'),
           e('span', { key: 3, onClick: () => { this.setState({ openPromise: 'p3' }); this.go('promiseDetail'); }, style: { fontSize: '12.5px', fontWeight: 700, color: '#27406B', cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center' } }, 'Deal with it now \u203A')
         ])));
@@ -824,7 +824,7 @@ class Component extends DCLogic {
           }))),
       e('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
         this.btn('Start free trial', () => this.go('today')),
-        e('span', { style: { fontSize: '10.5px', color: '#8FA2BD', textAlign: 'center', lineHeight: 1.5 } }, 'Cancel any time in Settings. Same prices as the website.')));
+        e('span', { style: { fontSize: '10.5px', color: '#5B6F8E', textAlign: 'center', lineHeight: 1.5 } }, 'Cancel any time in Settings. Same prices as the website.')));
   }
 
   settings() {
@@ -842,15 +842,15 @@ class Component extends DCLogic {
             e('span', { style: { fontSize: '14.5px', fontWeight: 700, color: '#FFFDF8' } }, 'Private by design'),
             e('span', { style: { fontSize: '11.5px', color: '#BFD3EC', lineHeight: 1.45 } }, 'Nothing is sent on your behalf, ever')),
           e('span', { style: { fontSize: '18px', color: '#FFDD9A', width: '20px', textAlign: 'center' } }, '\u203A')),
-        e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD', paddingTop: '3px' } }, 'YOUR DAY'),
+        e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#5B6F8E', paddingTop: '3px' } }, 'YOUR DAY'),
         item('Morning summary', this.state.notif === false ? 'Notifications are off' : 'Arrives at 08:00', this.toggle(this.state.notif !== false, () => this.setState(s => ({ notif: s.notif === false })))),
         item('Protect evenings', 'Weekdays from 19:00', this.toggle(this.state.protect, () => this.setState(s => ({ protect: !s.protect })))),
-        item('Inner circle', Object.values(this.state.circle).filter(Boolean).length + ' people', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('circle')),
-        item('Weekly recap', 'Arrives Sunday evening', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('recap')),
-        e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD', paddingTop: '3px' } }, 'ACCOUNT'),
-        item('Plan', this.state.plan === 'year' ? '$49.99 a year \u00b7 renews 4 Sep' : this.state.plan === 'week' ? '$5.99 a week' : 'Lifetime \u00b7 paid', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('plans')),
-        item('Connected accounts', Object.values(this.state.accounts).filter(Boolean).length + ' connected', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('accounts')),
-        item('Privacy and data', 'What we keep, and for how long', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('privacy')))
+        item('Inner circle', Object.values(this.state.circle).filter(Boolean).length + ' people', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('circle')),
+        item('Weekly recap', 'Arrives Sunday evening', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('recap')),
+        e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#5B6F8E', paddingTop: '3px' } }, 'ACCOUNT'),
+        item('Plan', this.state.plan === 'year' ? '$49.99 a year \u00b7 renews 4 Sep' : this.state.plan === 'week' ? '$5.99 a week' : 'Lifetime \u00b7 paid', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('plans')),
+        item('Connected accounts', Object.values(this.state.accounts).filter(Boolean).length + ' connected', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('accounts')),
+        item('Privacy and data', 'What we keep, and for how long', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('privacy')))
     ]);
   }
 
