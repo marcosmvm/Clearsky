@@ -89,6 +89,7 @@
   --kept: #3F6339;     /* Kept, confirmed, protected */
   --attention: #C0492B;     /* Due today, needs a new plan */
   --focus: #7FA5CE;     /* Focus ring */
+  --ink-on-dark: #8FA2BD;     /* Muted text on dark grounds ONLY — eyebrows, meta and numerals on navy cards and night pages */
 
   /* ── Type faces ──────────────────────────────────────────────── */
   --face-display: Anton, Impact, sans-serif;

@@ -55,15 +55,30 @@ the semantic layer is the decision. When a screen needs a colour the semantic la
 that is a signal the semantic layer is missing a token — add it to the JSON rather than reaching
 past it into the ramp.
 
+## The retirement that wasn't
+
+The UI Kit retired `#8FA2BD` as type "at any size" on one measurement: 2.58:1 on white. The
+measurement is right; the conclusion was not. That value was simultaneously **the system's only
+on-dark ink**, and the Kit has no reversed token to sweep toward. A blanket sweep therefore
+regressed **31 passing texts to failing** across three files:
+
+| File | Regressions | Was | Became |
+|---|---:|---|---|
+| `11 Illustration Index.dc.html` | 27 | 5.40–7.08:1 | 2.75–3.61:1 |
+| `08 M06 Private By Design.dc.html` | 3 | 4.71–7.08:1 | 2.40–3.61:1 |
+| `02 App Prototype.dc.html` | 1 | 7.08:1 | 3.61:1 |
+
+All 31 reverted. The value is now named for the job it was already doing — `--ink-on-dark` — with
+its constraint written down: never on light, correct on dark, and `--ink-3` is wrong there.
+
+**The lesson is about the tool, not the colour.** A checker that reads values and never the ground
+behind them cannot catch this class of error. `contrast.mjs` measures instead — but read its header
+before trusting a number: it resolves ancestry by indentation, not a DOM, so it informs and does
+not gate.
+
 ## Two kinds of failure
 
-**Fatal — never baselined.** A retired colour used as text. `#8FA2BD` measures 2.58:1 on white and
-fails AA at every size. It survives only as a hairline or an icon stroke. The checker resolves the
-CSS property each value belongs to, so a colour reached through a ternary
-(`color: mode === 'live' ? INK : '#8FA2BD'`) is caught exactly like a direct assignment, and a hex
-printed as *table content* — the Kit naming the colour it retires — is correctly ignored.
-
-**Baselined — burn down deliberately.** Everything else. The baseline currently records **1541**
+**Baselined — burn down deliberately.** Everything. The baseline currently records **1541**
 accepted violations:
 
 | Kind | Occurrences | Distinct |

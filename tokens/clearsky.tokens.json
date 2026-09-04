@@ -163,71 +163,16 @@
       "value": "#7FA5CE",
       "ramp": "sky.600",
       "use": "Focus ring"
+    },
+    "ink-on-dark": {
+      "value": "#8FA2BD",
+      "ramp": null,
+      "use": "Muted text on dark grounds ONLY — eyebrows, meta and numerals on navy cards and night pages",
+      "constraint": "Never on a light ground: 2.58:1 on white. On the system's dark grounds it measures 5.40:1 (#1B2B4B) to 7.08:1 (#0B1424). --ink-3 is its light-ground counterpart and fails on dark (2.75:1 to 3.61:1)."
     }
   },
   "retired": {
-    "#8FA2BD": {
-      "reason": "Measures 2.58:1 on white — fails WCAG AA at every text size.",
-      "replaceWith": "--ink-3 (#5B6F8E)",
-      "stillAllowedFor": [
-        "hairlines",
-        "icon strokes on decorative or disabled-state demos"
-      ],
-      "neverAllowedFor": [
-        "text on any light ground"
-      ],
-      "groundCaveat": "The retirement is a LIGHT-GROUND rule, though the UI Kit states it as absolute. On the dark navy gradient #0B1424→#213558 the retired colour measures 7.08:1 / 4.71:1 and passes AA, while its replacement #5B6F8E measures 3.61:1 / 2.40:1 and fails. A blanket sweep makes those cases worse. Exceptions below are measured, not assumed.",
-      "exceptions": [
-        {
-          "file": "02 App Prototype.dc.html",
-          "match": "'THE PROMISE'",
-          "ground": "linear-gradient(180deg,#0B1424,#213558)",
-          "measured": {
-            "topStop": "7.08:1",
-            "bottomStop": "4.71:1",
-            "replacementWouldBe": "3.61:1 / 2.40:1"
-          },
-          "reason": "Passes AA on the dark privacy card. Sweeping it to --ink-3 would fail at both gradient stops.",
-          "verified": "2026-09-04"
-        },
-        {
-          "file": "08 M06 Private By Design.dc.html",
-          "match": "PRIVATE BY DESIGN</span>",
-          "ground": "linear-gradient(180deg,#0B1424,#16233F,#213558)",
-          "measured": {
-            "topStop": "7.08:1",
-            "midStop": "5.99:1",
-            "bottomStop": "4.71:1",
-            "replacementWouldBe": "3.61:1 / 3.05:1 / 2.40:1"
-          },
-          "reason": "Hero eyebrow on the dark night sky. Passes AA at all three gradient stops; the replacement fails at all three.",
-          "verified": "2026-09-04"
-        },
-        {
-          "file": "08 M06 Private By Design.dc.html",
-          "match": "{{ f.n }}",
-          "ground": "#132340 / #0F1A30",
-          "measured": {
-            "onCard": "6.01:1",
-            "onPage": "6.67:1",
-            "replacementWouldBe": "3.06:1 / 3.39:1"
-          },
-          "reason": "Feature numeral on the dark commitment cards. Passes AA; the replacement fails.",
-          "verified": "2026-09-04"
-        },
-        {
-          "file": "08 M06 Private By Design.dc.html",
-          "match": "border-top:1px solid rgba(191,211,236,0.18)",
-          "ground": "#0F1A30",
-          "measured": {
-            "onPage": "6.67:1",
-            "replacementWouldBe": "3.39:1"
-          },
-          "reason": "Footer text on the dark page ground. Passes AA; the replacement fails.",
-          "verified": "2026-09-04"
-        }
-      ]
-    }
+    "$note": "Empty. Nothing is currently retired outright. A value belongs here only when it fails on EVERY ground in the system — #8FA2BD did not, which is what the blanket sweep got wrong."
   },
   "type": {
     "$faces": {
@@ -598,5 +543,14 @@
     "tokens": "kebab-case and semantic, e.g. --ink-2, --action-quiet",
     "components": "PascalCase",
     "states": "the product vocabulary, never synonyms — Needs attention, Responded, Planned, Snoozed, Waiting on them, Needs a new plan, Kept, Released"
+  },
+  "reclassified": {
+    "#8FA2BD": {
+      "status": "reclassified, not retired",
+      "history": "The UI Kit retired this as type at any size on the strength of a single measurement — 2.58:1 on white. That measurement is correct and the conclusion was not: the value was simultaneously the system's only on-dark ink. A blanket sweep to --ink-3 regressed 31 passing texts to failing across three files.",
+      "nowNamed": "--ink-on-dark",
+      "rule": "Light ground: never. Dark ground: correct, and --ink-3 is wrong there.",
+      "enforcedBy": "tokens/contrast.mjs, which resolves the ground behind each value and measures it, rather than blocklisting a hex."
+    }
   }
 }

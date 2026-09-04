@@ -44,7 +44,7 @@ for (const [k, m] of Object.entries(T.motion)) {
 }
 const allowedShadow = new Set(Object.values(T.elevation).map((e) => e.value.replace(/\s+/g, "")));
 
-const RETIRED = Object.keys(T.retired).map(up);
+const RETIRED = Object.keys(T.retired).filter((k) => !k.startsWith("$")).map(up);
 
 /* ── Scan ───────────────────────────────────────────────────────────── */
 const SCAN = readdirSync(root).filter((f) => /\.(dc\.html|html|js|css|mjs|ts|tsx|jsx)$/.test(f) && f !== "check.mjs");

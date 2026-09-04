@@ -32,8 +32,22 @@ jobs:
           fi
           echo "clearsky.tokens.css matches its source."
 
-      - name: No new token violations, no retired colour as text
+      - name: No new token violations
         run: node tokens/check.mjs
+
+      # Informational only. Grounds are resolved by indentation, not a DOM, so a
+      # misresolved row reports 1.00:1 — a resolver failure, not a design defect.
+      # It surfaces candidates for a human to verify; it must not gate a build.
+      - name: Contrast diagnostic (informational)
+        continue-on-error: true
+        run: |
+          node tokens/contrast.mjs --report | tee /tmp/c.txt
+          {
+            echo "### Contrast diagnostic (heuristic — verify by eye)"
+            echo '```'
+            head -30 /tmp/c.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
   vocabulary:
     name: Product vocabulary
