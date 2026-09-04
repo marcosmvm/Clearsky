@@ -76,6 +76,18 @@ jobs:
             fail=1
           fi
 
+          # Every outcome the prototype can produce must be one of the five named
+          # outcomes. A synonym here is how the state model silently splits — the
+          # 'Sky cleared.' tally and the decision handler would stop agreeing.
+          bad_outcome=$(grep -ohE "outcome: '[^']*'" -- *.dc.html \
+            | sort -u \
+            | grep -vE "outcome: '(Responded|Planned|Snoozed|Waiting on them|Let go)'" || true)
+          if [ -n "$bad_outcome" ]; then
+            echo "::error::Outcome outside the fixed vocabulary (Responded, Planned, Snoozed, Waiting on them, Let go):"
+            echo "$bad_outcome"
+            fail=1
+          fi
+
           [ "$fail" -eq 0 ] && echo "Vocabulary clean."
           exit $fail
 

@@ -463,7 +463,7 @@ class Component extends DCLogic {
     const ACTS = {
       respond: { label: 'Respond now', outcome: 'Responded', key: 'responded', go: 'thread' },
       plan:    { label: 'Plan a time', outcome: 'Planned',  key: 'planned',   go: 'promiseNew' },
-      snooze:  { label: 'Snooze',      outcome: 'Back Thursday', key: 'snoozed', go: null },
+      snooze:  { label: 'Snooze',      outcome: 'Snoozed', detail: 'Back Thursday', key: 'snoozed', go: null },
       waiting: { label: 'Waiting on them', outcome: 'Waiting on them', key: 'waiting', go: null },
       release: { label: 'Let go',      outcome: 'Let go',   key: 'released',  go: null }
     };
