@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #FFFFFF; }
+    a { color: #27406B; text-decoration: none; }
+    a:hover { color: #14213C; }
+    @keyframes ck-bob { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+    .ck-still * { animation: none !important; }
+  </style>
+</helmet>
+<div class="{{ rootClass }}" style="min-height:100vh; background:#FFFFFF; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F;">
+
+  <nav data-screen-label="Nav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 40px; background:#FFFFFF; border-bottom:1px solid #E7EFF8; box-shadow:0 2px 14px rgba(27,43,75,0.05);">
+    <a href="03%20M01%20Landing.dc.html" style="display:inline-flex; align-items:center; gap:10px;">
+      <svg width="28" height="19" viewBox="0 0 20 14" fill="#1B2B4B" aria-hidden="true"><circle cx="6" cy="9" r="4"></circle><circle cx="11" cy="6" r="5"></circle><circle cx="15" cy="10" r="3.4"></circle></svg>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:21px; font-weight:600; color:#1B2B4B;">Clearsky</span>
+    </a>
+    <span style="display:flex; align-items:center; gap:26px;">
+      <span style="font-size:14px; font-weight:700; color:#1B2B4B; border-bottom:2px solid #F2B84B; padding-bottom:2px;">How it works</span>
+      <a href="05%20M03%20Why%20We%20Show%20Up.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Why we show up</a>
+      <a href="06%20M04%20Pricing.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Pricing</a>
+      <a href="08%20M06%20Private%20By%20Design.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Privacy</a>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:14px; font-weight:700; padding:10px 24px; border-radius:999px; box-shadow:0 8px 18px rgba(199,141,32,0.28);" style-hover="box-shadow:0 10px 24px rgba(199,141,32,0.45);">Get Clearsky</a>
+    </span>
+  </nav>
+
+  <section data-screen-label="Hero" style="position:relative; background:linear-gradient(180deg,#7FA5CE 0%,#A8C6E5 48%,#D5E8F9 100%); padding:66px 40px 96px; overflow:hidden;">
+    <img data-hero-plate="1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_26f9ed44-2186-4f59-8b57-791be4b04f46.png" alt="" style="position:absolute; inset:0; will-change:transform; width:100%; height:100%; object-fit:cover; opacity:0.92; pointer-events:none;">
+    <span data-depth="0.07" style="position:absolute; left:3%; top:18%; width:15vw; min-width:140px; opacity:0.6; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153124_d0a3f95d-d2ea-433a-a947-214ef6f8e53a.png" alt="" style="width:100%; display:block; animation:ck-bob 13s ease-in-out infinite;"></span>
+    <div data-hero-copy="1" style="position:relative; z-index:2; max-width:800px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;">
+      <span style="font-size:11.5px; letter-spacing:0.26em; font-weight:700; color:#25406B;">HOW IT WORKS</span>
+      <h1 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(40px,5.6vw,80px); line-height:0.99; color:#12213C;">Five loops, one calm day</h1>
+      <div style="font-size:16px; line-height:1.65; max-width:540px; color:#28405F;">Clearsky runs the same short cycle every day: see what needs you, answer it well, turn the real ones into plans, keep what you promised, and protect the time it takes.</div>
+    </div>
+    <img data-hero-fig="1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175511_83c99fa0-1d18-41ee-b106-4c64fa910ad0.png" alt="The daydreamer pointing at a phone screen" style="position:relative; z-index:2; display:block; width:min(360px,42vw); margin:26px auto 0; filter:drop-shadow(0 4px 3px rgba(12,22,42,0.45)) drop-shadow(0 22px 26px rgba(12,22,42,0.3)); animation:ck-bob 11s ease-in-out infinite;">
+  </section>
+
+  <section data-screen-label="Loop 01 Triage" style="position:relative; background:#FFFFFF; padding:78px 40px;">
+    <div style="max-width:1060px; margin:0 auto; display:grid; grid-template-columns:minmax(280px,1fr) minmax(260px,420px); gap:52px; align-items:center;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <span style="display:inline-flex; align-items:center; gap:10px; font-size:11px; letter-spacing:0.24em; font-weight:700; color:#8FA2BD;"><span style="display:inline-flex; width:26px; height:26px; border-radius:50%; background:#1B2B4B; color:#EAF2FC; align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0;">01</span>TRIAGE</span>
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(30px,3.6vw,50px); line-height:1.04; color:#1B2B4B;">See only what needs you</h2>
+        <div style="font-size:15.5px; line-height:1.65; color:#5B6F8E; max-width:430px;">Every morning Clearsky reads across your messages, email and calendar and hands you one short stack — sorted by who is waiting and how long.</div>
+        <div style="display:flex; flex-direction:column; gap:8px; padding-top:2px;">
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Inner circle always rises to the top</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Stale threads sweep away in one pass</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Ends on a clear sky, not an empty inbox</span>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:center;">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161415_716c0000-b399-4d6e-bf6c-c60e25080617.png" alt="The daydreamer sorting three clouds" style="width:100%; max-width:330px; display:block; filter:drop-shadow(0 20px 26px rgba(27,43,75,0.2)); animation:ck-bob 11s ease-in-out infinite;">
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Loop 02 Respond" style="position:relative; background:#F6FAFE; padding:78px 40px;">
+    <div style="max-width:1060px; margin:0 auto; display:grid; grid-template-columns:minmax(260px,420px) minmax(280px,1fr); gap:52px; align-items:center;">
+      <div style="display:flex; justify-content:center;">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161417_92510ea8-0843-4a8d-9673-daa12d16a0bc.png" alt="The daydreamer drawing a glowing plan path" style="width:100%; max-width:330px; display:block; filter:drop-shadow(0 20px 26px rgba(27,43,75,0.2)); animation:ck-bob 11s ease-in-out infinite;">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <span style="display:inline-flex; align-items:center; gap:10px; font-size:11px; letter-spacing:0.24em; font-weight:700; color:#8FA2BD;"><span style="display:inline-flex; width:26px; height:26px; border-radius:50%; background:#1B2B4B; color:#EAF2FC; align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0;">02</span>RESPOND</span>
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(30px,3.6vw,50px); line-height:1.04; color:#1B2B4B;">Answer like you mean it</h2>
+        <div style="font-size:15.5px; line-height:1.65; color:#5B6F8E; max-width:430px;">A familiar thread view with one difference: the actions that matter sit right above the keyboard, so a reply can become a plan without leaving the conversation.</div>
+        <div style="display:flex; flex-direction:column; gap:8px; padding-top:2px;">
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Draft assist in your own tone</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Snooze without losing the thread</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Too big for text? Turn it into a call</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Loop 03 Promise" style="position:relative; background:#FFFFFF; padding:78px 40px;">
+    <div style="max-width:1060px; margin:0 auto; display:grid; grid-template-columns:minmax(280px,1fr) minmax(260px,420px); gap:52px; align-items:center;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <span style="display:inline-flex; align-items:center; gap:10px; font-size:11px; letter-spacing:0.24em; font-weight:700; color:#8FA2BD;"><span style="display:inline-flex; width:26px; height:26px; border-radius:50%; background:#1B2B4B; color:#EAF2FC; align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0;">03</span>PROMISE</span>
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(30px,3.6vw,50px); line-height:1.04; color:#1B2B4B;">Keep what you said</h2>
+        <div style="font-size:15.5px; line-height:1.65; color:#5B6F8E; max-width:430px;">Anything you commit to becomes a promise with a date, linked back to the message where you made it. Overdue is amber, never red.</div>
+        <div style="display:flex; flex-direction:column; gap:8px; padding-top:2px;">
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Created automatically from your replies</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Kept promises log the moment</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Release one honestly instead of ghosting</span>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:center;">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161418_494651bc-7264-4220-ab3a-a7cff0fd1d14.png" alt="The daydreamer cradling the amber promise sun" style="width:100%; max-width:330px; display:block; filter:drop-shadow(0 20px 26px rgba(27,43,75,0.2)); animation:ck-bob 11s ease-in-out infinite;">
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Loop 04 Protect" style="position:relative; background:#F6FAFE; padding:78px 40px;">
+    <div style="max-width:1060px; margin:0 auto; display:grid; grid-template-columns:minmax(260px,420px) minmax(280px,1fr); gap:52px; align-items:center;">
+      <div style="display:flex; justify-content:center;">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161420_a4417da8-3bce-42be-b308-c1d6e7238db1.png" alt="The daydreamer resting in his cloud hammock" style="width:100%; max-width:330px; display:block; filter:drop-shadow(0 20px 26px rgba(27,43,75,0.2)); animation:ck-bob 11s ease-in-out infinite;">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <span style="display:inline-flex; align-items:center; gap:10px; font-size:11px; letter-spacing:0.24em; font-weight:700; color:#8FA2BD;"><span style="display:inline-flex; width:26px; height:26px; border-radius:50%; background:#1B2B4B; color:#EAF2FC; align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0;">04</span>PROTECT</span>
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(30px,3.6vw,50px); line-height:1.04; color:#1B2B4B;">Hold the time it takes</h2>
+        <div style="font-size:15.5px; line-height:1.65; color:#5B6F8E; max-width:430px;">Plans need room. Clearsky finds the open evenings before they fill and blocks them as protected — recover, deep work, or together.</div>
+        <div style="display:flex; flex-direction:column; gap:8px; padding-top:2px;">
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Syncs to your calendar as busy</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Warns before a plan eats a block</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Open-space finder for the weekend</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Loop 05 Review" style="position:relative; background:#FFFFFF; padding:78px 40px;">
+    <div style="max-width:1060px; margin:0 auto; display:grid; grid-template-columns:minmax(280px,1fr) minmax(260px,420px); gap:52px; align-items:center;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <span style="display:inline-flex; align-items:center; gap:10px; font-size:11px; letter-spacing:0.24em; font-weight:700; color:#8FA2BD;"><span style="display:inline-flex; width:26px; height:26px; border-radius:50%; background:#1B2B4B; color:#EAF2FC; align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0;">05</span>REVIEW</span>
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(30px,3.6vw,50px); line-height:1.04; color:#1B2B4B;">See that you showed up</h2>
+        <div style="font-size:15.5px; line-height:1.65; color:#5B6F8E; max-width:430px;">Sunday evening, a short recap: promises kept, clear-sky days, evenings protected — and one question about who you want to show up for next week.</div>
+        <div style="display:flex; flex-direction:column; gap:8px; padding-top:2px;">
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>A week in one calm screen</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Log a moment on any kept promise</span>
+          <span style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>Set next week's intention in a tap</span>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:center;">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161421_e4a80b5e-31da-45f7-9ba5-47848dceec30.png" alt="The daydreamer holding framed moments" style="width:100%; max-width:330px; display:block; filter:drop-shadow(0 20px 26px rgba(27,43,75,0.2)); animation:ck-bob 11s ease-in-out infinite;">
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="position:relative; background:linear-gradient(180deg,#BFD9F2 0%,#8FAFD5 100%); padding:78px 40px 66px; overflow:hidden;">
+    <div style="position:relative; z-index:2; max-width:900px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;">
+      <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(32px,4.4vw,62px); line-height:1.01; color:#1B2B4B;">Run one calm day. Then decide.</h2>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:16px; font-weight:700; padding:16px 42px; border-radius:999px; box-shadow:0 14px 30px rgba(122,79,16,0.32); margin-top:4px;" style-hover="box-shadow:0 18px 38px rgba(122,79,16,0.48);">Start 7 days free</a>
+    </div>
+    <div style="position:relative; z-index:2; max-width:1080px; margin:52px auto 0; border-top:1px solid rgba(27,43,75,0.18); padding-top:20px; display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-size:12.5px; color:#33507C;">
+      <span>© 2026 Clearsky</span>
+      <span style="display:flex; gap:18px; flex-wrap:wrap;"><a href="03%20M01%20Landing.dc.html">Home</a><a href="05%20M03%20Why%20We%20Show%20Up.dc.html">Why we show up</a><a href="06%20M04%20Pricing.dc.html">Pricing</a><a href="08%20M06%20Private%20By%20Design.dc.html">Private by design</a></span>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;parallax&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; },
+  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._raf = 0;
+    this.onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const on = this.props.parallax ?? true;
+        const vh = window.innerHeight;
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        document.querySelectorAll('[data-depth]').forEach((el) => {
+          if (!on) { el.style.transform = ''; return; }
+          const d = parseFloat(el.dataset.depth) || 0;
+          const r = el.getBoundingClientRect();
+          el.style.transform = 'translate3d(0,' + (-((r.top + r.height / 2) - vh / 2) * d).toFixed(1) + 'px,0)';
+        });
+        const hero = document.querySelector('[data-hero-plate]');
+        if (hero) {
+          const p = Math.max(0, Math.min(1, y / Math.max(1, vh)));
+          hero.style.transform = on ? 'translate3d(0,' + (y * 0.13).toFixed(1) + 'px,0) scale(' + (1 + p * 0.05).toFixed(3) + ')' : '';
+        }
+        const copy = document.querySelector('[data-hero-copy]');
+        if (copy) {
+          const p = Math.max(0, Math.min(1, y / (vh * 1)));
+          copy.style.opacity = String(1 - p * 0.9);
+          copy.style.transform = 'translate3d(0,' + (y * -0.06).toFixed(1) + 'px,0)';
+        }
+        const fig = document.querySelector('[data-hero-fig]'); if (fig) fig.style.transform = 'translate3d(0,' + (y * -0.09).toFixed(1) + 'px,0)';
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); if (this._raf) cancelAnimationFrame(this._raf); }
+  renderVals() { return { rootClass: (this.props.motion ?? true) ? '' : 'ck-still' }; }
+}
+</script>
+</body>
+</html>

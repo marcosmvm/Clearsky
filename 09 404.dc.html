@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #A8B8C9; }
+    a { color: #27406B; text-decoration: none; }
+    a:hover { color: #14213C; }
+    @keyframes ck-bob { 0% { transform: translateY(0); } 50% { transform: translateY(-11px); } 100% { transform: translateY(0); } }
+    @keyframes ck-fog-l { 0% { transform: translateX(-14%); } 50% { transform: translateX(10%); } 100% { transform: translateX(-14%); } }
+    @keyframes ck-fog-r { 0% { transform: translateX(12%); } 50% { transform: translateX(-12%); } 100% { transform: translateX(12%); } }
+    @keyframes ck-glow { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.9; } }
+    .ck-still * { animation: none !important; }
+  </style>
+</helmet>
+<div class="{{ rootClass }}" style="min-height:100vh; background:#A8B8C9; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F;">
+
+  <nav data-screen-label="Nav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 40px; background:rgba(255,255,255,0.9); border-bottom:1px solid #E7EFF8; backdrop-filter:blur(8px);">
+    <a href="03%20M01%20Landing.dc.html" style="display:inline-flex; align-items:center; gap:10px;">
+      <svg width="28" height="19" viewBox="0 0 20 14" fill="#1B2B4B" aria-hidden="true"><circle cx="6" cy="9" r="4"></circle><circle cx="11" cy="6" r="5"></circle><circle cx="15" cy="10" r="3.4"></circle></svg>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:21px; font-weight:600; color:#1B2B4B;">Clearsky</span>
+    </a>
+    <span style="display:flex; align-items:center; gap:26px;">
+      <a href="04%20M02%20How%20It%20Works.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">How it works</a>
+      <a href="06%20M04%20Pricing.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Pricing</a>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:14px; font-weight:700; padding:10px 24px; border-radius:999px; box-shadow:0 8px 18px rgba(199,141,32,0.28);" style-hover="box-shadow:0 10px 24px rgba(199,141,32,0.45);">Get Clearsky</a>
+    </span>
+  </nav>
+
+  <section data-screen-label="404 fog" style="position:relative; min-height:82vh; background:linear-gradient(180deg,#7F91A6 0%,#A8B8C9 42%,#C9D5E0 74%,#E2E9EF 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:70px 40px 90px; overflow:hidden;">
+    <img data-hero-plate="1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_98e45681-c92a-4a43-95e2-34852949371a.png" alt="" style="position:absolute; inset:0; will-change:transform; width:100%; height:100%; object-fit:cover; opacity:0.55; pointer-events:none;">
+
+    <span style="position:absolute; left:-8%; top:16%; width:52vw; height:120px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(255,255,255,0.5), rgba(255,255,255,0) 72%); animation:ck-fog-l 22s ease-in-out infinite; pointer-events:none;"></span>
+    <span style="position:absolute; right:-10%; top:34%; width:46vw; height:100px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(255,255,255,0.42), rgba(255,255,255,0) 72%); animation:ck-fog-r 26s ease-in-out infinite; pointer-events:none;"></span>
+
+    <div style="position:relative; z-index:3; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; max-width:640px;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; letter-spacing:0.26em; font-weight:700; color:#41536B;">ERROR 404</span>
+      <h1 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(46px,7vw,104px); line-height:0.97; color:#2C3E56; text-shadow:0 10px 26px rgba(44,62,86,0.18);">Lost in fog</h1>
+      <div style="font-size:16px; line-height:1.65; color:#41536B; max-width:420px;">This page drifted off somewhere. He is out looking for it — in the meantime, the sky is clear back home.</div>
+    </div>
+
+    <div style="position:relative; z-index:4; margin-top:6px; display:flex; justify-content:center;">
+      <span style="position:absolute; left:50%; top:38%; transform:translate(-50%,-50%); width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(255,221,154,0.55), rgba(255,221,154,0) 66%); animation:ck-glow 6s ease-in-out infinite; pointer-events:none;"></span>
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175521_9b8e4dc3-3ca7-4d34-be77-500bf3d6f85b.png" alt="The Clearsky daydreamer holding a lantern in the fog" style="position:relative; z-index:2; width:min(400px,54vw); display:block; filter:drop-shadow(0 4px 4px rgba(44,62,86,0.53)) drop-shadow(0 26px 30px rgba(44,62,86,0.35)); animation:ck-bob 11s ease-in-out infinite;">
+    </div>
+
+    <span style="position:absolute; left:6%; bottom:14%; width:58vw; height:140px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(255,255,255,0.72), rgba(255,255,255,0) 70%); animation:ck-fog-r 19s ease-in-out infinite; z-index:5; pointer-events:none;"></span>
+    <span style="position:absolute; right:-6%; bottom:4%; width:50vw; height:120px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(255,255,255,0.6), rgba(255,255,255,0) 70%); animation:ck-fog-l 24s ease-in-out infinite; z-index:5; pointer-events:none;"></span>
+
+    <div style="position:relative; z-index:6; display:flex; gap:13px; flex-wrap:wrap; justify-content:center; margin-top:14px;">
+      <a href="03%20M01%20Landing.dc.html" style="display:inline-flex; background:#1B2B4B; color:#F3F7FC; font-size:15.5px; font-weight:700; padding:15px 34px; border-radius:999px; box-shadow:0 14px 28px rgba(44,62,86,0.3);" style-hover="background:#14213C;">Back to clear sky</a>
+      <a href="04%20M02%20How%20It%20Works.dc.html" style="display:inline-flex; border:1.5px solid rgba(27,43,75,0.35); color:#2C3E56; font-size:15.5px; font-weight:600; padding:14px 30px; border-radius:999px;" style-hover="background:rgba(255,255,255,0.5);">See how Clearsky works</a>
+    </div>
+  </section>
+
+  <section data-screen-label="Footer" style="background:#E2E9EF; padding:26px 40px 32px;">
+    <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-size:12.5px; color:#41536B;">
+      <span>© 2026 Clearsky</span>
+      <span style="display:flex; gap:18px; flex-wrap:wrap;"><a href="03%20M01%20Landing.dc.html">Home</a><a href="04%20M02%20How%20It%20Works.dc.html">How it works</a><a href="05%20M03%20Why%20We%20Show%20Up.dc.html">Why we show up</a><a href="06%20M04%20Pricing.dc.html">Pricing</a><a href="08%20M06%20Private%20By%20Design.dc.html">Private by design</a></span>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._raf = 0;
+    this.onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const on = this.props.parallax ?? true;
+        const vh = window.innerHeight;
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        document.querySelectorAll('[data-depth]').forEach((el) => {
+          if (!on) { el.style.transform = ''; return; }
+          const d = parseFloat(el.dataset.depth) || 0;
+          const r = el.getBoundingClientRect();
+          el.style.transform = 'translate3d(0,' + (-((r.top + r.height / 2) - vh / 2) * d).toFixed(1) + 'px,0)';
+        });
+        const hero = document.querySelector('[data-hero-plate]');
+        if (hero) {
+          const p = Math.max(0, Math.min(1, y / Math.max(1, vh)));
+          hero.style.transform = on ? 'translate3d(0,' + (y * 0.08).toFixed(1) + 'px,0) scale(' + (1 + p * 0.03).toFixed(3) + ')' : '';
+        }
+        const copy = document.querySelector('[data-hero-copy]');
+        if (copy) {
+          const p = Math.max(0, Math.min(1, y / (vh * 1.4)));
+          copy.style.opacity = String(1 - p * 0.9);
+          copy.style.transform = 'translate3d(0,' + (y * -0.06).toFixed(1) + 'px,0)';
+        }
+        
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); if (this._raf) cancelAnimationFrame(this._raf); }
+  renderVals() { return { rootClass: (this.props.motion ?? true) ? '' : 'ck-still' }; }
+}
+</script>
+</body>
+</html>

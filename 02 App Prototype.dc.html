@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #E7EFF7; }
+    a { color: #27406B; text-decoration: none; }
+    a:hover { color: #14213C; }
+    @keyframes ck-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes ck-rise { from { transform: translateY(0); } to { transform: translateY(-62px); } }
+    @keyframes ck-spin { to { transform: rotate(360deg); } }
+    @keyframes ck-sweep { from { transform: translateX(0); } to { transform: translateX(-76px); } }
+    @keyframes ck-breathe { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.05); } }
+    @keyframes ck-ripple { 0% { transform: scale(0.55); opacity: 0.7; } 100% { transform: scale(2.1); opacity: 0; } }
+    @keyframes ck-drift { 0% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(22px,-16px,0) scale(1.05); } 100% { transform: translate3d(0,0,0) scale(1); } }
+    @keyframes ck-breathe { 0% { opacity: 0.55; transform: translate(-50%,-50%) scale(0.9); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.12); } 100% { opacity: 0.55; transform: translate(-50%,-50%) scale(0.9); } }
+    @keyframes ck-rise { from { opacity: 0; transform: translateY(14px) scale(0.96); } to { opacity: 1; transform: none; } }
+    @keyframes ck-typing { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+  </style>
+</helmet>
+<div style="min-height:100vh; background:radial-gradient(120% 90% at 50% 0%, #F3F8FD 0%, #E7EFF7 60%, #D9E5F1 100%); font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F; padding:34px 30px 60px; display:flex; flex-direction:column; align-items:center; gap:22px;">
+
+  <div style="display:flex; flex-direction:column; align-items:center; gap:7px; text-align:center;">
+    <span style="font-size:10.5px; letter-spacing:0.24em; font-weight:700; color:#5B6F8E;">CLEARSKY · INTERACTIVE MOBILE PROTOTYPE</span>
+    <span style="font-size:13px; color:#5B6F8E;">Tap through it — every button routes. Use the map below to jump anywhere.</span>
+  </div>
+
+  <div style="display:flex; gap:34px; align-items:flex-start; flex-wrap:wrap; justify-content:center;">
+
+    <div style="position:relative; width:372px; flex:none;">
+      <div style="position:relative; width:372px; height:790px; border-radius:54px; background:#0D1626; padding:11px; box-shadow:0 40px 80px rgba(19,34,60,0.34), 0 0 0 2px #223047;">
+        <div style="position:relative; width:100%; height:100%; border-radius:44px; overflow:hidden; background:#FDFEFF; display:flex; flex-direction:column;">
+
+          <div style="position:absolute; top:0; left:0; right:0; z-index:30; display:flex; justify-content:space-between; align-items:center; padding:14px 26px 6px; font-size:12.5px; font-weight:600; color:{{ statusInk }}; pointer-events:none;">
+            <span>9:41</span>
+            <span style="display:flex; gap:5px; align-items:center;">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect x="0" y="7" width="3" height="4" rx="1"></rect><rect x="4.5" y="5" width="3" height="6" rx="1"></rect><rect x="9" y="2.5" width="3" height="8.5" rx="1"></rect><rect x="13.5" y="0" width="3" height="11" rx="1"></rect></svg>
+              <svg width="22" height="11" viewBox="0 0 22 11" fill="none" aria-hidden="true"><rect x="0.6" y="0.6" width="18" height="9.8" rx="2.6" stroke="currentColor" stroke-width="1.1" opacity="0.5"></rect><rect x="2.2" y="2.2" width="13.6" height="6.6" rx="1.5" fill="currentColor"></rect><path d="M20.4 4v3a2 2 0 0 0 0-3z" fill="currentColor" opacity="0.5"></path></svg>
+            </span>
+          </div>
+
+          <div style="position:relative; flex:1; overflow:hidden;">{{ screen }}</div>
+
+          <div style="display:{{ tabBarDisplay }}; border-top:1px solid #E5EDF6; background:rgba(253,254,255,0.97); padding:9px 12px 22px; justify-content:space-around; align-items:flex-start; z-index:20;">
+            <span onClick="{{ goToday }}" style="display:flex; flex-direction:column; align-items:center; gap:3px; min-width:56px; min-height:44px; padding-top:2px; cursor:pointer; color:{{ tabTodayInk }};">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+              <span style="font-size:9.5px; font-weight:600;">Today</span>
+            </span>
+            <span onClick="{{ goTriage }}" style="display:flex; flex-direction:column; align-items:center; gap:3px; min-width:56px; min-height:44px; padding-top:2px; cursor:pointer; color:{{ tabTriageInk }};">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5h18M6 12h12M9.5 17.5h5"></path></svg>
+              <span style="font-size:9.5px; font-weight:600;">Triage</span>
+            </span>
+            <span onClick="{{ goPromises }}" style="display:flex; flex-direction:column; align-items:center; gap:3px; min-width:56px; min-height:44px; padding-top:2px; cursor:pointer; color:{{ tabPromInk }};">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6.5 9.5 17 4 11.6"></path></svg>
+              <span style="font-size:9.5px; font-weight:600;">Promises</span>
+            </span>
+            <span onClick="{{ goCalendar }}" style="display:flex; flex-direction:column; align-items:center; gap:3px; min-width:56px; min-height:44px; padding-top:2px; cursor:pointer; color:{{ tabCalInk }};">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+              <span style="font-size:9.5px; font-weight:600;">Calendar</span>
+            </span>
+            <span onClick="{{ goSettings }}" style="display:flex; flex-direction:column; align-items:center; gap:3px; min-width:56px; min-height:44px; padding-top:2px; cursor:pointer; color:{{ tabYouInk }};">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M4.5 20c1.4-3.7 4.2-5.5 7.5-5.5S18.1 16.3 19.5 20"></path></svg>
+              <span style="font-size:9.5px; font-weight:600;">You</span>
+            </span>
+          </div>
+
+          <div style="position:absolute; bottom:7px; left:50%; transform:translateX(-50%); width:126px; height:4.5px; border-radius:99px; background:{{ homeBarInk }}; z-index:40; pointer-events:none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="width:300px; display:flex; flex-direction:column; gap:14px; flex:none;">
+      <div style="background:#FDFEFF; border:1px solid #D8E6F4; border-radius:18px; padding:16px 18px 18px; box-shadow:0 14px 30px rgba(27,43,75,0.08); display:flex; flex-direction:column; gap:11px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+          <span style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">JUMP TO A SCREEN</span>
+          <a href="00%20Clearsky%20Index.dc.html" style="font-size:11.5px; font-weight:700; white-space:nowrap;">&#8592; Index</a>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <span style="font-size:10px; font-weight:700; color:#5B6F8E; letter-spacing:0.08em;">FIRST RUN</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">{{ mapOnboarding }}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <span style="font-size:10px; font-weight:700; color:#5B6F8E; letter-spacing:0.08em;">DAILY LOOP</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">{{ mapDaily }}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <span style="font-size:10px; font-weight:700; color:#5B6F8E; letter-spacing:0.08em;">COMMITMENTS</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">{{ mapCommit }}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <span style="font-size:10px; font-weight:700; color:#5B6F8E; letter-spacing:0.08em;">MOMENTS &amp; ACCOUNT</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">{{ mapMoments }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#FDFEFF; border:1px solid #D8E6F4; border-radius:18px; padding:15px 18px 17px; box-shadow:0 14px 30px rgba(27,43,75,0.08); display:flex; flex-direction:column; gap:8px;">
+        <span style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">STATE</span>
+        <div style="font-size:12px; color:#4C5F7D; line-height:1.6;">{{ stateLine }}</div>
+        <span onClick="{{ reset }}" style="align-self:flex-start; margin-top:2px; font-size:11.5px; font-weight:700; color:#27406B; border:1px solid #C8DBEE; border-radius:99px; padding:6px 14px; cursor:pointer;" style-hover="background:#EDF4FB;">Reset the prototype</span>
+      </div>
+
+      <div style="background:#FDFEFF; border:1px solid #D8E6F4; border-radius:18px; padding:15px 18px 17px; box-shadow:0 14px 30px rgba(27,43,75,0.08); display:flex; flex-direction:column; gap:7px;">
+        <span style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#5B6F8E;">THE STATE MODEL</span>
+        <span style="font-size:11.5px; color:#4C5F7D; line-height:1.55;">Every decision maps to one named outcome, never an ambiguous verb: <strong>Responded</strong>, <strong>Planned</strong>, <strong>Snoozed</strong> (returns on a date), <strong>Waiting on them</strong> (their move, not your failure), <strong>Let go</strong> (closed on purpose).</span>
+        <span style="font-size:11.5px; color:#4C5F7D; line-height:1.55; border-top:1px solid #EEF4FA; padding-top:9px;">Promises are typed the same way — <strong>I’ll reach out</strong>, <strong>We made plans</strong>, <strong>Waiting on them</strong> — so a relationship state never looks like an overdue task. Nothing says “overdue”; it says <strong>needs a new plan</strong>.</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 820, &quot;height&quot;: 900 },
+  &quot;ambient&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Prototype&quot; },
+  &quot;showMap&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Prototype&quot; }
+}">
+const A = 'https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/';
+const PLATE = {
+  dawn:     A + 'hf_20260904_190710_8ea9a6b6-b400-4b88-808e-f9ec889ec177.png',
+  morning:  A + 'hf_20260904_191428_c63ed067-7114-4f6c-9b05-408f61202212.png',
+  clearing: A + 'hf_20260904_191428_00e31220-3a8a-4007-9646-eb97fbe2772c.png',
+  relief:   A + 'hf_20260904_191428_b48295f2-4059-4787-9b4f-10272019fc7d.png',
+  golden:   A + 'hf_20260904_190710_0b1170af-7365-4c34-8bb0-bf1977a19df2.png',
+  dusk:     A + 'hf_20260904_191429_bb54d04d-0d43-4bd4-baab-abbce48bc01e.png'
+};
+const e = React.createElement;
+
+const INK = '#1B2B4B', MUTE = '#5B6F8E', LINE = '#E9F1F9', AMBER = '#F2B84B';
+
+const TRIAGE = [
+  { from: 'Mum', channel: 'Messages', avatar: '#E7C589', subject: 'Sunday lunch?', preview: 'Are you around this Sunday? Would love to see you before I travel.', why: 'Inner circle \u00b7 asked you a direct question \u00b7 waiting 3 days', nothing: 'Clearsky will raise it again Saturday morning.', rec: 'respond' },
+  { from: 'Sam Reyes', channel: 'Messages', avatar: '#C9A6D8', subject: 'still on for climbing?', preview: 'You said you would let me know by tonight!', why: 'You promised an answer \u00b7 due today', nothing: 'The promise slips and Sam is left hanging.', rec: 'plan' },
+  { from: 'Dani Okafor', channel: 'Mail', avatar: '#8FAFD5', subject: 'Re: the handover doc', preview: 'No rush at all \u2014 just flagging that I moved the deadline to Friday.', why: 'No question asked \u00b7 their deadline already moved', nothing: 'Nothing breaks. It resurfaces Thursday.', rec: 'snooze' },
+  { from: 'Northline Gym', channel: 'Mail', avatar: '#A9C6A2', subject: 'Your membership renews soon', preview: 'Automatic renewal on the 14th. Manage your plan any time.', why: 'Automated sender \u00b7 no reply expected', nothing: 'Nothing. This never needed you.', rec: 'release' }
+];
+
+const PROMISES = [
+  { id: 'p1', who: 'Sam Reyes', what: 'Confirm climbing on Thursday', due: 'Today', type: 'mine', urgent: true },
+  { id: 'p2', who: 'Mum', what: 'Lunch on Sunday, one o\u2019clock', due: 'Sunday', type: 'mutual', urgent: false },
+  { id: 'p3', who: 'Dani Okafor', what: 'Send the handover doc', due: 'Friday', type: 'mine', urgent: false },
+  { id: 'p4', who: 'Theo', what: 'Waiting on his birthday date', due: 'No date yet', type: 'theirs', urgent: false }
+];
+
+class Component extends DCLogic {
+  state = {
+    screen: 'signin', tab: 'today', triageIdx: 0,
+    tally: { responded: 0, planned: 0, snoozed: 0, waiting: 0, released: 0 },
+    outcomes: {}, released: {}, from: 'thread',
+    done: {}, plan: 'year', protect: true, notif: null,
+    accounts: { mail: true, cal: true, msg: false },
+    circle: { mum: true, sam: true, dani: false, theo: true },
+    openPromise: 'p1', sheet: null, shared: false, dlReq: false, delReq: null, extraPerson: false, calView: 'day', input: '', outbox: [], typing: false, draft: 'Sunday works — I will be there at one. Shall I bring pudding?'
+  };
+
+  go = (s) => this.setState({ screen: s, sheet: null });
+
+  send = () => {
+    const text = this.state.input.trim();
+    if (!text) return;
+    const id = 'o' + Date.now();
+    this.setState(st => ({ outbox: st.outbox.concat([{ id, mine: true, text, time: 'now', fresh: true }]), input: '', typing: true }));
+    clearTimeout(this._t1); clearTimeout(this._t2);
+    this._t1 = setTimeout(() => this.setState({ typing: false }), 2200);
+    this._t2 = setTimeout(() => this.setState(st => ({ outbox: st.outbox.concat([{ id: id + 'r', mine: false, text: 'Wonderful \u2014 see you at one. I will do the roast.', time: 'now', fresh: true }]) })), 2400);
+  };
+
+  componentWillUnmount() { clearTimeout(this._t1); clearTimeout(this._t2); }
+  set = (k, v) => this.setState({ [k]: v });
+
+  btn(label, onClick, kind) {
+    const base = { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '46px', borderRadius: '14px', fontSize: '14.5px', fontWeight: 700, cursor: 'pointer', textAlign: 'center', padding: '0 18px', userSelect: 'none' };
+    const styles = {
+      primary: { background: 'linear-gradient(180deg,#FFDD9A,#F2B84B)', color: '#4A3410', boxShadow: '0 10px 20px rgba(199,141,32,0.3)' },
+      navy: { background: INK, color: '#F8FBFF' },
+      ghost: { background: 'transparent', color: '#27406B', border: '1.5px solid #C8DBEE' },
+      light: { background: '#EDF4FB', color: '#27406B' },
+      quiet: { background: 'transparent', color: MUTE, fontWeight: 600, fontSize: '13px', minHeight: '44px' },
+      onSky: { background: 'rgba(11,20,36,0.32)', color: '#F8FBFF', border: '1.5px solid rgba(248,251,255,0.55)', backdropFilter: 'blur(6px)' }
+    };
+    return e('span', { onClick, style: Object.assign({}, base, styles[kind] || styles.primary) }, label);
+  }
+
+  head(title, back, right) {
+    return e('div', { style: { display: 'flex', alignItems: 'center', gap: '10px', padding: '46px 18px 10px', borderBottom: '1px solid ' + LINE, background: '#FDFEFF' } },
+      back ? e('span', { onClick: back, style: { fontSize: '22px', lineHeight: 1, color: INK, cursor: 'pointer', width: '44px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '-11px' } }, '\u2039') : null,
+      e('span', { style: { fontSize: '17px', fontWeight: 700, color: INK, flex: 1 } }, title),
+      right || null);
+  }
+
+  scroll(children, extra) {
+    return e('div', { style: Object.assign({ position: 'absolute', inset: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column' }, extra || {}) }, children);
+  }
+
+  card(children, extra) {
+    return e('div', { style: Object.assign({ background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '18px', padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: '8px' }, extra || {}) }, children);
+  }
+
+  chip(text, bg, fg) {
+    return e('span', { style: { alignSelf: 'flex-start', background: bg, color: fg, fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.06em', borderRadius: '99px', padding: '4px 10px' } }, text);
+  }
+
+  toggle(on, onClick) {
+    return e('span', { onClick, style: { width: '48px', height: '44px', display: 'flex', alignItems: 'center', cursor: 'pointer', flex: 'none' } },
+      e('span', { style: { width: '48px', height: '29px', borderRadius: '99px', background: on ? '#3F6339' : '#C6D4E4', position: 'relative', transition: 'background 0.2s' } },
+        e('span', { style: { position: 'absolute', top: '3px', left: on ? '22px' : '3px', width: '23px', height: '23px', borderRadius: '50%', background: '#fff', boxShadow: '0 2px 4px rgba(0,0,0,0.2)', transition: 'left 0.18s' } })));
+  }
+
+  // Every splash owns a unique CSS pattern. No illustration in the app — art is marketing only.
+  pattern(kind) {
+    const amb = this.props.ambient !== false;
+    const L = (st, an) => e('span', { style: Object.assign({ position: 'absolute', pointerEvents: 'none' }, st, (an && amb) ? { animation: an } : null) });
+    const P = {
+      dawn: {
+        bg: 'linear-gradient(180deg,#0E1B33 0%,#22375C 36%,#3F5F92 68%,#7E9CC4 100%)',
+        l: [
+          L({ left: '-60%', right: '-60%', top: '22%', bottom: '-30%', background: 'repeating-radial-gradient(circle at 50% 100%, rgba(255,226,183,0.13) 0 1.5px, rgba(255,226,183,0) 1.5px 62px)' }, 'ck-rise 24s linear infinite'),
+          L({ left: '50%', bottom: '-34%', width: '520px', height: '520px', marginLeft: '-260px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,214,150,0.42), rgba(255,214,150,0) 66%)' }, 'ck-breathe 11s ease-in-out infinite'),
+          L({ left: 0, right: 0, top: '58%', height: '1px', background: 'linear-gradient(90deg, rgba(255,236,206,0) 0%, rgba(255,236,206,0.5) 50%, rgba(255,236,206,0) 100%)' })
+        ]
+      },
+      morning: {
+        bg: 'linear-gradient(180deg,#FFF6E6 0%,#FBE6C2 52%,#F3D3A4 100%)',
+        l: [
+          L({ left: '50%', top: '38%', width: '860px', height: '860px', marginLeft: '-430px', marginTop: '-430px', background: 'repeating-conic-gradient(from 0deg, rgba(226,160,72,0) 0deg, rgba(226,160,72,0.34) 5deg, rgba(226,160,72,0.34) 7deg, rgba(226,160,72,0) 12deg)', maskImage: 'radial-gradient(circle, rgba(0,0,0,0) 12%, rgba(0,0,0,1) 46%, rgba(0,0,0,0.35) 100%)', WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,0) 12%, rgba(0,0,0,1) 46%, rgba(0,0,0,0.35) 100%)' }, 'ck-spin 150s linear infinite'),
+          L({ left: '50%', top: '38%', width: '300px', height: '300px', marginLeft: '-150px', marginTop: '-150px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,248,232,0.9), rgba(255,248,232,0) 68%)' }, 'ck-breathe 9s ease-in-out infinite')
+        ]
+      },
+      clearing: {
+        bg: 'linear-gradient(180deg,#CFE6FA 0%,#E8F3FC 58%,#FAFDFF 100%)',
+        l: [
+          L({ left: '-30%', right: '-30%', top: '-10%', bottom: '-10%', background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.85) 0 2px, rgba(255,255,255,0) 2.5px) 0 0/34px 34px', opacity: 0.9 }, 'ck-sweep 34s linear infinite'),
+          L({ left: '50%', top: '36%', width: '420px', height: '420px', marginLeft: '-210px', marginTop: '-210px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.95), rgba(255,255,255,0) 70%)' }, 'ck-breathe 12s ease-in-out infinite')
+        ]
+      },
+      relief: {
+        bg: 'linear-gradient(180deg,#E8F5EE 0%,#F4FAF6 60%,#FDFEFE 100%)',
+        l: [
+          L({ left: '50%', top: '34%', width: '180px', height: '180px', marginLeft: '-90px', marginTop: '-90px', borderRadius: '50%', border: '1.5px solid rgba(63,99,57,0.30)' }, 'ck-ripple 7s ease-out infinite'),
+          L({ left: '50%', top: '34%', width: '180px', height: '180px', marginLeft: '-90px', marginTop: '-90px', borderRadius: '50%', border: '1.5px solid rgba(63,99,57,0.24)' }, 'ck-ripple 7s ease-out infinite 2.3s'),
+          L({ left: '50%', top: '34%', width: '180px', height: '180px', marginLeft: '-90px', marginTop: '-90px', borderRadius: '50%', border: '1.5px solid rgba(63,99,57,0.18)' }, 'ck-ripple 7s ease-out infinite 4.6s')
+        ]
+      },
+      golden: {
+        bg: 'linear-gradient(180deg,#1D2F52 0%,#3C5B8C 30%,#8E86A0 62%,#E8B071 88%,#F7D9A6 100%)',
+        l: [
+          L({ left: '-40%', right: '-40%', top: 0, bottom: 0, background: 'repeating-linear-gradient(102deg, rgba(255,226,178,0.13) 0 2px, rgba(255,226,178,0) 2px 76px)' }, 'ck-sweep 42s linear infinite'),
+          L({ left: 0, right: 0, bottom: 0, height: '46%', background: 'linear-gradient(180deg, rgba(240,178,110,0) 0%, rgba(240,178,110,0.45) 100%)' }),
+          L({ left: '50%', bottom: '-16%', width: '440px', height: '440px', marginLeft: '-220px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,225,175,0.55), rgba(255,225,175,0) 66%)' }, 'ck-breathe 13s ease-in-out infinite')
+        ]
+      },
+      dusk: {
+        bg: 'linear-gradient(180deg,#1A1730 0%,#33294C 40%,#5C4166 72%,#9A6A63 100%)',
+        l: [
+          L({ left: '-40%', right: '-40%', top: 0, bottom: 0, background: 'repeating-linear-gradient(45deg, rgba(255,206,150,0.09) 0 1.5px, rgba(255,206,150,0) 1.5px 40px), repeating-linear-gradient(-45deg, rgba(255,206,150,0.07) 0 1.5px, rgba(255,206,150,0) 1.5px 40px)' }, 'ck-sweep 56s linear infinite'),
+          L({ left: '50%', bottom: '-24%', width: '480px', height: '480px', marginLeft: '-240px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,186,120,0.4), rgba(255,186,120,0) 68%)' }, 'ck-breathe 14s ease-in-out infinite')
+        ]
+      }
+    };
+    const p = P[kind] || P.dawn;
+    const art = PLATE[kind];
+    return e('span', { style: { position: 'absolute', inset: 0, overflow: 'hidden', background: p.bg, pointerEvents: 'none' } },
+      art ? e('img', { src: art, alt: '', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' } }) : null,
+      e('span', { style: { position: 'absolute', inset: 0, opacity: 0.62 } }, p.l));
+  }
+
+  // ---------- screens ----------
+  signin() {
+    return e('div', { style: { position: 'absolute', inset: 0, background: '#22375C', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', padding: '0 24px 34px', gap: '18px', overflow: 'hidden' } },
+      this.pattern('dawn'),
+      e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '9px', textAlign: 'center' } },
+        e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '40px', lineHeight: 0.96, textTransform: 'uppercase', color: '#FFFDF8', letterSpacing: '0.015em', textShadow: '0 2px 0 rgba(11,20,36,0.4), 0 12px 30px rgba(11,20,36,0.5)' } }, 'Show up for', e('br'), 'what matters'),
+        e('span', { style: { fontSize: '13.5px', color: '#E4EDF8', lineHeight: 1.55, maxWidth: '270px', textShadow: '0 1px 10px rgba(11,20,36,0.7)' } }, 'One calm place for the people and promises that make your future.')),
+      e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '9px', width: '100%' } },
+        this.btn('\uF8FF  Continue with Apple', () => this.go('accounts'), 'navy'),
+        this.btn('Continue with email', () => this.go('accounts'), 'onSky')),
+      e('span', { style: { position: 'relative', fontSize: '10.5px', color: 'rgba(253,254,255,0.8)', textAlign: 'center', lineHeight: 1.5 } }, 'Seven days free. Cancel any time in Settings.'));
+  }
+
+  accounts() {
+    const row = (key, name, sub, colour) => e('div', { onClick: () => this.setState(s => ({ accounts: Object.assign({}, s.accounts, { [key]: !s.accounts[key] }) })), style: { display: 'flex', alignItems: 'center', gap: '12px', padding: '13px 14px', border: '1.5px solid ' + (this.state.accounts[key] ? '#3F6339' : '#E0EBF7'), background: this.state.accounts[key] ? '#F6FBF5' : '#FDFEFF', borderRadius: '16px', cursor: 'pointer', minHeight: '58px' } },
+      e('span', { style: { width: '38px', height: '38px', borderRadius: '11px', background: colour, flex: 'none' } }),
+      e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 } },
+        e('span', { style: { fontSize: '14.5px', fontWeight: 700, color: INK } }, name),
+        e('span', { style: { fontSize: '12px', color: MUTE } }, sub)),
+      e('span', { style: { width: '24px', height: '24px', borderRadius: '50%', background: this.state.accounts[key] ? '#3F6339' : '#DCE7F3', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', flex: 'none' } }, this.state.accounts[key] ? '\u2713' : ''));
+
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+      this.head('Connect what matters', () => this.go('signin')),
+      e('div', { style: { flex: 1, overflowY: 'auto', padding: '16px 18px 8px', display: 'flex', flexDirection: 'column', gap: '10px' } },
+        e('span', { style: { fontSize: '13px', color: MUTE, lineHeight: 1.55 } }, 'Clearsky reads these to sort your day. Nothing is ever sent on your behalf.'),
+        row('mail', 'Mail', 'hello@ · 2 accounts', '#8FAFD5'),
+        row('cal', 'Calendar', 'Personal and work', '#E7C589'),
+        row('msg', 'Messages', 'iMessage and SMS', '#C9A6D8'),
+        e('div', { style: { display: 'flex', gap: '9px', alignItems: 'flex-start', background: '#F3F8FD', borderRadius: '14px', padding: '12px 13px', marginTop: '2px' } },
+          e('span', { style: { fontSize: '15px' } }, '\uD83D\uDD12'),
+          e('span', { style: { fontSize: '11.5px', color: MUTE, lineHeight: 1.5 } }, 'Processing happens on your device where it can. Read the full note in You \u203A Privacy.'))),
+      e('div', { style: { padding: '10px 18px 18px', display: 'flex', flexDirection: 'column', gap: '7px', borderTop: '1px solid ' + LINE } },
+        this.btn('Continue', () => this.go('circle')),
+        this.btn('Skip for now', () => this.go('circle'), 'quiet')));
+  }
+
+  circle() {
+    const people = [['mum', 'Mum', '#E7C589'], ['sam', 'Sam Reyes', '#C9A6D8'], ['dani', 'Dani Okafor', '#8FAFD5'], ['theo', 'Theo', '#A9C6A2']];
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+      this.head('Your inner circle', () => this.go('accounts')),
+      e('div', { style: { flex: 1, overflowY: 'auto', padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: '10px' } },
+        e('span', { style: { fontSize: '13px', color: MUTE, lineHeight: 1.55 } }, 'These people always reach you. Everyone else gets sorted.'),
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
+          people.map(([k, name, colour]) => e('div', { key: k, onClick: () => this.setState(s => ({ circle: Object.assign({}, s.circle, { [k]: !s.circle[k] }) })), style: { display: 'flex', alignItems: 'center', gap: '12px', padding: '11px 14px', border: '1.5px solid ' + (this.state.circle[k] ? '#3F6339' : '#E0EBF7'), background: this.state.circle[k] ? '#F6FBF5' : '#FDFEFF', borderRadius: '16px', cursor: 'pointer', minHeight: '58px' } },
+            e('span', { style: { width: '38px', height: '38px', borderRadius: '50%', background: colour, flex: 'none' } }),
+            e('span', { style: { fontSize: '14.5px', fontWeight: 600, color: INK, flex: 1 } }, name),
+            e('span', { style: { width: '24px', height: '24px', borderRadius: '50%', background: this.state.circle[k] ? '#3F6339' : '#DCE7F3', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' } }, this.state.circle[k] ? '\u2713' : '')))),
+        this.state.extraPerson ? e('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', padding: '11px 14px', border: '1.5px solid #3F6339', background: '#F6FBF5', borderRadius: '16px', minHeight: '58px', animation: 'ck-in 0.25s ease' } },
+          e('span', { style: { width: '38px', height: '38px', borderRadius: '50%', background: '#8FAFD5', flex: 'none' } }),
+          e('span', { style: { fontSize: '14.5px', fontWeight: 600, color: INK, flex: 1 } }, 'Priya Nair'),
+          e('span', { style: { width: '24px', height: '24px', borderRadius: '50%', background: '#3F6339', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' } }, '\u2713')) : null,
+        e('span', { onClick: () => this.setState({ extraPerson: true }), style: { fontSize: '13px', fontWeight: 700, color: this.state.extraPerson ? '#8FA2BD' : '#27406B', cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center' } }, this.state.extraPerson ? 'Added Priya Nair' : '+ Add someone else')),
+      e('div', { style: { padding: '10px 18px 18px', borderTop: '1px solid ' + LINE } },
+        this.btn('Continue', () => this.go('notif'))));
+  }
+
+  notif() {
+    return e('div', { style: { position: 'absolute', inset: 0, background: '#F6EEE0', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '30px 24px', gap: '16px', textAlign: 'center' } },
+      this.pattern('morning'),
+      e('span', { style: { position: 'relative', fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '23px', fontWeight: 600, color: '#54381A', lineHeight: 1.25 } }, 'One nudge a day. That is the deal.'),
+      e('span', { style: { position: 'relative', fontSize: '13.5px', color: '#7A5B31', lineHeight: 1.6, maxWidth: '260px' } }, 'A single morning summary, plus a reminder only when a promise is actually due.'),
+      e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginTop: '6px' } },
+        this.btn('Allow notifications', () => { this.setState({ notif: true }); this.go('today'); }),
+        this.btn('Not now', () => { this.setState({ notif: false }); this.go('today'); }, 'quiet')));
+  }
+
+  today() {
+    const left = TRIAGE.length - this.state.triageIdx;
+    const open = PROMISES.filter(p => !this.state.done[p.id]);
+    const dueToday = open.filter(p => p.due === 'Today');
+    const openPromise = (id) => { this.setState({ openPromise: id }); this.go('promiseDetail'); };
+
+    let step;
+    if (left > 0) step = {
+      k: 'START HERE', t: left === 1 ? 'One thing left to sort' : 'Sort your morning stack',
+      why: left + (left === 1 ? ' message' : ' messages') + ' arrived overnight and none has a decision yet',
+      nothing: 'They stay unsorted and roll into tomorrow\u2019s stack.',
+      cta: 'Start triage', go: () => this.go('triage'), tone: 'amber',
+      alt: [['See the whole calendar', () => this.go('calendar')], ['Skip to promises', () => this.go('promises')]] };
+    else if (dueToday.length) { const p = dueToday[0]; step = {
+      k: 'DUE TODAY', t: p.what,
+      why: 'You promised ' + p.who + ' and today is the day you named',
+      nothing: p.who + ' is left hanging and the promise slips.',
+      cta: 'Open the promise', go: () => openPromise(p.id), tone: 'amber',
+      alt: [['Give it a new time', () => this.go('calendar')], ['Message ' + p.who.split(' ')[0], () => this.go('thread')]] }; }
+    else if (open.length) { const p = open[0]; step = {
+      k: 'NEXT UP', t: p.what,
+      why: p.who + ' \u00b7 ' + p.due + ' \u00b7 nothing else is competing for today',
+      nothing: 'Nothing breaks. It comes back when it is due.',
+      cta: 'Open the promise', go: () => openPromise(p.id), tone: 'navy',
+      alt: [['Protect the time now', () => this.go('calendar')], ['See all promises', () => this.go('promises')]] }; }
+    else step = {
+      k: 'ALL CLEAR', t: 'Nothing needs you today',
+      why: 'Your stack is empty and every promise is kept or planned',
+      nothing: 'Enjoy it. Clearsky will find you tomorrow at eight.',
+      cta: 'Look at the week', go: () => this.go('promises'), tone: 'calm',
+      alt: [['Protect an evening', () => this.go('calendar')], ['Read your recap', () => this.go('recap')]] };
+
+    const pct = Math.round((this.state.triageIdx / TRIAGE.length) * 100);
+    const ringInk = pct === 100 ? '#3F6339' : '#F2B84B';
+
+    const stepBg = step.tone === 'amber' ? 'linear-gradient(150deg,#FFF3DC,#FCE4B6)' : step.tone === 'navy' ? 'linear-gradient(150deg,#EEF4FB,#DFEAF7)' : 'linear-gradient(150deg,#EFF7EE,#E1EFDF)';
+    const stepEdge = step.tone === 'amber' ? '#F0DDB2' : step.tone === 'navy' ? '#D3E2F2' : '#CBE0C7';
+    const stepKick = step.tone === 'amber' ? '#8A6420' : step.tone === 'navy' ? '#41567A' : '#3F6339';
+
+    const timeline = [['09:00', 'Deep work', '#4A7FBF', 'Notifications paused'], ['13:30', 'Dani \u2014 handover', '#C79A3E', '30 minutes'], ['19:00', this.state.protect ? 'Protected evening' : 'Evening is open', this.state.protect ? '#5E8A57' : '#C6D4E4', this.state.protect ? 'Nothing can land here' : 'Anything can land here']];
+
+    return this.scroll([
+      e('div', { key: 'h', style: { background: '#FDFEFF', borderBottom: '1px solid ' + LINE, padding: '48px 18px 14px', display: 'flex', alignItems: 'flex-end', gap: '14px' } },
+        e('span', { style: { display: 'flex', flexDirection: 'column', gap: '1px', flex: 1 } },
+          e('span', { style: { fontSize: '10.5px', letterSpacing: '0.2em', fontWeight: 700, color: '#8FA2BD' } }, 'THURSDAY 4 SEPTEMBER'),
+          e('span', { style: { fontSize: '26px', fontWeight: 700, color: INK, lineHeight: 1.1 } }, 'Today')),
+        e('span', { onClick: () => this.go('triage'), style: { width: '52px', height: '52px', borderRadius: '50%', background: 'conic-gradient(' + ringInk + ' 0% ' + pct + '%, #E9F1F9 ' + pct + '% 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 'none', cursor: 'pointer' } },
+          e('span', { style: { width: '40px', height: '40px', borderRadius: '50%', background: '#FDFEFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' } },
+            e('span', { style: { fontSize: '13px', fontWeight: 700, color: INK, lineHeight: 1 } }, this.state.triageIdx + '/' + TRIAGE.length),
+            e('span', { style: { fontSize: '8.5px', letterSpacing: '0.06em', color: '#5B6F8E', fontWeight: 700 } }, 'SORTED')))),
+
+      e('div', { key: 'b', style: { flex: 1, background: '#F3F8FD', padding: '14px 16px 20px', display: 'flex', flexDirection: 'column', gap: '16px' } },
+
+        e('div', { style: { background: stepBg, border: '1px solid ' + stepEdge, borderRadius: '20px', padding: '17px 17px 15px', display: 'flex', flexDirection: 'column', gap: '9px' } },
+          e('span', { style: { fontSize: '10px', letterSpacing: '0.2em', fontWeight: 700, color: stepKick } }, step.k),
+          e('span', { style: { fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '21px', fontWeight: 600, color: INK, lineHeight: 1.25 } }, step.t),
+          e('div', { style: { display: 'flex', gap: '9px', alignItems: 'flex-start' } },
+            e('span', { style: { fontSize: '9.5px', fontWeight: 700, color: stepKick, letterSpacing: '0.12em', flex: 'none', paddingTop: '3px', width: '52px' } }, 'WHY NOW'),
+            e('span', { style: { fontSize: '12.5px', color: '#4C5F7D', lineHeight: 1.5, flex: 1 } }, step.why)),
+          e('div', { style: { display: 'flex', gap: '9px', alignItems: 'flex-start' } },
+            e('span', { style: { fontSize: '9.5px', fontWeight: 700, color: '#4C5F7D', letterSpacing: '0.12em', flex: 'none', paddingTop: '3px', width: '52px' } }, 'IF NOT'),
+            e('span', { style: { fontSize: '12.5px', color: MUTE, lineHeight: 1.5, flex: 1 } }, step.nothing)),
+          e('span', { onClick: step.go, style: { alignSelf: 'stretch', marginTop: '3px', minHeight: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '13px', background: INK, color: '#F8FBFF', fontSize: '14.5px', fontWeight: 700, cursor: 'pointer' } }, step.cta),
+          e('div', { style: { display: 'flex', gap: '7px' } }, step.alt.map(([l, fn]) =>
+            e('span', { key: l, onClick: fn, style: { flex: 1, minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', borderRadius: '11px', background: 'rgba(253,254,255,0.7)', border: '1px solid ' + stepEdge, color: '#27406B', fontSize: '12px', fontWeight: 600, cursor: 'pointer', padding: '0 8px', lineHeight: 1.3 } }, l)))),
+
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
+          e('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' } },
+            e('span', { style: { fontSize: '10.5px', letterSpacing: '0.16em', fontWeight: 700, color: '#5B6F8E' } }, 'THE SHAPE OF TODAY'),
+            e('span', { onClick: () => this.go('calendar'), style: { fontSize: '12px', fontWeight: 700, color: '#27406B', cursor: 'pointer', minHeight: '30px', display: 'flex', alignItems: 'center' } }, 'Calendar \u203A')),
+          e('div', { onClick: () => this.go('calendar'), style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '18px', padding: '6px 14px', cursor: 'pointer' } },
+            timeline.map(([t, label, c, sub], i) => e('div', { key: i, style: { display: 'flex', gap: '12px', alignItems: 'center', padding: '11px 0', borderTop: i ? '1px solid #F0F5FA' : 'none' } },
+              e('span', { style: { fontSize: '11.5px', fontFamily: 'ui-monospace,Menlo,monospace', color: '#8FA2BD', width: '40px', flex: 'none' } }, t),
+              e('span', { style: { width: '3px', alignSelf: 'stretch', minHeight: '30px', borderRadius: '99px', background: c, flex: 'none' } }),
+              e('span', { style: { display: 'flex', flexDirection: 'column', gap: '1px' } },
+                e('span', { style: { fontSize: '13.5px', fontWeight: 600, color: INK } }, label),
+                e('span', { style: { fontSize: '11.5px', color: MUTE } }, sub)))))),
+
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
+          e('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' } },
+            e('span', { style: { fontSize: '10.5px', letterSpacing: '0.16em', fontWeight: 700, color: '#5B6F8E' } }, dueToday.length ? 'DUE TODAY' : 'PROMISES'),
+            e('span', { onClick: () => this.go('promises'), style: { fontSize: '12px', fontWeight: 700, color: '#27406B', cursor: 'pointer', minHeight: '30px', display: 'flex', alignItems: 'center' } }, 'All ' + open.length + ' \u203A')),
+          dueToday.length
+            ? dueToday.map(p => e('div', { key: p.id, onClick: () => openPromise(p.id), style: { display: 'flex', alignItems: 'center', gap: '11px', background: '#FDFEFF', border: '1px solid #F0DDBB', borderRadius: '16px', padding: '13px 14px', minHeight: '62px', cursor: 'pointer' } },
+                e('span', { style: { width: '8px', height: '8px', borderRadius: '50%', background: '#C0492B', flex: 'none' } }),
+                e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 } },
+                  e('span', { style: { fontSize: '14px', fontWeight: 600, color: INK } }, p.what),
+                  e('span', { style: { fontSize: '12px', color: MUTE } }, p.who)),
+                e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A')))
+            : e('div', { style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '16px', padding: '14px', fontSize: '13px', color: MUTE, lineHeight: 1.5 } }, open.length ? 'Nothing due today. ' + open.length + ' promises sit later in the week.' : 'Every promise is kept.'))
+      )
+    ]);
+  }
+
+  triage() {
+    const i = this.state.triageIdx;
+    const T = this.state.tally;
+    if (i >= TRIAGE.length) {
+      const rows = [['Responded', T.responded], ['Planned', T.planned], ['Snoozed', T.snoozed], ['Waiting on them', T.waiting], ['Let go', T.released]].filter(r => r[1] > 0);
+      return e('div', { style: { position: 'absolute', inset: 0, background: '#BFDCF4', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '15px', padding: '30px 26px', textAlign: 'center' } },
+        this.pattern('clearing'),
+        e('span', { style: { position: 'relative', fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '25px', fontWeight: 600, color: '#14294A' } }, 'Sky cleared.'),
+        e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '5px', width: '100%', maxWidth: '250px' } },
+          rows.length ? rows.map(([l, n]) => e('div', { key: l, style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(253,254,255,0.86)', borderRadius: '11px', padding: '9px 13px' } },
+            e('span', { style: { fontSize: '12.5px', color: '#2E4A73', fontWeight: 600 } }, l),
+            e('span', { style: { fontSize: '13px', fontWeight: 700, color: INK } }, n)))
+            : e('span', { style: { fontSize: '13px', color: '#2E4A73' } }, 'Nothing needed a decision.')),
+        e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginTop: '4px' } },
+          this.btn('Back to Today', () => this.go('today')),
+          this.btn('Run it again', () => this.setState({ triageIdx: 0, tally: { responded: 0, planned: 0, snoozed: 0, waiting: 0, released: 0 }, outcomes: {} }), 'quiet')));
+    }
+    const t = TRIAGE[i];
+    const decide = (key, label, next) => {
+      this.setState(st => ({
+        triageIdx: st.triageIdx + 1,
+        tally: Object.assign({}, st.tally, { [key]: st.tally[key] + 1 }),
+        outcomes: Object.assign({}, st.outcomes, { [t.from]: label }),
+        from: 'triage', who: t.from
+      }));
+      if (next) this.go(next);
+    };
+    const ACTS = {
+      respond: { label: 'Respond now', outcome: 'Replied', key: 'responded', go: 'thread' },
+      plan:    { label: 'Plan a time', outcome: 'Planned',  key: 'planned',   go: 'promiseNew' },
+      snooze:  { label: 'Snooze',      outcome: 'Back Thursday', key: 'snoozed', go: null },
+      waiting: { label: 'Waiting on them', outcome: 'Waiting on them', key: 'waiting', go: null },
+      release: { label: 'Let go',      outcome: 'Let go',   key: 'released',  go: null }
+    };
+    const rec = ACTS[t.rec];
+    const others = Object.keys(ACTS).filter(k => k !== t.rec);
+    const sec = (k) => {
+      const a = ACTS[k];
+      return e('span', { key: k, onClick: () => decide(a.key, a.outcome, a.go), style: { flex: '1 1 44%', minHeight: '46px', borderRadius: '13px', background: '#FDFEFF', border: '1px solid #DCE7F3', color: '#27406B', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' } }, a.label);
+    };
+
+    return e('div', { style: { position: 'absolute', inset: 0, background: 'linear-gradient(180deg,#D5E8F9 0%,#EDF5FC 100%)', display: 'flex', flexDirection: 'column' } },
+      e('div', { style: { padding: '46px 18px 8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+        e('span', { onClick: () => this.go('today'), style: { fontSize: '22px', color: INK, cursor: 'pointer', width: '44px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '-11px' } }, '\u2039'),
+        e('span', { style: { fontSize: '12.5px', fontWeight: 700, color: MUTE } }, (i + 1) + ' of ' + TRIAGE.length)),
+      e('div', { style: { flex: 1, padding: '4px 18px 0', display: 'flex', flexDirection: 'column', overflowY: 'auto' } },
+        e('div', { key: i, style: { background: '#FDFEFF', border: '1px solid #D3E2F2', borderRadius: '22px', padding: '18px 17px', display: 'flex', flexDirection: 'column', gap: '11px', boxShadow: '0 16px 32px rgba(27,43,75,0.12)', animation: 'ck-in 0.28s ease' } },
+          e('div', { style: { display: 'flex', alignItems: 'center', gap: '11px' } },
+            e('span', { style: { width: '42px', height: '42px', borderRadius: '50%', background: t.avatar, flex: 'none' } }),
+            e('span', { style: { display: 'flex', flexDirection: 'column', gap: '1px', flex: 1 } },
+              e('span', { style: { fontSize: '15px', fontWeight: 700, color: INK } }, t.from),
+              e('span', { style: { fontSize: '12px', color: MUTE } }, t.channel + ' \u00b7 9:12 this morning'))),
+          e('span', { style: { fontSize: '16px', fontWeight: 700, color: INK } }, t.subject),
+          e('span', { style: { fontSize: '13.5px', color: '#41567A', lineHeight: 1.6 } }, t.preview),
+          e('div', { style: { display: 'flex', gap: '9px', alignItems: 'flex-start', background: '#FDF6EC', border: '1px solid #F0DDBB', borderRadius: '13px', padding: '11px 12px' } },
+            e('span', { style: { fontSize: '10px', fontWeight: 700, color: '#8A6420', letterSpacing: '0.12em', flex: 'none', paddingTop: '2px' } }, 'WHY NOW'),
+            e('span', { style: { fontSize: '12px', color: '#7A4E17', lineHeight: 1.5 } }, t.why)),
+          e('span', { onClick: () => this.go('thread'), style: { fontSize: '13px', fontWeight: 700, color: '#27406B', cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center' } }, 'Read the whole thread \u203A')),
+        e('div', { style: { display: 'flex', gap: '8px', alignItems: 'flex-start', padding: '12px 4px 0' } },
+          e('span', { style: { fontSize: '10px', fontWeight: 700, color: '#4C5F7D', letterSpacing: '0.12em', flex: 'none', paddingTop: '2px' } }, 'IF YOU DO NOTHING'),
+          e('span', { style: { fontSize: '12px', color: MUTE, lineHeight: 1.5 } }, t.nothing))),
+      e('div', { style: { padding: '12px 18px 18px', display: 'flex', flexDirection: 'column', gap: '8px' } },
+        e('span', { onClick: () => decide(rec.key, rec.outcome, rec.go), style: { minHeight: '52px', borderRadius: '15px', background: 'linear-gradient(180deg,#FFDD9A,#F2B84B)', color: '#4A3410', fontSize: '15px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 10px 20px rgba(199,141,32,0.3)' } }, rec.label),
+        e('div', { style: { display: 'flex', gap: '7px', flexWrap: 'wrap' } }, others.map(sec))));
+  }
+
+  thread() {
+    const msgs = [
+      { id: 'm1', mine: false, text: 'Are you around this Sunday? Would love to see you before I travel.', time: '08:41' },
+      { id: 'm2', mine: false, text: 'No pressure if you are busy \u2014 just let me know either way?', time: '08:41' }
+    ].concat(this.state.outbox);
+    const last = msgs[msgs.length - 1];
+
+    const bubble = (m, prev, next) => {
+      const firstOfRun = !prev || prev.mine !== m.mine;
+      const lastOfRun = !next || next.mine !== m.mine;
+      return e('div', { key: m.id, style: { display: 'flex', flexDirection: 'column', alignItems: m.mine ? 'flex-end' : 'flex-start', marginTop: firstOfRun ? '9px' : '2px' } },
+        e('span', { style: { maxWidth: '78%', background: m.mine ? 'linear-gradient(180deg,#2F4C7C,#22375C)' : '#EDF3FA', color: m.mine ? '#F8FBFF' : '#22314F', borderRadius: m.mine
+              ? (firstOfRun ? '20px 20px ' + (lastOfRun ? '6px' : '20px') + ' 20px' : lastOfRun ? '20px 6px 6px 20px' : '20px 6px 6px 20px')
+              : (firstOfRun ? '20px 20px 20px ' + (lastOfRun ? '6px' : '20px') : lastOfRun ? '6px 20px 20px 6px' : '6px 20px 20px 6px'),
+            padding: '10px 14px', fontSize: '14.5px', lineHeight: 1.45, animation: m.fresh ? 'ck-rise 0.26s ease' : 'none', boxShadow: m.mine ? '0 4px 12px rgba(27,43,75,0.18)' : 'none' } }, m.text));
+    };
+
+    const suggestions = ['Sunday works \u2014 one o\u2019clock?', 'Can I let you know tomorrow?', 'Sorry, I am away this weekend'];
+    const canSend = this.state.input.trim().length > 0;
+
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', background: '#FDFEFF' } },
+      e('div', { style: { display: 'flex', alignItems: 'center', gap: '9px', padding: '44px 12px 9px', borderBottom: '1px solid ' + LINE, background: 'rgba(253,254,255,0.96)', backdropFilter: 'blur(12px)' } },
+        e('span', { onClick: () => this.go('triage'), style: { width: '44px', minWidth: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#27406B', cursor: 'pointer' } }, '\u2039'),
+        e('span', { style: { width: '34px', height: '34px', borderRadius: '50%', background: '#E7C589', flex: 'none' } }),
+        e('span', { style: { display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 } },
+          e('span', { style: { fontSize: '15.5px', fontWeight: 700, color: INK } }, 'Mum'),
+          e('span', { style: { fontSize: '11.5px', color: '#8A6420', fontWeight: 600 } }, 'Inner circle')),
+        e('span', { onClick: () => { this.setState({ from: 'thread', who: 'Mum' }); this.go('promiseNew'); }, style: { width: '44px', height: '44px', borderRadius: '50%', background: '#EDF4FB', color: '#27406B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '17px', cursor: 'pointer', flex: 'none' } }, '\u2713')),
+
+      e('div', { style: { flex: 1, overflowY: 'auto', padding: '12px 14px 6px', display: 'flex', flexDirection: 'column', background: '#FDFEFF' } },
+        e('span', { style: { alignSelf: 'center', fontSize: '11px', fontWeight: 600, color: '#9DAFC6', padding: '4px 0 8px' } }, 'Today 08:41'),
+        msgs.map((m, i) => bubble(m, msgs[i - 1], msgs[i + 1])),
+        last && last.mine ? e('span', { style: { alignSelf: 'flex-end', fontSize: '10.5px', color: '#9DAFC6', paddingTop: '4px' } }, 'Delivered') : null,
+        this.state.typing ? e('span', { style: { alignSelf: 'flex-start', display: 'flex', gap: '4px', background: '#EDF3FA', borderRadius: '20px 20px 20px 6px', padding: '13px 15px', marginTop: '9px' } },
+          [0, 1, 2].map(i => e('span', { key: i, style: { width: '7px', height: '7px', borderRadius: '50%', background: '#8FA2BD', animation: 'ck-typing 1.3s ease-in-out ' + (i * 0.18) + 's infinite' } }))) : null),
+
+      e('div', { style: { display: 'flex', gap: '7px', overflowX: 'auto', padding: '7px 14px 5px', borderTop: '1px solid ' + LINE } },
+        suggestions.map(t => e('span', { key: t, onClick: () => this.setState({ input: t }), style: { flex: 'none', fontSize: '12.5px', fontWeight: 600, color: '#27406B', background: '#EDF4FB', border: '1px solid #DCE7F3', borderRadius: '99px', padding: '0 16px', minHeight: '44px', display: 'flex', alignItems: 'center', cursor: 'pointer', whiteSpace: 'nowrap' } }, t))),
+
+      e('div', { style: { display: 'flex', gap: '8px', alignItems: 'flex-end', padding: '7px 12px 20px', background: 'rgba(253,254,255,0.98)' } },
+        e('span', { onClick: () => this.go('compose'), style: { width: '44px', height: '44px', minWidth: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' } },
+          e('span', { style: { width: '38px', height: '38px', borderRadius: '50%', background: '#EDF4FB', color: '#27406B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' } }, '\uFF0B')),
+        e('textarea', { value: this.state.input, placeholder: 'Message', rows: 1,
+          onChange: (ev) => { this.setState({ input: ev.target.value }); const el = ev.target; el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 96) + 'px'; },
+          onKeyDown: (ev) => { if (ev.key === 'Enter' && !ev.shiftKey) { ev.preventDefault(); this.send(); } },
+          style: { flex: 1, resize: 'none', border: '1px solid #DCE7F3', borderRadius: '20px', padding: '10px 14px', fontSize: '14.5px', lineHeight: 1.4, fontFamily: 'inherit', color: '#22314F', outline: 'none', maxHeight: '96px', boxSizing: 'border-box' } }),
+        e('span', { onClick: () => this.send(), style: { width: '44px', height: '44px', minWidth: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: canSend ? 'pointer' : 'default' } },
+          e('span', { style: { width: '38px', height: '38px', borderRadius: '50%', background: canSend ? 'linear-gradient(180deg,#3A5B92,#22375C)' : '#DCE7F3', color: canSend ? '#fff' : '#9DAFC6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '17px', transition: 'background 0.15s' } }, '\u2191'))));
+  }
+
+  compose() {
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+      this.head('Longer reply', () => this.go('thread')),
+      e('div', { style: { flex: 1, padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '10px' } },
+        e('textarea', { value: this.state.draft, onChange: (ev) => this.setState({ draft: ev.target.value }), style: { width: '100%', minHeight: '150px', resize: 'none', border: '1px solid #DCE7F3', borderRadius: '16px', padding: '13px 14px', fontSize: '14px', lineHeight: 1.6, fontFamily: 'inherit', color: '#22314F', outline: 'none', boxSizing: 'border-box' } }),
+        e('div', { style: { display: 'flex', gap: '7px', flexWrap: 'wrap' } },
+          ['Warmer', 'Shorter', 'Offer a time'].map(l => e('span', { key: l, onClick: () => this.setState({ draft: l === 'Shorter' ? 'Sunday works \u2014 see you at one.' : l === 'Warmer' ? 'Sunday sounds lovely, Mum. I will be there at one, and I will bring pudding.' : 'Sunday works. Would one o\u2019clock suit you, or is later easier?' }), style: { fontSize: '12.5px', fontWeight: 600, color: '#27406B', background: '#EDF4FB', borderRadius: '99px', padding: '8px 14px', cursor: 'pointer', minHeight: '36px', display: 'flex', alignItems: 'center' } }, l))),
+        e('div', { style: { display: 'flex', gap: '9px', alignItems: 'center', background: '#F6FBF5', border: '1px solid #CBE0C7', borderRadius: '13px', padding: '11px 12px' } },
+          e('span', { style: { fontSize: '13px' } }, '\u2713'),
+          e('span', { style: { fontSize: '12px', color: '#3F6339', lineHeight: 1.5 } }, 'Sending this creates a promise: lunch with Mum on Sunday.'))),
+      e('div', { style: { padding: '10px 16px 18px', borderTop: '1px solid ' + LINE } },
+        this.btn('Send reply', () => this.go('sent'))));
+  }
+
+  sent() {
+    return e('div', { style: { position: 'absolute', inset: 0, background: '#E4F1EC', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '15px', padding: '30px 26px', textAlign: 'center' } },
+      this.pattern('relief'),
+      e('span', { style: { position: 'relative', width: '74px', height: '74px', borderRadius: '50%', background: '#3F6339', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '34px', animation: 'ck-in 0.3s ease', boxShadow: '0 14px 28px rgba(24,54,20,0.3)' } }, '\u2713'),
+      e('span', { style: { position: 'relative', fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '22px', fontWeight: 600, color: '#1E3A2C' } }, 'Sent to Mum'),
+      e('span', { style: { position: 'relative', fontSize: '13.5px', color: '#3C5A4A', lineHeight: 1.6, maxWidth: '250px' } }, 'A promise was added: Sunday lunch, one o\u2019clock. It will remind you on Saturday.'),
+      e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginTop: '4px' } },
+        this.btn('Back to triage', () => this.go('triage')),
+        this.btn('See the promise', () => { this.setState({ openPromise: 'p2' }); this.go('promiseDetail'); }, 'quiet')));
+  }
+
+  promiseNew() {
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+      this.head('New promise', () => this.go(this.state.from || 'thread')),
+      e('div', { style: { flex: 1, padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: '11px' } },
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '5px' } },
+          e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'WHAT YOU SAID'),
+          e('div', { style: { border: '1px solid #DCE7F3', borderRadius: '14px', padding: '13px 14px', fontSize: '14px', color: INK } }, this.state.who ? 'Get back to ' + this.state.who + ' with a time' : 'Have lunch with Mum on Sunday')),
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '5px' } },
+          e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'WHEN'),
+          e('div', { style: { display: 'flex', gap: '7px' } },
+            ['Sunday 13:00', 'Sunday 18:00', 'Pick\u2026'].map((l, i) => e('span', { key: l, style: { flex: 1, minHeight: '44px', borderRadius: '13px', border: i === 0 ? '1.5px solid ' + INK : '1px solid #DCE7F3', background: i === 0 ? '#EDF4FB' : '#FDFEFF', fontSize: '12.5px', fontWeight: 600, color: INK, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' } }, l)))),
+        e('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid #DCE7F3', borderRadius: '14px', padding: '12px 14px' } },
+          e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px' } },
+            e('span', { style: { fontSize: '14px', fontWeight: 600, color: INK } }, 'Protect the time'),
+            e('span', { style: { fontSize: '11.5px', color: MUTE } }, 'Block it so nothing else lands')),
+          this.toggle(this.state.protect, () => this.setState(s => ({ protect: !s.protect }))))),
+      e('div', { style: { padding: '10px 16px 18px', borderTop: '1px solid ' + LINE } },
+        this.btn('Save promise', () => this.go(this.state.from || 'promises'))));
+  }
+
+  promises() {
+    const KIND = {
+      mine:   { label: 'I\u2019LL REACH OUT', bg: '#FDF6EC', edge: '#F0DDBB', ink: '#8A6420' },
+      mutual: { label: 'WE MADE PLANS',       bg: '#EEF4FB', edge: '#D3E2F2', ink: '#41567A' },
+      theirs: { label: 'WAITING ON THEM',     bg: '#F4F6F8', edge: '#DFE5EC', ink: '#5F6B7A' }
+    };
+    const rel = this.state.released || {};
+    const live = PROMISES.filter(p => !this.state.done[p.id] && !rel[p.id]);
+    const kept = PROMISES.filter(p => this.state.done[p.id]);
+    const gone = PROMISES.filter(p => rel[p.id] && !this.state.done[p.id]);
+
+    const row = (p, mode) => {
+      const k = KIND[p.type] || KIND.mine;
+      const mine = p.type !== 'theirs';
+      return e('div', { key: p.id, onClick: () => { this.setState({ openPromise: p.id }); this.go('promiseDetail'); }, style: { display: 'flex', alignItems: 'center', gap: '7px', background: mode === 'live' ? k.bg : '#FDFEFF', border: '1px solid ' + (mode === 'live' ? k.edge : '#E9F1F9'), borderRadius: '16px', padding: '8px 12px', minHeight: '66px', cursor: 'pointer', opacity: mode === 'gone' ? 0.65 : 1 } },
+        mine && mode === 'live'
+          ? e('span', { onClick: (ev) => { ev.stopPropagation(); this.setState(st => ({ done: Object.assign({}, st.done, { [p.id]: true }) })); }, style: { width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flex: 'none' } },
+              e('span', { style: { width: '26px', height: '26px', borderRadius: '50%', border: '2px solid #C6D4E4', background: 'transparent' } }))
+          : e('span', { style: { width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 'none' } },
+              e('span', { style: { width: '26px', height: '26px', borderRadius: '50%', background: mode === 'kept' ? '#3F6339' : 'transparent', border: mode === 'kept' ? 'none' : '2px dashed #C6D4E4', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' } }, mode === 'kept' ? '\u2713' : '')),
+        e('span', { style: { display: 'flex', flexDirection: 'column', gap: '3px', flex: 1 } },
+          e('span', { style: { fontSize: '9.5px', fontWeight: 700, letterSpacing: '0.12em', color: mode === 'live' ? k.ink : '#9DAFC6' } }, k.label),
+          e('span', { style: { fontSize: '14px', fontWeight: 600, color: mode === 'live' ? INK : '#8FA2BD', textDecoration: mode === 'gone' ? 'line-through' : 'none' } }, p.what),
+          e('span', { style: { fontSize: '11.5px', color: MUTE } }, p.who + ' \u00b7 ' + p.due)),
+        p.urgent && mode === 'live' ? e('span', { style: { width: '8px', height: '8px', borderRadius: '50%', background: '#C0492B', flex: 'none' } }) : null);
+    };
+
+    const head = (label, n) => e('span', { style: { fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.14em', color: '#5B6F8E', paddingTop: '4px' } }, label + (n != null ? ' \u00b7 ' + n : ''));
+
+    return this.scroll([
+      e('div', { key: 'h', style: { padding: '48px 18px 12px', background: '#FDFEFF', borderBottom: '1px solid ' + LINE, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' } },
+        e('span', { style: { display: 'flex', flexDirection: 'column', gap: '1px' } },
+          e('span', { style: { fontSize: '25px', fontWeight: 700, color: INK } }, 'Promises'),
+          e('span', { style: { fontSize: '11.5px', color: MUTE } }, 'What you said, and what you are waiting on')),
+        e('span', { onClick: () => { this.setState({ from: 'promises', who: null }); this.go('promiseNew'); }, style: { width: '44px', height: '44px', borderRadius: '50%', background: INK, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', cursor: 'pointer', flex: 'none' } }, '+')),
+      e('div', { key: 'b', style: { flex: 1, background: '#F3F8FD', padding: '14px 16px 20px', display: 'flex', flexDirection: 'column', gap: '9px' } },
+        head('YOURS TO KEEP', live.filter(p => p.type !== 'theirs').length),
+        live.filter(p => p.type !== 'theirs').length
+          ? live.filter(p => p.type !== 'theirs').map(p => row(p, 'live'))
+          : e('span', { style: { fontSize: '13px', color: MUTE, padding: '4px 2px' } }, 'Nothing outstanding. Rare and lovely.'),
+        live.filter(p => p.type === 'theirs').length ? head('NOT YOUR MOVE', live.filter(p => p.type === 'theirs').length) : null,
+        live.filter(p => p.type === 'theirs').map(p => row(p, 'live')),
+        kept.length ? head('KEPT', kept.length) : null,
+        kept.map(p => row(p, 'kept')),
+        gone.length ? head('RELEASED', gone.length) : null,
+        gone.map(p => row(p, 'gone')))
+    ]);
+  }
+
+  promiseDetail() {
+    const p = PROMISES.find(x => x.id === this.state.openPromise) || PROMISES[0];
+    const rel = this.state.released || {};
+    const isDone = !!this.state.done[p.id];
+    const isGone = !!rel[p.id] && !isDone;
+    const theirs = p.type === 'theirs';
+    const state = isDone ? { l: 'KEPT', bg: '#DCEFD8', ink: '#3F6339' }
+      : isGone ? { l: 'RELEASED', bg: '#EDEFF2', ink: '#6C7684' }
+      : theirs ? { l: 'WAITING ON THEM', bg: '#F4F6F8', ink: '#5F6B7A' }
+      : p.urgent ? { l: 'NEEDS A NEW PLAN', bg: '#FBE7C6', ink: '#8A6420' }
+      : { l: 'UPCOMING', bg: '#E3EDF8', ink: '#41567A' };
+    const kind = theirs ? 'This is a relationship state, not something you owe.'
+      : p.type === 'mutual' ? 'A mutual plan \u2014 both of you are expecting it.'
+      : 'A follow-through you took on yourself.';
+
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+      this.head('Promise', () => this.go('promises')),
+      e('div', { style: { flex: 1, overflowY: 'auto', padding: '16px 16px 20px', display: 'flex', flexDirection: 'column', gap: '11px', background: '#F7FBFE' } },
+        e('div', { style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '18px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '9px' } },
+          this.chip(state.l, state.bg, state.ink),
+          e('span', { style: { fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '20px', fontWeight: 600, color: INK, lineHeight: 1.3 } }, p.what),
+          e('span', { style: { fontSize: '13px', color: MUTE } }, (theirs ? 'From ' : 'To ') + p.who + ' \u00b7 ' + p.due),
+          e('span', { style: { fontSize: '12px', color: '#5B6F8E', lineHeight: 1.5, borderTop: '1px solid #F0F5FA', paddingTop: '9px' } }, kind)),
+        e('div', { style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '18px', padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: '9px' } },
+          e('span', { style: { fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.12em', color: '#5B6F8E' } }, 'WHERE IT CAME FROM'),
+          e('span', { style: { fontSize: '13px', color: '#41567A', lineHeight: 1.6, fontStyle: 'italic' } }, '\u201cYou said you would let me know by tonight!\u201d'),
+          e('span', { onClick: () => this.go('thread'), style: { fontSize: '12.5px', fontWeight: 700, color: '#27406B', cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center' } }, 'Open the thread \u203A')),
+        theirs ? null : e('div', { style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '18px', padding: '13px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+          e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px' } },
+            e('span', { style: { fontSize: '14px', fontWeight: 600, color: INK } }, 'Protected time'),
+            e('span', { style: { fontSize: '11.5px', color: MUTE } }, this.state.protect ? 'Thu 19:00 held in your calendar' : 'Nothing held yet')),
+          this.toggle(this.state.protect, () => this.setState(st => ({ protect: !st.protect }))))),
+      e('div', { style: { padding: '10px 16px 18px', borderTop: '1px solid ' + LINE, display: 'flex', flexDirection: 'column', gap: '7px' } },
+        isDone ? this.btn('Put it back on the list', () => this.setState(st => ({ done: Object.assign({}, st.done, { [p.id]: false }) })), 'light')
+          : isGone ? this.btn('Put it back on the list', () => this.setState(st => ({ released: Object.assign({}, st.released, { [p.id]: false }) })), 'light')
+          : theirs ? this.btn('Nudge ' + p.who.split(' ')[0], () => this.go('thread'))
+          : this.btn('Mark as kept', () => this.setState(st => ({ done: Object.assign({}, st.done, { [p.id]: true }) }))),
+        (isDone || isGone) ? null : this.btn('Give it a new time', () => this.go('calendar'), 'ghost'),
+        (isDone || isGone) ? null : this.btn('Let this go', () => this.setState(st => ({ released: Object.assign({}, st.released, { [p.id]: true }) })), 'quiet')));
+  }
+
+  calendar() {
+    const view = this.state.calView;
+    const EV = [
+      { d: 4, start: 9, end: 11, title: 'Deep work', sub: 'Notifications paused', c: '#4A7FBF', bg: '#E8F0FA' },
+      { d: 4, start: 13.5, end: 14, title: 'Dani \u2014 handover', sub: '30 min', c: '#C79A3E', bg: '#FBF2DF' },
+      { d: 4, start: 19, end: 21, title: 'Protected evening', sub: 'Nothing can land here', c: '#5E8A57', bg: '#EAF3E7', protect: true },
+      { d: 5, start: 10, end: 11, title: 'Team sync', sub: '', c: '#4A7FBF', bg: '#E8F0FA' },
+      { d: 6, start: 18, end: 20, title: 'Climbing \u2014 Sam', sub: '', c: '#8E6FB0', bg: '#F0EAF7' },
+      { d: 7, start: 13, end: 15, title: 'Lunch with Mum', sub: '', c: '#C79A3E', bg: '#FBF2DF' }
+    ];
+    const H0 = 7, H1 = 22, PX = 52;
+    const days = [['M', 1], ['T', 2], ['W', 3], ['T', 4], ['F', 5], ['S', 6], ['S', 7]];
+    const TODAY = 4;
+    const nowH = 14.4;
+
+    const hourLines = [];
+    for (let h = H0; h <= H1; h++) {
+      hourLines.push(e('div', { key: 'h' + h, style: { position: 'absolute', top: ((h - H0) * PX) + 'px', left: 0, right: 0, height: '1px', background: '#EDF2F8' } }));
+    }
+    const gutter = [];
+    for (let h = H0; h <= H1; h++) {
+      gutter.push(e('span', { key: 'g' + h, style: { position: 'absolute', top: ((h - H0) * PX - 6) + 'px', right: '8px', fontSize: '10.5px', color: '#9DAFC6', fontVariantNumeric: 'tabular-nums' } }, (h % 12 === 0 ? 12 : h % 12) + (h < 12 ? ' AM' : ' PM')));
+    }
+
+    const evBlock = (ev, widthPct, leftPct) => e('div', { key: ev.title + ev.d, onClick: () => ev.protect ? this.setState({ sheet: 'protect' }) : null,
+      style: { position: 'absolute', top: ((ev.start - H0) * PX + 1) + 'px', height: ((ev.end - ev.start) * PX - 3) + 'px', left: leftPct, width: widthPct, background: ev.bg, borderLeft: '3px solid ' + ev.c, borderRadius: '7px', padding: '5px 7px', overflow: 'hidden', cursor: ev.protect ? 'pointer' : 'default', boxSizing: 'border-box' } },
+      e('span', { style: { display: 'block', fontSize: '11.5px', fontWeight: 700, color: '#1B2B4B', lineHeight: 1.25, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' } }, ev.title),
+      ev.sub && (ev.end - ev.start) > 0.75 ? e('span', { style: { display: 'block', fontSize: '10.5px', color: MUTE, lineHeight: 1.3 } }, ev.sub) : null);
+
+    const grid = view === 'day'
+      ? e('div', { style: { position: 'relative', marginLeft: '52px', height: ((H1 - H0) * PX + 20) + 'px' } },
+          hourLines,
+          e('div', { style: { position: 'absolute', top: ((nowH - H0) * PX) + 'px', left: '-6px', right: 0, display: 'flex', alignItems: 'center', gap: '0', zIndex: 3 } },
+            e('span', { style: { width: '9px', height: '9px', borderRadius: '50%', background: '#C0492B', flex: 'none' } }),
+            e('span', { style: { flex: 1, height: '2px', background: '#C0492B' } })),
+          EV.filter(x => x.d === TODAY).map(x => evBlock(x, 'calc(100% - 10px)', '4px')))
+      : e('div', { style: { position: 'relative', marginLeft: '52px', height: ((H1 - H0) * PX + 20) + 'px' } },
+          hourLines,
+          days.map(([, dn], i) => e('div', { key: 'c' + dn, style: { position: 'absolute', top: 0, bottom: 0, left: (i * (100 / 7)) + '%', width: '1px', background: '#EDF2F8' } })),
+          e('div', { style: { position: 'absolute', top: ((nowH - H0) * PX) + 'px', left: ((TODAY - 1) * (100 / 7)) + '%', width: (100 / 7) + '%', height: '2px', background: '#C0492B', zIndex: 3 } }),
+          EV.map(x => evBlock(x, 'calc(' + (100 / 7) + '% - 4px)', 'calc(' + ((x.d - 1) * (100 / 7)) + '% + 2px)')));
+
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', background: '#FDFEFF' } },
+      e('div', { style: { padding: '44px 16px 8px', background: '#FDFEFF', display: 'flex', alignItems: 'center', gap: '10px' } },
+        e('span', { style: { display: 'flex', flexDirection: 'column', flex: 1 } },
+          e('span', { style: { fontSize: '21px', fontWeight: 700, color: INK } }, view === 'day' ? 'Thursday 4' : 'September'),
+          e('span', { style: { fontSize: '11.5px', color: MUTE } }, view === 'day' ? 'September 2026' : '1 \u2013 7 September 2026')),
+        e('span', { style: { display: 'flex', background: '#EDF3FA', borderRadius: '99px', padding: '3px' } },
+          ['day', 'week'].map(v => e('span', { key: v, onClick: () => this.setState({ calView: v }), style: { minHeight: '44px', minWidth: '58px', padding: '0 16px', borderRadius: '99px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12.5px', fontWeight: 700, cursor: 'pointer', background: view === v ? '#FDFEFF' : 'transparent', color: view === v ? INK : MUTE, boxShadow: view === v ? '0 1px 3px rgba(27,43,75,0.16)' : 'none' } }, v === 'day' ? 'Day' : 'Week')))),
+
+      e('div', { style: { display: 'flex', paddingLeft: '52px', borderBottom: '1px solid ' + LINE, background: '#FDFEFF' } },
+        days.map(([l, dn]) => e('span', { key: dn, onClick: () => this.setState({ calView: 'day' }), style: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', padding: '3px 0 7px', cursor: 'pointer', minHeight: '52px', justifyContent: 'center' } },
+          e('span', { style: { fontSize: '10.5px', fontWeight: 600, color: dn === TODAY ? '#C0492B' : '#9DAFC6' } }, l),
+          e('span', { style: { width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, background: dn === TODAY ? '#C0492B' : 'transparent', color: dn === TODAY ? '#fff' : INK } }, dn)))),
+
+      e('div', { style: { flex: 1, overflowY: 'auto', position: 'relative', paddingTop: '8px' } },
+        e('div', { style: { position: 'relative' } },
+          e('div', { style: { position: 'absolute', left: 0, top: 0, width: '52px', bottom: 0 } }, gutter),
+          grid)),
+
+      e('span', { onClick: () => this.setState({ sheet: 'protect' }), style: { position: 'absolute', right: '16px', bottom: '16px', width: '54px', height: '54px', borderRadius: '17px', background: '#FDFEFF', border: '1px solid #E0EBF7', boxShadow: '0 6px 16px rgba(27,43,75,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 5 } },
+        e('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: '#27406B', strokeWidth: 2, strokeLinecap: 'round' }, e('path', { d: 'M12 5v14M5 12h14' }))));
+  }
+
+  recap() {
+    return e('div', { style: { position: 'absolute', inset: 0, background: '#1D2F52', overflow: 'hidden', display: 'flex', flexDirection: 'column', padding: '46px 20px 22px' } },
+      this.pattern('golden'),
+      e('span', { onClick: () => this.go('today'), style: { position: 'relative', alignSelf: 'flex-start', fontSize: '18px', color: 'rgba(243,247,252,0.85)', cursor: 'pointer', width: '44px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '-11px' } }, '\u2715'),
+      e('div', { style: { position: 'relative', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '14px', textAlign: 'center', alignItems: 'center' } },
+        e('span', { style: { fontSize: '11px', letterSpacing: '0.22em', fontWeight: 700, color: '#DCE7F5' } }, 'YOUR WEEK'),
+        e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '34px', lineHeight: 1.0, textTransform: 'uppercase', color: '#FFFDF8', letterSpacing: '0.015em' } }, 'You showed up', e('br'), 'six times'),
+        e('div', { style: { display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', paddingTop: '4px' } },
+          ['Mum \u00b7 Sunday lunch', 'Sam \u00b7 climbing', 'Theo \u00b7 birthday table'].map(l => e('span', { key: l, style: { fontSize: '12px', fontWeight: 600, color: '#22375C', background: 'rgba(253,254,255,0.9)', borderRadius: '99px', padding: '7px 13px' } }, l)))),
+      e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '8px' } },
+        this.btn('See the full digest', () => this.go('digest'), 'navy'),
+        this.btn(this.state.shared ? '\u2713  Copied to your camera roll' : 'Share this', () => this.setState({ shared: true }), 'quiet')));
+  }
+
+  digest() {
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+      this.head('Week of 1 September', () => this.go('recap')),
+      e('div', { style: { flex: 1, overflowY: 'auto', padding: '14px 16px 20px', display: 'flex', flexDirection: 'column', gap: '10px', background: '#F7FBFE' } },
+        e('div', { style: { display: 'flex', gap: '9px' } },
+          [['6', 'kept'], ['2', 'moved'], ['41', 'let go']].map(([n, l]) => e('div', { key: l, style: { flex: 1, background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '16px', padding: '13px 10px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1px' } },
+            e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '25px', color: INK } }, n),
+            e('span', { style: { fontSize: '11px', color: MUTE } }, l)))),
+        this.card([
+          e('span', { key: 1, style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'THE MOMENTS'),
+          e('div', { key: 2, style: { display: 'flex', flexDirection: 'column', gap: '9px' } },
+            [['Mum', 'Sunday lunch \u2014 you went', '#E7C589'], ['Sam Reyes', 'Climbing, Thursday evening', '#C9A6D8'], ['Theo', 'Booked the birthday table', '#A9C6A2']].map(([who, what, c], i) =>
+              e('div', { key: i, style: { display: 'flex', gap: '10px', alignItems: 'center' } },
+                e('span', { style: { width: '32px', height: '32px', borderRadius: '50%', background: c, flex: 'none' } }),
+                e('span', { style: { display: 'flex', flexDirection: 'column' } },
+                  e('span', { style: { fontSize: '13.5px', fontWeight: 600, color: INK } }, who),
+                  e('span', { style: { fontSize: '12px', color: MUTE } }, what)))))
+        ]),
+        this.card([
+          e('span', { key: 1, style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD' } }, 'ONE THING TO WATCH'),
+          e('span', { key: 2, style: { fontSize: '13.5px', color: '#41567A', lineHeight: 1.6 } }, 'Dani has waited four days for the handover doc. It is the only promise that slipped.'),
+          e('span', { key: 3, onClick: () => { this.setState({ openPromise: 'p3' }); this.go('promiseDetail'); }, style: { fontSize: '12.5px', fontWeight: 700, color: '#27406B', cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center' } }, 'Deal with it now \u203A')
+        ])));
+  }
+
+  paywall() {
+    return e('div', { style: { position: 'absolute', inset: 0, background: '#2A2140', overflow: 'hidden', display: 'flex', flexDirection: 'column', padding: '46px 20px 22px' } },
+      this.pattern('dusk'),
+      e('span', { onClick: () => this.go('today'), style: { position: 'relative', alignSelf: 'flex-end', fontSize: '17px', color: 'rgba(253,254,255,0.9)', cursor: 'pointer', width: '44px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '-11px' } }, '\u2715'),
+      e('div', { style: { position: 'relative', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '13px', alignItems: 'center', textAlign: 'center' } },
+        e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '30px', lineHeight: 1.02, textTransform: 'uppercase', color: '#FFFDF8', letterSpacing: '0.015em' } }, 'Seven days,', e('br'), 'no card games'),
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', paddingTop: '4px' } },
+          [['Today', 'Everything unlocks'], ['Day 5', 'We remind you'], ['Day 7', 'Billing starts, or not']].map(([d, l], i) =>
+            e('div', { key: i, style: { display: 'flex', gap: '11px', alignItems: 'center', background: 'rgba(253,254,255,0.9)', borderRadius: '13px', padding: '10px 13px' } },
+              e('span', { style: { width: '9px', height: '9px', borderRadius: '50%', background: i === 2 ? AMBER : '#3F6339', flex: 'none' } }),
+              e('span', { style: { fontSize: '12.5px', fontWeight: 700, color: INK, width: '46px', textAlign: 'left' } }, d),
+              e('span', { style: { fontSize: '12.5px', color: MUTE, textAlign: 'left' } }, l))))),
+      e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '8px' } },
+        this.btn('Start 7 days free', () => this.go('plans')),
+        this.btn('See the plans', () => this.go('plans'), 'onSky')));
+  }
+
+  plans() {
+    const PL = [['year', '$49.99', 'a year', 'Save 84%'], ['week', '$5.99', 'a week', null], ['life', '$129', 'once, forever', null]];
+    return e('div', { style: { position: 'absolute', inset: 0, background: 'linear-gradient(180deg,#FDF6EC 0%,#F2F7FD 60%,#FDFEFF 100%)', display: 'flex', flexDirection: 'column', padding: '46px 20px 22px' } },
+      e('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+        e('span', { onClick: () => this.go('paywall'), style: { fontSize: '22px', color: INK, cursor: 'pointer', width: '44px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '-11px' } }, '\u2039'),
+        e('span', { onClick: () => this.go('today'), style: { fontSize: '12.5px', fontWeight: 700, color: MUTE, cursor: 'pointer', minHeight: '44px', display: 'flex', alignItems: 'center', padding: '0 8px', marginRight: '-8px' } }, 'Restore')),
+      e('div', { style: { flex: 1, display: 'flex', flexDirection: 'column', gap: '10px', paddingTop: '6px' } },
+        e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '28px', lineHeight: 1.02, textTransform: 'uppercase', color: INK, letterSpacing: '0.015em' } }, 'Clear day,', e('br'), 'clear deal'),
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '9px', paddingTop: '4px' } },
+          PL.map(([id, price, per, badge]) => {
+            const on = this.state.plan === id;
+            return e('div', { key: id, onClick: () => this.setState({ plan: id }), style: { position: 'relative', display: 'flex', alignItems: 'center', gap: '12px', border: on ? '2px solid ' + INK : '1px solid #DCE7F3', background: on ? '#FDFEFF' : 'rgba(253,254,255,0.7)', borderRadius: '17px', padding: '14px 15px', cursor: 'pointer', minHeight: '64px', boxShadow: on ? '0 12px 24px rgba(27,43,75,0.12)' : 'none' } },
+              e('span', { style: { width: '22px', height: '22px', borderRadius: '50%', border: on ? 'none' : '2px solid #C6D4E4', background: on ? INK : 'transparent', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', flex: 'none' } }, on ? '\u2713' : ''),
+              e('span', { style: { display: 'flex', flexDirection: 'column', gap: '1px', flex: 1 } },
+                e('span', { style: { fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '19px', fontWeight: 600, color: INK } }, price),
+                e('span', { style: { fontSize: '12.5px', color: MUTE } }, per)),
+              badge ? e('span', { style: { background: AMBER, color: '#4A3410', fontSize: '10.5px', fontWeight: 700, borderRadius: '99px', padding: '4px 9px' } }, badge) : null);
+          }))),
+      e('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
+        this.btn('Start free trial', () => this.go('today')),
+        e('span', { style: { fontSize: '10.5px', color: '#8FA2BD', textAlign: 'center', lineHeight: 1.5 } }, 'Cancel any time in Settings. Same prices as the website.')));
+  }
+
+  settings() {
+    const item = (label, sub, right, onClick) => e('div', { onClick, style: { display: 'flex', alignItems: 'center', gap: '12px', background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '15px', padding: '13px 14px', minHeight: '58px', cursor: onClick ? 'pointer' : 'default' } },
+      e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 } },
+        e('span', { style: { fontSize: '14px', fontWeight: 600, color: INK } }, label),
+        sub ? e('span', { style: { fontSize: '11.5px', color: MUTE, lineHeight: 1.45 } }, sub) : null),
+      right || null);
+    return this.scroll([
+      e('div', { key: 'h', style: { padding: '48px 18px 12px', background: '#FDFEFF', borderBottom: '1px solid ' + LINE } },
+        e('span', { style: { fontSize: '25px', fontWeight: 700, color: INK } }, 'You')),
+      e('div', { key: 'b', style: { flex: 1, background: '#F3F8FD', padding: '14px 16px 20px', display: 'flex', flexDirection: 'column', gap: '9px' } },
+        e('div', { onClick: () => this.go('privacy'), style: { display: 'flex', alignItems: 'center', gap: '12px', background: 'linear-gradient(120deg,#22375C,#40608F)', borderRadius: '18px', padding: '15px 16px', cursor: 'pointer', minHeight: '76px' } },
+          e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 } },
+            e('span', { style: { fontSize: '14.5px', fontWeight: 700, color: '#FFFDF8' } }, 'Private by design'),
+            e('span', { style: { fontSize: '11.5px', color: '#BFD3EC', lineHeight: 1.45 } }, 'Nothing is sent on your behalf, ever')),
+          e('span', { style: { fontSize: '18px', color: '#FFDD9A', width: '20px', textAlign: 'center' } }, '\u203A')),
+        e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD', paddingTop: '3px' } }, 'YOUR DAY'),
+        item('Morning summary', this.state.notif === false ? 'Notifications are off' : 'Arrives at 08:00', this.toggle(this.state.notif !== false, () => this.setState(s => ({ notif: s.notif === false })))),
+        item('Protect evenings', 'Weekdays from 19:00', this.toggle(this.state.protect, () => this.setState(s => ({ protect: !s.protect })))),
+        item('Inner circle', Object.values(this.state.circle).filter(Boolean).length + ' people', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('circle')),
+        item('Weekly recap', 'Arrives Sunday evening', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('recap')),
+        e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#8FA2BD', paddingTop: '3px' } }, 'ACCOUNT'),
+        item('Plan', this.state.plan === 'year' ? '$49.99 a year \u00b7 renews 4 Sep' : this.state.plan === 'week' ? '$5.99 a week' : 'Lifetime \u00b7 paid', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('plans')),
+        item('Connected accounts', Object.values(this.state.accounts).filter(Boolean).length + ' connected', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('accounts')),
+        item('Privacy and data', 'What we keep, and for how long', e('span', { style: { fontSize: '18px', color: '#8FA2BD' } }, '\u203A'), () => this.go('privacy')))
+    ]);
+  }
+
+  privacy() {
+    return e('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+      this.head('Privacy and data', () => this.go('settings')),
+      e('div', { style: { flex: 1, overflowY: 'auto', padding: '15px 16px 20px', display: 'flex', flexDirection: 'column', gap: '10px', background: '#F7FBFE' } },
+        e('div', { style: { position: 'relative', background: 'linear-gradient(180deg,#0B1424,#213558)', borderRadius: '18px', padding: '18px 16px', display: 'flex', flexDirection: 'column', gap: '7px', overflow: 'hidden' } },
+          e('span', { style: { fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.18em', color: '#8FA2BD' } }, 'THE PROMISE'),
+          e('span', { style: { fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '18px', fontWeight: 600, color: '#FFFDF8', lineHeight: 1.35, maxWidth: '190px' } }, 'Clearsky never sends a message on your behalf')),
+        [['On your device', 'Sorting and drafting happen locally wherever the model allows.'], ['Kept 30 days', 'Message text used for sorting is discarded after a month.'], ['Never sold', 'No ad model, no data brokers, no training on your words.']].map(([t, s2]) =>
+          e('div', { key: t, style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '15px', padding: '13px 14px', display: 'flex', gap: '11px', alignItems: 'flex-start' } },
+            e('span', { style: { width: '20px', height: '20px', borderRadius: '50%', background: '#DCEFD8', color: '#3F6339', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', flex: 'none', marginTop: '1px' } }, '\u2713'),
+            e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px' } },
+              e('span', { style: { fontSize: '14px', fontWeight: 600, color: INK } }, t),
+              e('span', { style: { fontSize: '12px', color: MUTE, lineHeight: 1.5 } }, s2)))),
+        e('div', { style: { display: 'flex', flexDirection: 'column', gap: '7px', paddingTop: '4px' } },
+          this.btn(this.state.dlReq ? '\u2713  We will email your archive' : 'Download my data', () => this.setState({ dlReq: true }), 'light'),
+          this.state.delReq === 'confirm'
+            ? e('div', { style: { border: '1.5px solid #E0B4A2', background: '#FDF5F1', borderRadius: '14px', padding: '13px 14px', display: 'flex', flexDirection: 'column', gap: '9px', animation: 'ck-in 0.25s ease' } },
+                e('span', { style: { fontSize: '13px', color: '#A04E2C', lineHeight: 1.5, fontWeight: 600 } }, 'This erases every message, promise and setting. It cannot be undone.'),
+                e('div', { style: { display: 'flex', gap: '7px' } },
+                  e('span', { onClick: () => this.setState({ delReq: null }), style: { flex: 1, minHeight: '44px', borderRadius: '12px', background: '#FDFEFF', border: '1px solid #DCE7F3', color: '#27406B', fontSize: '13px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' } }, 'Keep my data'),
+                  e('span', { onClick: () => this.setState({ delReq: 'done' }), style: { flex: 1, minHeight: '44px', borderRadius: '12px', background: '#A04E2C', color: '#fff', fontSize: '13px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' } }, 'Delete it all')))
+            : this.state.delReq === 'done'
+              ? e('div', { style: { border: '1px solid #CBE0C7', background: '#F6FBF5', borderRadius: '14px', padding: '14px', fontSize: '13px', color: '#3F6339', fontWeight: 600, textAlign: 'center' } }, '\u2713  Deletion scheduled \u2014 gone within 24 hours')
+              : this.btn('Delete everything', () => this.setState({ delReq: 'confirm' }), 'ghost'))));
+  }
+
+  protectSheet() {
+    return e('div', { style: { position: 'absolute', inset: 0, zIndex: 25, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' } },
+      e('span', { onClick: () => this.setState({ sheet: null }), style: { position: 'absolute', inset: 0, background: 'rgba(15,26,48,0.45)', cursor: 'pointer' } }),
+      e('div', { style: { position: 'relative', background: '#FDFEFF', borderRadius: '26px 26px 0 0', padding: '10px 18px 22px', display: 'flex', flexDirection: 'column', gap: '11px', animation: 'ck-in 0.25s ease' } },
+        e('span', { style: { alignSelf: 'center', width: '38px', height: '4px', borderRadius: '99px', background: '#DCE7F3' } }),
+        e('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '4px' } },
+          e('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px' } },
+            e('span', { style: { fontSize: '17px', fontWeight: 700, color: INK } }, 'Protect this evening'),
+            e('span', { style: { fontSize: '12.5px', color: MUTE, lineHeight: 1.45 } }, 'Nothing lands here. No summary, no nudges.'))),
+        e('div', { style: { display: 'flex', gap: '7px' } },
+          ['This evening', 'Every weekday', 'Custom\u2026'].map((l, i) => e('span', { key: l, style: { flex: 1, minHeight: '44px', borderRadius: '13px', border: i === 1 ? '1.5px solid ' + INK : '1px solid #DCE7F3', background: i === 1 ? '#EDF4FB' : '#FDFEFF', fontSize: '12.5px', fontWeight: 600, color: INK, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' } }, l))),
+        this.btn(this.state.protect ? 'Update the block' : 'Protect it', () => this.setState({ protect: true, sheet: null }))));
+  }
+
+  // ---------- routing ----------
+  renderVals() {
+    const s = this.state.screen;
+    const map = {
+      signin: this.signin, accounts: this.accounts, circle: this.circle, notif: this.notif,
+      today: this.today, triage: this.triage, thread: this.thread, compose: this.compose, sent: this.sent,
+      promiseNew: this.promiseNew, promises: this.promises, promiseDetail: this.promiseDetail,
+      calendar: this.calendar, recap: this.recap, digest: this.digest,
+      paywall: this.paywall, plans: this.plans, settings: this.settings, privacy: this.privacy
+    };
+    const body = (map[s] || this.today).call(this);
+    const dark = ['signin', 'recap', 'paywall'].indexOf(s) > -1;
+    const tabScreens = ['today', 'triage', 'promises', 'calendar', 'settings'];
+    const showTabs = tabScreens.indexOf(s) > -1;
+
+    const jump = (id, label) => e('span', {
+      key: id, onClick: () => this.go(id),
+      style: { fontSize: '11px', fontWeight: 600, borderRadius: '99px', padding: '6px 11px', cursor: 'pointer', border: '1px solid ' + (s === id ? INK : '#D8E6F4'), background: s === id ? INK : '#F5F9FD', color: s === id ? '#F8FBFF' : '#41567A' }
+    }, label);
+
+    const tabInk = (id) => (s === id ? INK : '#9DAFC6');
+    const left = TRIAGE.length - this.state.triageIdx;
+    const rel = this.state.released || {};
+    const openCount = PROMISES.filter(p => !this.state.done[p.id] && !rel[p.id]).length;
+    const tallyLine = Object.entries(this.state.tally).filter(x => x[1]).map(x => x[1] + ' ' + x[0]).join(', ');
+
+    return {
+      screen: e(React.Fragment, null, body, this.state.sheet === 'protect' ? this.protectSheet() : null),
+      statusInk: dark ? '#F8FBFF' : INK,
+      homeBarInk: dark ? 'rgba(253,254,255,0.7)' : 'rgba(27,43,75,0.45)',
+      tabBarDisplay: showTabs ? 'flex' : 'none',
+      tabTodayInk: tabInk('today'), tabTriageInk: tabInk('triage'), tabPromInk: tabInk('promises'), tabCalInk: tabInk('calendar'), tabYouInk: tabInk('settings'),
+      goToday: () => this.go('today'), goTriage: () => this.go('triage'), goPromises: () => this.go('promises'), goCalendar: () => this.go('calendar'), goSettings: () => this.go('settings'),
+      mapOnboarding: [jump('signin', 'Sign in'), jump('accounts', 'Connect'), jump('circle', 'Inner circle'), jump('notif', 'Notifications')],
+      mapDaily: [jump('today', 'Today'), jump('triage', 'Triage'), jump('thread', 'Thread'), jump('compose', 'Composer'), jump('sent', 'Sent')],
+      mapCommit: [jump('promises', 'Promises'), jump('promiseDetail', 'Promise detail'), jump('promiseNew', 'New promise'), jump('calendar', 'Calendar')],
+      mapMoments: [jump('recap', 'Weekly recap'), jump('digest', 'Digest'), jump('paywall', 'Paywall'), jump('plans', 'Plans'), jump('settings', 'You'), jump('privacy', 'Privacy')],
+      stateLine: e('span', null,
+        'Triage ' + left + ' left' + (tallyLine ? ' \u00b7 ' + tallyLine : ''), e('br'),
+        'Promises ' + openCount + ' live of ' + PROMISES.length, e('br'),
+        'Evenings ' + (this.state.protect ? 'protected' : 'open') + ' \u00b7 plan ' + this.state.plan),
+      reset: () => this.setState({ screen: 'signin', triageIdx: 0, tally: { responded: 0, planned: 0, snoozed: 0, waiting: 0, released: 0 }, outcomes: {}, released: {}, from: 'thread', who: null, done: {}, protect: true, plan: 'year', notif: null, sheet: null, shared: false, dataReq: null, extraPerson: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

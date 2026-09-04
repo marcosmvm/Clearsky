@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #FFFFFF; }
+    a { color: #27406B; text-decoration: none; }
+    a:hover { color: #14213C; }
+    @keyframes ck-bob { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+    @keyframes ck-bob-c { 0% { transform: translate(-50%,0); } 50% { transform: translate(-50%,-11px); } 100% { transform: translate(-50%,0); } }
+    @keyframes ck-fall { 0% { transform: translateY(-90px) rotate(-8deg); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(320px) rotate(10deg); opacity: 0; } }
+    .ck-still * { animation: none !important; }
+  </style>
+</helmet>
+<div class="{{ rootClass }}" style="min-height:100vh; background:#FFFFFF; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F;">
+
+  <nav data-screen-label="Nav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 40px; background:#FFFFFF; border-bottom:1px solid #E7EFF8; box-shadow:0 2px 14px rgba(27,43,75,0.05);">
+    <span style="display:inline-flex; align-items:center; gap:10px;">
+      <svg width="28" height="19" viewBox="0 0 20 14" fill="#1B2B4B" aria-hidden="true"><circle cx="6" cy="9" r="4"></circle><circle cx="11" cy="6" r="5"></circle><circle cx="15" cy="10" r="3.4"></circle></svg>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:21px; font-weight:600; color:#1B2B4B;">Clearsky</span>
+    </span>
+    <span style="display:flex; align-items:center; gap:26px;">
+      <a href="04%20M02%20How%20It%20Works.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">How it works</a>
+      <a href="05%20M03%20Why%20We%20Show%20Up.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Why we show up</a>
+      <a href="06%20M04%20Pricing.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Pricing</a>
+      <a href="08%20M06%20Private%20By%20Design.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Privacy</a>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:14px; font-weight:700; padding:10px 24px; border-radius:999px; box-shadow:0 8px 18px rgba(199,141,32,0.28);" style-hover="box-shadow:0 10px 24px rgba(199,141,32,0.45);">Get Clearsky</a>
+    </span>
+  </nav>
+
+  <section id="ld-hero" data-screen-label="Hero" style="position:relative; background:linear-gradient(180deg,#2A4066 0%,#4A6B9C 34%,#7FA5CE 66%,#BAD3EA 100%); padding:74px 40px 200px; overflow:hidden;">
+    <img data-hero-plate="1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_8dfe2a9c-2935-4db0-92a5-c16deb566217.png" alt="" style="position:absolute; inset:0; will-change:transform; width:100%; height:100%; object-fit:cover; opacity:0.9; pointer-events:none;">
+    <span data-depth="0.06" style="position:absolute; left:4%; top:12%; width:16vw; min-width:150px; opacity:0.55; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153124_d0a3f95d-d2ea-433a-a947-214ef6f8e53a.png" alt="" style="width:100%; display:block; animation:ck-bob 13s ease-in-out infinite;"></span>
+    <span data-depth="0.1" style="position:absolute; right:5%; top:8%; width:13vw; min-width:120px; opacity:0.6; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153121_c7a7abe3-5c62-4cda-9f5b-0c87bd5ab4f4.png" alt="" style="width:100%; display:block; animation:ck-bob 9s ease-in-out infinite;"></span>
+
+    <div data-hero-copy="1" style="position:relative; z-index:3; max-width:820px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px;">
+      <span style="font-size:11.5px; letter-spacing:0.26em; font-weight:700; color:#BFD3EC;">A RELATIONSHIP &amp; COMMITMENT OPERATING SYSTEM</span>
+      <h1 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(44px,6.4vw,92px); line-height:0.98; color:#F8FBFF; text-shadow:0 14px 34px rgba(12,22,42,0.35);">Show up for<br>what matters</h1>
+      <div style="font-size:16px; line-height:1.65; color:#FFFFFF; max-width:560px; background:rgba(15,26,48,0.5); border:1px solid rgba(255,255,255,0.16); border-radius:16px; padding:13px 22px;">Clearsky brings your conversations and commitments into one calm place — respond with intention, make plans that hold, protect the time that builds your future.</div>
+      <div style="display:flex; gap:13px; flex-wrap:wrap; justify-content:center; padding-top:4px;">
+        <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:15.5px; font-weight:700; padding:15px 34px; border-radius:999px; box-shadow:0 14px 30px rgba(12,22,42,0.35);" style-hover="box-shadow:0 16px 36px rgba(12,22,42,0.5);">Start 7 days free</a>
+        <a href="04%20M02%20How%20It%20Works.dc.html" style="display:inline-flex; border:1.5px solid rgba(248,251,255,0.55); color:#F8FBFF; font-size:15.5px; font-weight:600; padding:14px 30px; border-radius:999px;" style-hover="background:rgba(248,251,255,0.14);">See how it works</a>
+      </div>
+    </div>
+
+    <img id="hero-left" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175510_793299a8-caa1-413f-8e7f-e3f5036c54a2.png" alt="The Clearsky daydreamer waving hello" style="position:absolute; left:2%; bottom:56px; width:min(300px,22vw); z-index:4; pointer-events:none; filter:drop-shadow(0 4px 4px rgba(12,22,42,0.53)) drop-shadow(0 22px 30px rgba(12,22,42,0.35));">
+    <img id="hero-right" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175801_95c9e0ca-2efe-4a0a-8ef4-03e95a9bc49e.png" alt="The Clearsky daydreamer sitting on a cloud edge, gazing up" style="position:absolute; right:2%; bottom:56px; width:min(320px,24vw); z-index:4; pointer-events:none; filter:drop-shadow(0 4px 4px rgba(12,22,42,0.53)) drop-shadow(0 22px 30px rgba(12,22,42,0.35));">
+  </section>
+
+  <section data-screen-label="Beat 1 weather turns" style="position:relative; background:#FFFFFF; padding:86px 40px 76px; overflow:hidden;">
+    <div style="max-width:1080px; margin:0 auto; display:grid; grid-template-columns:minmax(280px,1fr) minmax(260px,380px); gap:56px; align-items:center;">
+      <div style="display:flex; flex-direction:column; gap:15px;">
+        <span style="font-size:11px; letter-spacing:0.26em; font-weight:700; color:#8FA2BD;">THE WEATHER TURNS</span>
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(32px,3.8vw,54px); line-height:1.03; color:#1B2B4B;">More people, more plans,<br>more promises</h2>
+        <div style="font-size:15.5px; line-height:1.65; color:#5B6F8E; max-width:440px;">The sky fills faster than you can clear it. When your messages and calendar stop feeling manageable, it becomes easy to delay the things that matter most.</div>
+        <div style="font-size:15.5px; line-height:1.65; color:#5B6F8E; max-width:440px;">A delayed reply creates pressure. Pressure makes the next reply harder.</div>
+      </div>
+      <div style="position:relative; display:flex; justify-content:center; min-height:300px;">
+        <span data-depth="0.05" style="position:absolute; inset:0; pointer-events:none;">
+          <span style="position:absolute; left:12%; top:0; animation:ck-fall 3.6s linear infinite;"><svg width="30" height="23" viewBox="0 0 24 18" fill="none" aria-hidden="true"><rect x="0.8" y="0.8" width="22.4" height="16.4" rx="2.6" fill="#F6FAFF" stroke="#C3D5EA" stroke-width="1.2"></rect><path d="M1.6 2.4L12 10 22.4 2.4" stroke="#C3D5EA" stroke-width="1.4" fill="none"></path></svg></span>
+          <span style="position:absolute; left:52%; top:0; animation:ck-fall 4.4s linear infinite 0.8s;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3.5h16a2.5 2.5 0 0 1 2.5 2.5v8A2.5 2.5 0 0 1 20 16.5h-7l-5 4v-4H4A2.5 2.5 0 0 1 1.5 14V6A2.5 2.5 0 0 1 4 3.5z" fill="#EDF3FB" stroke="#C3D5EA" stroke-width="1.2"></path></svg></span>
+          <span style="position:absolute; left:78%; top:0; animation:ck-fall 3.1s linear infinite 1.6s;"><svg width="28" height="21" viewBox="0 0 24 18" fill="none" aria-hidden="true"><rect x="0.8" y="0.8" width="22.4" height="16.4" rx="2.6" fill="#F6FAFF" stroke="#C3D5EA" stroke-width="1.2"></rect><path d="M1.6 2.4L12 10 22.4 2.4" stroke="#C3D5EA" stroke-width="1.4" fill="none"></path></svg></span>
+        </span>
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155101_c8416809-53ac-4a64-815a-ca393322c098.png" alt="The daydreamer under a stack of message clouds" style="position:relative; width:100%; max-width:360px; align-self:flex-end; display:block; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.40)) drop-shadow(0 20px 28px rgba(27,43,75,0.22));">
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Beat 2 break in clouds" style="position:relative; background:linear-gradient(180deg,#EAF3FC 0%,#D5E8F9 100%); padding:0 40px 90px; overflow:hidden;">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="width:100%; height:90px; display:block;" aria-hidden="true"><path d="M0 0h1440v26c-240 44-480 60-720 44C480 54 240 16 0 0z" fill="#FFFFFF"></path></svg>
+    <div style="position:relative; max-width:980px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;">
+      <div style="position:relative; width:100%; display:flex; justify-content:center; align-items:flex-end; min-height:340px;">
+        <span data-depth="0.05" style="position:absolute; left:6%; bottom:30%; width:min(230px,21vw); pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153122_2c001813-82c1-48aa-9924-3937a2e8251e.png" alt="" style="width:100%; display:block; animation:ck-bob 11s ease-in-out infinite;"></span>
+        <span data-depth="0.05" style="position:absolute; right:6%; bottom:32%; width:min(230px,21vw); pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153125_1817f5c8-0a42-45d5-919f-57d265ca809f.png" alt="" style="width:100%; display:block; animation:ck-bob 13s ease-in-out infinite;"></span>
+        <span style="position:absolute; left:50%; top:0; transform:translateX(-50%); width:120%; height:100%; background:conic-gradient(from 176deg at 50% 0%, transparent 44%, rgba(255,221,154,0.5) 50%, transparent 56%); pointer-events:none;"></span>
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155102_f5946a5a-9e7c-4812-b863-04f801137e13.png" alt="The daydreamer pushing two clouds apart to let the light through" style="position:relative; z-index:3; width:min(620px,60vw); display:block; filter:drop-shadow(0 4px 4px rgba(15,28,52,0.48)) drop-shadow(0 24px 30px rgba(15,28,52,0.3));">
+      </div>
+      <span style="font-size:11px; letter-spacing:0.26em; font-weight:700; color:#C96F4A;">A BREAK IN THE CLOUDS</span>
+      <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(32px,4.2vw,58px); line-height:1.02; color:#1B2B4B;">Clearsky sorts what deserves<br>your presence</h2>
+      <div style="font-size:15.5px; line-height:1.65; color:#4C5F7D; max-width:540px;">Every morning it hands you a short stack — the people waiting, the promises due, the plans to make. Nothing else.</div>
+    </div>
+  </section>
+
+  <section data-screen-label="Feature cards" style="position:relative; background:#FFFFFF; padding:96px 40px 90px;">
+    <div style="max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:18px;">
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center;">
+        <span style="font-size:11px; letter-spacing:0.26em; font-weight:700; color:#C96F4A;">LIGHT BECOMES ACTION</span>
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(32px,4vw,56px); line-height:1.02; color:#1B2B4B;">A reply becomes a plan.<br>A plan becomes a promise.</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:130px 16px; margin-top:106px;">
+        <div id="card-r04" style="position:relative; background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:74px 16px 20px; display:flex; flex-direction:column; gap:5px; text-align:center; transition:box-shadow 0.35s, transform 0.35s;" style-hover="box-shadow:0 18px 34px rgba(27,43,75,0.13); transform:translateY(-4px);">
+          <img id="r04" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161415_716c0000-b399-4d6e-bf6c-c60e25080617.png" alt="Triage — the daydreamer sorting three clouds" style="position:absolute; left:50%; top:-100px; transform:translate(-50%,0); width:164px; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.44)) drop-shadow(0 14px 16px rgba(27,43,75,0.26));">
+          <span style="font-size:15.5px; font-weight:700; color:#1B2B4B;">Triage</span>
+          <span style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Morning stack: keep, queue, let go.</span>
+        </div>
+        <div id="card-r05" style="position:relative; background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:74px 16px 20px; display:flex; flex-direction:column; gap:5px; text-align:center; transition:box-shadow 0.35s, transform 0.35s;" style-hover="box-shadow:0 18px 34px rgba(27,43,75,0.13); transform:translateY(-4px);">
+          <img id="r05" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161417_92510ea8-0843-4a8d-9673-daa12d16a0bc.png" alt="Plan — the daydreamer drawing a glowing path" style="position:absolute; left:50%; top:-100px; transform:translate(-50%,0); width:164px; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.44)) drop-shadow(0 14px 16px rgba(27,43,75,0.26));">
+          <span style="font-size:15.5px; font-weight:700; color:#1B2B4B;">Plan</span>
+          <span style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Three slots that actually fit.</span>
+        </div>
+        <div id="card-r06" style="position:relative; background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:74px 16px 20px; display:flex; flex-direction:column; gap:5px; text-align:center; transition:box-shadow 0.35s, transform 0.35s;" style-hover="box-shadow:0 18px 34px rgba(27,43,75,0.13); transform:translateY(-4px);">
+          <img id="r06" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161418_494651bc-7264-4220-ab3a-a7cff0fd1d14.png" alt="Promise — the daydreamer cradling the amber sun" style="position:absolute; left:50%; top:-100px; transform:translate(-50%,0); width:164px; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.44)) drop-shadow(0 14px 16px rgba(27,43,75,0.26));">
+          <span style="font-size:15.5px; font-weight:700; color:#1B2B4B;">Promise</span>
+          <span style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">What you said, with a date.</span>
+        </div>
+        <div id="card-r07" style="position:relative; background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:74px 16px 20px; display:flex; flex-direction:column; gap:5px; text-align:center; transition:box-shadow 0.35s, transform 0.35s;" style-hover="box-shadow:0 18px 34px rgba(27,43,75,0.13); transform:translateY(-4px);">
+          <img id="r07" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161420_a4417da8-3bce-42be-b308-c1d6e7238db1.png" alt="Protect — the daydreamer in his cloud hammock" style="position:absolute; left:50%; top:-100px; transform:translate(-50%,0); width:164px; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.44)) drop-shadow(0 14px 16px rgba(27,43,75,0.26));">
+          <span style="font-size:15.5px; font-weight:700; color:#1B2B4B;">Protect</span>
+          <span style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Evenings held open on purpose.</span>
+        </div>
+        <div id="card-r08" style="position:relative; background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:74px 16px 20px; display:flex; flex-direction:column; gap:5px; text-align:center; transition:box-shadow 0.35s, transform 0.35s;" style-hover="box-shadow:0 18px 34px rgba(27,43,75,0.13); transform:translateY(-4px);">
+          <img id="r08" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161421_e4a80b5e-31da-45f7-9ba5-47848dceec30.png" alt="Review — the daydreamer holding framed moments" style="position:absolute; left:50%; top:-100px; transform:translate(-50%,0); width:164px; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.44)) drop-shadow(0 14px 16px rgba(27,43,75,0.26));">
+          <span style="font-size:15.5px; font-weight:700; color:#1B2B4B;">Review</span>
+          <span style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Sunday: proof you showed up.</span>
+        </div>
+      </div>
+      <div style="text-align:center; font-size:13.5px; color:#5B6F8E; padding-top:6px;">See each one in motion on <a href="04%20M02%20How%20It%20Works.dc.html" style="font-weight:700;">How it works →</a></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Pricing teaser" style="position:relative; background:linear-gradient(180deg,#F2F8FD 0%,#E4F0FA 100%); padding:88px 40px 96px; overflow:hidden;">
+    <div style="max-width:900px; margin:0 auto; display:flex; flex-direction:column; gap:20px; align-items:center; text-align:center;">
+      <span style="font-size:11px; letter-spacing:0.26em; font-weight:700; color:#5B6F8E;">THE CLEARING</span>
+      <div id="card-r10" style="position:relative; display:inline-flex; align-items:flex-end;">
+        <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(32px,4vw,56px); line-height:1.02; color:#1B2B4B;">Clear day, clear deal</h2>
+        <img id="r10" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161422_4ddcd980-7478-43be-8821-fa2b5620a67c.png" alt="The daydreamer reaching up to the headline" style="position:absolute; right:-168px; bottom:-24px; width:158px; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.42)) drop-shadow(0 14px 18px rgba(27,43,75,0.24)); animation:ck-bob 9s ease-in-out infinite;">
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; width:100%;">
+        <div style="background:#FFFFFF; border:2px solid #1B2B4B; border-radius:20px; padding:22px 20px; display:flex; flex-direction:column; gap:5px; box-shadow:0 16px 34px rgba(27,43,75,0.1);"><span style="font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#1B2B4B;">7 days free</span><span style="font-size:13px; color:#5B6F8E;">then $5.99 per week</span></div>
+        <div style="background:#FFFFFF; border:1px solid #E3EDF8; border-radius:20px; padding:22px 20px; display:flex; flex-direction:column; gap:5px;"><span style="font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#1B2B4B;">$49.99 a year</span><span style="font-size:13px; color:#5B6F8E;">save 84%</span></div>
+        <div style="background:#FFFFFF; border:1px solid #E3EDF8; border-radius:20px; padding:22px 20px; display:flex; flex-direction:column; gap:5px;"><span style="font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#1B2B4B;">$129 lifetime</span><span style="font-size:13px; color:#5B6F8E;">once, yours forever</span></div>
+      </div>
+      <a href="06%20M04%20Pricing.dc.html" style="font-size:13.5px; font-weight:700;">Full pricing and FAQ →</a>
+    </div>
+  </section>
+
+  <section data-screen-label="Closing" style="position:relative; background:linear-gradient(180deg,#BFD9F2 0%,#8FAFD5 100%); padding:80px 40px 70px; overflow:hidden;">
+    <span data-depth="0.06" style="position:absolute; left:-4%; top:14%; width:16vw; min-width:150px; opacity:0.75; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153118_f0d1b6be-bf49-40e8-bbb7-15c07bf94114.png" alt="" style="width:100%; display:block; animation:ck-bob 12s ease-in-out infinite;"></span>
+    <div style="position:relative; z-index:2; max-width:1000px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;">
+      <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(34px,4.8vw,72px); line-height:1.0; color:#1B2B4B; max-width:900px;">Your future is built in the moments you choose to show up</h2>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:16px; font-weight:700; padding:16px 42px; border-radius:999px; box-shadow:0 14px 30px rgba(122,79,16,0.32); margin-top:4px;" style-hover="box-shadow:0 18px 38px rgba(122,79,16,0.48);">Get Clearsky — start 7 days free</a>
+    </div>
+    <div style="position:relative; z-index:2; max-width:1080px; margin:56px auto 0; border-top:1px solid rgba(27,43,75,0.18); padding-top:20px; display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-size:12.5px; color:#33507C;">
+      <span style="display:inline-flex; align-items:center; gap:8px;"><svg width="20" height="14" viewBox="0 0 20 14" fill="#1B2B4B" aria-hidden="true"><circle cx="6" cy="9" r="4"></circle><circle cx="11" cy="6" r="5"></circle><circle cx="15" cy="10" r="3.4"></circle></svg>© 2026 Clearsky</span>
+      <span style="display:flex; gap:18px; flex-wrap:wrap;"><a href="04%20M02%20How%20It%20Works.dc.html">How it works</a><a href="05%20M03%20Why%20We%20Show%20Up.dc.html">Why we show up</a><a href="06%20M04%20Pricing.dc.html">Pricing</a><a href="07%20M05%20Get%20Clearsky.dc.html">Get Clearsky</a><a href="08%20M06%20Private%20By%20Design.dc.html">Private by design</a></span>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;parallax&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; },
+  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._raf = 0;
+    this.onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const on = this.props.parallax ?? true;
+        const vh = window.innerHeight;
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        document.querySelectorAll('[data-depth]').forEach((el) => {
+          if (!on) { el.style.transform = ''; return; }
+          const d = parseFloat(el.dataset.depth) || 0;
+          const r = el.getBoundingClientRect();
+          el.style.transform = 'translate3d(0,' + (-((r.top + r.height / 2) - vh / 2) * d).toFixed(1) + 'px,0)';
+        });
+        const hero = document.querySelector('[data-hero-plate]');
+        if (hero) {
+          const p = Math.max(0, Math.min(1, y / Math.max(1, vh)));
+          hero.style.transform = on ? 'translate3d(0,' + (y * 0.24).toFixed(1) + 'px,0) scale(' + (1 + p * 0.08).toFixed(3) + ')' : '';
+        }
+        const copy = document.querySelector('[data-hero-copy]');
+        if (copy) {
+          const p = Math.max(0, Math.min(1, y / (vh * 0.8)));
+          copy.style.opacity = String(1 - p * 0.9);
+          copy.style.transform = 'translate3d(0,' + (y * -0.06).toFixed(1) + 'px,0)';
+        }
+        const hl = document.getElementById('hero-left'); const hr = document.getElementById('hero-right');
+        if (hl) hl.style.transform = 'translate3d(' + (-y * 0.05).toFixed(1) + 'px,' + (y * 0.09).toFixed(1) + 'px,0) rotate(' + (-y * 0.006).toFixed(2) + 'deg)';
+        if (hr) hr.style.transform = 'translate3d(' + (y * 0.05).toFixed(1) + 'px,' + (y * 0.07).toFixed(1) + 'px,0) rotate(' + (y * 0.006).toFixed(2) + 'deg)';
+        [['r04','card-r04'],['r05','card-r05'],['r06','card-r06'],['r07','card-r07'],['r08','card-r08'],['r10','card-r10']].forEach(()=>{});
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+
+    [['r04', 'card-r04', 'translate(-50%,-8px) rotate(-3deg)'],
+     ['r05', 'card-r05', 'translate(-50%,-11px) rotate(2deg)'],
+     ['r06', 'card-r06', 'translate(-50%,-9px) scale(1.05)'],
+     ['r07', 'card-r07', 'translate(-50%,-5px) rotate(3deg)'],
+     ['r08', 'card-r08', 'translate(-50%,-10px) rotate(-2deg)'],
+     ['r10', 'card-r10', 'translateY(-14px) rotate(-4deg)']].forEach(([imgId, tgtId, tf]) => {
+      const img = document.getElementById(imgId);
+      const tgt = document.getElementById(tgtId);
+      if (!img || !tgt) return;
+      if (!tgt.contains(img)) {
+        img.style.pointerEvents = 'auto';
+        img.addEventListener('mouseenter', () => tgt.dispatchEvent(new Event('mouseenter')));
+        img.addEventListener('mouseleave', () => tgt.dispatchEvent(new Event('mouseleave')));
+      }
+      const base = img.style.transform || '';
+      const baseFilter = img.style.filter || '';
+      const glow = imgId === 'r06' ? ' drop-shadow(0 0 22px rgba(242,184,75,0.75))' : '';
+      img.style.transition = 'transform 0.45s cubic-bezier(.34,1.4,.5,1), filter 0.45s ease';
+      tgt.addEventListener('mouseenter', () => { img.style.animationPlayState = 'paused'; img.style.transform = tf; img.style.filter = baseFilter + glow; });
+      tgt.addEventListener('mouseleave', () => { img.style.transform = base; img.style.filter = baseFilter; img.style.animationPlayState = ''; });
+    });
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); if (this._raf) cancelAnimationFrame(this._raf); }
+  renderVals() { return { rootClass: (this.props.motion ?? true) ? '' : 'ck-still' }; }
+}
+</script>
+</body>
+</html>

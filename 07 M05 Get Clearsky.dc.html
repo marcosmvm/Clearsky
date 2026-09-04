@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #FFFFFF; }
+    a { color: #27406B; text-decoration: none; }
+    a:hover { color: #14213C; }
+    @keyframes ck-bob { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+    .ck-still * { animation: none !important; }
+  </style>
+</helmet>
+<div class="{{ rootClass }}" style="min-height:100vh; background:#FFFFFF; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F;">
+
+  <nav data-screen-label="Nav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 40px; background:#FFFFFF; border-bottom:1px solid #E7EFF8; box-shadow:0 2px 14px rgba(27,43,75,0.05);">
+    <a href="03%20M01%20Landing.dc.html" style="display:inline-flex; align-items:center; gap:10px;">
+      <svg width="28" height="19" viewBox="0 0 20 14" fill="#1B2B4B" aria-hidden="true"><circle cx="6" cy="9" r="4"></circle><circle cx="11" cy="6" r="5"></circle><circle cx="15" cy="10" r="3.4"></circle></svg>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:21px; font-weight:600; color:#1B2B4B;">Clearsky</span>
+    </a>
+    <span style="display:flex; align-items:center; gap:26px;">
+      <a href="04%20M02%20How%20It%20Works.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">How it works</a>
+      <a href="05%20M03%20Why%20We%20Show%20Up.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Why we show up</a>
+      <a href="06%20M04%20Pricing.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Pricing</a>
+      <a href="08%20M06%20Private%20By%20Design.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Privacy</a>
+    </span>
+  </nav>
+
+  <section data-screen-label="Download hero" style="position:relative; background:linear-gradient(180deg,#2B4670 0%,#6E93C2 44%,#E2B87A 88%,#F6DFB2 100%); padding:66px 40px 116px; overflow:hidden;">
+    <img data-hero-plate="1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182311_ca9de7db-8076-4079-a84b-ef9b9b1a0d09.png" alt="" style="position:absolute; inset:0; will-change:transform; width:100%; height:100%; object-fit:cover; opacity:0.92; pointer-events:none;">
+    <span data-depth="0.16" style="position:absolute; left:8%; top:16%; width:7vw; z-index:2; opacity:0.6; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153121_c7a7abe3-5c62-4cda-9f5b-0c87bd5ab4f4.png" alt="" style="width:100%; display:block; animation:ck-bob 9s ease-in-out infinite;"></span>
+    <span data-depth="0.08" style="position:absolute; right:4%; bottom:6%; width:22vw; z-index:2; opacity:0.5; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153125_1817f5c8-0a42-45d5-919f-57d265ca809f.png" alt="" style="width:100%; display:block; animation:ck-bob 14s ease-in-out infinite;"></span>
+    <span data-depth="0.07" style="position:absolute; left:5%; top:16%; width:14vw; min-width:130px; opacity:0.5; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153124_d0a3f95d-d2ea-433a-a947-214ef6f8e53a.png" alt="" style="width:100%; display:block; animation:ck-bob 13s ease-in-out infinite;"></span>
+    <div data-hero-copy="1" style="position:relative; z-index:2; max-width:1000px; margin:0 auto; display:grid; grid-template-columns:minmax(280px,1fr) minmax(240px,300px); gap:46px; align-items:center;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <span style="font-size:11.5px; letter-spacing:0.26em; font-weight:700; color:#DCE7F5;">FIRST LIGHT</span>
+        <h1 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(38px,5.4vw,78px); line-height:0.99; color:#FFFDF8; text-shadow:0 14px 34px rgba(12,22,42,0.3);">Get Clearsky</h1>
+        <div style="font-size:16px; line-height:1.65; color:#EAF2FC; max-width:420px;">Seven days free. Connect your accounts in about two minutes, and wake up tomorrow to a sky that is already sorted.</div>
+        <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap; padding-top:4px;">
+          <span style="display:inline-flex; align-items:center; gap:11px; background:#12213C; color:#F8FBFF; padding:12px 24px; border-radius:16px; cursor:pointer; box-shadow:0 14px 28px rgba(12,22,42,0.35);" style-hover="box-shadow:0 18px 34px rgba(12,22,42,0.5);">
+            <svg width="24" height="28" viewBox="0 0 24 28" fill="#F8FBFF" aria-hidden="true"><path d="M17.6 14.7c0-2.8 2.3-4.2 2.4-4.2-1.3-1.9-3.3-2.2-4-2.2-1.7-.2-3.3 1-4.2 1-.9 0-2.2-1-3.6-1-1.9 0-3.6 1.1-4.5 2.8-1.9 3.3-.5 8.3 1.4 11 .9 1.3 2 2.8 3.4 2.7 1.4-.1 1.9-.9 3.5-.9 1.6 0 2.1.9 3.5.9 1.5 0 2.4-1.3 3.3-2.7 1-1.5 1.5-3 1.5-3.1-.1 0-2.7-1.1-2.7-4.3zM14.9 5.4c.8-.9 1.3-2.2 1.1-3.4-1.1 0-2.5.8-3.3 1.7-.7.8-1.3 2.1-1.1 3.3 1.2.1 2.5-.6 3.3-1.6z"></path></svg>
+            <span style="display:flex; flex-direction:column; line-height:1.15;"><span style="font-size:10px; opacity:0.8;">Download on the</span><span style="font-size:17px; font-weight:700;">App Store</span></span>
+          </span>
+          <span style="display:inline-flex; align-items:center; gap:12px; background:rgba(255,253,248,0.9); border:1px solid rgba(27,43,75,0.14); border-radius:16px; padding:10px 14px;">
+            <span style="width:56px; height:56px; border-radius:8px; background:repeating-conic-gradient(#1B2B4B 0% 25%, #FFFDF8 0% 50%) 50%/13px 13px; border:3px solid #FFFDF8; box-shadow:inset 0 0 0 1px #1B2B4B;"></span>
+            <span style="font-size:12.5px; color:#33507C; line-height:1.4; max-width:120px;">Scan to install on your phone</span>
+          </span>
+        </div>
+        <span style="font-size:12px; color:#DCE7F5;">iPhone · iOS 17 and later. Android is next.</span>
+      </div>
+      <div style="display:flex; justify-content:center;">
+        <img data-hero-fig="1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175516_6d2ada36-85c3-4bfb-a0ab-514981ea277e.png" alt="The daydreamer arriving with Clearsky on his phone" style="width:100%; max-width:290px; display:block; filter:drop-shadow(0 4px 4px rgba(12,22,42,0.53)) drop-shadow(0 24px 30px rgba(12,22,42,0.35)); animation:ck-bob 10s ease-in-out infinite;">
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Setup steps" style="position:relative; background:#FFFFFF; padding:60px 40px 80px; overflow:hidden;">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182311_5d4efdb0-dabf-40d7-b0a5-0a4455e8da2c.png" alt="" style="position:absolute; left:0; right:0; top:0; width:100%; height:220px; object-fit:cover; opacity:0.16; pointer-events:none;">
+    <div style="max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:22px;">
+      <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(28px,3.4vw,46px); line-height:1.04; color:#1B2B4B; text-align:center;">Two minutes to your first clear sky</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px;">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="0">
+          <div style="background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:22px 22px 24px; display:flex; flex-direction:column; gap:7px;">
+            <span style="display:inline-flex; width:28px; height:28px; border-radius:50%; background:#1B2B4B; color:#EAF2FC; align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace; font-size:12px;">{{ s.n }}</span>
+            <span style="font-size:15.5px; font-weight:700; color:#1B2B4B;">{{ s.t }}</span>
+            <span style="font-size:13.5px; color:#5B6F8E; line-height:1.55;">{{ s.b }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex; justify-content:center; gap:26px; flex-wrap:wrap; padding-top:8px; font-size:13px; color:#5B6F8E;">
+        <span>Nothing is ever sent for you</span><span>·</span><span>Drafts stay on your device</span><span>·</span><span>Cancel in two taps</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Footer" style="background:linear-gradient(180deg,#EAF3FC 0%,#DCEDF9 100%); padding:30px 40px 36px;">
+    <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-size:12.5px; color:#33507C;">
+      <span>© 2026 Clearsky</span>
+      <span style="display:flex; gap:18px; flex-wrap:wrap;"><a href="03%20M01%20Landing.dc.html">Home</a><a href="04%20M02%20How%20It%20Works.dc.html">How it works</a><a href="05%20M03%20Why%20We%20Show%20Up.dc.html">Why we show up</a><a href="06%20M04%20Pricing.dc.html">Pricing</a><a href="08%20M06%20Private%20By%20Design.dc.html">Private by design</a></span>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;parallax&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; },
+  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._raf = 0;
+    this.onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const on = this.props.parallax ?? true;
+        const vh = window.innerHeight;
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        document.querySelectorAll('[data-depth]').forEach((el) => {
+          if (!on) { el.style.transform = ''; return; }
+          const d = parseFloat(el.dataset.depth) || 0;
+          const r = el.getBoundingClientRect();
+          el.style.transform = 'translate3d(0,' + (-((r.top + r.height / 2) - vh / 2) * d).toFixed(1) + 'px,0)';
+        });
+        const hero = document.querySelector('[data-hero-plate]');
+        if (hero) {
+          const p = Math.max(0, Math.min(1, y / Math.max(1, vh)));
+          hero.style.transform = on ? 'translate3d(0,' + (y * 0.2).toFixed(1) + 'px,0) scale(' + (1 + p * 0.05).toFixed(3) + ')' : '';
+        }
+        const copy = document.querySelector('[data-hero-copy]');
+        if (copy) {
+          const p = Math.max(0, Math.min(1, y / (vh * 0.85)));
+          copy.style.opacity = String(1 - p * 0.9);
+          copy.style.transform = 'translate3d(0,' + (y * -0.06).toFixed(1) + 'px,0)';
+        }
+        const fig = document.querySelector('[data-hero-fig]'); if (fig) fig.style.transform = 'translate3d(' + (y * 0.05).toFixed(1) + 'px,' + (y * -0.04).toFixed(1) + 'px,0) rotate(' + (y * 0.004).toFixed(2) + 'deg)';
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); if (this._raf) cancelAnimationFrame(this._raf); }
+  renderVals() { return { rootClass: (this.props.motion ?? true) ? '' : 'ck-still' }; }
+}
+</script>
+</body>
+</html>

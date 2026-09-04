@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #FFFFFF; }
+    a { color: #27406B; text-decoration: none; }
+    a:hover { color: #14213C; }
+    @keyframes ck-bob { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+    .ck-still * { animation: none !important; }
+  </style>
+</helmet>
+<div class="{{ rootClass }}" style="min-height:100vh; background:#FFFFFF; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F;">
+
+  <nav data-screen-label="Nav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 40px; background:#FFFFFF; border-bottom:1px solid #E7EFF8; box-shadow:0 2px 14px rgba(27,43,75,0.05);">
+    <a href="03%20M01%20Landing.dc.html" style="display:inline-flex; align-items:center; gap:10px;">
+      <svg width="28" height="19" viewBox="0 0 20 14" fill="#1B2B4B" aria-hidden="true"><circle cx="6" cy="9" r="4"></circle><circle cx="11" cy="6" r="5"></circle><circle cx="15" cy="10" r="3.4"></circle></svg>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:21px; font-weight:600; color:#1B2B4B;">Clearsky</span>
+    </a>
+    <span style="display:flex; align-items:center; gap:26px;">
+      <a href="04%20M02%20How%20It%20Works.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">How it works</a>
+      <a href="05%20M03%20Why%20We%20Show%20Up.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Why we show up</a>
+      <span style="font-size:14px; font-weight:700; color:#1B2B4B; border-bottom:2px solid #F2B84B; padding-bottom:2px;">Pricing</span>
+      <a href="08%20M06%20Private%20By%20Design.dc.html" style="font-size:14px; font-weight:600; color:#33507C;">Privacy</a>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:14px; font-weight:700; padding:10px 24px; border-radius:999px; box-shadow:0 8px 18px rgba(199,141,32,0.28);" style-hover="box-shadow:0 10px 24px rgba(199,141,32,0.45);">Get Clearsky</a>
+    </span>
+  </nav>
+
+  <section data-screen-label="Pricing hero" style="position:relative; background:linear-gradient(180deg,#BCD5EE 0%,#E4F0FA 100%); padding:66px 40px 108px; overflow:hidden;">
+    <img data-hero-plate="1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_9fc92838-3cc5-4443-a260-3ec984e98294.png" alt="" style="position:absolute; inset:0; will-change:transform; width:100%; height:100%; object-fit:cover; opacity:0.9; pointer-events:none;">
+    <span data-depth="0.06" style="position:absolute; left:4%; top:26%; width:13vw; min-width:120px; opacity:0.7; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153118_f0d1b6be-bf49-40e8-bbb7-15c07bf94114.png" alt="" style="width:100%; display:block; animation:ck-bob 13s ease-in-out infinite;"></span>
+    <span data-depth="0.1" style="position:absolute; right:5%; top:12%; width:11vw; min-width:100px; opacity:0.85; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153125_1817f5c8-0a42-45d5-919f-57d265ca809f.png" alt="" style="width:100%; display:block; animation:ck-bob 10s ease-in-out infinite;"></span>
+    <span data-depth="0.14" style="position:absolute; right:20%; top:58%; width:6vw; min-width:62px; opacity:0.8; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153121_c7a7abe3-5c62-4cda-9f5b-0c87bd5ab4f4.png" alt="" style="width:100%; display:block; animation:ck-bob 8s ease-in-out infinite;"></span>
+    <span data-depth="0.04" style="position:absolute; left:22%; bottom:-6%; width:15vw; min-width:130px; opacity:0.6; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153122_2c001813-82c1-48aa-9924-3937a2e8251e.png" alt="" style="width:100%; display:block; animation:ck-bob 15s ease-in-out infinite;"></span>
+    <span data-depth="0.09" style="position:absolute; left:44%; top:6%; width:8vw; min-width:76px; opacity:0.5; pointer-events:none;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153124_d0a3f95d-d2ea-433a-a947-214ef6f8e53a.png" alt="" style="width:100%; display:block; animation:ck-bob 12s ease-in-out infinite;"></span>
+    <div data-hero-copy="1" style="position:relative; z-index:2; max-width:760px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;">
+      <span style="font-size:11.5px; letter-spacing:0.26em; font-weight:700; color:#5B6F8E;">PRICING</span>
+      <h1 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(38px,5.2vw,74px); line-height:1.0; color:#1B2B4B;">Clear day, clear deal</h1>
+      <div style="font-size:16px; line-height:1.65; color:#5B6F8E; max-width:500px;">One plan, everything included. Seven days free, cancel from Settings in two taps — the same numbers you see inside the app.</div>
+    </div>
+  </section>
+
+  <section data-screen-label="Plans" style="background:#FFFFFF; padding:44px 40px 76px;">
+    <div style="max-width:1040px; margin:0 auto; display:grid; grid-template-columns:minmax(280px,1fr) minmax(240px,320px); gap:34px; align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="position:relative; background:#FFFFFF; border:2px solid #1B2B4B; border-radius:22px; padding:26px 28px; display:flex; flex-direction:column; gap:14px; box-shadow:0 20px 40px rgba(27,43,75,0.12);">
+          <span style="position:absolute; right:22px; top:-13px; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:10.5px; font-weight:700; letter-spacing:0.1em; border-radius:999px; padding:5px 14px;">BEST VALUE</span>
+          <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+            <span style="font-family:'Source Serif 4',Georgia,serif; font-size:34px; font-weight:600; color:#1B2B4B;">$49.99</span>
+            <span style="font-size:14px; color:#5B6F8E;">per year · save 84%</span>
+          </div>
+          <div style="font-size:14.5px; color:#42536F; line-height:1.6;">Starts with 7 days free. Works out to about $4.16 a month — one decision, once a year.</div>
+          <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:flex; justify-content:center; background:#1B2B4B; color:#F3F7FC; font-size:15px; font-weight:700; padding:14px; border-radius:999px;" style-hover="background:#14213C;">Start 7 days free</a>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
+          <div style="background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:20px 22px; display:flex; flex-direction:column; gap:5px;">
+            <span style="font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#1B2B4B;">$5.99</span><span style="font-size:13px; color:#5B6F8E;">per week, after the trial</span>
+          </div>
+          <div style="background:#F6FAFE; border:1px solid #E0EBF7; border-radius:20px; padding:20px 22px; display:flex; flex-direction:column; gap:5px;">
+            <span style="font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#1B2B4B;">$129</span><span style="font-size:13px; color:#5B6F8E;">lifetime, one payment</span>
+          </div>
+        </div>
+        <div style="background:#FFFFFF; border:1px solid #E3EDF8; border-radius:20px; padding:22px 26px; display:flex; flex-direction:column; gap:11px; margin-top:6px;">
+          <span style="font-size:11px; letter-spacing:0.2em; font-weight:700; color:#8FA2BD;">EVERYTHING INCLUDED</span>
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="0">
+            <span style="display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:#33507C; line-height:1.5;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E8A57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; margin-top:3px;"><path d="M4.5 12.5l5 5 10-11"></path></svg>{{ f }}</span>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="position:relative; background:linear-gradient(180deg,#EAF3FC,#DCEDF9); border:1px solid #C9DFF4; border-radius:22px; padding:22px 24px 90px; display:flex; flex-direction:column; gap:8px; overflow:hidden;">
+          <span style="font-size:11px; letter-spacing:0.2em; font-weight:700; color:#5B6F8E;">THE TRIAL, HONESTLY</span>
+          <div style="display:flex; gap:11px; align-items:flex-start;"><span style="width:9px; height:9px; border-radius:50%; background:#F2B84B; margin-top:6px; flex:none;"></span><span style="font-size:14px; color:#33507C; line-height:1.5;"><span style="font-weight:700; color:#1B2B4B;">Today</span> — everything unlocks.</span></div>
+          <div style="display:flex; gap:11px; align-items:flex-start;"><span style="width:9px; height:9px; border-radius:50%; background:#9DB4D8; margin-top:6px; flex:none;"></span><span style="font-size:14px; color:#33507C; line-height:1.5;"><span style="font-weight:700; color:#1B2B4B;">Day 5</span> — we remind you it ends soon.</span></div>
+          <div style="display:flex; gap:11px; align-items:flex-start;"><span style="width:9px; height:9px; border-radius:50%; background:#9DB4D8; margin-top:6px; flex:none;"></span><span style="font-size:14px; color:#33507C; line-height:1.5;"><span style="font-weight:700; color:#1B2B4B;">Day 7</span> — billing starts, unless you cancel.</span></div>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161422_4ddcd980-7478-43be-8821-fa2b5620a67c.png" alt="The daydreamer reaching upward" style="position:absolute; right:-24px; bottom:-16px; width:150px; filter:drop-shadow(0 4px 4px rgba(27,43,75,0.40)) drop-shadow(0 12px 16px rgba(27,43,75,0.22)); animation:ck-bob 10s ease-in-out infinite;">
+        </div>
+        <div style="background:#FFFFFF; border:1px solid #E3EDF8; border-radius:20px; padding:20px 22px; display:flex; flex-direction:column; gap:12px;">
+          <span style="font-size:11px; letter-spacing:0.2em; font-weight:700; color:#8FA2BD;">QUESTIONS</span>
+          <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="0">
+            <div style="display:flex; flex-direction:column; gap:3px; border-bottom:1px solid #F0F5FA; padding-bottom:10px;">
+              <span style="font-size:14px; font-weight:700; color:#1B2B4B;">{{ q.q }}</span>
+              <span style="font-size:13.5px; color:#5B6F8E; line-height:1.55;">{{ q.a }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Footer CTA" style="position:relative; background:linear-gradient(180deg,#BFD9F2 0%,#8FAFD5 100%); padding:70px 40px 60px; overflow:hidden;">
+    <div style="max-width:900px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;">
+      <h2 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:clamp(30px,4vw,56px); line-height:1.02; color:#1B2B4B;">Seven days. No card games.</h2>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="display:inline-flex; background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:16px; font-weight:700; padding:16px 42px; border-radius:999px; box-shadow:0 14px 30px rgba(122,79,16,0.32); margin-top:6px;" style-hover="box-shadow:0 18px 38px rgba(122,79,16,0.48);">Get Clearsky</a>
+    </div>
+    <div style="max-width:1080px; margin:48px auto 0; border-top:1px solid rgba(27,43,75,0.18); padding-top:20px; display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-size:12.5px; color:#33507C;">
+      <span>© 2026 Clearsky</span>
+      <span style="display:flex; gap:18px; flex-wrap:wrap;"><a href="03%20M01%20Landing.dc.html">Home</a><a href="04%20M02%20How%20It%20Works.dc.html">How it works</a><a href="05%20M03%20Why%20We%20Show%20Up.dc.html">Why we show up</a><a href="08%20M06%20Private%20By%20Design.dc.html">Private by design</a></span>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;parallax&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; },
+  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Scene&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._raf = 0;
+    this.onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const on = this.props.parallax ?? true;
+        const vh = window.innerHeight;
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        document.querySelectorAll('[data-depth]').forEach((el) => {
+          if (!on) { el.style.transform = ''; return; }
+          const d = parseFloat(el.dataset.depth) || 0;
+          const r = el.getBoundingClientRect();
+          el.style.transform = 'translate3d(0,' + (-((r.top + r.height / 2) - vh / 2) * d).toFixed(1) + 'px,0)';
+        });
+        const hero = document.querySelector('[data-hero-plate]');
+        if (hero) {
+          const p = Math.max(0, Math.min(1, y / Math.max(1, vh)));
+          hero.style.transform = on ? 'translate3d(0,' + (y * 0.1).toFixed(1) + 'px,0) scale(' + (1 + p * 0.04).toFixed(3) + ')' : '';
+        }
+        const copy = document.querySelector('[data-hero-copy]');
+        if (copy) {
+          const p = Math.max(0, Math.min(1, y / (vh * 1.1)));
+          copy.style.opacity = String(1 - p * 0.9);
+          copy.style.transform = 'translate3d(0,' + (y * -0.06).toFixed(1) + 'px,0)';
+        }
+        
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); if (this._raf) cancelAnimationFrame(this._raf); }
+  renderVals() { return { rootClass: (this.props.motion ?? true) ? '' : 'ck-still' }; }
+}
+</script>
+</body>
+</html>

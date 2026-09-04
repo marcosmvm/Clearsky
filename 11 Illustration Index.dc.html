@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EEF3F9; }
+    a { color: #27406B; text-decoration: none; }
+    a:hover { color: #14213C; }
+  </style>
+</helmet>
+<div data-screen-label="Doc status bar" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:11px 24px; background:#1B2B4B; font-family:'Instrument Sans',system-ui,sans-serif;">
+  <a href="00%20Clearsky%20Index.dc.html" style="display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; color:#FFDD9A; white-space:nowrap;">&#8592; Project Index</a>
+  <span style="width:1px; height:15px; background:rgba(157,180,216,0.4);"></span>
+  <span style="font-family:'Source Serif 4',Georgia,serif; font-size:15px; font-weight:600; color:#F8FBFF; white-space:nowrap;">Illustration Index</span>
+  <span style="font-size:12px; color:#9DB4D8; line-height:1.5; flex:1; min-width:220px;">The asset spec book — one block per marketing page, then the full library. Marketing art only; the app uses type, colour and CSS pattern over its splash plates.</span>
+</div>
+<div style="min-height:100vh; background:#EEF3F9; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F; padding:44px 46px 80px; display:flex; flex-direction:column; gap:26px;">
+
+  <header style="display:flex; flex-direction:column; gap:12px; max-width:1400px;">
+    <div style="font-size:11px; letter-spacing:0.22em; font-weight:600; color:#5B6F8E;">CLEARSKY · MARKETING ASSET SPEC · ONE BLOCK PER PAGE</div>
+    <h1 style="margin:0; font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.015em; font-size:42px; line-height:1.02; color:#1B2B4B;">What every page uses,<br>and what is still missing</h1>
+    <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:center; font-size:13px; color:#5B6F8E; padding-top:2px;">
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:10px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 7px;">IN USE</span>shipping on the page now</span>
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:10px; font-weight:700; background:#FBE7C6; color:#8A6420; border-radius:4px; padding:2px 7px;">REWORK</span>usable, but wrong in some way</span>
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:10px; font-weight:700; background:#F6D9CE; color:#A04E2C; border-radius:4px; padding:2px 7px;">MISSING</span>needs generating</span>
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:10px; font-weight:700; background:#E4EDF8; color:#5B6F8E; border-radius:4px; padding:2px 7px;">SUPERSEDED</span>replaced, kept as reference</span>
+      <span style="margin-left:auto; font-family:ui-monospace,Menlo,monospace; font-size:11.5px; color:#8FA2BD;">7 blocks · 6 live pages · 1 support kit</span>
+    </div>
+  </header>
+
+  <section data-screen-label="M01 Landing spec" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:0; max-width:1400px; overflow:hidden; box-shadow:0 18px 40px rgba(27,43,75,0.08);">
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 24px; background:#1B2B4B;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; background:#F2B84B; color:#3C2B0C; border-radius:6px; padding:3px 10px; font-weight:700;">M01</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#F8FBFF;">Landing</h2>
+      <span style="font-size:12.5px; color:#9DB4D8;">sky: dawn → day</span>
+      <a href="03%20M01%20Landing.dc.html" style="margin-left:auto; font-size:12.5px; font-weight:700; color:#FFDD9A;">Open the live page →</a>
+    </div>
+    <div style="display:grid; grid-template-columns:minmax(380px,1.15fr) minmax(300px,1fr); gap:0;">
+      <div style="padding:18px 20px 22px; border-right:1px solid #E7EFF8;">
+        <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD; padding-bottom:9px;">HERO AS IT SHIPS</div>
+        <div style="position:relative; height:280px; border-radius:14px; overflow:hidden; border:1px solid #D8E6F4; background:linear-gradient(180deg,#2A4066 0%,#4A6B9C 34%,#7FA5CE 66%,#BAD3EA 100%);">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_8dfe2a9c-2935-4db0-92a5-c16deb566217.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9;">
+          <div style="position:absolute; left:0; right:0; top:20px; display:flex; flex-direction:column; align-items:center; gap:7px; padding:0 16px; text-align:center;">
+            <span style="font-size:6.5px; letter-spacing:0.24em; font-weight:700; color:#BFD3EC;">A RELATIONSHIP &amp; COMMITMENT OPERATING SYSTEM</span>
+            <span style="font-family:'Anton',Impact,sans-serif; font-size:34px; line-height:0.95; text-transform:uppercase; color:#F8FBFF; letter-spacing:0.015em;">Show up for<br>what matters</span>
+            <span style="font-size:8px; line-height:1.5; color:#FFFFFF; background:rgba(15,26,48,0.5); border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:6px 11px; max-width:250px;">Clearsky brings your conversations and commitments into one calm place.</span>
+            <span style="display:flex; gap:6px; padding-top:2px;"><span style="background:linear-gradient(180deg,#FFDD9A,#F2B84B); color:#4A3410; font-size:8px; font-weight:700; padding:6px 14px; border-radius:99px;">Start 7 days free</span><span style="border:1px solid rgba(248,251,255,0.55); color:#F8FBFF; font-size:8px; font-weight:600; padding:6px 12px; border-radius:99px;">See how it works</span></span>
+          </div>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175510_793299a8-caa1-413f-8e7f-e3f5036c54a2.png" alt="N01 greeting, left flank" style="position:absolute; left:4px; bottom:26px; width:98px; filter:drop-shadow(0 10px 12px rgba(12,22,42,0.35));">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175801_95c9e0ca-2efe-4a0a-8ef4-03e95a9bc49e.png" alt="N02 gazing up, right flank" style="position:absolute; right:4px; bottom:26px; width:104px; filter:drop-shadow(0 10px 12px rgba(12,22,42,0.35));">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="position:absolute; left:0; bottom:-1px; width:100%; height:38px;" aria-hidden="true"><path d="M0 120V54c240-46 480-62 720-46 240 16 480 60 720 76v36z" fill="#FFFFFF"></path></svg>
+        </div>
+      </div>
+      <div style="padding:18px 22px 22px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">WORDING</div>
+          <div style="font-size:12.5px; color:#4C5F7D; line-height:1.55;"><span style="font-weight:700; color:#1B2B4B;">Kicker</span> A relationship &amp; commitment operating system<br><span style="font-weight:700; color:#1B2B4B;">H1</span> Show up for what matters<br><span style="font-weight:700; color:#1B2B4B;">Sub</span> Clearsky brings your conversations and commitments into one calm place…<br><span style="font-weight:700; color:#1B2B4B;">CTAs</span> Start 7 days free · See how it works</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">COMPONENTS &amp; ICONS</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:#33507C;">
+            <span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">sticky white nav</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">cloud logo mark</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">curved SVG sky edge</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">C1–C6 parallax clouds</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">envelope + bubble rain</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">conic sunbeam</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">5 feature cards</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">check icon</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">3 price cards</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">IMAGES ON THIS PAGE</div>
+          <div style="display:flex; gap:7px; flex-wrap:wrap;">
+            <span style="width:56px; height:56px; border-radius:9px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_8dfe2a9c-2935-4db0-92a5-c16deb566217.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175510_793299a8-caa1-413f-8e7f-e3f5036c54a2.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161415_716c0000-b399-4d6e-bf6c-c60e25080617.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161417_92510ea8-0843-4a8d-9673-daa12d16a0bc.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161418_494651bc-7264-4220-ab3a-a7cff0fd1d14.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161420_a4417da8-3bce-42be-b308-c1d6e7238db1.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161421_e4a80b5e-31da-45f7-9ba5-47848dceec30.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175801_95c9e0ca-2efe-4a0a-8ef4-03e95a9bc49e.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155101_c8416809-53ac-4a64-815a-ca393322c098.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155102_f5946a5a-9e7c-4812-b863-04f801137e13.png');"></span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px; padding-top:3px;">
+            <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">BG1 dawn plate — full-bleed behind the hero gradient</span></span>
+            <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">R04–R08 on the feature cards, E02 and E03 in the story bands</span></span>
+            <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">N01 greeting + N02 gazing up — a hero pair made for this page only, so nothing repeats down the page</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="M02 How it works spec" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:0; max-width:1400px; overflow:hidden; box-shadow:0 18px 40px rgba(27,43,75,0.08);">
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 24px; background:#1B2B4B;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; background:#F2B84B; color:#3C2B0C; border-radius:6px; padding:3px 10px; font-weight:700;">M02</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#F8FBFF;">How it works</h2>
+      <span style="font-size:12.5px; color:#9DB4D8;">sky: midday</span>
+      <a href="04%20M02%20How%20It%20Works.dc.html" style="margin-left:auto; font-size:12.5px; font-weight:700; color:#FFDD9A;">Open the live page →</a>
+    </div>
+    <div style="display:grid; grid-template-columns:minmax(380px,1.15fr) minmax(300px,1fr); gap:0;">
+      <div style="padding:18px 20px 22px; border-right:1px solid #E7EFF8;">
+        <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD; padding-bottom:9px;">HERO AS IT SHIPS</div>
+        <div style="position:relative; height:280px; border-radius:14px; overflow:hidden; border:1px solid #D8E6F4; background:linear-gradient(180deg,#7FA5CE 0%,#A8C6E5 48%,#D5E8F9 100%);">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_26f9ed44-2186-4f59-8b57-791be4b04f46.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.92;">
+          <div style="position:absolute; left:0; right:0; top:52px; display:flex; flex-direction:column; align-items:center; gap:8px; padding:0 20px; text-align:center;">
+            <span style="font-size:6.5px; letter-spacing:0.24em; font-weight:700; color:#25406B;">HOW IT WORKS</span>
+            <span style="font-family:'Anton',Impact,sans-serif; font-size:30px; line-height:0.98; text-transform:uppercase; color:#12213C; letter-spacing:0.015em;">Five loops,<br>one calm day</span>
+            <span style="font-size:8px; line-height:1.55; color:#28405F; max-width:240px;">Clearsky runs the same short cycle every day: see what needs you, answer it well, turn the real ones into plans, keep what you promised.</span>
+          </div>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175511_83c99fa0-1d18-41ee-b106-4c64fa910ad0.png" alt="N03 phone explainer" style="position:absolute; left:50%; bottom:16px; transform:translateX(-50%); width:132px; filter:drop-shadow(0 12px 14px rgba(12,22,42,0.3));">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="position:absolute; left:0; bottom:-1px; width:100%; height:34px;" aria-hidden="true"><path d="M0 100V44c240-40 480-54 720-40 240 14 480 54 720 68v28z" fill="#FFFFFF"></path></svg>
+        </div>
+      </div>
+      <div style="padding:18px 22px 22px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">WORDING</div>
+          <div style="font-size:12.5px; color:#4C5F7D; line-height:1.55;"><span style="font-weight:700; color:#1B2B4B;">Kicker</span> How it works<br><span style="font-weight:700; color:#1B2B4B;">H1</span> Five loops, one calm day<br><span style="font-weight:700; color:#1B2B4B;">Loops</span> 01 Triage · 02 Respond · 03 Promise · 04 Protect · 05 Review<br><span style="font-weight:700; color:#1B2B4B;">CTA</span> Run one calm day. Then decide.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">COMPONENTS &amp; ICONS</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:#33507C;">
+            <span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">numbered navy discs 01–05</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">green check bullets</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">alternating split rows</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">curved SVG sky edge</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">C5 parallax wisp</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">IMAGES ON THIS PAGE</div>
+          <div style="display:flex; gap:7px; flex-wrap:wrap;">
+            <span style="width:56px; height:56px; border-radius:9px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_26f9ed44-2186-4f59-8b57-791be4b04f46.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175511_83c99fa0-1d18-41ee-b106-4c64fa910ad0.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161415_716c0000-b399-4d6e-bf6c-c60e25080617.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161417_92510ea8-0843-4a8d-9673-daa12d16a0bc.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161418_494651bc-7264-4220-ab3a-a7cff0fd1d14.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161420_a4417da8-3bce-42be-b308-c1d6e7238db1.png');"></span>
+            <span style="width:56px; height:56px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161421_e4a80b5e-31da-45f7-9ba5-47848dceec30.png');"></span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px; padding-top:3px;">
+            <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">BG2 midday plate — full-bleed behind the hero gradient</span></span>
+            <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">R04–R08, one per loop section, alternating left and right</span></span>
+            
+            <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">BG3 night plate (from your #4) — full-bleed behind the hero, stars and crescent moon</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">N03 phone explainer — the hero figure AND the phone prop in one piece, pointing at a blank screen</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="M03 Manifesto spec" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:0; max-width:1400px; overflow:hidden; box-shadow:0 18px 40px rgba(27,43,75,0.08);">
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 24px; background:#1B2B4B;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; background:#F2B84B; color:#3C2B0C; border-radius:6px; padding:3px 10px; font-weight:700;">M03</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#F8FBFF;">Why we show up</h2>
+      <span style="font-size:12.5px; color:#9DB4D8;">sky: moonlit night</span>
+      <a href="05%20M03%20Why%20We%20Show%20Up.dc.html" style="margin-left:auto; font-size:12.5px; font-weight:700; color:#FFDD9A;">Open the live page →</a>
+    </div>
+    <div style="display:grid; grid-template-columns:minmax(380px,1.15fr) minmax(300px,1fr); gap:0;">
+      <div style="padding:18px 20px 22px; border-right:1px solid #E7EFF8;">
+        <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD; padding-bottom:9px;">HERO AS IT SHIPS</div>
+        <div style="position:relative; height:280px; border-radius:14px; overflow:hidden; border:1px solid #D8E6F4; background:linear-gradient(180deg,#111C33 0%,#22375C 46%,#3E5B87 100%);">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_ddff81b7-ba83-470f-8837-b542df2a523e.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.95;">
+          <div style="position:absolute; left:0; right:0; top:22px; display:flex; flex-direction:column; align-items:center; gap:6px; padding:0 20px; text-align:center;">
+            <span style="font-size:6.5px; letter-spacing:0.24em; font-weight:700; color:#9DB4D8;">WHY WE SHOW UP</span>
+            <span style="font-family:'Anton',Impact,sans-serif; font-size:30px; line-height:0.97; text-transform:uppercase; color:#FFFDF8; letter-spacing:0.015em;">Presence is the<br>whole product</span>
+          </div>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175514_117ff26d-8089-460f-914f-2d5f14e077f0.png" alt="N04 golden summit hero" style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:168px; filter:drop-shadow(0 12px 14px rgba(12,22,42,0.35));">
+        </div>
+        <div style="display:flex; gap:10px; align-items:center; padding-top:10px;">
+          <span style="width:104px; height:62px; border-radius:9px; border:1px solid #D8E6F4; background:#EDF3FA center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131641_e02e7d1c-c44f-410c-b6f5-fc70e0967169.png'); flex:none;"></span>
+          <span style="font-size:11.5px; color:#5B6F8E; line-height:1.5;"><span style="font-weight:700; color:#8A6420;">I09 summit</span> — the artwork this page was designed around. Its sky is baked in and the avatar is a speck, so it cannot be the hero as-is.</span>
+        </div>
+      </div>
+      <div style="padding:18px 22px 22px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">WORDING</div>
+          <div style="font-size:12.5px; color:#4C5F7D; line-height:1.55;"><span style="font-weight:700; color:#1B2B4B;">Kicker</span> Why we show up<br><span style="font-weight:700; color:#1B2B4B;">H1</span> Presence is the whole product<br><span style="font-weight:700; color:#1B2B4B;">Pull quote</span> Every message does not deserve your time. But the right ones deserve your presence.<br><span style="font-weight:700; color:#1B2B4B;">Closing</span> Your future is built in the moments you choose to show up</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">COMPONENTS &amp; ICONS</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:#33507C;">
+            <span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">narrow serif measure</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">amber pull-quote rule</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">amber slogan band</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">navy CTA pill</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">C3 parallax puff</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">ASSET STATUS</div>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F4F8FD; border:1px solid #D8E6F4; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#E4EDF8; color:#5B6F8E; border-radius:4px; padding:2px 6px; white-space:nowrap;">SUPERSEDED</span><span style="font-size:11.5px; color:#5B6F8E; line-height:1.45;">I09 summit — superseded by N04, kept as reference art only</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">N04 golden summit — figure large and central, cinematic amber rim light, transparent. This is now the page\u2019s signature image, running at 460px</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="M04 Pricing spec" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:0; max-width:1400px; overflow:hidden; box-shadow:0 18px 40px rgba(27,43,75,0.08);">
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 24px; background:#1B2B4B;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; background:#F2B84B; color:#3C2B0C; border-radius:6px; padding:3px 10px; font-weight:700;">M04</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#F8FBFF;">Pricing</h2>
+      <span style="font-size:12.5px; color:#9DB4D8;">sky: clear day</span>
+      <a href="06%20M04%20Pricing.dc.html" style="margin-left:auto; font-size:12.5px; font-weight:700; color:#FFDD9A;">Open the live page →</a>
+    </div>
+    <div style="display:grid; grid-template-columns:minmax(380px,1.15fr) minmax(300px,1fr); gap:0;">
+      <div style="padding:18px 20px 22px; border-right:1px solid #E7EFF8;">
+        <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD; padding-bottom:9px;">HERO AS IT SHIPS</div>
+        <div style="position:relative; height:280px; border-radius:14px; overflow:hidden; border:1px solid #D8E6F4; background:linear-gradient(180deg,#BCD5EE 0%,#E4F0FA 100%);">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_9fc92838-3cc5-4443-a260-3ec984e98294.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.9;">
+          <span style="position:absolute; left:6%; top:30%; width:66px; opacity:0.75;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153118_f0d1b6be-bf49-40e8-bbb7-15c07bf94114.png" alt="" style="width:100%; display:block;"></span>
+          <span style="position:absolute; right:7%; top:14%; width:56px; opacity:0.85;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153125_1817f5c8-0a42-45d5-919f-57d265ca809f.png" alt="" style="width:100%; display:block;"></span>
+          <span style="position:absolute; right:24%; top:60%; width:34px; opacity:0.8;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153121_c7a7abe3-5c62-4cda-9f5b-0c87bd5ab4f4.png" alt="" style="width:100%; display:block;"></span>
+          <span style="position:absolute; left:26%; bottom:2%; width:74px; opacity:0.6;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153122_2c001813-82c1-48aa-9924-3937a2e8251e.png" alt="" style="width:100%; display:block;"></span>
+          <span style="position:absolute; left:46%; top:8%; width:44px; opacity:0.5;"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153124_d0a3f95d-d2ea-433a-a947-214ef6f8e53a.png" alt="" style="width:100%; display:block;"></span>
+          <div style="position:absolute; left:0; right:0; top:78px; display:flex; flex-direction:column; align-items:center; gap:7px; padding:0 20px; text-align:center;">
+            <span style="font-size:6.5px; letter-spacing:0.24em; font-weight:700; color:#5B6F8E;">PRICING</span>
+            <span style="font-family:'Anton',Impact,sans-serif; font-size:30px; line-height:0.98; text-transform:uppercase; color:#1B2B4B; letter-spacing:0.015em;">Clear day,<br>clear deal</span>
+            <span style="font-size:8px; line-height:1.55; color:#5B6F8E; max-width:230px;">One plan, everything included. Seven days free, cancel from Settings in two taps.</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:18px 22px 22px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">WORDING</div>
+          <div style="font-size:12.5px; color:#4C5F7D; line-height:1.55;"><span style="font-weight:700; color:#1B2B4B;">H1</span> Clear day, clear deal<br><span style="font-weight:700; color:#1B2B4B;">Plans</span> $49.99/yr · $5.99/wk · $129 lifetime<br><span style="font-weight:700; color:#1B2B4B;">Trial</span> Today unlocks · Day 5 reminder · Day 7 billing<br><span style="font-weight:700; color:#1B2B4B;">CTA</span> Seven days. No card games.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">COMPONENTS &amp; ICONS</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:#33507C;">
+            <span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">BEST VALUE ribbon</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">plan cards</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">green check list</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">trial timeline dots</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">FAQ stack</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">5 hero clouds</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">ASSET STATUS</div>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">BG7 dawn plate (from your #8) — full-bleed behind the hero</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">Five cloud cutouts in the hero at their own depths, R10 beside the trial timeline</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">R10 reaching now lives only here — M03 and M05 have their own figures</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="M05 Get Clearsky spec" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:0; max-width:1400px; overflow:hidden; box-shadow:0 18px 40px rgba(27,43,75,0.08);">
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 24px; background:#1B2B4B;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; background:#F2B84B; color:#3C2B0C; border-radius:6px; padding:3px 10px; font-weight:700;">M05</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#F8FBFF;">Get Clearsky</h2>
+      <span style="font-size:12.5px; color:#9DB4D8;">sky: first light</span>
+      <a href="07%20M05%20Get%20Clearsky.dc.html" style="margin-left:auto; font-size:12.5px; font-weight:700; color:#FFDD9A;">Open the live page →</a>
+    </div>
+    <div style="display:grid; grid-template-columns:minmax(380px,1.15fr) minmax(300px,1fr); gap:0;">
+      <div style="padding:18px 20px 22px; border-right:1px solid #E7EFF8;">
+        <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD; padding-bottom:9px;">HERO AS IT SHIPS</div>
+        <div style="position:relative; height:280px; border-radius:14px; overflow:hidden; border:1px solid #D8E6F4; background:linear-gradient(180deg,#2B4670 0%,#6E93C2 44%,#E2B87A 88%,#F6DFB2 100%); display:flex; align-items:center; gap:12px; padding:0 18px;">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182311_ca9de7db-8076-4079-a84b-ef9b9b1a0d09.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.92;">
+          <div style="display:flex; flex-direction:column; gap:7px; flex:1;">
+            <span style="font-size:6.5px; letter-spacing:0.24em; font-weight:700; color:#DCE7F5;">FIRST LIGHT</span>
+            <span style="font-family:'Anton',Impact,sans-serif; font-size:30px; line-height:0.98; text-transform:uppercase; color:#FFFDF8; letter-spacing:0.015em;">Get Clearsky</span>
+            <span style="font-size:8px; line-height:1.55; color:#EAF2FC; max-width:170px;">Seven days free. Connect your accounts in about two minutes.</span>
+            <span style="display:flex; gap:6px; align-items:center; padding-top:2px;"><span style="background:#12213C; color:#F8FBFF; font-size:8px; font-weight:700; padding:6px 12px; border-radius:8px;">App Store</span><span style="width:30px; height:30px; border-radius:5px; background:repeating-conic-gradient(#1B2B4B 0% 25%, #FFFDF8 0% 50%) 50%/8px 8px; border:2px solid #FFFDF8;"></span></span>
+          </div>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175516_6d2ada36-85c3-4bfb-a0ab-514981ea277e.png" alt="N05 arriving with phone" style="width:118px; flex:none; filter:drop-shadow(0 12px 14px rgba(12,22,42,0.35));">
+          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="position:absolute; left:0; bottom:-1px; width:100%; height:28px;" aria-hidden="true"><path d="M0 90V40c240-36 480-48 720-34 240 14 480 50 720 62v22z" fill="#FFFFFF"></path></svg>
+        </div>
+      </div>
+      <div style="padding:18px 22px 22px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">WORDING</div>
+          <div style="font-size:12.5px; color:#4C5F7D; line-height:1.55;"><span style="font-weight:700; color:#1B2B4B;">Kicker</span> First light<br><span style="font-weight:700; color:#1B2B4B;">H1</span> Get Clearsky<br><span style="font-weight:700; color:#1B2B4B;">Steps</span> 01 Sign in · 02 Connect what matters · 03 Pick your inner circle · 04 Wake up sorted<br><span style="font-weight:700; color:#1B2B4B;">Fine print</span> iPhone · iOS 17 and later. Android is next.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">COMPONENTS &amp; ICONS</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:#33507C;">
+            <span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">Apple logo badge</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">QR block</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">numbered step cards</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">curved SVG sky edge</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">C5 parallax wisp</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">ASSET STATUS</div>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">BG4 summit plate (from your #5) — full-bleed behind the hero; BG6 storm band (from your #7) behind the setup steps</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">N05 arriving — phone in hand, mid-step, delighted. Unique to the download page</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#FDF5F1; border:1px solid #EED0C6; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#F6D9CE; color:#A04E2C; border-radius:4px; padding:2px 6px; white-space:nowrap;">MISSING</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">App Store screenshot set, cropped from the mobile screens</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="M06 Privacy spec" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:0; max-width:1400px; overflow:hidden; box-shadow:0 18px 40px rgba(27,43,75,0.08);">
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 24px; background:#1B2B4B;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; background:#F2B84B; color:#3C2B0C; border-radius:6px; padding:3px 10px; font-weight:700;">M06</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#F8FBFF;">Private by design</h2>
+      <span style="font-size:12.5px; color:#9DB4D8;">sky: night</span>
+      <a href="08%20M06%20Private%20By%20Design.dc.html" style="margin-left:auto; font-size:12.5px; font-weight:700; color:#FFDD9A;">Open the live page →</a>
+    </div>
+    <div style="display:grid; grid-template-columns:minmax(380px,1.15fr) minmax(300px,1fr); gap:0;">
+      <div style="padding:18px 20px 22px; border-right:1px solid #E7EFF8;">
+        <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD; padding-bottom:9px;">HERO AS IT SHIPS</div>
+        <div style="position:relative; height:280px; border-radius:14px; overflow:hidden; border:1px solid #D8E6F4; background:linear-gradient(180deg,#0B1424 0%,#16233F 58%,#213558 100%);">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_183854_769dd662-7d83-4f32-86a2-08aa47710c4d.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.95;">
+          <span style="position:absolute; right:9%; top:12%; width:36px; height:36px; border-radius:50%; background:radial-gradient(circle at 34% 34%, #FFF6DF, #E8CE95); box-shadow:0 0 30px rgba(255,246,223,0.35);"></span>
+          <div style="position:absolute; left:0; right:0; top:26px; display:flex; flex-direction:column; align-items:center; gap:6px; padding:0 20px; text-align:center;">
+            <span style="font-size:6.5px; letter-spacing:0.24em; font-weight:700; color:#8FA2BD;">PRIVATE BY DESIGN</span>
+            <span style="font-family:'Anton',Impact,sans-serif; font-size:28px; line-height:0.98; text-transform:uppercase; color:#FFFDF8; letter-spacing:0.015em;">Your messages train<br>your Clearsky</span>
+          </div>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175517_94d8685a-0cb6-431b-9360-1d653624a081.png" alt="N06 asleep moonlit" style="position:absolute; left:50%; bottom:4px; transform:translateX(-50%); width:150px; filter:drop-shadow(0 12px 16px rgba(0,0,0,0.5));">
+          
+        </div>
+      </div>
+      <div style="padding:18px 22px 22px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">WORDING</div>
+          <div style="font-size:12.5px; color:#4C5F7D; line-height:1.55;"><span style="font-weight:700; color:#1B2B4B;">Kicker</span> Private by design<br><span style="font-weight:700; color:#1B2B4B;">H1</span> Your messages train your Clearsky<br><span style="font-weight:700; color:#1B2B4B;">Sections</span> Principles · Where your words go · Controls you actually have<br><span style="font-weight:700; color:#1B2B4B;">Promise</span> Clearsky never sends a message on your behalf</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">COMPONENTS &amp; ICONS</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:#33507C;">
+            <span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">CSS moon</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">principle cards + status dots</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">4-step data flow</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">amber promise callout</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">green check controls</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">ASSET STATUS</div>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">BG8 deep-night plate — full-bleed behind the hero: starfield, silhouetted cloud banks, one distant amber lamp. No moon, so it stays distinct from M03</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">Night gradient and CSS moon — the darkest sky in the system</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">N06 asleep on a moonlit cloud — the hero, cool blue rim light, deeply calm</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">N07 padlock — he holds an amber-gold lock beside the Controls heading</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="KIT support spec" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:0; max-width:1400px; overflow:hidden; box-shadow:0 18px 40px rgba(27,43,75,0.08);">
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 24px; background:#33507C;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; background:#EAF2FC; color:#1B2B4B; border-radius:6px; padding:3px 10px; font-weight:700;">KIT</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:24px; font-weight:600; color:#F8FBFF;">Support kit</h2>
+      <span style="font-size:12.5px; color:#BFD3EC;">404 · social · email — not built yet</span>
+    </div>
+    <div style="display:grid; grid-template-columns:minmax(380px,1.15fr) minmax(300px,1fr); gap:0;">
+      <div style="padding:18px 20px 22px; border-right:1px solid #E7EFF8;">
+        <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#3F6339; padding-bottom:9px;">404 — BUILT</div>
+        <div style="position:relative; height:280px; border-radius:14px; overflow:hidden; border:1px solid #D8E6F4; background:linear-gradient(180deg,#7F91A6 0%,#A8B8C9 42%,#C9D5E0 74%,#E2E9EF 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_98e45681-c92a-4a43-95e2-34852949371a.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.55;">
+          <span style="position:absolute; left:-8%; top:20%; width:70%; height:52px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(255,255,255,0.5), rgba(255,255,255,0) 72%);"></span>
+          <span style="font-family:ui-monospace,Menlo,monospace; font-size:7px; letter-spacing:0.24em; font-weight:700; color:#41536B;">ERROR 404</span>
+          <span style="font-family:'Anton',Impact,sans-serif; font-size:32px; line-height:1; text-transform:uppercase; color:#2C3E56; letter-spacing:0.015em;">Lost in fog</span>
+          <span style="font-size:8px; color:#41536B; text-align:center; max-width:190px; line-height:1.5;">This page drifted off somewhere. He is out looking for it.</span>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175521_9b8e4dc3-3ca7-4d34-be77-500bf3d6f85b.png" alt="N08 lantern in fog" style="width:128px; display:block; margin-top:2px; filter:drop-shadow(0 12px 14px rgba(44,62,86,0.35));">
+          <span style="position:absolute; left:4%; bottom:16%; width:78%; height:60px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(255,255,255,0.72), rgba(255,255,255,0) 70%);"></span>
+          <span style="position:absolute; bottom:12px; background:#1B2B4B; color:#F3F7FC; font-size:8px; font-weight:700; padding:6px 14px; border-radius:99px; z-index:3;">Back to clear sky</span>
+        </div>
+        <div style="padding-top:10px;"><a href="09%20404.dc.html" style="font-size:12.5px; font-weight:700;">Open the live 404 page →</a></div>
+      </div>
+      <div style="padding:18px 22px 22px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">WORDING</div>
+          <div style="font-size:12.5px; color:#4C5F7D; line-height:1.55;"><span style="font-weight:700; color:#1B2B4B;">404</span> Lost in fog / This page drifted off / Back to Clearsky<br><span style="font-weight:700; color:#1B2B4B;">OG card</span> Show up for what matters — Clearsky<br><span style="font-weight:700; color:#1B2B4B;">Launch email</span> Your sky is ready</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">COMPONENTS &amp; ICONS</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:#33507C;">
+            <span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">drifting CSS fog</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">lantern glow</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">OG 1200×630 frame</span><span style="background:#EEF4FB; border:1px solid #D8E6F4; border-radius:99px; padding:3px 9px;">email header band</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8FA2BD;">ASSET STATUS</div>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F4F8FD; border:1px solid #D8E6F4; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#E4EDF8; color:#5B6F8E; border-radius:4px; padding:2px 6px; white-space:nowrap;">SUPERSEDED</span><span style="font-size:11.5px; color:#5B6F8E; line-height:1.45;">I12 lost in fog — superseded by N08, kept as reference art only</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">BG5 sunbeam plate (from your #6) — behind the fog at low opacity</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#F7FCF6; border:1px solid #CBE0C7; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#DCEFD8; color:#3F6339; border-radius:4px; padding:2px 6px; white-space:nowrap;">IN USE</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">N08 lantern embed — figure and lantern only, so four drifting CSS fog banks pass behind AND in front of him</span></span>
+          <span style="display:flex; gap:8px; align-items:flex-start; background:#FDF5F1; border:1px solid #EED0C6; border-radius:9px; padding:6px 9px;"><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; background:#F6D9CE; color:#A04E2C; border-radius:4px; padding:2px 6px; white-space:nowrap;">MISSING</span><span style="font-size:11.5px; color:#4C5F7D; line-height:1.45;">OG share cards for all six pages, and the launch email header</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Library" style="background:#FFFFFF; border:1px solid #D8E6F4; border-radius:22px; padding:22px 26px 26px; max-width:1400px; box-shadow:0 18px 40px rgba(27,43,75,0.08); display:flex; flex-direction:column; gap:14px;">
+    <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:12px; color:#8FA2BD;">LIB</span>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-size:22px; font-weight:600; color:#1B2B4B;">The full library</h2>
+      <span style="font-size:12.5px; color:#5B6F8E;">every asset generated so far — transparent embeds first, then the original backgrounded illustrations, then the cloud cutouts</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <span style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#3F6339;">TRANSPARENT EMBEDS — USE THESE ON PAGES <span style="color:#5E8A57; font-weight:400;">(green ring = new, page-specific)</span></span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175510_793299a8-caa1-413f-8e7f-e3f5036c54a2.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175801_95c9e0ca-2efe-4a0a-8ef4-03e95a9bc49e.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175511_83c99fa0-1d18-41ee-b106-4c64fa910ad0.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175514_117ff26d-8089-460f-914f-2d5f14e077f0.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175516_6d2ada36-85c3-4bfb-a0ab-514981ea277e.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175517_94d8685a-0cb6-431b-9360-1d653624a081.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175518_d0626cc7-0c28-4147-8aba-0a1e7e991ab6.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_175521_9b8e4dc3-3ca7-4d34-be77-500bf3d6f85b.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161415_716c0000-b399-4d6e-bf6c-c60e25080617.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161417_92510ea8-0843-4a8d-9673-daa12d16a0bc.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161418_494651bc-7264-4220-ab3a-a7cff0fd1d14.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161420_a4417da8-3bce-42be-b308-c1d6e7238db1.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161421_e4a80b5e-31da-45f7-9ba5-47848dceec30.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161422_4ddcd980-7478-43be-8821-fa2b5620a67c.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_161423_41da161f-da7c-4abe-8e4c-abfb7049edc4.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155100_91be7cec-dd5d-45ee-b0b2-69657f971cb5.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155101_c8416809-53ac-4a64-815a-ca393322c098.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155102_f5946a5a-9e7c-4812-b863-04f801137e13.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155111_4c966fee-697e-4c0c-8c60-f7447877db8a.png');"></span>
+          <span style="width:74px; height:74px; border-radius:10px; border:1px solid #CBE0C7; background:#F7FCF6 center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_155112_2779d8d8-53df-4051-9ab8-ea2daa3c0b2d.png');"></span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <span style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#8A6420;">ORIGINALS WITH BAKED BACKGROUNDS — YOUR PAGE ASSIGNMENTS <span style="font-weight:400; color:#8FA2BD;">(numbered right → left, as you called them)</span></span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_130934_7eb8bb74-740c-4d8a-9d74-253217507a54.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">8</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">M04</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131641_9bc72a05-cb06-4899-8fc3-104965ad98a6.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">7</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">M05</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131642_215c554c-9f6e-4f08-a935-b055b747c309.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">6</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">KIT</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131641_e02e7d1c-c44f-410c-b6f5-fc70e0967169.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">5</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">M05</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131641_4154bb5d-57cb-4f72-beea-aab601caee82.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">4</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">M03</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131641_0e386a38-9226-4558-ba9b-d3721526650e.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">3</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">M02?</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131641_22c5d6a9-b3b4-45de-a9e7-1ec890fc6060.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">2</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">inspo</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="position:relative; width:74px; height:74px; border-radius:10px; border:1px solid #EBD9B0; background:#FDF9F1 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_131641_cfdaa137-3bd7-465d-ba0f-f187f3f1d71f.png');"><span style="position:absolute; left:4px; top:4px; font-family:ui-monospace,Menlo,monospace; font-size:9px; font-weight:700; background:rgba(27,43,75,0.85); color:#EAF2FC; border-radius:4px; padding:1px 5px;">1</span></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#8A6420;">M01?</span></span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <span style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#3F6339;">NEW HERO BACKGROUND PLATES <span style="font-weight:400; color:#8FA2BD;">(sit behind the gradient, no characters)</span></span>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_8dfe2a9c-2935-4db0-92a5-c16deb566217.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG1 → M01 dawn</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_181315_26f9ed44-2186-4f59-8b57-791be4b04f46.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG2 → M02 midday</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_ddff81b7-ba83-470f-8837-b542df2a523e.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG3 → M03 night · from #4</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182311_ca9de7db-8076-4079-a84b-ef9b9b1a0d09.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG4 → M05 summit · from #5</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_98e45681-c92a-4a43-95e2-34852949371a.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG5 → KIT beam · from #6</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182311_5d4efdb0-dabf-40d7-b0a5-0a4455e8da2c.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG6 → M05 band · from #7</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_182310_9fc92838-3cc5-4443-a260-3ec984e98294.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG7 → M04 dawn · from #8</span></span>
+          <span style="display:flex; flex-direction:column; align-items:center; gap:4px;"><span style="width:150px; height:84px; border-radius:10px; border:2px solid #5E8A57; background:#F2FAF0 center/cover no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_183854_769dd662-7d83-4f32-86a2-08aa47710c4d.png');"></span><span style="font-family:ui-monospace,Menlo,monospace; font-size:9.5px; font-weight:700; color:#3F6339;">BG8 → M06 deep night</span></span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <span style="font-size:10.5px; letter-spacing:0.18em; font-weight:700; color:#5B6F8E;">CLOUD CUTOUTS C1–C6 — PARALLAX LAYERS</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span style="width:74px; height:56px; border-radius:10px; border:1px solid #D8E6F4; background:#E9F1FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153118_f0d1b6be-bf49-40e8-bbb7-15c07bf94114.png');"></span>
+          <span style="width:74px; height:56px; border-radius:10px; border:1px solid #D8E6F4; background:#E9F1FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153119_9324c005-4a5d-43b8-b4c3-39263fb5e32d.png');"></span>
+          <span style="width:74px; height:56px; border-radius:10px; border:1px solid #D8E6F4; background:#E9F1FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153121_c7a7abe3-5c62-4cda-9f5b-0c87bd5ab4f4.png');"></span>
+          <span style="width:74px; height:56px; border-radius:10px; border:1px solid #D8E6F4; background:#E9F1FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153122_2c001813-82c1-48aa-9924-3937a2e8251e.png');"></span>
+          <span style="width:74px; height:56px; border-radius:10px; border:1px solid #D8E6F4; background:#E9F1FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153124_d0a3f95d-d2ea-433a-a947-214ef6f8e53a.png');"></span>
+          <span style="width:74px; height:56px; border-radius:10px; border:1px solid #D8E6F4; background:#E9F1FA center/contain no-repeat url('https://d8j0ntlcm91z4.cloudfront.net/user_3HegTKzrYn6G5JIncPeUTd7BLK9/hf_20260904_153125_1817f5c8-0a42-45d5-919f-57d265ca809f.png');"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width:1400px; font-size:13.5px; color:#5B6F8E; display:flex; gap:8px; flex-wrap:wrap; align-items:baseline;">
+    <span style="color:#3F6339; font-weight:700;">All illustration gaps closed.</span><span>Eight new pieces generated and placed: N01 greeting · N02 gazing up · N03 phone explainer · N04 golden summit · N05 arriving · N06 asleep moonlit · N07 padlock · N08 lantern. Every page now has its own figures — nothing is borrowed or repeated. Every REWORK is retired. The only MISSING rows left on this page are the App Store screenshot set (M05), and the OG share cards plus launch email header (KIT).</span>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>
