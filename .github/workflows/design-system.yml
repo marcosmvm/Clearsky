@@ -64,7 +64,12 @@ jobs:
           fi
 
           # No emoji in product surfaces — a stated product rule.
-          bad_emoji=$(grep -rnP '[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]' -- *.dc.html || true)
+          # Pictographic emoji only. Text dingbats (✓ ✗ ✕ · →) are NOT emoji: the UI Kit
+          # uses them as documentation marks on its own misuse and approval examples, and
+          # flagging those would fail the build on the design system doing its job.
+          # An emoji is U+1F300–U+1FAFF, or any character carrying the U+FE0F
+          # emoji-presentation selector.
+          bad_emoji=$(grep -rnP '[\x{1F300}-\x{1FAFF}]|\x{FE0F}' -- *.dc.html || true)
           if [ -n "$bad_emoji" ]; then
             echo "::error::Emoji found. The product forbids emoji."
             echo "$bad_emoji"
