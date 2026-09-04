@@ -17,7 +17,17 @@
     a:hover { color: #14213C; }
   </style>
 </helmet>
-<div style="min-height:100vh; background:#EEF3F9; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F; padding:44px 46px 70px; display:flex; flex-direction:column; gap:24px;">
+<div style="min-height:100vh; background:#EEF3F9; font-family:'Instrument Sans',system-ui,sans-serif; color:#22314F; display:flex; flex-direction:column;">
+
+  <div data-screen-label="Brand lockup" style="position:relative; overflow:hidden; background:linear-gradient(180deg,#22375C 0%,#3F5F92 34%,#7FA5CE 68%,#BAD3EA 100%); padding:74px 46px 78px; display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center;">
+    <span style="position:absolute; left:50%; bottom:-46%; width:660px; height:660px; margin-left:-330px; border-radius:50%; background:radial-gradient(circle, rgba(255,221,154,0.42), rgba(255,221,154,0) 66%); pointer-events:none;"></span>
+    <span style="position:absolute; left:-60%; right:-60%; top:24%; bottom:-30%; background:repeating-radial-gradient(circle at 50% 100%, rgba(255,226,183,0.13) 0 1.5px, rgba(255,226,183,0) 1.5px 62px); pointer-events:none;"></span>
+    <svg width="132" height="92" viewBox="0 0 20 14" fill="#FFFDF8" aria-hidden="true" style="position:relative; filter:drop-shadow(0 10px 22px rgba(12,22,42,0.35));"><circle cx="6" cy="9" r="4"></circle><circle cx="11" cy="6" r="5"></circle><circle cx="15" cy="10" r="3.4"></circle></svg>
+    <span style="position:relative; font-family:'Source Serif 4',Georgia,serif; font-size:62px; font-weight:600; letter-spacing:-0.01em; color:#FFFDF8; line-height:1; text-shadow:0 2px 0 rgba(27,43,75,0.25);">Clearsky</span>
+    <span style="position:relative; font-size:14px; letter-spacing:0.2em; font-weight:700; color:#DCE7F5; text-transform:uppercase;">Show up for what matters</span>
+  </div>
+
+  <div style="padding:40px 46px 70px; display:flex; flex-direction:column; gap:24px;">
 
   <header style="display:flex; flex-direction:column; gap:11px; max-width:1240px;">
     <div style="display:flex; align-items:center; gap:10px;">
@@ -117,7 +127,7 @@
       <div style="display:flex; align-items:flex-start; gap:14px; padding:12px 0; border-bottom:1px solid #EEF4FA;">
         <span style="display:flex; flex-direction:column; gap:2px; flex:1;">
           <a href="10%20UI%20Kit.dc.html" style="font-size:15px; font-weight:700;">UI Kit</a>
-          <span style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Logo, wordmark, app icon, palette, type scale, slogan. The brand source of truth.</span>
+          <span style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Twenty-six sections. 01–08 are the foundations — logo lockups and usage law, construction and clear space, backgrounds and monochrome, misuse, app icon, colour ramps with measured contrast, type scale, every token. 09–26 are the components built on them.</span>
         </span>
       </div>
       <div style="display:flex; align-items:flex-start; gap:14px; padding:12px 0;">
@@ -143,8 +153,8 @@
         <div style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Six plates, six patterns: rising arcs, sunburst, dot sweep, ripples, light columns, diagonal weave.</div>
       </div>
       <div style="background:#F7FBFE; border:1px solid #E3EDF8; border-radius:14px; padding:13px 15px;">
-        <div style="font-size:13.5px; font-weight:700; color:#1B2B4B; margin-bottom:3px;">44px minimum, everywhere</div>
-        <div style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Every tappable element in the prototype clears the iOS minimum.</div>
+        <div style="font-size:13.5px; font-weight:700; color:#1B2B4B; margin-bottom:3px;">The UI Kit is the only source of values</div>
+        <div style="font-size:12.5px; color:#5B6F8E; line-height:1.5;">Nothing may use a colour, size, radius, shadow or duration absent from <a href="10%20UI%20Kit.dc.html" style="font-weight:700;">10 UI Kit</a>. 44px hit targets everywhere; <span style="font-family:ui-monospace,Menlo,monospace;">#8FA2BD</span> is retired as type.</div>
       </div>
       <div style="background:#F7FBFE; border:1px solid #E3EDF8; border-radius:14px; padding:13px 15px;">
         <div style="font-size:13.5px; font-weight:700; color:#1B2B4B; margin-bottom:3px;">Prices live in two places</div>
@@ -157,6 +167,7 @@
     <span>12 pages · 1 index · 3 docs · 7 marketing pages · 1 app prototype</span>
     <span style="color:#5B6F8E;">Five superseded working docs were retired — their content lives in Product Scope §6, the Illustration Index and the project notes.</span>
   </footer>
+  </div>
 </div>
 </x-dc>
 </body>
