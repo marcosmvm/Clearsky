@@ -1,0 +1,111 @@
+name: Design system
+
+# The UI Kit rule — "nothing may use a colour, size, radius, shadow or duration
+# absent from the UI Kit" — is only real if something enforces it. This is that thing.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tokens:
+    name: Token discipline
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Tokens are in sync with their source
+        run: |
+          node tokens/build.mjs
+          if ! git diff --quiet -- tokens/clearsky.tokens.css; then
+            echo "::error::tokens/clearsky.tokens.css is stale."
+            echo "It is generated from tokens/clearsky.tokens.json."
+            echo "Run 'node tokens/build.mjs' and commit the result."
+            git diff -- tokens/clearsky.tokens.css
+            exit 1
+          fi
+          echo "clearsky.tokens.css matches its source."
+
+      - name: No new token violations, no retired colour as text
+        run: node tokens/check.mjs
+
+  vocabulary:
+    name: Product vocabulary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The outcome vocabulary is fixed. A synonym leaking into one surface is how
+      # the state model silently splits. "Overdue" is banned as product copy, but the
+      # pages that REJECT the word are correct and must not fail the build.
+      - name: Banned words
+        run: |
+          fail=0
+
+          bad_overdue=$(grep -rniE '(^|[^a-z])overdue' -- *.dc.html \
+            | grep -viE 'not a word|never|no page|do not use|nothing says|instead of|rather than|banned|retired' || true)
+          if [ -n "$bad_overdue" ]; then
+            echo "::error::'Overdue' used as product copy. Use 'Needs a new plan'."
+            echo "$bad_overdue"
+            fail=1
+          fi
+
+          bad_replied=$(grep -rnE "['\"> ]Replied['\"< ]" -- *.dc.html || true)
+          if [ -n "$bad_replied" ]; then
+            echo "::error::'Replied' is not in the outcome vocabulary. Use 'Responded'."
+            echo "$bad_replied"
+            fail=1
+          fi
+
+          # No emoji in product surfaces — a stated product rule.
+          bad_emoji=$(grep -rnP '[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]' -- *.dc.html || true)
+          if [ -n "$bad_emoji" ]; then
+            echo "::error::Emoji found. The product forbids emoji."
+            echo "$bad_emoji"
+            fail=1
+          fi
+
+          [ "$fail" -eq 0 ] && echo "Vocabulary clean."
+          exit $fail
+
+  assets:
+    name: Asset boundary and weight
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # HARD RULE: the daydreamer character is marketing-only. The six painted sky
+      # plates DO belong in the app — this check must never flag the PLATE map.
+      - name: Character art stays out of app routes
+        run: |
+          hits=$(grep -nE 'daydreamer|character' "02 App Prototype.dc.html" \
+            | grep -viE 'never|marketing[- ]only|must not|no character' || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Possible character reference inside the app prototype."
+            echo "$hits"
+            exit 1
+          fi
+          echo "No character art in app routes."
+
+      # 197 MB of raw PNG is not a marketing site. Track the number so it cannot
+      # quietly grow while nobody is measuring.
+      - name: Illustration payload budget
+        continue-on-error: true
+        run: |
+          total=0
+          for u in $(grep -ohE 'https://[a-z0-9.-]+/user_[^"'"'"' )]*\.png' -- *.dc.html | sort -u); do
+            sz=$(curl -sIL --max-time 20 "$u" | grep -i '^content-length' | tail -1 | tr -d '\r' | awk '{print $2}')
+            total=$((total + ${sz:-0}))
+          done
+          mb=$((total / 1048576))
+          echo "Distinct illustration payload: ${mb} MB"
+          echo "### Illustration payload: ${mb} MB" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$mb" -gt 40 ]; then
+            echo "::warning::Illustration payload is ${mb} MB. Target is under 40 MB total, under 2 MB per page."
+          fi
