@@ -4,56 +4,231 @@
   "$source": "10 UI Kit.dc.html — sections 06 Colour system, 07 Type scale, 08 Foundation tokens",
   "$rule": "Nothing in the product may use a colour, size, radius, shadow or duration absent from this file. This file is the machine-readable form of that rule; tokens/check.mjs enforces it.",
   "$generated": "clearsky.tokens.css is generated from this file by tokens/build.mjs. Edit this file, never the CSS.",
-
   "ramps": {
-    "navy":  { "50": "#EEF3F9", "100": "#D8E6F4", "200": "#B4CBE4", "300": "#8FAFD5", "400": "#6B90C0", "500": "#4A6B9C", "600": "#33507C", "700": "#27406B", "800": "#1B2B4B", "900": "#0F1A30" },
-    "sky":   { "50": "#F7FBFE", "100": "#EDF5FC", "200": "#DCEDF9", "300": "#C9DFF4", "400": "#BAD3EA", "500": "#A8C6E5", "600": "#7FA5CE", "700": "#5F81AE", "800": "#40608F", "900": "#2A4066" },
-    "amber": { "50": "#FFFBF2", "100": "#FDF6EC", "200": "#FBEBCF", "300": "#F8DEAE", "400": "#FFDD9A", "500": "#F2B84B", "600": "#DFA436", "700": "#C08A28", "800": "#8A6420", "900": "#4A3410" },
-    "green": { "50": "#F7FCF6", "100": "#EFF7EE", "200": "#DCEFD8", "300": "#CBE0C7", "400": "#A9C6A2", "500": "#7FA878", "600": "#5E8A57", "700": "#3F6339", "800": "#2E4A2A", "900": "#1C2E19" },
-    "clay":  { "50": "#FDF8F5", "100": "#FDF5F1", "200": "#F9E4DA", "300": "#F6D9CE", "400": "#EED0C6", "500": "#E0A88E", "600": "#C96F4A", "700": "#C0492B", "800": "#A04E2C", "900": "#5E2A18" },
-    "ink":   { "50": "#FDFEFF", "100": "#F7FBFE", "200": "#EEF4FA", "300": "#E9F1F9", "400": "#E0EBF7", "500": "#C6D4E4", "600": "#9DAFC6", "700": "#5B6F8E", "800": "#4C5F7D", "900": "#22314F" }
+    "navy": {
+      "50": "#EEF3F9",
+      "100": "#D8E6F4",
+      "200": "#B4CBE4",
+      "300": "#8FAFD5",
+      "400": "#6B90C0",
+      "500": "#4A6B9C",
+      "600": "#33507C",
+      "700": "#27406B",
+      "800": "#1B2B4B",
+      "900": "#0F1A30"
+    },
+    "sky": {
+      "50": "#F7FBFE",
+      "100": "#EDF5FC",
+      "200": "#DCEDF9",
+      "300": "#C9DFF4",
+      "400": "#BAD3EA",
+      "500": "#A8C6E5",
+      "600": "#7FA5CE",
+      "700": "#5F81AE",
+      "800": "#40608F",
+      "900": "#2A4066"
+    },
+    "amber": {
+      "50": "#FFFBF2",
+      "100": "#FDF6EC",
+      "200": "#FBEBCF",
+      "300": "#F8DEAE",
+      "400": "#FFDD9A",
+      "500": "#F2B84B",
+      "600": "#DFA436",
+      "700": "#C08A28",
+      "800": "#8A6420",
+      "900": "#4A3410"
+    },
+    "green": {
+      "50": "#F7FCF6",
+      "100": "#EFF7EE",
+      "200": "#DCEFD8",
+      "300": "#CBE0C7",
+      "400": "#A9C6A2",
+      "500": "#7FA878",
+      "600": "#5E8A57",
+      "700": "#3F6339",
+      "800": "#2E4A2A",
+      "900": "#1C2E19"
+    },
+    "clay": {
+      "50": "#FDF8F5",
+      "100": "#FDF5F1",
+      "200": "#F9E4DA",
+      "300": "#F6D9CE",
+      "400": "#EED0C6",
+      "500": "#E0A88E",
+      "600": "#C96F4A",
+      "700": "#C0492B",
+      "800": "#A04E2C",
+      "900": "#5E2A18"
+    },
+    "ink": {
+      "50": "#FDFEFF",
+      "100": "#F7FBFE",
+      "200": "#EEF4FA",
+      "300": "#E9F1F9",
+      "400": "#E0EBF7",
+      "500": "#C6D4E4",
+      "600": "#9DAFC6",
+      "700": "#5B6F8E",
+      "800": "#4C5F7D",
+      "900": "#22314F"
+    }
   },
-
   "semantic": {
-    "ink":           { "value": "#22314F", "ramp": "ink.900",   "use": "Body text" },
-    "ink-2":         { "value": "#4C5F7D", "ramp": "ink.800",   "use": "Secondary text, WHY NOW" },
-    "ink-3":         { "value": "#5B6F8E", "ramp": "ink.700",   "use": "Muted, eyebrows, meta" },
-    "ink-strong":    { "value": "#1B2B4B", "ramp": "navy.800",  "use": "Headings, primary action" },
-    "surface":       { "value": "#FDFEFF", "ramp": "ink.50",    "use": "Cards, sheets, inputs" },
-    "surface-2":     { "value": "#F7FBFE", "ramp": "ink.100",   "use": "Nested surface" },
-    "page":          { "value": "#F3F8FD", "ramp": null,        "use": "App page ground" },
-    "line":          { "value": "#E9F1F9", "ramp": "ink.300",   "use": "Hairline" },
-    "line-2":        { "value": "#E0EBF7", "ramp": "ink.400",   "use": "Card border" },
-    "line-3":        { "value": "#C6D4E4", "ramp": "ink.500",   "use": "Control border" },
-    "action":        { "value": "#F2B84B", "ramp": "amber.500", "use": "The one warm action" },
-    "action-ink":    { "value": "#4A3410", "ramp": "amber.900", "use": "Ink on action" },
-    "action-quiet":  { "value": "#EDF4FB", "ramp": null,        "use": "Secondary action fill" },
-    "link":          { "value": "#27406B", "ramp": "navy.700",  "use": "Links" },
-    "kept":          { "value": "#3F6339", "ramp": "green.700", "use": "Kept, confirmed, protected" },
-    "attention":     { "value": "#C0492B", "ramp": "clay.700",  "use": "Due today, needs a new plan" },
-    "focus":         { "value": "#7FA5CE", "ramp": "sky.600",   "use": "Focus ring" }
+    "ink": {
+      "value": "#22314F",
+      "ramp": "ink.900",
+      "use": "Body text"
+    },
+    "ink-2": {
+      "value": "#4C5F7D",
+      "ramp": "ink.800",
+      "use": "Secondary text, WHY NOW"
+    },
+    "ink-3": {
+      "value": "#5B6F8E",
+      "ramp": "ink.700",
+      "use": "Muted, eyebrows, meta"
+    },
+    "ink-strong": {
+      "value": "#1B2B4B",
+      "ramp": "navy.800",
+      "use": "Headings, primary action"
+    },
+    "surface": {
+      "value": "#FDFEFF",
+      "ramp": "ink.50",
+      "use": "Cards, sheets, inputs"
+    },
+    "surface-2": {
+      "value": "#F7FBFE",
+      "ramp": "ink.100",
+      "use": "Nested surface"
+    },
+    "page": {
+      "value": "#F3F8FD",
+      "ramp": null,
+      "use": "App page ground"
+    },
+    "line": {
+      "value": "#E9F1F9",
+      "ramp": "ink.300",
+      "use": "Hairline"
+    },
+    "line-2": {
+      "value": "#E0EBF7",
+      "ramp": "ink.400",
+      "use": "Card border"
+    },
+    "line-3": {
+      "value": "#C6D4E4",
+      "ramp": "ink.500",
+      "use": "Control border"
+    },
+    "action": {
+      "value": "#F2B84B",
+      "ramp": "amber.500",
+      "use": "The one warm action"
+    },
+    "action-ink": {
+      "value": "#4A3410",
+      "ramp": "amber.900",
+      "use": "Ink on action"
+    },
+    "action-quiet": {
+      "value": "#EDF4FB",
+      "ramp": null,
+      "use": "Secondary action fill"
+    },
+    "link": {
+      "value": "#27406B",
+      "ramp": "navy.700",
+      "use": "Links"
+    },
+    "kept": {
+      "value": "#3F6339",
+      "ramp": "green.700",
+      "use": "Kept, confirmed, protected"
+    },
+    "attention": {
+      "value": "#C0492B",
+      "ramp": "clay.700",
+      "use": "Due today, needs a new plan"
+    },
+    "focus": {
+      "value": "#7FA5CE",
+      "ramp": "sky.600",
+      "use": "Focus ring"
+    }
   },
-
   "retired": {
     "#8FA2BD": {
       "reason": "Measures 2.58:1 on white — fails WCAG AA at every text size.",
       "replaceWith": "--ink-3 (#5B6F8E)",
-      "stillAllowedFor": ["hairlines", "icon strokes on decorative or disabled-state demos"],
-      "neverAllowedFor": ["text on any light ground"],
+      "stillAllowedFor": [
+        "hairlines",
+        "icon strokes on decorative or disabled-state demos"
+      ],
+      "neverAllowedFor": [
+        "text on any light ground"
+      ],
       "groundCaveat": "The retirement is a LIGHT-GROUND rule, though the UI Kit states it as absolute. On the dark navy gradient #0B1424→#213558 the retired colour measures 7.08:1 / 4.71:1 and passes AA, while its replacement #5B6F8E measures 3.61:1 / 2.40:1 and fails. A blanket sweep makes those cases worse. Exceptions below are measured, not assumed.",
       "exceptions": [
         {
           "file": "02 App Prototype.dc.html",
           "match": "'THE PROMISE'",
           "ground": "linear-gradient(180deg,#0B1424,#213558)",
-          "measured": { "topStop": "7.08:1", "bottomStop": "4.71:1", "replacementWouldBe": "3.61:1 / 2.40:1" },
+          "measured": {
+            "topStop": "7.08:1",
+            "bottomStop": "4.71:1",
+            "replacementWouldBe": "3.61:1 / 2.40:1"
+          },
           "reason": "Passes AA on the dark privacy card. Sweeping it to --ink-3 would fail at both gradient stops.",
+          "verified": "2026-09-04"
+        },
+        {
+          "file": "08 M06 Private By Design.dc.html",
+          "match": "PRIVATE BY DESIGN</span>",
+          "ground": "linear-gradient(180deg,#0B1424,#16233F,#213558)",
+          "measured": {
+            "topStop": "7.08:1",
+            "midStop": "5.99:1",
+            "bottomStop": "4.71:1",
+            "replacementWouldBe": "3.61:1 / 3.05:1 / 2.40:1"
+          },
+          "reason": "Hero eyebrow on the dark night sky. Passes AA at all three gradient stops; the replacement fails at all three.",
+          "verified": "2026-09-04"
+        },
+        {
+          "file": "08 M06 Private By Design.dc.html",
+          "match": "{{ f.n }}",
+          "ground": "#132340 / #0F1A30",
+          "measured": {
+            "onCard": "6.01:1",
+            "onPage": "6.67:1",
+            "replacementWouldBe": "3.06:1 / 3.39:1"
+          },
+          "reason": "Feature numeral on the dark commitment cards. Passes AA; the replacement fails.",
+          "verified": "2026-09-04"
+        },
+        {
+          "file": "08 M06 Private By Design.dc.html",
+          "match": "border-top:1px solid rgba(191,211,236,0.18)",
+          "ground": "#0F1A30",
+          "measured": {
+            "onPage": "6.67:1",
+            "replacementWouldBe": "3.39:1"
+          },
+          "reason": "Footer text on the dark page ground. Passes AA; the replacement fails.",
           "verified": "2026-09-04"
         }
       ]
     }
   },
-
   "type": {
     "$faces": {
       "display": "Anton",
@@ -62,92 +237,363 @@
       "mono": "ui-monospace, Menlo, monospace"
     },
     "$rule": "Anton shouts, Source Serif feels, Instrument Sans works — never swap their jobs.",
-    "display-xl":  { "face": "display",   "size": "clamp(52px, 8.4vw, 122px)", "line": 0.97, "weight": 400, "track": "0.015em", "use": "Marketing hero headline, uppercase" },
-    "display-l":   { "face": "display",   "size": "clamp(40px, 5.6vw, 84px)",  "line": 1.00, "weight": 400, "track": "0.015em", "use": "Marketing section headline" },
-    "display-m":   { "face": "display",   "size": "clamp(34px, 4.4vw, 62px)",  "line": 1.02, "weight": 400, "track": "0.015em", "use": "Story beat, page title" },
-    "display-s":   { "face": "display",   "size": "30px", "sizeDesk": "38px",  "line": 0.98, "weight": 400, "track": "0.015em", "use": "App splash headline" },
-    "editorial-l": { "face": "editorial", "size": "25px", "sizeDesk": "42px",  "line": 1.10, "weight": 600, "track": "0",       "use": "Doc title, manifesto pull quote" },
-    "editorial-m": { "face": "editorial", "size": "21px", "sizeDesk": "24px",  "line": 1.25, "weight": 600, "track": "0",       "use": "Primary decision card title" },
-    "editorial-s": { "face": "editorial", "size": "18px", "sizeDesk": "20px",  "line": 1.35, "weight": 600, "track": "0",       "use": "Promise title, moment name" },
-    "title-l":     { "face": "ui",        "size": "25px", "sizeDesk": "26px",  "line": 1.10, "weight": 700, "track": "0",       "use": "Screen title (Today, Promises)" },
-    "title-m":     { "face": "ui",        "size": "17px",   "line": 1.25, "weight": 700, "track": "0",       "use": "Nav bar title, sheet title" },
-    "title-s":     { "face": "ui",        "size": "15.5px", "line": 1.30, "weight": 700, "track": "0",       "use": "Card heading, list group" },
-    "body-l":      { "face": "ui",        "size": "15px",   "line": 1.60, "weight": 400, "track": "0",       "use": "Marketing body, long form" },
-    "body-m":      { "face": "ui",        "size": "13.5px", "line": 1.55, "weight": 400, "track": "0",       "use": "App body, message text" },
-    "body-s":      { "face": "ui",        "size": "12.5px", "line": 1.50, "weight": 400, "track": "0",       "use": "Supporting body" },
-    "label-m":     { "face": "ui",        "size": "12px",   "line": 1.40, "weight": 600, "track": "0",       "use": "Control label" },
-    "label-s":     { "face": "ui",        "size": "11.5px", "line": 1.45, "weight": 600, "track": "0",       "use": "Small control label" },
-    "eyebrow":     { "face": "ui",        "size": "10.5px", "line": 1.20, "weight": 700, "track": "0.16em",  "use": "Section eyebrow, uppercase" },
-    "eyebrow-xs":  { "face": "ui",        "size": "10px",   "line": 1.20, "weight": 700, "track": "0.20em",  "use": "Smallest eyebrow, uppercase" },
-    "mono":        { "face": "mono",      "size": "11px",   "line": 1.40, "weight": 400, "track": "0",       "use": "Hex values, code, IDs" }
+    "display-xl": {
+      "face": "display",
+      "size": "clamp(52px, 8.4vw, 122px)",
+      "line": 0.97,
+      "weight": 400,
+      "track": "0.015em",
+      "use": "Marketing hero headline, uppercase"
+    },
+    "display-l": {
+      "face": "display",
+      "size": "clamp(40px, 5.6vw, 84px)",
+      "line": 1.0,
+      "weight": 400,
+      "track": "0.015em",
+      "use": "Marketing section headline"
+    },
+    "display-m": {
+      "face": "display",
+      "size": "clamp(34px, 4.4vw, 62px)",
+      "line": 1.02,
+      "weight": 400,
+      "track": "0.015em",
+      "use": "Story beat, page title"
+    },
+    "display-s": {
+      "face": "display",
+      "size": "30px",
+      "sizeDesk": "38px",
+      "line": 0.98,
+      "weight": 400,
+      "track": "0.015em",
+      "use": "App splash headline"
+    },
+    "editorial-l": {
+      "face": "editorial",
+      "size": "25px",
+      "sizeDesk": "42px",
+      "line": 1.1,
+      "weight": 600,
+      "track": "0",
+      "use": "Doc title, manifesto pull quote"
+    },
+    "editorial-m": {
+      "face": "editorial",
+      "size": "21px",
+      "sizeDesk": "24px",
+      "line": 1.25,
+      "weight": 600,
+      "track": "0",
+      "use": "Primary decision card title"
+    },
+    "editorial-s": {
+      "face": "editorial",
+      "size": "18px",
+      "sizeDesk": "20px",
+      "line": 1.35,
+      "weight": 600,
+      "track": "0",
+      "use": "Promise title, moment name"
+    },
+    "title-l": {
+      "face": "ui",
+      "size": "25px",
+      "sizeDesk": "26px",
+      "line": 1.1,
+      "weight": 700,
+      "track": "0",
+      "use": "Screen title (Today, Promises)"
+    },
+    "title-m": {
+      "face": "ui",
+      "size": "17px",
+      "line": 1.25,
+      "weight": 700,
+      "track": "0",
+      "use": "Nav bar title, sheet title"
+    },
+    "title-s": {
+      "face": "ui",
+      "size": "15.5px",
+      "line": 1.3,
+      "weight": 700,
+      "track": "0",
+      "use": "Card heading, list group"
+    },
+    "body-l": {
+      "face": "ui",
+      "size": "15px",
+      "line": 1.6,
+      "weight": 400,
+      "track": "0",
+      "use": "Marketing body, long form"
+    },
+    "body-m": {
+      "face": "ui",
+      "size": "13.5px",
+      "line": 1.55,
+      "weight": 400,
+      "track": "0",
+      "use": "App body, message text"
+    },
+    "body-s": {
+      "face": "ui",
+      "size": "12.5px",
+      "line": 1.5,
+      "weight": 400,
+      "track": "0",
+      "use": "Supporting body"
+    },
+    "label-m": {
+      "face": "ui",
+      "size": "12px",
+      "line": 1.4,
+      "weight": 600,
+      "track": "0",
+      "use": "Control label"
+    },
+    "label-s": {
+      "face": "ui",
+      "size": "11.5px",
+      "line": 1.45,
+      "weight": 600,
+      "track": "0",
+      "use": "Small control label"
+    },
+    "eyebrow": {
+      "face": "ui",
+      "size": "10.5px",
+      "line": 1.2,
+      "weight": 700,
+      "track": "0.16em",
+      "use": "Section eyebrow, uppercase"
+    },
+    "eyebrow-xs": {
+      "face": "ui",
+      "size": "10px",
+      "line": 1.2,
+      "weight": 700,
+      "track": "0.20em",
+      "use": "Smallest eyebrow, uppercase"
+    },
+    "mono": {
+      "face": "mono",
+      "size": "11px",
+      "line": 1.4,
+      "weight": 400,
+      "track": "0",
+      "use": "Hex values, code, IDs"
+    }
   },
-
   "space": {
     "$base": "4pt",
-    "1": { "value": "4px",  "use": "hairline gap" },
-    "2": { "value": "7px",  "use": "icon to label" },
-    "3": { "value": "9px",  "use": "stacked text" },
-    "4": { "value": "11px", "use": "row internals" },
-    "5": { "value": "14px", "use": "card internals" },
-    "6": { "value": "16px", "use": "page gutter (app)" },
-    "7": { "value": "22px", "use": "section internals" },
-    "8": { "value": "36px", "use": "page gutter (desk)" },
-    "9": { "value": "62px", "use": "marketing band" }
+    "1": {
+      "value": "4px",
+      "use": "hairline gap"
+    },
+    "2": {
+      "value": "7px",
+      "use": "icon to label"
+    },
+    "3": {
+      "value": "9px",
+      "use": "stacked text"
+    },
+    "4": {
+      "value": "11px",
+      "use": "row internals"
+    },
+    "5": {
+      "value": "14px",
+      "use": "card internals"
+    },
+    "6": {
+      "value": "16px",
+      "use": "page gutter (app)"
+    },
+    "7": {
+      "value": "22px",
+      "use": "section internals"
+    },
+    "8": {
+      "value": "36px",
+      "use": "page gutter (desk)"
+    },
+    "9": {
+      "value": "62px",
+      "use": "marketing band"
+    }
   },
-
   "radius": {
-    "chip":     { "value": "11px",  "use": "chips, small tiles" },
-    "button":   { "value": "13px",  "use": "secondary buttons, tiles" },
-    "input":    { "value": "14px",  "use": "inputs, list rows" },
-    "list":     { "value": "16px",  "use": "list cards" },
-    "card":     { "value": "18px",  "use": "content cards" },
-    "decision": { "value": "20px",  "use": "decision card" },
-    "triage":   { "value": "22px",  "use": "triage card" },
-    "section":  { "value": "26px",  "use": "kit sections" },
-    "appicon":  { "value": "38px",  "use": "app icon" },
-    "pill":     { "value": "999px", "use": "pills, avatars, toggles" }
+    "chip": {
+      "value": "11px",
+      "use": "chips, small tiles"
+    },
+    "button": {
+      "value": "13px",
+      "use": "secondary buttons, tiles"
+    },
+    "input": {
+      "value": "14px",
+      "use": "inputs, list rows"
+    },
+    "list": {
+      "value": "16px",
+      "use": "list cards"
+    },
+    "card": {
+      "value": "18px",
+      "use": "content cards"
+    },
+    "decision": {
+      "value": "20px",
+      "use": "decision card"
+    },
+    "triage": {
+      "value": "22px",
+      "use": "triage card"
+    },
+    "section": {
+      "value": "26px",
+      "use": "kit sections"
+    },
+    "appicon": {
+      "value": "38px",
+      "use": "app icon"
+    },
+    "pill": {
+      "value": "999px",
+      "use": "pills, avatars, toggles"
+    }
   },
-
   "elevation": {
-    "e0": { "value": "none",                                  "use": "flat on page" },
-    "e1": { "value": "0 1px 3px rgba(27,43,75,0.16)",         "use": "raised hairline" },
-    "e2": { "value": "0 10px 20px rgba(199,141,32,0.30)",     "use": "action" },
-    "e3": { "value": "0 12px 26px rgba(27,43,75,0.28)",       "use": "lifted control" },
-    "e4": { "value": "0 16px 32px rgba(27,43,75,0.12)",       "use": "card" },
-    "e5": { "value": "0 24px 48px rgba(27,43,75,0.10)",       "use": "sheet, overlay" },
-    "e6": { "value": "0 34px 44px rgba(12,22,42,0.50)",       "use": "art" }
+    "e0": {
+      "value": "none",
+      "use": "flat on page"
+    },
+    "e1": {
+      "value": "0 1px 3px rgba(27,43,75,0.16)",
+      "use": "raised hairline"
+    },
+    "e2": {
+      "value": "0 10px 20px rgba(199,141,32,0.30)",
+      "use": "action"
+    },
+    "e3": {
+      "value": "0 12px 26px rgba(27,43,75,0.28)",
+      "use": "lifted control"
+    },
+    "e4": {
+      "value": "0 16px 32px rgba(27,43,75,0.12)",
+      "use": "card"
+    },
+    "e5": {
+      "value": "0 24px 48px rgba(27,43,75,0.10)",
+      "use": "sheet, overlay"
+    },
+    "e6": {
+      "value": "0 34px 44px rgba(12,22,42,0.50)",
+      "use": "art"
+    }
   },
-
   "motion": {
     "$rule": "Under prefers-reduced-motion, every duration below collapses to 0ms and every ambient or bloom loop pauses.",
-    "instant":  { "duration": "0ms",   "easing": "linear",              "use": "state flips, selection" },
-    "fast":     { "duration": "120ms", "easing": "ease-out",            "use": "press" },
-    "base":     { "duration": "180ms", "easing": "ease",                "use": "toggle knob" },
-    "enter":    { "duration": "250ms", "easing": "ease",                "use": "sheets, cards" },
-    "calm":     { "duration": "280ms", "easing": "ease",                "use": "card change" },
-    "ambient":  { "duration": "24s",   "durationMax": "56s", "easing": "linear",        "use": "splash loops" },
-    "bloom":    { "duration": "9s",    "durationMax": "14s", "easing": "ease-in-out",   "use": "breathing" }
+    "instant": {
+      "duration": "0ms",
+      "easing": "linear",
+      "use": "state flips, selection"
+    },
+    "fast": {
+      "duration": "120ms",
+      "easing": "ease-out",
+      "use": "press"
+    },
+    "base": {
+      "duration": "180ms",
+      "easing": "ease",
+      "use": "toggle knob"
+    },
+    "enter": {
+      "duration": "250ms",
+      "easing": "ease",
+      "use": "sheets, cards"
+    },
+    "calm": {
+      "duration": "280ms",
+      "easing": "ease",
+      "use": "card change"
+    },
+    "ambient": {
+      "duration": "24s",
+      "durationMax": "56s",
+      "easing": "linear",
+      "use": "splash loops"
+    },
+    "bloom": {
+      "duration": "9s",
+      "durationMax": "14s",
+      "easing": "ease-in-out",
+      "use": "breathing"
+    }
   },
-
   "z": {
-    "page": 0, "content": 1, "sticky-header": 5, "tab-bar": 20,
-    "bottom-sheet": 25, "status-bar": 30, "home-indicator": 40, "toast": 50
+    "page": 0,
+    "content": 1,
+    "sticky-header": 5,
+    "tab-bar": 20,
+    "bottom-sheet": 25,
+    "status-bar": 30,
+    "home-indicator": 40,
+    "toast": 50
   },
-
   "breakpoint": {
-    "phone":   { "max": "430px",  "use": "iPhone — the primary target" },
-    "phone-l": { "min": "431px",  "max": "767px",  "use": "large phone, small tablet" },
-    "tablet":  { "min": "768px",  "max": "1023px", "use": "tablet — marketing two-up" },
-    "laptop":  { "min": "1024px", "max": "1279px", "use": "laptop — marketing full" },
-    "desk":    { "min": "1280px", "use": "desk", "contentCap": "1160px" }
+    "phone": {
+      "max": "430px",
+      "use": "iPhone — the primary target"
+    },
+    "phone-l": {
+      "min": "431px",
+      "max": "767px",
+      "use": "large phone, small tablet"
+    },
+    "tablet": {
+      "min": "768px",
+      "max": "1023px",
+      "use": "tablet — marketing two-up"
+    },
+    "laptop": {
+      "min": "1024px",
+      "max": "1279px",
+      "use": "laptop — marketing full"
+    },
+    "desk": {
+      "min": "1280px",
+      "use": "desk",
+      "contentCap": "1160px"
+    }
   },
-
   "control": {
-    "hit-target":   { "value": "44px", "rule": "Minimum for every tappable element. Where the visual control is smaller, wrap it in a transparent 44px target and keep the visual centred." },
-    "focus-ring":   { "width": "2px", "offset": "2px", "colour": "--focus", "rule": "On every interactive element, never removed. Must be visible on both light and navy grounds." },
-    "icon-grid":    { "size": "24px", "stroke": "1.6px", "caps": "round", "joins": "round", "padding": "2px", "rule": "Clouds are the only filled shapes." }
+    "hit-target": {
+      "value": "44px",
+      "rule": "Minimum for every tappable element. Where the visual control is smaller, wrap it in a transparent 44px target and keep the visual centred."
+    },
+    "focus-ring": {
+      "width": "2px",
+      "offset": "2px",
+      "colour": "--focus",
+      "rule": "On every interactive element, never removed. Must be visible on both light and navy grounds."
+    },
+    "icon-grid": {
+      "size": "24px",
+      "stroke": "1.6px",
+      "caps": "round",
+      "joins": "round",
+      "padding": "2px",
+      "rule": "Clouds are the only filled shapes."
+    }
   },
-
   "naming": {
     "tokens": "kebab-case and semantic, e.g. --ink-2, --action-quiet",
     "components": "PascalCase",

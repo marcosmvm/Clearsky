@@ -1,7 +1,7 @@
 {
   "$note": "Accepted token debt. New violations fail CI; these are burned down deliberately. Never add a retired-as-text entry here — those are always fatal.",
   "$recorded": "2026-09-04",
-  "count": 1542,
+  "count": 1545,
   "ids": [
     "00 Clearsky Index.dc.html:121:shadow:0 16px 34px rgba(27,43,75,0.08)",
     "00 Clearsky Index.dc.html:123:colour:#EAF2FC",
@@ -416,6 +416,7 @@
     "07 M05 Get Clearsky.dc.html:71:colour:#F6FAFE",
     "07 M05 Get Clearsky.dc.html:72:colour:#EAF2FC",
     "07 M05 Get Clearsky.dc.html:84:colour:#EAF3FC",
+    "08 M06 Private By Design.dc.html:100:colour:#8FA2BD",
     "08 M06 Private By Design.dc.html:16:colour:#BFD3EC",
     "08 M06 Private By Design.dc.html:17:colour:#FFFDF8",
     "08 M06 Private By Design.dc.html:22:colour:#DCE7F5",
@@ -430,6 +431,7 @@
     "08 M06 Private By Design.dc.html:43:colour:#E8CE95",
     "08 M06 Private By Design.dc.html:43:colour:#FFF6DF",
     "08 M06 Private By Design.dc.html:43:shadow:0 0 60px rgba(255,246,223,0.35)",
+    "08 M06 Private By Design.dc.html:45:colour:#8FA2BD",
     "08 M06 Private By Design.dc.html:46:colour:#FFFDF8",
     "08 M06 Private By Design.dc.html:47:colour:#B9C8DE",
     "08 M06 Private By Design.dc.html:52:colour:#132340",
@@ -437,6 +439,7 @@
     "08 M06 Private By Design.dc.html:58:colour:#F3F7FC",
     "08 M06 Private By Design.dc.html:59:colour:#B9C8DE",
     "08 M06 Private By Design.dc.html:68:colour:#F3F7FC",
+    "08 M06 Private By Design.dc.html:72:colour:#8FA2BD",
     "08 M06 Private By Design.dc.html:73:colour:#F3F7FC",
     "08 M06 Private By Design.dc.html:74:colour:#B9C8DE",
     "08 M06 Private By Design.dc.html:78:colour:#FFE7BC",
