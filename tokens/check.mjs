@@ -88,12 +88,23 @@ for (const file of SCAN) {
         const isPaint = /^(background|backgroundcolor|stroke|fill|border|bordercolor|boxshadow|outline|outlinecolor)$/.test(name.replace(/-/g, ""));
         const isText = /color$/.test(name.replace(/-/g, "")) && !isPaint;
 
-        if (isText) {
-          violations.push({
-            id: `RETIRED:${file}:${no}:${m.index}`, file, line: no, kind: "retired-as-text",
-            value: r, note: T.retired[r] ? T.retired[r].reason : "retired", fatal: true,
-          });
-        }
+        if (!isText) continue;
+
+        // A measured exception. This checker reads the value, never the ground behind it,
+        // so it cannot tell a light card from a dark one — and the retirement is a
+        // light-ground rule. Where the contrast has actually been measured on a dark
+        // ground and passes, the exception is recorded in the tokens JSON with its
+        // numbers. Never add one without measuring; a blanket sweep makes these worse.
+        const spec = T.retired[r] || T.retired[up(r)];
+        const exempt = (spec && spec.exceptions || []).some(
+          (e) => e.file === file && ln.includes(e.match)
+        );
+        if (exempt) continue;
+
+        violations.push({
+          id: `RETIRED:${file}:${no}:${m.index}`, file, line: no, kind: "retired-as-text",
+          value: r, note: spec ? spec.reason : "retired", fatal: true,
+        });
       }
     }
 

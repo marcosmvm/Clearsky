@@ -39,7 +39,18 @@
       "reason": "Measures 2.58:1 on white — fails WCAG AA at every text size.",
       "replaceWith": "--ink-3 (#5B6F8E)",
       "stillAllowedFor": ["hairlines", "icon strokes on decorative or disabled-state demos"],
-      "neverAllowedFor": ["text at any size"]
+      "neverAllowedFor": ["text on any light ground"],
+      "groundCaveat": "The retirement is a LIGHT-GROUND rule, though the UI Kit states it as absolute. On the dark navy gradient #0B1424→#213558 the retired colour measures 7.08:1 / 4.71:1 and passes AA, while its replacement #5B6F8E measures 3.61:1 / 2.40:1 and fails. A blanket sweep makes those cases worse. Exceptions below are measured, not assumed.",
+      "exceptions": [
+        {
+          "file": "02 App Prototype.dc.html",
+          "match": "'THE PROMISE'",
+          "ground": "linear-gradient(180deg,#0B1424,#213558)",
+          "measured": { "topStop": "7.08:1", "bottomStop": "4.71:1", "replacementWouldBe": "3.61:1 / 2.40:1" },
+          "reason": "Passes AA on the dark privacy card. Sweeping it to --ink-3 would fail at both gradient stops.",
+          "verified": "2026-09-04"
+        }
+      ]
     }
   },
 

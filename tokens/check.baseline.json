@@ -1,7 +1,7 @@
 {
   "$note": "Accepted token debt. New violations fail CI; these are burned down deliberately. Never add a retired-as-text entry here — those are always fatal.",
   "$recorded": "2026-09-04",
-  "count": 1541,
+  "count": 1542,
   "ids": [
     "00 Clearsky Index.dc.html:121:shadow:0 16px 34px rgba(27,43,75,0.08)",
     "00 Clearsky Index.dc.html:123:colour:#EAF2FC",
@@ -265,6 +265,7 @@
     "02 App Prototype.dc.html:843:colour:#BFD3EC",
     "02 App Prototype.dc.html:861:colour:#0B1424",
     "02 App Prototype.dc.html:861:colour:#213558",
+    "02 App Prototype.dc.html:862:colour:#8FA2BD",
     "02 App Prototype.dc.html:863:colour:#FFFDF8",
     "02 App Prototype.dc.html:873:colour:#E0B4A2",
     "02 App Prototype.dc.html:876:colour:#DCE7F3",

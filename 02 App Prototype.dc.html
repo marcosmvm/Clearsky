@@ -859,7 +859,7 @@ class Component extends DCLogic {
       this.head('Privacy and data', () => this.go('settings')),
       e('div', { style: { flex: 1, overflowY: 'auto', padding: '15px 16px 20px', display: 'flex', flexDirection: 'column', gap: '10px', background: '#F7FBFE' } },
         e('div', { style: { position: 'relative', background: 'linear-gradient(180deg,#0B1424,#213558)', borderRadius: '18px', padding: '18px 16px', display: 'flex', flexDirection: 'column', gap: '7px', overflow: 'hidden' } },
-          e('span', { style: { fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.18em', color: '#5B6F8E' } }, 'THE PROMISE'),
+          e('span', { style: { fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.18em', color: '#8FA2BD' } }, 'THE PROMISE'),
           e('span', { style: { fontFamily: "'Source Serif 4',Georgia,serif", fontSize: '18px', fontWeight: 600, color: '#FFFDF8', lineHeight: 1.35, maxWidth: '190px' } }, 'Clearsky never sends a message on your behalf')),
         [['On your device', 'Sorting and drafting happen locally wherever the model allows.'], ['Kept 30 days', 'Message text used for sorting is discarded after a month.'], ['Never sold', 'No ad model, no data brokers, no training on your words.']].map(([t, s2]) =>
           e('div', { key: t, style: { background: '#FDFEFF', border: '1px solid #E0EBF7', borderRadius: '15px', padding: '13px 14px', display: 'flex', gap: '11px', alignItems: 'flex-start' } },
