@@ -114,4 +114,60 @@ final class PromiseStoreTests: XCTestCase {
 
         XCTAssertEqual(store.promises, [first, second])
     }
+
+    // MARK: - refreshOverdueStates
+
+    func testRefreshOverdueStatesMovesPastDuePlannedPromiseToNeedsANewPlan() {
+        let store = PromiseStore(fileURL: fileURL)
+        let now = Date(timeIntervalSince1970: 1_700_000_000)
+        let pastDue = Promise(
+            id: "past-due",
+            personName: "Maya Chen",
+            whatWasPromised: "Send the invoice",
+            dueDate: now.addingTimeInterval(-3600),
+            protectedTime: false,
+            state: .planned
+        )
+        store.add(pastDue)
+
+        store.refreshOverdueStates(now: now)
+
+        XCTAssertEqual(store.promises.first?.state, .needsANewPlan)
+    }
+
+    func testRefreshOverdueStatesLeavesFutureDuePlannedPromiseUntouched() {
+        let store = PromiseStore(fileURL: fileURL)
+        let now = Date(timeIntervalSince1970: 1_700_000_000)
+        let notYetDue = Promise(
+            id: "not-yet-due",
+            personName: "James Okafor",
+            whatWasPromised: "Call about the lease",
+            dueDate: now.addingTimeInterval(3600),
+            protectedTime: false,
+            state: .planned
+        )
+        store.add(notYetDue)
+
+        store.refreshOverdueStates(now: now)
+
+        XCTAssertEqual(store.promises.first?.state, .planned)
+    }
+
+    func testRefreshOverdueStatesLeavesPromiseInAnotherStateUntouched() {
+        let store = PromiseStore(fileURL: fileURL)
+        let now = Date(timeIntervalSince1970: 1_700_000_000)
+        let alreadyKept = Promise(
+            id: "already-kept",
+            personName: "Priya Patel",
+            whatWasPromised: "Bring the hiking map",
+            dueDate: now.addingTimeInterval(-3600),
+            protectedTime: false,
+            state: .kept
+        )
+        store.add(alreadyKept)
+
+        store.refreshOverdueStates(now: now)
+
+        XCTAssertEqual(store.promises.first?.state, .kept)
+    }
 }
