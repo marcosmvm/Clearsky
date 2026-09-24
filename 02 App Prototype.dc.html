@@ -283,7 +283,7 @@ class Component extends DCLogic {
       e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '9px', width: '100%' } },
         this.btn('\uF8FF  Continue with Apple', () => this.go('accounts'), 'navy'),
         this.btn('Continue with email', () => this.go('accounts'), 'onSky')),
-      e('span', { style: { position: 'relative', fontSize: '10.5px', color: 'rgba(253,254,255,0.8)', textAlign: 'center', lineHeight: 1.5 } }, 'Seven days free. Cancel any time in Settings.'));
+      e('span', { style: { position: 'relative', fontSize: '10.5px', color: 'rgba(253,254,255,0.8)', textAlign: 'center', lineHeight: 1.5 } }, '14 days free. Cancel any time in Settings.'));
   }
 
   accounts() {
@@ -792,20 +792,20 @@ class Component extends DCLogic {
       this.pattern('dusk'),
       e('span', { onClick: () => this.go('today'), style: { position: 'relative', alignSelf: 'flex-end', fontSize: '17px', color: 'rgba(253,254,255,0.9)', cursor: 'pointer', width: '44px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '-11px' } }, '\u2715'),
       e('div', { style: { position: 'relative', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '13px', alignItems: 'center', textAlign: 'center' } },
-        e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '30px', lineHeight: 1.02, textTransform: 'uppercase', color: '#FFFDF8', letterSpacing: '0.015em' } }, 'Seven days,', e('br'), 'no card games'),
+        e('span', { style: { fontFamily: "'Anton',Impact,sans-serif", fontSize: '30px', lineHeight: 1.02, textTransform: 'uppercase', color: '#FFFDF8', letterSpacing: '0.015em' } }, '14 days,', e('br'), 'no card games'),
         e('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', paddingTop: '4px' } },
-          [['Today', 'Everything unlocks'], ['Day 5', 'We remind you'], ['Day 7', 'Billing starts, or not']].map(([d, l], i) =>
+          [['Today', 'Everything unlocks'], ['Day 12', 'We remind you'], ['Day 14', 'Billing starts, or not']].map(([d, l], i) =>
             e('div', { key: i, style: { display: 'flex', gap: '11px', alignItems: 'center', background: 'rgba(253,254,255,0.9)', borderRadius: '13px', padding: '10px 13px' } },
               e('span', { style: { width: '9px', height: '9px', borderRadius: '50%', background: i === 2 ? AMBER : '#3F6339', flex: 'none' } }),
               e('span', { style: { fontSize: '12.5px', fontWeight: 700, color: INK, width: '46px', textAlign: 'left' } }, d),
               e('span', { style: { fontSize: '12.5px', color: MUTE, textAlign: 'left' } }, l))))),
       e('div', { style: { position: 'relative', display: 'flex', flexDirection: 'column', gap: '8px' } },
-        this.btn('Start 7 days free', () => this.go('plans')),
+        this.btn('Start 14 days free', () => this.go('plans')),
         this.btn('See the plans', () => this.go('plans'), 'onSky')));
   }
 
   plans() {
-    const PL = [['year', '$49.99', 'a year', 'Save 84%'], ['week', '$5.99', 'a week', null], ['life', '$129', 'once, forever', null]];
+    const PL = [['year', '$49.99', 'a year', 'Save 40%'], ['month', '$6.99', 'a month', null], ['life', '$129', 'once, forever', null]];
     return e('div', { style: { position: 'absolute', inset: 0, background: 'linear-gradient(180deg,#FDF6EC 0%,#F2F7FD 60%,#FDFEFF 100%)', display: 'flex', flexDirection: 'column', padding: '46px 20px 22px' } },
       e('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
         e('span', { onClick: () => this.go('paywall'), style: { fontSize: '22px', color: INK, cursor: 'pointer', width: '44px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '-11px' } }, '\u2039'),
@@ -848,7 +848,7 @@ class Component extends DCLogic {
         item('Inner circle', Object.values(this.state.circle).filter(Boolean).length + ' people', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('circle')),
         item('Weekly recap', 'Arrives Sunday evening', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('recap')),
         e('span', { style: { fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#5B6F8E', paddingTop: '3px' } }, 'ACCOUNT'),
-        item('Plan', this.state.plan === 'year' ? '$49.99 a year \u00b7 renews 4 Sep' : this.state.plan === 'week' ? '$5.99 a week' : 'Lifetime \u00b7 paid', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('plans')),
+        item('Plan', this.state.plan === 'year' ? '$49.99 a year \u00b7 renews 4 Sep' : this.state.plan === 'month' ? '$6.99 a month' : 'Lifetime \u00b7 paid', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('plans')),
         item('Connected accounts', Object.values(this.state.accounts).filter(Boolean).length + ' connected', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('accounts')),
         item('Privacy and data', 'What we keep, and for how long', e('span', { style: { fontSize: '18px', color: '#5B6F8E' } }, '\u203A'), () => this.go('privacy')))
     ]);
