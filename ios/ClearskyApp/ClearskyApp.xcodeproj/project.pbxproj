@@ -15,6 +15,7 @@
 		587073928568A855BB1957BC /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = EF3A5366202B1B6D822393C6 /* ClearskyCore */; };
 		65A94DE5815474A75F332B79 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */; };
 		73B510E0D8C518597AA20746 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7494BA30BE6FF5A56834B14 /* ShareViewController.swift */; };
+		8D6D0B70934542BB9D636902 /* Clearsky.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 702B1666294969184CC89B9C /* Clearsky.storekit */; };
 		A4CBE9003109FB22C78DB53D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE7775AB900A1DF2519C802 /* TodayView.swift */; };
 		A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */; };
 		AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */; };
@@ -61,6 +62,7 @@
 		008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainDisplay.swift; sourceTree = "<group>"; };
 		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		6AD00B9CF95A5E3906519477 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		702B1666294969184CC89B9C /* Clearsky.storekit */ = {isa = PBXFileReference; path = Clearsky.storekit; sourceTree = "<group>"; };
 		8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearskyApp.swift; sourceTree = "<group>"; };
 		9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageView.swift; sourceTree = "<group>"; };
 		93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				D6280BEDFBE9479615734E2C /* Assets.xcassets */,
+				702B1666294969184CC89B9C /* Clearsky.storekit */,
 				99D0E1ED311CB463936DE6CB /* ClearskyApp.entitlements */,
 				8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */,
 				93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */,
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5476159C160033CC4639AE /* Assets.xcassets in Resources */,
+				8D6D0B70934542BB9D636902 /* Clearsky.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
