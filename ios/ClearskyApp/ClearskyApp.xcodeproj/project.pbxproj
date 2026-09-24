@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C5476159C160033CC4639AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6280BEDFBE9479615734E2C /* Assets.xcassets */; };
+		198A2801134AD191C046760B /* TriageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DD752EC62880479CFFC85 /* TriageCardView.swift */; };
+		32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */; };
+		65A94DE5815474A75F332B79 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */; };
+		A4CBE9003109FB22C78DB53D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE7775AB900A1DF2519C802 /* TodayView.swift */; };
+		AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */; };
+		C1925905FF198269AE75544F /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */; };
+		CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */; };
+		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
+		FEE88C06BD4264602F02674E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD00B9CF95A5E3906519477 /* RootView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainDisplay.swift; sourceTree = "<group>"; };
+		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		6AD00B9CF95A5E3906519477 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearskyApp.swift; sourceTree = "<group>"; };
+		9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageView.swift; sourceTree = "<group>"; };
+		93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		986DD752EC62880479CFFC85 /* TriageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageCardView.swift; sourceTree = "<group>"; };
+		9E2AAEF072DF8480794A7644 /* ClearskyCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ClearskyCore; path = ../ClearskyCore; sourceTree = SOURCE_ROOT; };
+		D6280BEDFBE9479615734E2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FACDDAFF6B992C6B31561041 /* ClearskyApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClearskyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDE7775AB900A1DF2519C802 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AED93DA7AD961287301BC23B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07D7CF543A7DA91D483EF4C5 = {
+			isa = PBXGroup;
+			children = (
+				B17BE78F4A05864DAED9010A /* ClearskyApp */,
+				E7C67DFC11E6F9B6B92CBD04 /* Packages */,
+				5C116E335ABDC88A39F0F65E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5C116E335ABDC88A39F0F65E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FACDDAFF6B992C6B31561041 /* ClearskyApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B17BE78F4A05864DAED9010A /* ClearskyApp */ = {
+			isa = PBXGroup;
+			children = (
+				D6280BEDFBE9479615734E2C /* Assets.xcassets */,
+				8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */,
+				93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */,
+				008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */,
+				6AD00B9CF95A5E3906519477 /* RootView.swift */,
+				4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */,
+				FDE7775AB900A1DF2519C802 /* TodayView.swift */,
+				986DD752EC62880479CFFC85 /* TriageCardView.swift */,
+				9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */,
+			);
+			path = ClearskyApp;
+			sourceTree = "<group>";
+		};
+		E7C67DFC11E6F9B6B92CBD04 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AAEF072DF8480794A7644 /* ClearskyCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43D6CDA35720240E885F9A16 /* ClearskyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB60D43C9173D13D8794A3C4 /* Build configuration list for PBXNativeTarget "ClearskyApp" */;
+			buildPhases = (
+				AA01CADE3E686F18C388DDB5 /* Sources */,
+				61B3C76A8B297E2B678A3BB6 /* Resources */,
+				AED93DA7AD961287301BC23B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClearskyApp;
+			packageProductDependencies = (
+				E23B5AA488A087FBAC631767 /* ClearskyCore */,
+			);
+			productName = ClearskyApp;
+			productReference = FACDDAFF6B992C6B31561041 /* ClearskyApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7D4568DA67B80636FD5A766 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					43D6CDA35720240E885F9A16 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 71CB7F2B8361C3566A615F1E /* Build configuration list for PBXProject "ClearskyApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 07D7CF543A7DA91D483EF4C5;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				631B9A01C29386915119CBB5 /* XCLocalSwiftPackageReference "../ClearskyCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5C116E335ABDC88A39F0F65E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43D6CDA35720240E885F9A16 /* ClearskyApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61B3C76A8B297E2B678A3BB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C5476159C160033CC4639AE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA01CADE3E686F18C388DDB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */,
+				C1925905FF198269AE75544F /* DesignTokens.swift in Sources */,
+				CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */,
+				FEE88C06BD4264602F02674E /* RootView.swift in Sources */,
+				65A94DE5815474A75F332B79 /* SampleData.swift in Sources */,
+				A4CBE9003109FB22C78DB53D /* TodayView.swift in Sources */,
+				198A2801134AD191C046760B /* TriageCardView.swift in Sources */,
+				AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		05403A016EBEF7DD9FAFAC1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Clearsky;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcosmvm.clearsky.app;
+				PRODUCT_NAME = ClearskyApp;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		17008ABEECBF0AD2883C8590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		404A76F5A8DAA011652736EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E7A34A0BEB0A8794A8BF277E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Clearsky;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcosmvm.clearsky.app;
+				PRODUCT_NAME = ClearskyApp;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71CB7F2B8361C3566A615F1E /* Build configuration list for PBXProject "ClearskyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				404A76F5A8DAA011652736EF /* Debug */,
+				17008ABEECBF0AD2883C8590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CB60D43C9173D13D8794A3C4 /* Build configuration list for PBXNativeTarget "ClearskyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05403A016EBEF7DD9FAFAC1B /* Debug */,
+				E7A34A0BEB0A8794A8BF277E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		631B9A01C29386915119CBB5 /* XCLocalSwiftPackageReference "../ClearskyCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../ClearskyCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E23B5AA488A087FBAC631767 /* ClearskyCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ClearskyCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D7D4568DA67B80636FD5A766 /* Project object */;
+}
