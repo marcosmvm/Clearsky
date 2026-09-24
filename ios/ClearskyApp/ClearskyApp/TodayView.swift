@@ -6,15 +6,55 @@ import ClearskyCore
 /// action ... and quieter alternatives. Do not reduce either screen to a menu of
 /// equal-weight cards."
 ///
-/// This shell reads that literally: one full `TriageCardView` for the single most
-/// pressing item ("Next up"), then the remaining items collapsed into small, quiet
-/// rows underneath ("Later today") — never a scrolling stack of identical cards.
+/// ## Demo day vs live
+///
+/// `01 Product Scope.dc.html` §15 decision 5: the empty state for a user with no
+/// inner circle and no connected accounts is "a demo day with sample data, and one
+/// tap to connect" — not a hand-off/nag screen. `SampleData.swift` is that demo day's
+/// permanent content, not a stand-in to delete. This screen decides which experience
+/// to render by asking `ConnectedAccountsState.presentationState`
+/// (`ClearskyCore.DataPresentationState`) the same question every other data-driven
+/// surface should ask, rather than re-deriving the rule locally: there is no real
+/// "connected accounts" toggle built yet, so `hasInnerCircle`/`hasAnyConnectedAccount`
+/// are proxied off whether there is any real `Promise` or pending
+/// `CapturedPromiseDraft` at all — either one is evidence of a real, in-use account.
+///
+/// - `.demoDay` renders exactly what this screen always rendered: one full
+///   `TriageCardView` for the single most pressing sample item ("Next up"), the rest
+///   collapsed into quiet rows ("Later today") — completely unchanged.
+/// - `.live` renders the most urgent *real* thing, in priority order: the oldest
+///   pending captured draft awaiting confirmation, else the promise soonest due in
+///   `.needsANewPlan`, else "All clear" (the screen's existing empty state, reused
+///   as-is). This does not reuse `TriageCardView` — a `Promise`/`CapturedPromiseDraft`
+///   has no `TriageExplanation` to render one from — but reuses the same design
+///   tokens via `RealPrimaryCard` below, so it still matches the app's look.
 struct TodayView: View {
     let items: [TriageItem]
+    @ObservedObject var promiseStore: PromiseStore
+    let sharedDraftStore: SharedDraftStore
+    let onSaveNewPromise: (Promise) -> Void
+    let onGoToPromises: () -> Void
+
     @State private var lastActionSummary: String?
+    @State private var draftBeingResolved: CapturedPromiseDraft?
+    @State private var isPresentingDraftResolution = false
 
     private var primary: TriageItem? { items.first }
     private var rest: [TriageItem] { items.isEmpty ? [] : Array(items.dropFirst()) }
+
+    private var pendingDrafts: [CapturedPromiseDraft] { sharedDraftStore.loadAll() }
+
+    /// See the type-level doc: proxies `ConnectedAccountsState` off whether any real
+    /// data exists yet, then reads `.presentationState` off it — same closed decision
+    /// §15 decision 5 already defines, not a locally re-derived rule.
+    private var presentationState: DataPresentationState {
+        let hasRealData = !promiseStore.promises.isEmpty || !pendingDrafts.isEmpty
+        let connectedAccountsState = ConnectedAccountsState(
+            connectedAccountKinds: [],
+            innerCircleCount: hasRealData ? 1 : 0
+        )
+        return connectedAccountsState.presentationState
+    }
 
     var body: some View {
         ScrollView {
@@ -37,40 +77,109 @@ struct TodayView: View {
                         )
                 }
 
-                if let primary {
-                    VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
-                        Text("NEXT UP")
-                            .font(ClearskyFont.ui(12, weight: .semibold))
-                            .tracking(0.08 * 12)
-                            .foregroundStyle(ClearskyColor.muted)
-
-                        TriageCardView(item: primary) { resolved in
-                            lastActionSummary = "\(primary.personName) \u{2192} \(resolved.resultingState.displayName)"
-                        }
-                    }
-                } else {
-                    emptyState
-                }
-
-                if !rest.isEmpty {
-                    VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
-                        Text("LATER TODAY")
-                            .font(ClearskyFont.ui(12, weight: .semibold))
-                            .tracking(0.08 * 12)
-                            .foregroundStyle(ClearskyColor.muted)
-
-                        VStack(spacing: ClearskySpacing.xs) {
-                            ForEach(rest) { item in
-                                LaterTodayRow(item: item)
-                            }
-                        }
-                    }
+                switch presentationState {
+                case .demoDay:
+                    demoDayContent
+                case .live:
+                    liveContent
                 }
             }
             .padding(.horizontal, ClearskySpacing.l)
             .padding(.bottom, ClearskySpacing.xl)
         }
         .background(ClearskyColor.surfaceTertiary.ignoresSafeArea())
+        .sheet(isPresented: $isPresentingDraftResolution) {
+            // `CapturedPromiseDraft` is not `Identifiable` (see `ClearskyCore`), so
+            // this uses `.sheet(isPresented:)` plus a separately-held `@State` draft
+            // rather than `.sheet(item:)`.
+            if let draft = draftBeingResolved {
+                NewPromiseView(draft: draft) { promise in
+                    onSaveNewPromise(promise)
+                    sharedDraftStore.remove(id: draft.id)
+                }
+            }
+        }
+    }
+
+    // MARK: - Demo day (SampleData — unchanged from before this task)
+
+    @ViewBuilder
+    private var demoDayContent: some View {
+        if let primary {
+            VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
+                Text("NEXT UP")
+                    .font(ClearskyFont.ui(12, weight: .semibold))
+                    .tracking(0.08 * 12)
+                    .foregroundStyle(ClearskyColor.muted)
+
+                TriageCardView(item: primary) { resolved in
+                    lastActionSummary = "\(primary.personName) \u{2192} \(resolved.resultingState.displayName)"
+                }
+            }
+        } else {
+            emptyState
+        }
+
+        if !rest.isEmpty {
+            VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
+                Text("LATER TODAY")
+                    .font(ClearskyFont.ui(12, weight: .semibold))
+                    .tracking(0.08 * 12)
+                    .foregroundStyle(ClearskyColor.muted)
+
+                VStack(spacing: ClearskySpacing.xs) {
+                    ForEach(rest) { item in
+                        LaterTodayRow(item: item)
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Live (real Promise/CapturedPromiseDraft data)
+
+    @ViewBuilder
+    private var liveContent: some View {
+        if let draft = pendingDrafts.min(by: { $0.capturedAt < $1.capturedAt }) {
+            VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
+                Text("NEXT UP")
+                    .font(ClearskyFont.ui(12, weight: .semibold))
+                    .tracking(0.08 * 12)
+                    .foregroundStyle(ClearskyColor.muted)
+
+                RealPrimaryCard(
+                    personLabel: "New capture",
+                    whatLabel: draft.sharedText,
+                    dateLabel: draft.capturedAt.formatted(date: .abbreviated, time: .shortened),
+                    whyNow: "Captured \u{B7} not yet a promise",
+                    actionLabel: "Turn into a promise"
+                ) {
+                    draftBeingResolved = draft
+                    isPresentingDraftResolution = true
+                }
+            }
+        } else if let needsANewPlan = promiseStore.promises
+            .filter({ $0.state == .needsANewPlan })
+            .min(by: { $0.dueDate < $1.dueDate }) {
+            VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
+                Text("NEXT UP")
+                    .font(ClearskyFont.ui(12, weight: .semibold))
+                    .tracking(0.08 * 12)
+                    .foregroundStyle(ClearskyColor.muted)
+
+                RealPrimaryCard(
+                    personLabel: needsANewPlan.personName,
+                    whatLabel: needsANewPlan.whatWasPromised,
+                    dateLabel: needsANewPlan.dueDate.formatted(date: .abbreviated, time: .shortened),
+                    whyNow: "\(Outcome.needsANewPlan.displayName) \u{B7} the date stopped working",
+                    actionLabel: "Give it a new time"
+                ) {
+                    onGoToPromises()
+                }
+            }
+        } else {
+            emptyState
+        }
     }
 
     private var emptyState: some View {
@@ -139,6 +248,97 @@ private struct LaterTodayRow: View {
     }
 }
 
+/// The `.live` counterpart to `TriageCardView` for a real `Promise` or
+/// `CapturedPromiseDraft` — deliberately simpler, since neither has a
+/// `TriageExplanation` to render the full WHY NOW / IF NOT / alternatives layout
+/// from. Person/what/date, one WHY NOW-style line, one action button — built from the
+/// same `ClearskyColor`/`ClearskyFont`/`ClearskySpacing`/`ClearskyRadius` tokens every
+/// other card in the app uses (see `NeedsANewPlanCard` in `PromisesView.swift` for the
+/// same pattern), so it matches the app's look without inventing new tokens.
+private struct RealPrimaryCard: View {
+    let personLabel: String
+    let whatLabel: String
+    let dateLabel: String
+    let whyNow: String
+    let actionLabel: String
+    let action: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
+            HStack(alignment: .firstTextBaseline) {
+                Text(personLabel)
+                    .font(ClearskyFont.ui(16, weight: .semibold))
+                    .foregroundStyle(ClearskyColor.inkNavy)
+                Spacer()
+                Text(dateLabel)
+                    .font(ClearskyFont.ui(12))
+                    .foregroundStyle(ClearskyColor.muted)
+            }
+
+            Text(whatLabel)
+                .font(ClearskyFont.editorial(16))
+                .foregroundStyle(ClearskyColor.body)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(whyNow.uppercased())
+                .font(ClearskyFont.ui(11, weight: .semibold))
+                .tracking(0.08 * 11)
+                .foregroundStyle(ClearskyColor.amberLabelInk)
+
+            Button(action: action) {
+                Text(actionLabel)
+                    .font(ClearskyFont.ui(15, weight: .semibold))
+                    .foregroundStyle(ClearskyColor.amberInk)
+                    .frame(maxWidth: .infinity)
+                    .frame(minHeight: ClearskyMetric.minHitTarget)
+                    .background(
+                        LinearGradient(
+                            colors: [ClearskyColor.amberGradientStart, ClearskyColor.amberGradientEnd],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: ClearskyRadius.md, style: .continuous))
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(ClearskySpacing.l)
+        .background(
+            RoundedRectangle(cornerRadius: ClearskyRadius.xl, style: .continuous)
+                .fill(ClearskyColor.surfacePrimary)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: ClearskyRadius.xl, style: .continuous)
+                .stroke(ClearskyColor.hairline, lineWidth: 1)
+        )
+    }
+}
+
+// MARK: - Preview
+
+/// Builds a disposable, file-backed `PromiseStore` and a disposable `UserDefaults`
+/// suite for `SharedDraftStore` — same isolation pattern `PromisesView.swift`'s
+/// `makePreviewStore()` uses. Both start empty, so this preview stays on `.demoDay`
+/// and keeps rendering `SampleData.triageItems`, exactly as before this task.
+@MainActor
+private func makeTodayPreviewDependencies() -> (PromiseStore, SharedDraftStore) {
+    let promiseStoreURL = FileManager.default.temporaryDirectory
+        .appendingPathComponent("today-view-preview-\(UUID().uuidString)")
+        .appendingPathExtension("json")
+    let draftsSuiteName = "today-view-preview-\(UUID().uuidString)"
+    return (
+        PromiseStore(fileURL: promiseStoreURL),
+        SharedDraftStore(defaults: UserDefaults(suiteName: draftsSuiteName)!)
+    )
+}
+
 #Preview {
-    TodayView(items: SampleData.triageItems)
+    let (promiseStore, sharedDraftStore) = makeTodayPreviewDependencies()
+    return TodayView(
+        items: SampleData.triageItems,
+        promiseStore: promiseStore,
+        sharedDraftStore: sharedDraftStore,
+        onSaveNewPromise: { _ in },
+        onGoToPromises: {}
+    )
 }

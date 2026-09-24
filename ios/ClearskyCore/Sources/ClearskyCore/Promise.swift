@@ -41,6 +41,14 @@ public struct Promise: Identifiable, Equatable, Hashable, Sendable, Codable {
     /// `ProtectedTimeBlock`) rather than an ordinary one.
     public let protectedTime: Bool
     public var state: Outcome
+    /// The identifier `CalendarHolding.createHold(for:)` returned when this promise's
+    /// `protectedTime` toggle caused a real calendar hold to be created, so a later
+    /// `removeHold(eventIdentifier:)` can find that hold again. `nil` for a promise
+    /// that was never protected, or whose hold creation failed/was never attempted
+    /// (e.g. calendar access was denied). Purely additive: defaults to `nil` so every
+    /// existing call site (PR #17's `PromiseStore`/`NewPromiseView`, PR #20's
+    /// `PromisesView`) keeps compiling unchanged.
+    public var calendarEventIdentifier: String?
 
     /// Creates a new promise. `state` defaults to `.planned` — a New promise always
     /// has a date at creation (per §6's "three time presets plus a picker"), so it is
@@ -52,7 +60,8 @@ public struct Promise: Identifiable, Equatable, Hashable, Sendable, Codable {
         dueDate: Date,
         sourceText: String? = nil,
         protectedTime: Bool,
-        state: Outcome = .planned
+        state: Outcome = .planned,
+        calendarEventIdentifier: String? = nil
     ) {
         self.id = id
         self.personName = personName
@@ -61,5 +70,6 @@ public struct Promise: Identifiable, Equatable, Hashable, Sendable, Codable {
         self.sourceText = sourceText
         self.protectedTime = protectedTime
         self.state = state
+        self.calendarEventIdentifier = calendarEventIdentifier
     }
 }

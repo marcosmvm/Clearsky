@@ -31,6 +31,7 @@
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
 		F41800BFC4CF32800C277318 /* ClearskyShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FABA10120F1C17D2FF1D2B67 /* PendingDraftsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */; };
 		FBD78EDA4DD72BA12FD468A1 /* EventKitCalendarServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */; };
 		FEE88C06BD4264602F02674E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD00B9CF95A5E3906519477 /* RootView.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStoreTests.swift; sourceTree = "<group>"; };
 		E719C4CDEE048730C364C07A /* MockCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCalendarService.swift; sourceTree = "<group>"; };
 		EF7DFEF30476230E60827ED3 /* PromiseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStore.swift; sourceTree = "<group>"; };
+		F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDraftsView.swift; sourceTree = "<group>"; };
 		FACDDAFF6B992C6B31561041 /* ClearskyApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClearskyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE7775AB900A1DF2519C802 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +177,7 @@
 				008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */,
 				1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */,
 				111D7444576901364A6A65EA /* NewPromiseView.swift */,
+				F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */,
 				EF7DFEF30476230E60827ED3 /* PromiseStore.swift */,
 				2E35D44150B05D6DD6102EA7 /* PromisesView.swift */,
 				6AD00B9CF95A5E3906519477 /* RootView.swift */,
@@ -356,6 +359,7 @@
 				CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */,
 				B975D90CAF8214D4F11F6436 /* EventKitCalendarService.swift in Sources */,
 				957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */,
+				FABA10120F1C17D2FF1D2B67 /* PendingDraftsView.swift in Sources */,
 				689D277032BF9E283562F44F /* PromiseStore.swift in Sources */,
 				78A0C8B1FAE720BE0CC38DF1 /* PromisesView.swift in Sources */,
 				FEE88C06BD4264602F02674E /* RootView.swift in Sources */,
