@@ -22,4 +22,8 @@ public enum TriageAction: String, CaseIterable, Equatable, Hashable, Sendable, C
     case dateNoLongerWorks
     /// Snoozed → Needs attention.
     case returnDateArrives
+    /// Needs a new plan → Planned. Preserves the original source thread, wording,
+    /// person and prior date — see TriageStateMachine.table's `requiredMetadata` for
+    /// this row.
+    case reschedulePlan
 }

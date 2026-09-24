@@ -118,19 +118,25 @@ public struct TriagePresentation: Equatable, Sendable {
     /// | `.wait` | `.markAwaitingReply` | `.needsAttention`, `.responded` |
     /// | `.letGo` | `.letGo` | `.needsAttention`, `.planned`, `.needsANewPlan` |
     ///
-    /// **Known open seam, not fixed here.** `CLAUDE_CODE_AUDIT.md` §"Promise ownership"
-    /// expects "Needs a new plan" to offer "give it a new time" as a recovery action,
-    /// which reads as the `.plan` recommendation. But `TriageStateMachine.table` has no
-    /// `(from: .needsANewPlan, action: .confirmPlan)` row — the only legal action from
-    /// `.needsANewPlan` is `.letGo` — so `triageAction(for: .plan, from: .needsANewPlan)`
-    /// correctly returns `nil` per the table as it stands today, and that leaves "give
-    /// it a new time" with no `RecommendedAction` this function can resolve. Closing
-    /// that gap needs either a new table row (some "replan" `TriageAction` from
-    /// `.needsANewPlan` to `.planned`) or a product decision that "give it a new time"
-    /// lives outside the Today/Triage card's `RecommendedAction` model entirely (e.g.
-    /// Promise Detail only) — both are changes to `TriageStateMachine.swift` /
-    /// `TriageAction.swift`, which this task must not edit. Flagged here and in the PR
-    /// description instead of forced through.
+    /// **Gap closed at the state-machine level, not through this mapping.**
+    /// `CLAUDE_CODE_AUDIT.md` §"Promise ownership" expects "Needs a new plan" to offer
+    /// "give it a new time" as a recovery action. That recovery action is
+    /// `PromiseNeedsANewPlanExit.giveItANewTime` (see `PromiseOwnership.swift`), which
+    /// is Promise Detail vocabulary, not the Today/Triage card's `RecommendedAction`
+    /// vocabulary — the two are deliberately kept separate (see the table above).
+    /// `TriageStateMachine.table` now has a `(from: .needsANewPlan, action:
+    /// .reschedulePlan, to: .planned)` row, added specifically to resolve that exit,
+    /// but `.reschedulePlan` is intentionally not one of the five candidate actions in
+    /// `candidateTriageAction(for:)` and has no `RecommendedAction` counterpart, so
+    /// `triageAction(for: .plan, from: .needsANewPlan)` still correctly returns `nil`
+    /// — `.plan`'s only candidate is `.confirmPlan`, which still has no legal row from
+    /// `.needsANewPlan`, and that is correct: conflating `.reschedulePlan` into the
+    /// `.plan` mapping here would blur the Triage-card vocabulary into the Promise
+    /// Detail vocabulary. The Promise Detail screen resolves
+    /// `PromiseNeedsANewPlanExit.giveItANewTime` by calling
+    /// `TriageStateMachine.transition(from: .needsANewPlan, via: .reschedulePlan)`
+    /// directly — it works with `Outcome`/`TriageAction` directly, not through this
+    /// `TriagePresentation`/`RecommendedAction` mapping, which is Triage-card-only.
     ///
     /// Separately, three `TriageAction` cases have no `RecommendedAction` counterpart
     /// at all — `.completeCommitment`, `.dateNoLongerWorks`, `.returnDateArrives` — so

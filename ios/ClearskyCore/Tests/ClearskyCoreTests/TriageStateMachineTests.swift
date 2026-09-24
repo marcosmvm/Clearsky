@@ -17,7 +17,8 @@ final class TriageStateMachineTests: XCTestCase {
             (.needsANewPlan, .letGo, .released),
             (.planned, .completeCommitment, .kept),
             (.planned, .dateNoLongerWorks, .needsANewPlan),
-            (.snoozed, .returnDateArrives, .needsAttention)
+            (.snoozed, .returnDateArrives, .needsAttention),
+            (.needsANewPlan, .reschedulePlan, .planned)
         ]
 
         // The table should contain exactly these rows, no more, no fewer.
@@ -92,5 +93,51 @@ final class TriageStateMachineTests: XCTestCase {
             let key = "\(rule.from.rawValue)/\(rule.action.rawValue)"
             XCTAssertTrue(seen.insert(key).inserted, "Duplicate rule for \(key)")
         }
+    }
+
+    // MARK: - Needs a new plan -> Planned via .reschedulePlan (Promise Detail's
+    // "give it a new time" exit; see PromiseNeedsANewPlanExit.giveItANewTime and
+    // TriagePresentation.triageAction(for:from:)'s doc comment)
+
+    func testNeedsANewPlanCanRescheduleToPlanned() {
+        XCTAssertEqual(
+            TriageStateMachine.canTransition(from: .needsANewPlan, via: .reschedulePlan),
+            .planned
+        )
+        XCTAssertNoThrow(
+            try TriageStateMachine.transition(from: .needsANewPlan, via: .reschedulePlan)
+        )
+    }
+
+    func testReschedulePlanRowCarriesExpectedMetadata() {
+        let rule = TriageStateMachine.rule(for: .needsANewPlan, via: .reschedulePlan)
+        XCTAssertEqual(rule?.requiredMetadata, "prior date, prior person/thread, new date/time")
+    }
+
+    func testReschedulePlanIsIllegalFromEveryOtherState() {
+        for state in Outcome.allCases where state != .needsANewPlan {
+            XCTAssertNil(
+                TriageStateMachine.canTransition(from: state, via: .reschedulePlan),
+                "reschedulePlan should only be legal from .needsANewPlan, not from \(state)"
+            )
+        }
+    }
+
+    func testNeedsANewPlanStillLetsGoUnchanged() {
+        // The pre-existing transition must keep working exactly as before: adding
+        // .reschedulePlan must not touch or replace the .letGo row.
+        XCTAssertEqual(
+            TriageStateMachine.canTransition(from: .needsANewPlan, via: .letGo),
+            .released
+        )
+    }
+
+    func testReschedulePlanIsTheOnlyNewLegalPairAddedForNeedsANewPlan() {
+        // .needsANewPlan should now have exactly two outgoing rows: the pre-existing
+        // .letGo -> .released, and the new .reschedulePlan -> .planned. No other
+        // action should be legal from .needsANewPlan.
+        let outgoing = TriageStateMachine.table.filter { $0.from == .needsANewPlan }
+        let actions = Set(outgoing.map { $0.action })
+        XCTAssertEqual(actions, [.letGo, .reschedulePlan])
     }
 }

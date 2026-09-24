@@ -105,9 +105,10 @@ public enum PromiseOwnership {
     /// `.completeCommitment` transition). `false` for every other state, including
     /// `.waitingOnThem` (no completion path at all — see
     /// `TriageStateMachineTests.testWaitingOnThemCannotBeCompletedDirectlyToKept`),
-    /// `.needsANewPlan` (its only legal transition is `.letGo`; recovering it needs
-    /// one of the three named exits below, not a bare tap), and `.kept`/`.released`
-    /// (already resolved — there is nothing left to complete).
+    /// `.needsANewPlan` (neither of its legal transitions, `.letGo` nor
+    /// `.reschedulePlan`, is `.completeCommitment`; recovering it needs one of the
+    /// three named exits below, not a bare tap), and `.kept`/`.released` (already
+    /// resolved — there is nothing left to complete).
     public static func isDirectlyCompletable(_ outcome: Outcome) -> Bool {
         TriageStateMachine.canTransition(from: outcome, via: .completeCommitment) != nil
     }
@@ -123,12 +124,16 @@ public enum PromiseOwnership {
 /// never offer a fourth, differently worded, or shaming exit by accident.
 ///
 /// This type is UI-facing vocabulary only. It intentionally does not wire into
-/// `TriageStateMachine.TriageAction`/`table`: that transition table is out of scope
-/// for this file (see `ios/ClearskyCore/README.md` and the task that added this
-/// file), and the table only has one outgoing rule for `.needsANewPlan`
-/// (`.letGo` → `.released`). Reconciling all three UI exits with transition rows is a
-/// follow-up for whoever wires up the Promise detail screen, not a decision this pure
-/// domain type makes.
+/// `TriageStateMachine.TriageAction`/`table` directly — that transition table is out
+/// of scope for this file (see `ios/ClearskyCore/README.md` and the task that added
+/// this file). The table now has two outgoing rules for `.needsANewPlan`: `.letGo` →
+/// `.released` and `.reschedulePlan` → `.planned`, the latter added so
+/// `.giveItANewTime` has a legal transition to resolve through. Wiring each of the
+/// three UI exits to its transition (`.keepIt` reaffirms the existing plan and has no
+/// table row by design; `.giveItANewTime` resolves via
+/// `TriageStateMachine.transition(from: .needsANewPlan, via: .reschedulePlan)`;
+/// `.letItGo` via `.letGo`) is done by whoever wires up the Promise detail screen, not
+/// by this pure domain type.
 public enum PromiseNeedsANewPlanExit: String, CaseIterable, Equatable, Hashable, Sendable, Codable {
 
     /// "Keep it" — the plan still stands as-is; the user reaffirms the commitment.
@@ -138,9 +143,12 @@ public enum PromiseNeedsANewPlanExit: String, CaseIterable, Equatable, Hashable,
     /// Per the audit doc's remediation note, doing this should preserve the source
     /// thread, original wording, person and prior date — a UI/data concern for
     /// whichever layer implements this exit, not modeled by this enum case itself.
+    /// Corresponds to the `TriageStateMachine.table` row `(from: .needsANewPlan,
+    /// action: .reschedulePlan, to: .planned)`; resolving this exit calls
+    /// `TriageStateMachine.transition(from: .needsANewPlan, via: .reschedulePlan)`.
     case giveItANewTime
 
-    /// "Let it go" — the user releases the promise. Corresponds to the one legal
+    /// "Let it go" — the user releases the promise. Corresponds to the
     /// state-machine transition out of `.needsANewPlan`: `.letGo` → `.released`.
     case letItGo
 
