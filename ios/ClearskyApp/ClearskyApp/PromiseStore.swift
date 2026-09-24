@@ -63,6 +63,29 @@ final class PromiseStore: ObservableObject {
         save()
     }
 
+    /// Moves every `.planned` promise whose `dueDate` has already passed to
+    /// `.needsANewPlan`, via the pre-existing, legal `TriageStateMachine.table` row
+    /// `(from: .planned, action: .dateNoLongerWorks, to: .needsANewPlan)` — nothing in
+    /// the app called that row until this method. A promise in any other state, or a
+    /// `.planned` promise whose `dueDate` is still `now` or later, is left untouched.
+    ///
+    /// Same pattern as `update(_:)`: mutate the held `promises`, then persist once.
+    ///
+    /// - Parameter now: The instant to compare each `dueDate` against. Defaults to
+    ///   `Date()`; tests pass a fixed date so "past"/"future" is deterministic.
+    func refreshOverdueStates(now: Date = Date()) {
+        var didChange = false
+        for index in promises.indices {
+            guard promises[index].state == .planned, promises[index].dueDate < now else { continue }
+            guard let next = try? TriageStateMachine.transition(from: .planned, via: .dateNoLongerWorks) else { continue }
+            promises[index].state = next
+            didChange = true
+        }
+        if didChange {
+            save()
+        }
+    }
+
     private func save() {
         guard let data = try? encoder.encode(promises) else { return }
         try? data.write(to: fileURL, options: .atomic)

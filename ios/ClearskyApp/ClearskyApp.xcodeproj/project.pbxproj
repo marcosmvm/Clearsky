@@ -16,6 +16,7 @@
 		65A94DE5815474A75F332B79 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */; };
 		689D277032BF9E283562F44F /* PromiseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DFEF30476230E60827ED3 /* PromiseStore.swift */; };
 		73B510E0D8C518597AA20746 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7494BA30BE6FF5A56834B14 /* ShareViewController.swift */; };
+		78A0C8B1FAE720BE0CC38DF1 /* PromisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E35D44150B05D6DD6102EA7 /* PromisesView.swift */; };
 		7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719C4CDEE048730C364C07A /* MockCalendarService.swift */; };
 		8D6D0B70934542BB9D636902 /* Clearsky.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 702B1666294969184CC89B9C /* Clearsky.storekit */; };
 		957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D7444576901364A6A65EA /* NewPromiseView.swift */; };
@@ -69,6 +70,7 @@
 		008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainDisplay.swift; sourceTree = "<group>"; };
 		111D7444576901364A6A65EA /* NewPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPromiseView.swift; sourceTree = "<group>"; };
 		1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarService.swift; sourceTree = "<group>"; };
+		2E35D44150B05D6DD6102EA7 /* PromisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesView.swift; sourceTree = "<group>"; };
 		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		6AD00B9CF95A5E3906519477 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		702B1666294969184CC89B9C /* Clearsky.storekit */ = {isa = PBXFileReference; path = Clearsky.storekit; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */,
 				111D7444576901364A6A65EA /* NewPromiseView.swift */,
 				EF7DFEF30476230E60827ED3 /* PromiseStore.swift */,
+				2E35D44150B05D6DD6102EA7 /* PromisesView.swift */,
 				6AD00B9CF95A5E3906519477 /* RootView.swift */,
 				4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */,
 				FDE7775AB900A1DF2519C802 /* TodayView.swift */,
@@ -354,6 +357,7 @@
 				B975D90CAF8214D4F11F6436 /* EventKitCalendarService.swift in Sources */,
 				957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */,
 				689D277032BF9E283562F44F /* PromiseStore.swift in Sources */,
+				78A0C8B1FAE720BE0CC38DF1 /* PromisesView.swift in Sources */,
 				FEE88C06BD4264602F02674E /* RootView.swift in Sources */,
 				65A94DE5815474A75F332B79 /* SampleData.swift in Sources */,
 				0DCDDCAD147E2C812447319C /* SharedDraftStore.swift in Sources */,
