@@ -13,6 +13,9 @@ in the target codebase's existing environment** (React, SwiftUI, native, whateve
 using its own patterns and libraries. If no environment exists yet, choose the framework that fits
 the product — iPhone-first, iOS 17+ — and implement the designs there.
 
+**Duck default, 23 Sep 2026: SwiftUI (native, iOS 17+)** — the prototype is iOS-first. Marcos may
+override.
+
 Two of these files are documents rather than screens: `01 Product Scope` is the written spec and
 the source of truth for behaviour; `00 Clearsky Index` is the file register.
 
@@ -118,7 +121,9 @@ codebase; do not depend on the CDN URLs.
 `support.js` and `doc-page.js` are runtime files for the prototypes; they are not part of the design.
 
 ## Open product decisions
-`01 Product Scope` §15 lists five questions the design does not answer — triage cadence, queued-item
-expiry, undated promises, whether protected time writes a visible calendar event, and the
-zero-accounts empty state. §16 lists the seven scenarios to user-test next. Neither should be
-resolved by an implementer alone.
+`01 Product Scope` §15's five product calls — triage cadence, queued-item expiry, undated promises,
+whether protected time writes a visible calendar event, and the zero-accounts empty state — are now
+resolved as Duck defaults (23 Sep 2026). See §15 for the decisions themselves; Marcos may override
+any of them by reply.
+
+§16's seven user-test scenarios are still the open next step — that has not changed.
