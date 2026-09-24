@@ -238,11 +238,11 @@
 
     <h2 style="margin:0 0 8px; font-family:'Source Serif 4',Georgia,serif; font-size:25px; font-weight:600; color:#1B2B4B;">15. Open questions</h2>
     <ol style="margin:0 0 22px; padding-left:20px; font-size:14.5px;">
-      <li style="margin-bottom:5px;">Does triage run once each morning, or continuously through the day with a morning peak? The current design assumes once.</li>
-      <li style="margin-bottom:5px;">What happens to a queued item that is never revisited — does it expire, resurface, or accumulate?</li>
-      <li style="margin-bottom:5px;">Can a promise exist without a date, and if so where does it live so it is not forgotten?</li>
-      <li style="margin-bottom:5px;">Does protected time write a real calendar event that others can see as busy, or a private hold?</li>
-      <li style="margin-bottom:5px;">What is the empty state for a user with no inner circle and no connected accounts — a demo day, or a prompt to connect?</li>
+      <li style="margin-bottom:5px;">Does triage run once each morning, or continuously through the day with a morning peak? The current design assumes once.<div style="margin-top:4px; font-size:13px;"><strong style="color:#4C5F7D;">Decision (Duck default, 23 Sep 2026):</strong> <span style="color:#5B6F8E;">Once each morning, plus an optional evening sweep.</span></div></li>
+      <li style="margin-bottom:5px;">What happens to a queued item that is never revisited — does it expire, resurface, or accumulate?<div style="margin-top:4px; font-size:13px;"><strong style="color:#4C5F7D;">Decision (Duck default, 23 Sep 2026):</strong> <span style="color:#5B6F8E;">It comes back once after 7 days, then moves to an archive. It never accumulates indefinitely.</span></div></li>
+      <li style="margin-bottom:5px;">Can a promise exist without a date, and if so where does it live so it is not forgotten?<div style="margin-top:4px; font-size:13px;"><strong style="color:#4C5F7D;">Decision (Duck default, 23 Sep 2026):</strong> <span style="color:#5B6F8E;">Allowed. Clearsky asks "by when?" within 24 hours and defaults to "this week" if the user doesn't answer.</span></div></li>
+      <li style="margin-bottom:5px;">Does protected time write a real calendar event that others can see as busy, or a private hold?<div style="margin-top:4px; font-size:13px;"><strong style="color:#4C5F7D;">Decision (Duck default, 23 Sep 2026):</strong> <span style="color:#5B6F8E;">A calendar hold that shows as busy to others; the details stay private.</span></div></li>
+      <li style="margin-bottom:5px;">What is the empty state for a user with no inner circle and no connected accounts — a demo day, or a prompt to connect?<div style="margin-top:4px; font-size:13px;"><strong style="color:#4C5F7D;">Decision (Duck default, 23 Sep 2026):</strong> <span style="color:#5B6F8E;">A demo day with sample data, and one tap to connect.</span></div></li>
     </ol>
 
     <h2 style="margin:0 0 8px; font-family:'Source Serif 4',Georgia,serif; font-size:25px; font-weight:600; color:#1B2B4B; break-before:page;">16. What to validate next</h2>
