@@ -16,9 +16,16 @@ targets:
     deploymentTarget: "17.0"
     sources:
       - path: ClearskyApp
+      # SharedDraftStore.swift lives here so both this target and
+      # ClearskyShareExtension compile the same source file — see Shared/SharedDraftStore.swift.
+      - path: Shared
     dependencies:
       - package: ClearskyCore
         product: ClearskyCore
+      # Embeds the Share Extension's .appex into ClearskyApp.app/PlugIns so
+      # `xcodebuild -scheme ClearskyApp build` builds both targets in one pass.
+      - target: ClearskyShareExtension
+        embed: true
     settings:
       base:
         PRODUCT_NAME: ClearskyApp
@@ -40,13 +47,73 @@ targets:
         CODE_SIGN_STYLE: Automatic
         CODE_SIGNING_REQUIRED: NO
         CODE_SIGNING_ALLOWED: NO
+        # App Group so ClearskyApp can (later) read the inbox ClearskyShareExtension
+        # writes. Per-target entitlements file, not a single file shared by both
+        # targets — see ClearskyShareExtension.entitlements for the extension's copy.
+        CODE_SIGN_ENTITLEMENTS: ClearskyApp/ClearskyApp.entitlements
+
+  ClearskyShareExtension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: ClearskyShareExtension
+        excludes:
+          # Read directly off disk via INFOPLIST_FILE below; excluded here so
+          # xcodegen doesn't also add it to Copy Bundle Resources.
+          - "Info.plist"
+      # Same SharedDraftStore.swift the app target compiles — one file, two targets.
+      - path: Shared
+    dependencies:
+      - package: ClearskyCore
+        product: ClearskyCore
+    settings:
+      base:
+        PRODUCT_NAME: ClearskyShareExtension
+        PRODUCT_BUNDLE_IDENTIFIER: com.marcosmvm.clearsky.app.ShareExtension
+        SWIFT_VERSION: "5.9"
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: ClearskyShareExtension/Info.plist
+        SWIFT_EMIT_LOC_STRINGS: YES
+        SKIP_INSTALL: YES
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        # Same App Group as ClearskyApp, own entitlements file (see note on that target).
+        CODE_SIGN_ENTITLEMENTS: ClearskyShareExtension/ClearskyShareExtension.entitlements
+
+  ClearskyAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: ClearskyAppTests
+    dependencies:
+      - target: ClearskyApp
+      - package: ClearskyCore
+        product: ClearskyCore
+    settings:
+      base:
+        PRODUCT_NAME: ClearskyAppTests
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/ClearskyApp.app/ClearskyApp"
+        BUNDLE_LOADER: "$(TEST_HOST)"
 
 schemes:
   ClearskyApp:
     build:
       targets:
         ClearskyApp: all
+        ClearskyAppTests: [test]
     run:
       config: Debug
     test:
       config: Debug
+      targets:
+        - ClearskyAppTests
