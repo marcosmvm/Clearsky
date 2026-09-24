@@ -1,0 +1,367 @@
+/* Clearsky design tokens 2.0.0 — GENERATED FILE, DO NOT EDIT.
+   Source: tokens/clearsky.tokens.json  ·  Regenerate: node tokens/build.mjs
+   Nothing in the product may use a colour, size, radius, shadow or duration absent from this file. This file is the machine-readable form of that rule; tokens/check.mjs enforces it.
+*/
+
+:root {
+  /* ── Colour ramps — 6 × 10 steps ─────────────────────────────── */
+  --navy-50: #EEF3F9;
+  --navy-100: #D8E6F4;
+  --navy-200: #B4CBE4;
+  --navy-300: #8FAFD5;
+  --navy-400: #6B90C0;
+  --navy-500: #4A6B9C;
+  --navy-600: #33507C;
+  --navy-700: #27406B;
+  --navy-800: #1B2B4B;
+  --navy-900: #0F1A30;
+
+  --sky-50: #F7FBFE;
+  --sky-100: #EDF5FC;
+  --sky-200: #DCEDF9;
+  --sky-300: #C9DFF4;
+  --sky-400: #BAD3EA;
+  --sky-500: #A8C6E5;
+  --sky-600: #7FA5CE;
+  --sky-700: #5F81AE;
+  --sky-800: #40608F;
+  --sky-900: #2A4066;
+
+  --amber-50: #FFFBF2;
+  --amber-100: #FDF6EC;
+  --amber-200: #FBEBCF;
+  --amber-300: #F8DEAE;
+  --amber-400: #FFDD9A;
+  --amber-500: #F2B84B;
+  --amber-600: #DFA436;
+  --amber-700: #C08A28;
+  --amber-800: #8A6420;
+  --amber-900: #4A3410;
+
+  --green-50: #F7FCF6;
+  --green-100: #EFF7EE;
+  --green-200: #DCEFD8;
+  --green-300: #CBE0C7;
+  --green-400: #A9C6A2;
+  --green-500: #7FA878;
+  --green-600: #5E8A57;
+  --green-700: #3F6339;
+  --green-800: #2E4A2A;
+  --green-900: #1C2E19;
+
+  --clay-50: #FDF8F5;
+  --clay-100: #FDF5F1;
+  --clay-200: #F9E4DA;
+  --clay-300: #F6D9CE;
+  --clay-400: #EED0C6;
+  --clay-500: #E0A88E;
+  --clay-600: #C96F4A;
+  --clay-700: #C0492B;
+  --clay-800: #A04E2C;
+  --clay-900: #5E2A18;
+
+  --ink-50: #FDFEFF;
+  --ink-100: #F7FBFE;
+  --ink-200: #EEF4FA;
+  --ink-300: #E9F1F9;
+  --ink-400: #E0EBF7;
+  --ink-500: #C6D4E4;
+  --ink-600: #9DAFC6;
+  --ink-700: #5B6F8E;
+  --ink-800: #4C5F7D;
+  --ink-900: #22314F;
+
+  /* ── Semantic colour — always prefer these over a raw ramp ───── */
+  --ink: #22314F;     /* Body text */
+  --ink-2: #4C5F7D;     /* Secondary text, WHY NOW */
+  --ink-3: #5B6F8E;     /* Muted, eyebrows, meta */
+  --ink-strong: #1B2B4B;     /* Headings, primary action */
+  --surface: #FDFEFF;     /* Cards, sheets, inputs */
+  --surface-2: #F7FBFE;     /* Nested surface */
+  --page: #F3F8FD;     /* App page ground */
+  --line: #E9F1F9;     /* Hairline */
+  --line-2: #E0EBF7;     /* Card border */
+  --line-3: #C6D4E4;     /* Control border */
+  --action: #F2B84B;     /* The one warm action */
+  --action-ink: #4A3410;     /* Ink on action */
+  --action-quiet: #EDF4FB;     /* Secondary action fill */
+  --link: #27406B;     /* Links */
+  --kept: #3F6339;     /* Kept, confirmed, protected */
+  --attention: #C0492B;     /* Due today, needs a new plan */
+  --focus: #7FA5CE;     /* Focus ring */
+  --ink-on-dark: #8FA2BD;     /* Muted text on dark grounds ONLY — eyebrows, meta and numerals on navy cards and night pages */
+
+  /* ── Type faces ──────────────────────────────────────────────── */
+  --face-display: Anton, Impact, sans-serif;
+  --face-editorial: "Source Serif 4", Georgia, serif;
+  --face-ui: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --face-mono: ui-monospace, Menlo, monospace;
+
+  /* ── Type scale — 18 tokens ──────────────────────────────────── */
+  --text-display-xl-size: clamp(52px, 8.4vw, 122px);
+  --text-display-xl-line: 0.97;
+  --text-display-xl-weight: 400;
+  --text-display-xl-track: 0.015em;
+  --text-display-l-size: clamp(40px, 5.6vw, 84px);
+  --text-display-l-line: 1;
+  --text-display-l-weight: 400;
+  --text-display-l-track: 0.015em;
+  --text-display-m-size: clamp(34px, 4.4vw, 62px);
+  --text-display-m-line: 1.02;
+  --text-display-m-weight: 400;
+  --text-display-m-track: 0.015em;
+  --text-display-s-size: 30px;
+  --text-display-s-line: 0.98;
+  --text-display-s-weight: 400;
+  --text-display-s-track: 0.015em;
+  --text-editorial-l-size: 25px;
+  --text-editorial-l-line: 1.1;
+  --text-editorial-l-weight: 600;
+  --text-editorial-m-size: 21px;
+  --text-editorial-m-line: 1.25;
+  --text-editorial-m-weight: 600;
+  --text-editorial-s-size: 18px;
+  --text-editorial-s-line: 1.35;
+  --text-editorial-s-weight: 600;
+  --text-title-l-size: 25px;
+  --text-title-l-line: 1.1;
+  --text-title-l-weight: 700;
+  --text-title-m-size: 17px;
+  --text-title-m-line: 1.25;
+  --text-title-m-weight: 700;
+  --text-title-s-size: 15.5px;
+  --text-title-s-line: 1.3;
+  --text-title-s-weight: 700;
+  --text-body-l-size: 15px;
+  --text-body-l-line: 1.6;
+  --text-body-l-weight: 400;
+  --text-body-m-size: 13.5px;
+  --text-body-m-line: 1.55;
+  --text-body-m-weight: 400;
+  --text-body-s-size: 12.5px;
+  --text-body-s-line: 1.5;
+  --text-body-s-weight: 400;
+  --text-label-m-size: 12px;
+  --text-label-m-line: 1.4;
+  --text-label-m-weight: 600;
+  --text-label-s-size: 11.5px;
+  --text-label-s-line: 1.45;
+  --text-label-s-weight: 600;
+  --text-eyebrow-size: 10.5px;
+  --text-eyebrow-line: 1.2;
+  --text-eyebrow-weight: 700;
+  --text-eyebrow-track: 0.16em;
+  --text-eyebrow-xs-size: 10px;
+  --text-eyebrow-xs-line: 1.2;
+  --text-eyebrow-xs-weight: 700;
+  --text-eyebrow-xs-track: 0.20em;
+  --text-mono-size: 11px;
+  --text-mono-line: 1.4;
+  --text-mono-weight: 400;
+
+  /* ── Spacing — 4pt base ──────────────────────────────────────── */
+  --space-1: 4px;     /* hairline gap */
+  --space-2: 7px;     /* icon to label */
+  --space-3: 9px;     /* stacked text */
+  --space-4: 11px;    /* row internals */
+  --space-5: 14px;    /* card internals */
+  --space-6: 16px;    /* page gutter (app) */
+  --space-7: 22px;    /* section internals */
+  --space-8: 36px;    /* page gutter (desk) */
+  --space-9: 62px;    /* marketing band */
+
+  /* ── Radius ──────────────────────────────────────────────────── */
+  --radius-chip: 11px;    /* chips, small tiles */
+  --radius-button: 13px;    /* secondary buttons, tiles */
+  --radius-input: 14px;    /* inputs, list rows */
+  --radius-list: 16px;    /* list cards */
+  --radius-card: 18px;    /* content cards */
+  --radius-decision: 20px;    /* decision card */
+  --radius-triage: 22px;    /* triage card */
+  --radius-section: 26px;    /* kit sections */
+  --radius-appicon: 38px;    /* app icon */
+  --radius-pill: 999px;   /* pills, avatars, toggles */
+
+  /* ── Elevation ───────────────────────────────────────────────── */
+  --elev-e0: none;
+  --elev-e1: 0 1px 3px rgba(27,43,75,0.16);
+  --elev-e2: 0 10px 20px rgba(199,141,32,0.30);
+  --elev-e3: 0 12px 26px rgba(27,43,75,0.28);
+  --elev-e4: 0 16px 32px rgba(27,43,75,0.12);
+  --elev-e5: 0 24px 48px rgba(27,43,75,0.10);
+  --elev-e6: 0 34px 44px rgba(12,22,42,0.50);
+
+  /* ── Motion ──────────────────────────────────────────────────── */
+  --motion-instant: 0ms;
+  --ease-instant: linear;
+  --motion-fast: 120ms;
+  --ease-fast: ease-out;
+  --motion-base: 180ms;
+  --ease-base: ease;
+  --motion-enter: 250ms;
+  --ease-enter: ease;
+  --motion-calm: 280ms;
+  --ease-calm: ease;
+  --motion-ambient: 24s;
+  --ease-ambient: linear;
+  --motion-bloom: 9s;
+  --ease-bloom: ease-in-out;
+
+  /* ── Layering ────────────────────────────────────────────────── */
+  --z-page: 0;
+  --z-content: 1;
+  --z-sticky-header: 5;
+  --z-tab-bar: 20;
+  --z-bottom-sheet: 25;
+  --z-status-bar: 30;
+  --z-home-indicator: 40;
+  --z-toast: 50;
+
+  /* ── Controls ────────────────────────────────────────────────── */
+  --hit-target: 44px;
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --icon-size: 24px;
+  --icon-stroke: 1.6px;
+}
+
+/* ── Type helpers ──────────────────────────────────────────────── */
+.text-display-xl {
+  font-family: var(--face-display);
+  font-size: var(--text-display-xl-size);
+  line-height: var(--text-display-xl-line);
+  font-weight: var(--text-display-xl-weight);
+  letter-spacing: var(--text-display-xl-track);
+  text-transform: uppercase;
+}
+.text-display-l {
+  font-family: var(--face-display);
+  font-size: var(--text-display-l-size);
+  line-height: var(--text-display-l-line);
+  font-weight: var(--text-display-l-weight);
+  letter-spacing: var(--text-display-l-track);
+  text-transform: uppercase;
+}
+.text-display-m {
+  font-family: var(--face-display);
+  font-size: var(--text-display-m-size);
+  line-height: var(--text-display-m-line);
+  font-weight: var(--text-display-m-weight);
+  letter-spacing: var(--text-display-m-track);
+  text-transform: uppercase;
+}
+.text-display-s {
+  font-family: var(--face-display);
+  font-size: var(--text-display-s-size);
+  line-height: var(--text-display-s-line);
+  font-weight: var(--text-display-s-weight);
+  letter-spacing: var(--text-display-s-track);
+  text-transform: uppercase;
+}
+.text-editorial-l {
+  font-family: var(--face-editorial);
+  font-size: var(--text-editorial-l-size);
+  line-height: var(--text-editorial-l-line);
+  font-weight: var(--text-editorial-l-weight);
+}
+.text-editorial-m {
+  font-family: var(--face-editorial);
+  font-size: var(--text-editorial-m-size);
+  line-height: var(--text-editorial-m-line);
+  font-weight: var(--text-editorial-m-weight);
+}
+.text-editorial-s {
+  font-family: var(--face-editorial);
+  font-size: var(--text-editorial-s-size);
+  line-height: var(--text-editorial-s-line);
+  font-weight: var(--text-editorial-s-weight);
+}
+.text-title-l {
+  font-family: var(--face-ui);
+  font-size: var(--text-title-l-size);
+  line-height: var(--text-title-l-line);
+  font-weight: var(--text-title-l-weight);
+}
+.text-title-m {
+  font-family: var(--face-ui);
+  font-size: var(--text-title-m-size);
+  line-height: var(--text-title-m-line);
+  font-weight: var(--text-title-m-weight);
+}
+.text-title-s {
+  font-family: var(--face-ui);
+  font-size: var(--text-title-s-size);
+  line-height: var(--text-title-s-line);
+  font-weight: var(--text-title-s-weight);
+}
+.text-body-l {
+  font-family: var(--face-ui);
+  font-size: var(--text-body-l-size);
+  line-height: var(--text-body-l-line);
+  font-weight: var(--text-body-l-weight);
+}
+.text-body-m {
+  font-family: var(--face-ui);
+  font-size: var(--text-body-m-size);
+  line-height: var(--text-body-m-line);
+  font-weight: var(--text-body-m-weight);
+}
+.text-body-s {
+  font-family: var(--face-ui);
+  font-size: var(--text-body-s-size);
+  line-height: var(--text-body-s-line);
+  font-weight: var(--text-body-s-weight);
+}
+.text-label-m {
+  font-family: var(--face-ui);
+  font-size: var(--text-label-m-size);
+  line-height: var(--text-label-m-line);
+  font-weight: var(--text-label-m-weight);
+}
+.text-label-s {
+  font-family: var(--face-ui);
+  font-size: var(--text-label-s-size);
+  line-height: var(--text-label-s-line);
+  font-weight: var(--text-label-s-weight);
+}
+.text-eyebrow {
+  font-family: var(--face-ui);
+  font-size: var(--text-eyebrow-size);
+  line-height: var(--text-eyebrow-line);
+  font-weight: var(--text-eyebrow-weight);
+  letter-spacing: var(--text-eyebrow-track);
+}
+.text-eyebrow-xs {
+  font-family: var(--face-ui);
+  font-size: var(--text-eyebrow-xs-size);
+  line-height: var(--text-eyebrow-xs-line);
+  font-weight: var(--text-eyebrow-xs-weight);
+  letter-spacing: var(--text-eyebrow-xs-track);
+}
+.text-mono {
+  font-family: var(--face-mono);
+  font-size: var(--text-mono-size);
+  line-height: var(--text-mono-line);
+  font-weight: var(--text-mono-weight);
+}
+
+/* ── Non-negotiables from §08 ──────────────────────────────────── */
+/* Every tappable element clears 44×44. Wrap smaller visuals in a transparent target. */
+.hit { min-width: var(--hit-target); min-height: var(--hit-target); }
+
+/* Focus is never removed. Visible on light and navy grounds alike. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
+}
+
+/* Under prefers-reduced-motion, every duration below collapses to 0ms and every ambient or bloom loop pauses. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
