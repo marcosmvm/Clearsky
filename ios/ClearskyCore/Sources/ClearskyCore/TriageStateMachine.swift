@@ -94,6 +94,12 @@ public enum TriageStateMachine {
             action: .returnDateArrives,
             to: .needsAttention,
             requiredMetadata: "return reason and current priority rationale"
+        ),
+        TriageTransitionRule(
+            from: .needsANewPlan,
+            action: .reschedulePlan,
+            to: .planned,
+            requiredMetadata: "prior date, prior person/thread, new date/time"
         )
     ]
 
