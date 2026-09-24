@@ -115,4 +115,40 @@ final class PromiseTests: XCTestCase {
 
         XCTAssertEqual(decoded, promises)
     }
+
+    // MARK: - calendarEventIdentifier
+
+    /// `calendarEventIdentifier` is the one additive field this task adds to
+    /// `Promise` (see the type's doc comment): it defaults to `nil` for a promise
+    /// with no calendar hold, and it round-trips through `Codable` both when set (a
+    /// hold was created) and when left `nil` — the same JSON persistence
+    /// `PromiseStore` already relies on for every other field.
+    func testCalendarEventIdentifierDefaultsToNilAndRoundTripsThroughJSONCoding() throws {
+        let withoutHold = Promise(
+            id: "promise-6",
+            personName: "Maya Chen",
+            whatWasPromised: "Send the invoice",
+            dueDate: Date(timeIntervalSince1970: 1_700_000_000),
+            protectedTime: true
+        )
+        XCTAssertNil(withoutHold.calendarEventIdentifier)
+
+        let decodedWithoutHold = try JSONDecoder().decode(Promise.self, from: JSONEncoder().encode(withoutHold))
+        XCTAssertEqual(decodedWithoutHold, withoutHold)
+        XCTAssertNil(decodedWithoutHold.calendarEventIdentifier)
+
+        let withHold = Promise(
+            id: "promise-7",
+            personName: "James Okafor",
+            whatWasPromised: "Call about the lease renewal",
+            dueDate: Date(timeIntervalSince1970: 1_700_000_000),
+            protectedTime: true,
+            state: .planned,
+            calendarEventIdentifier: "event-abc-123"
+        )
+
+        let decodedWithHold = try JSONDecoder().decode(Promise.self, from: JSONEncoder().encode(withHold))
+        XCTAssertEqual(decodedWithHold, withHold)
+        XCTAssertEqual(decodedWithHold.calendarEventIdentifier, "event-abc-123")
+    }
 }
