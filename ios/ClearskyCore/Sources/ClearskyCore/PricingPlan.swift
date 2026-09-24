@@ -11,8 +11,10 @@ import Foundation
 /// place these numbers live, so the marketing site and the app paywall can never
 /// silently drift apart from each other.
 ///
-/// V1 has three plans, no weekly plan: `.yearly` (the default, and the only plan
-/// with a free trial), `.monthly` and `.lifetime`.
+/// V1 has three plans, no weekly plan: `.yearly` (the default), `.monthly` and
+/// `.lifetime`. Every subscription plan — `.yearly` and `.monthly` alike — offers
+/// the same 14-day free trial before billing starts; `.lifetime` is a one-time
+/// purchase, so there is nothing to trial.
 public enum PricingPlan: String, CaseIterable, Equatable, Hashable, Sendable, Codable {
     case yearly
     case monthly
@@ -67,11 +69,12 @@ public enum PricingPlan: String, CaseIterable, Equatable, Hashable, Sendable, Co
         self == .yearly
     }
 
-    /// The free trial length in days, in effect for the plan that offers one.
-    /// `01 Product Scope.dc.html` §10 and §6 both call this "14 days free" /
-    /// "unlocks today, reminder day twelve, billing day fourteen" — a single
-    /// constant here is what keeps the marketing copy, the app paywall timeline
-    /// and any future StoreKit introductory-offer configuration agreeing on the
-    /// same number.
+    /// The free trial length in days, in effect for both subscription plans
+    /// (`.yearly` and `.monthly`) — `.lifetime` is a one-time purchase and has no
+    /// trial to speak of. `01 Product Scope.dc.html` §10 and §6 both call this
+    /// "14 days free" / "unlocks today, reminder day twelve, billing day fourteen"
+    /// — a single constant here is what keeps the marketing copy, the app paywall
+    /// timeline and any future StoreKit introductory-offer configuration agreeing
+    /// on the same number.
     public static let trialDays: Int = 14
 }

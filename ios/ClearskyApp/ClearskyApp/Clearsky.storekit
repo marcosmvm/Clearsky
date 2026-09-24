@@ -124,10 +124,15 @@
           "familyShareable" : false,
           "groupNumber" : 2,
           "internalID" : "9B615088-BFEF-4ABE-8572-46A45D3D05D5",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "displayPrice" : "0.00",
+            "internalID" : "10B4303D-AAAD-4337-9375-633C180363C3",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
           "localizations" : [
             {
-              "description" : "$6.99 a month, billed monthly.",
+              "description" : "$6.99 a month. 14 days free, then renews monthly.",
               "displayName" : "Monthly",
               "locale" : "en_US"
             }
