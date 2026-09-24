@@ -16,16 +16,20 @@
 		65A94DE5815474A75F332B79 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */; };
 		689D277032BF9E283562F44F /* PromiseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DFEF30476230E60827ED3 /* PromiseStore.swift */; };
 		73B510E0D8C518597AA20746 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7494BA30BE6FF5A56834B14 /* ShareViewController.swift */; };
+		7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719C4CDEE048730C364C07A /* MockCalendarService.swift */; };
 		957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D7444576901364A6A65EA /* NewPromiseView.swift */; };
 		A4CBE9003109FB22C78DB53D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE7775AB900A1DF2519C802 /* TodayView.swift */; };
 		A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */; };
 		AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */; };
 		AE67B762C7F09B2A0535DBB3 /* PromiseStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */; };
+		B975D90CAF8214D4F11F6436 /* EventKitCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */; };
+		BF46DCC40AA4FEBF7CD069C6 /* CalendarHolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */; };
 		C1925905FF198269AE75544F /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */; };
 		CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */; };
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
 		F41800BFC4CF32800C277318 /* ClearskyShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FBD78EDA4DD72BA12FD468A1 /* EventKitCalendarServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */; };
 		FEE88C06BD4264602F02674E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD00B9CF95A5E3906519477 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +67,11 @@
 /* Begin PBXFileReference section */
 		008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainDisplay.swift; sourceTree = "<group>"; };
 		111D7444576901364A6A65EA /* NewPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPromiseView.swift; sourceTree = "<group>"; };
+		1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarService.swift; sourceTree = "<group>"; };
 		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		6AD00B9CF95A5E3906519477 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarServiceTests.swift; sourceTree = "<group>"; };
+		80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHolding.swift; sourceTree = "<group>"; };
 		8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearskyApp.swift; sourceTree = "<group>"; };
 		9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageView.swift; sourceTree = "<group>"; };
 		93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
@@ -79,6 +86,7 @@
 		D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClearskyShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6280BEDFBE9479615734E2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStoreTests.swift; sourceTree = "<group>"; };
+		E719C4CDEE048730C364C07A /* MockCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCalendarService.swift; sourceTree = "<group>"; };
 		EF7DFEF30476230E60827ED3 /* PromiseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStore.swift; sourceTree = "<group>"; };
 		FACDDAFF6B992C6B31561041 /* ClearskyApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClearskyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE7775AB900A1DF2519C802 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -155,10 +163,12 @@
 			isa = PBXGroup;
 			children = (
 				D6280BEDFBE9479615734E2C /* Assets.xcassets */,
+				80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */,
 				99D0E1ED311CB463936DE6CB /* ClearskyApp.entitlements */,
 				8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */,
 				93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */,
 				008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */,
+				1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */,
 				111D7444576901364A6A65EA /* NewPromiseView.swift */,
 				EF7DFEF30476230E60827ED3 /* PromiseStore.swift */,
 				6AD00B9CF95A5E3906519477 /* RootView.swift */,
@@ -173,6 +183,8 @@
 		E47B294ACE77DE2BEE382EF6 /* ClearskyAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */,
+				E719C4CDEE048730C364C07A /* MockCalendarService.swift */,
 				E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */,
 				BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */,
 			);
@@ -311,6 +323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD78EDA4DD72BA12FD468A1 /* EventKitCalendarServiceTests.swift in Sources */,
+				7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */,
 				AE67B762C7F09B2A0535DBB3 /* PromiseStoreTests.swift in Sources */,
 				A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */,
 			);
@@ -329,9 +343,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF46DCC40AA4FEBF7CD069C6 /* CalendarHolding.swift in Sources */,
 				32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */,
 				C1925905FF198269AE75544F /* DesignTokens.swift in Sources */,
 				CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */,
+				B975D90CAF8214D4F11F6436 /* EventKitCalendarService.swift in Sources */,
 				957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */,
 				689D277032BF9E283562F44F /* PromiseStore.swift in Sources */,
 				FEE88C06BD4264602F02674E /* RootView.swift in Sources */,
@@ -373,6 +389,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Clearsky;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Clearsky holds time on your calendar for the plans you protect.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -623,6 +640,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Clearsky;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Clearsky holds time on your calendar for the plans you protect.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
