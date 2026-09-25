@@ -14,11 +14,13 @@
 		124304DA5696454B68ACA7F5 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5079E7511BB4BAB38C6E4EF9 /* ClearskyCore */; };
 		198A2801134AD191C046760B /* TriageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DD752EC62880479CFFC85 /* TriageCardView.swift */; };
 		1F460984BCF89C7B88C22578 /* DigestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FA12B739E4CC5FC1DD633 /* DigestView.swift */; };
+		2414292C551D44AE42D3A139 /* ConnectCalendarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE44EE3437E6A6440862C59 /* ConnectCalendarViewModelTests.swift */; };
 		265864D8D3D91AF958B50F2B /* WeeklyRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */; };
 		26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */; };
 		2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */; };
 		32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */; };
 		47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509312DB134361F10A6D82 /* PromisesViewTests.swift */; };
+		543DB8DEFC474FBA920A8BEF /* ConnectCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD041E804297402148D6677 /* ConnectCalendarView.swift */; };
 		587073928568A855BB1957BC /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = EF3A5366202B1B6D822393C6 /* ClearskyCore */; };
 		65A94DE5815474A75F332B79 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */; };
 		689D277032BF9E283562F44F /* PromiseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DFEF30476230E60827ED3 /* PromiseStore.swift */; };
@@ -85,8 +87,10 @@
 		0A60AFE7AAD31B688A9E06E9 /* DigestCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestCalculatorTests.swift; sourceTree = "<group>"; };
 		111D7444576901364A6A65EA /* NewPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPromiseView.swift; sourceTree = "<group>"; };
 		1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarService.swift; sourceTree = "<group>"; };
+		2BE44EE3437E6A6440862C59 /* ConnectCalendarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCalendarViewModelTests.swift; sourceTree = "<group>"; };
 		2E35D44150B05D6DD6102EA7 /* PromisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesView.swift; sourceTree = "<group>"; };
 		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		4FD041E804297402148D6677 /* ConnectCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCalendarView.swift; sourceTree = "<group>"; };
 		58509312DB134361F10A6D82 /* PromisesViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesViewTests.swift; sourceTree = "<group>"; };
 		59D90515A7B24078E620FA1E /* PromiseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseDetailView.swift; sourceTree = "<group>"; };
 		5B9FA12B739E4CC5FC1DD633 /* DigestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestView.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				702B1666294969184CC89B9C /* Clearsky.storekit */,
 				99D0E1ED311CB463936DE6CB /* ClearskyApp.entitlements */,
 				8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */,
+				4FD041E804297402148D6677 /* ConnectCalendarView.swift */,
 				93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */,
 				5B9FA12B739E4CC5FC1DD633 /* DigestView.swift */,
 				008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */,
@@ -222,6 +227,7 @@
 		E47B294ACE77DE2BEE382EF6 /* ClearskyAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				2BE44EE3437E6A6440862C59 /* ConnectCalendarViewModelTests.swift */,
 				0A60AFE7AAD31B688A9E06E9 /* DigestCalculatorTests.swift */,
 				77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */,
 				E719C4CDEE048730C364C07A /* MockCalendarService.swift */,
@@ -369,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2414292C551D44AE42D3A139 /* ConnectCalendarViewModelTests.swift in Sources */,
 				0393435264DAC0F1C55AB0ED /* DigestCalculatorTests.swift in Sources */,
 				FBD78EDA4DD72BA12FD468A1 /* EventKitCalendarServiceTests.swift in Sources */,
 				7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */,
@@ -397,6 +404,7 @@
 			files = (
 				BF46DCC40AA4FEBF7CD069C6 /* CalendarHolding.swift in Sources */,
 				32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */,
+				543DB8DEFC474FBA920A8BEF /* ConnectCalendarView.swift in Sources */,
 				C1925905FF198269AE75544F /* DesignTokens.swift in Sources */,
 				1F460984BCF89C7B88C22578 /* DigestView.swift in Sources */,
 				CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */,
