@@ -31,7 +31,7 @@ import ClearskyCore
 struct TodayView: View {
     let items: [TriageItem]
     @ObservedObject var promiseStore: PromiseStore
-    let sharedDraftStore: SharedDraftStore
+    @ObservedObject var draftsObserver: SharedDraftStoreObserver
     let onSaveNewPromise: (Promise) -> Void
     let onGoToPromises: () -> Void
 
@@ -42,7 +42,14 @@ struct TodayView: View {
     private var primary: TriageItem? { items.first }
     private var rest: [TriageItem] { items.isEmpty ? [] : Array(items.dropFirst()) }
 
-    private var pendingDrafts: [CapturedPromiseDraft] { sharedDraftStore.loadAll() }
+    /// Read live off `draftsObserver.drafts` rather than calling
+    /// `sharedDraftStore.loadAll()` directly — see `SharedDraftStoreObserver`'s doc
+    /// comment for why that direct call was the bug: a computed property calling
+    /// `loadAll()` has no way to tell SwiftUI when to recompute, so it only looked
+    /// fresh when something unrelated forced a re-render. `draftsObserver.drafts` is
+    /// `@Published`, so this computed property (and everything under `liveContent`
+    /// that reads it) recomputes the instant the underlying store changes.
+    private var pendingDrafts: [CapturedPromiseDraft] { draftsObserver.drafts }
 
     /// See the type-level doc: proxies `ConnectedAccountsState` off whether any real
     /// data exists yet, then reads `.presentationState` off it — same closed decision
@@ -95,7 +102,7 @@ struct TodayView: View {
             if let draft = draftBeingResolved {
                 NewPromiseView(draft: draft) { promise in
                     onSaveNewPromise(promise)
-                    sharedDraftStore.remove(id: draft.id)
+                    draftsObserver.remove(id: draft.id)
                 }
             }
         }
@@ -316,28 +323,30 @@ private struct RealPrimaryCard: View {
 
 // MARK: - Preview
 
-/// Builds a disposable, file-backed `PromiseStore` and a disposable `UserDefaults`
-/// suite for `SharedDraftStore` — same isolation pattern `PromisesView.swift`'s
-/// `makePreviewStore()` uses. Both start empty, so this preview stays on `.demoDay`
-/// and keeps rendering `SampleData.triageItems`, exactly as before this task.
+/// Builds a disposable, file-backed `PromiseStore` and a `SharedDraftStoreObserver`
+/// over a disposable `UserDefaults` suite — same isolation pattern
+/// `PromisesView.swift`'s `makePreviewStore()` uses. Both start empty, so this preview
+/// stays on `.demoDay` and keeps rendering `SampleData.triageItems`, exactly as before
+/// this task.
 @MainActor
-private func makeTodayPreviewDependencies() -> (PromiseStore, SharedDraftStore) {
+private func makeTodayPreviewDependencies() -> (PromiseStore, SharedDraftStoreObserver) {
     let promiseStoreURL = FileManager.default.temporaryDirectory
         .appendingPathComponent("today-view-preview-\(UUID().uuidString)")
         .appendingPathExtension("json")
     let draftsSuiteName = "today-view-preview-\(UUID().uuidString)"
+    let draftsDefaults = UserDefaults(suiteName: draftsSuiteName)!
     return (
         PromiseStore(fileURL: promiseStoreURL),
-        SharedDraftStore(defaults: UserDefaults(suiteName: draftsSuiteName)!)
+        SharedDraftStoreObserver(store: SharedDraftStore(defaults: draftsDefaults), defaults: draftsDefaults)
     )
 }
 
 #Preview {
-    let (promiseStore, sharedDraftStore) = makeTodayPreviewDependencies()
+    let (promiseStore, draftsObserver) = makeTodayPreviewDependencies()
     return TodayView(
         items: SampleData.triageItems,
         promiseStore: promiseStore,
-        sharedDraftStore: sharedDraftStore,
+        draftsObserver: draftsObserver,
         onSaveNewPromise: { _ in },
         onGoToPromises: {}
     )
