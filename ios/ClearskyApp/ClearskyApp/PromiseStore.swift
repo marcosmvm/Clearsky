@@ -86,6 +86,20 @@ final class PromiseStore: ObservableObject {
         }
     }
 
+    /// Empties every promise and persists the change — the "delete everything" half
+    /// of the Privacy screen's two-step destructive delete
+    /// (`01 Product Scope.dc.html` §6, "Download archive and a two-step destructive
+    /// delete"). The other half, `SharedDraftStore.clear()`, lives on a separate
+    /// store this type has no dependency on — the screen that owns both calls each
+    /// one directly rather than this method reaching across stores.
+    ///
+    /// Same pattern as `add(_:)`/`update(_:)`: mutate the held `promises`, then
+    /// persist once.
+    func deleteAll() {
+        promises = []
+        save()
+    }
+
     private func save() {
         guard let data = try? encoder.encode(promises) else { return }
         try? data.write(to: fileURL, options: .atomic)
