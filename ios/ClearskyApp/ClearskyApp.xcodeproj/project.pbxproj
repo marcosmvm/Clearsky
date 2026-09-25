@@ -12,6 +12,8 @@
 		0DCDDCAD147E2C812447319C /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		124304DA5696454B68ACA7F5 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5079E7511BB4BAB38C6E4EF9 /* ClearskyCore */; };
 		198A2801134AD191C046760B /* TriageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DD752EC62880479CFFC85 /* TriageCardView.swift */; };
+		265864D8D3D91AF958B50F2B /* WeeklyRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */; };
+		26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */; };
 		2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */; };
 		32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */; };
 		47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509312DB134361F10A6D82 /* PromisesViewTests.swift */; };
@@ -76,6 +78,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyRecapTests.swift; sourceTree = "<group>"; };
 		008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainDisplay.swift; sourceTree = "<group>"; };
 		111D7444576901364A6A65EA /* NewPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPromiseView.swift; sourceTree = "<group>"; };
 		1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarService.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		B4C5C1494CB5ABAFC993749F /* ClearskyShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClearskyShareExtension.entitlements; sourceTree = "<group>"; };
 		BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStoreTests.swift; sourceTree = "<group>"; };
 		BC4F49F7841AF23BBC258595 /* ClearskyAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClearskyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyRecapView.swift; sourceTree = "<group>"; };
 		D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClearskyShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6280BEDFBE9479615734E2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E29CC4707D033E0DE9BAFD74 /* SharedDraftStoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStoreObserver.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				FDE7775AB900A1DF2519C802 /* TodayView.swift */,
 				986DD752EC62880479CFFC85 /* TriageCardView.swift */,
 				9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */,
+				CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */,
 			);
 			path = ClearskyApp;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				58509312DB134361F10A6D82 /* PromisesViewTests.swift */,
 				F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */,
 				BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */,
+				00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */,
 			);
 			path = ClearskyAppTests;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */,
 				2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */,
 				A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */,
+				26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +407,7 @@
 				A4CBE9003109FB22C78DB53D /* TodayView.swift in Sources */,
 				198A2801134AD191C046760B /* TriageCardView.swift in Sources */,
 				AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */,
+				265864D8D3D91AF958B50F2B /* WeeklyRecapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
