@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03748BFC3FD3B853A4D416F7 /* NotificationPermissionRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */; };
 		0C5476159C160033CC4639AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6280BEDFBE9479615734E2C /* Assets.xcassets */; };
 		0DCDDCAD147E2C812447319C /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		124304DA5696454B68ACA7F5 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5079E7511BB4BAB38C6E4EF9 /* ClearskyCore */; };
@@ -21,15 +22,18 @@
 		86E7A4BF2703FC79CC8AA59D /* PromiseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D90515A7B24078E620FA1E /* PromiseDetailView.swift */; };
 		8D6D0B70934542BB9D636902 /* Clearsky.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 702B1666294969184CC89B9C /* Clearsky.storekit */; };
 		957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D7444576901364A6A65EA /* NewPromiseView.swift */; };
+		9F575B511444562AA453C64B /* MockNotificationPermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */; };
 		A4CBE9003109FB22C78DB53D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE7775AB900A1DF2519C802 /* TodayView.swift */; };
 		A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */; };
 		AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */; };
 		AE67B762C7F09B2A0535DBB3 /* PromiseStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */; };
 		B975D90CAF8214D4F11F6436 /* EventKitCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */; };
 		BF46DCC40AA4FEBF7CD069C6 /* CalendarHolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */; };
+		C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */; };
 		C1925905FF198269AE75544F /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */; };
 		CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */; };
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
+		E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */; };
 		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
 		F41800BFC4CF32800C277318 /* ClearskyShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FABA10120F1C17D2FF1D2B67 /* PendingDraftsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */; };
@@ -77,21 +81,25 @@
 		59D90515A7B24078E620FA1E /* PromiseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseDetailView.swift; sourceTree = "<group>"; };
 		6AD00B9CF95A5E3906519477 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		702B1666294969184CC89B9C /* Clearsky.storekit */ = {isa = PBXFileReference; path = Clearsky.storekit; sourceTree = "<group>"; };
+		7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionRequesting.swift; sourceTree = "<group>"; };
 		77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarServiceTests.swift; sourceTree = "<group>"; };
 		80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHolding.swift; sourceTree = "<group>"; };
 		8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearskyApp.swift; sourceTree = "<group>"; };
 		9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageView.swift; sourceTree = "<group>"; };
 		93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationPermissionService.swift; sourceTree = "<group>"; };
 		986DD752EC62880479CFFC85 /* TriageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageCardView.swift; sourceTree = "<group>"; };
 		99D0E1ED311CB463936DE6CB /* ClearskyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClearskyApp.entitlements; sourceTree = "<group>"; };
 		9E2AAEF072DF8480794A7644 /* ClearskyCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ClearskyCore; path = ../ClearskyCore; sourceTree = SOURCE_ROOT; };
 		A7494BA30BE6FF5A56834B14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStore.swift; sourceTree = "<group>"; };
+		B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionView.swift; sourceTree = "<group>"; };
 		B4C5C1494CB5ABAFC993749F /* ClearskyShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClearskyShareExtension.entitlements; sourceTree = "<group>"; };
 		BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStoreTests.swift; sourceTree = "<group>"; };
 		BC4F49F7841AF23BBC258595 /* ClearskyAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClearskyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClearskyShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6280BEDFBE9479615734E2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionViewModelTests.swift; sourceTree = "<group>"; };
 		E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStoreTests.swift; sourceTree = "<group>"; };
 		E719C4CDEE048730C364C07A /* MockCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCalendarService.swift; sourceTree = "<group>"; };
 		EF7DFEF30476230E60827ED3 /* PromiseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStore.swift; sourceTree = "<group>"; };
@@ -179,6 +187,8 @@
 				008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */,
 				1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */,
 				111D7444576901364A6A65EA /* NewPromiseView.swift */,
+				7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */,
+				B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */,
 				F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */,
 				59D90515A7B24078E620FA1E /* PromiseDetailView.swift */,
 				EF7DFEF30476230E60827ED3 /* PromiseStore.swift */,
@@ -197,6 +207,8 @@
 			children = (
 				77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */,
 				E719C4CDEE048730C364C07A /* MockCalendarService.swift */,
+				98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */,
+				E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */,
 				E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */,
 				BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */,
 			);
@@ -338,6 +350,8 @@
 			files = (
 				FBD78EDA4DD72BA12FD468A1 /* EventKitCalendarServiceTests.swift in Sources */,
 				7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */,
+				9F575B511444562AA453C64B /* MockNotificationPermissionService.swift in Sources */,
+				C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */,
 				AE67B762C7F09B2A0535DBB3 /* PromiseStoreTests.swift in Sources */,
 				A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */,
 			);
@@ -362,6 +376,8 @@
 				CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */,
 				B975D90CAF8214D4F11F6436 /* EventKitCalendarService.swift in Sources */,
 				957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */,
+				03748BFC3FD3B853A4D416F7 /* NotificationPermissionRequesting.swift in Sources */,
+				E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */,
 				FABA10120F1C17D2FF1D2B67 /* PendingDraftsView.swift in Sources */,
 				86E7A4BF2703FC79CC8AA59D /* PromiseDetailView.swift in Sources */,
 				689D277032BF9E283562F44F /* PromiseStore.swift in Sources */,
