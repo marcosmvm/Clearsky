@@ -12,27 +12,36 @@ import ClearskyCore
 /// inbox either way — only resolving it through `NewPromiseView`'s save removes it,
 /// via `onSaveNewPromise` calling `SharedDraftStore.remove(id:)`).
 ///
-/// This view only calls `SharedDraftStore`'s existing public methods
-/// (`loadAll()`/`remove(id:)`, through the injected `onSaveNewPromise` closure) — its
-/// internals are untouched.
+/// Reads through `SharedDraftStoreObserver` (`draftsObserver.drafts`) rather than
+/// holding a raw `SharedDraftStore` and its own `@State` copy.
+///
+/// This view previously kept `@State private var drafts` populated with an explicit
+/// `refresh()` called from `.onAppear` and again after every resolved draft — a
+/// reasonable pattern (it covers "the sheet just opened" and "a draft was just
+/// resolved"), but it still missed the same gap `RootView`'s badge and `TodayView`'s
+/// primary card had: if this sheet was already open when the person backgrounded the
+/// app to share into the Share Extension and then returned, nothing here would have
+/// re-triggered `.onAppear`, so the new draft would not have shown up until the sheet
+/// was closed and reopened. Routing through `draftsObserver` closes that gap the same
+/// way it closes it everywhere else, and removes the need for the manual `refresh()`
+/// calls entirely — see `SharedDraftStoreObserver`'s doc comment.
 struct PendingDraftsView: View {
-    let sharedDraftStore: SharedDraftStore
+    @ObservedObject var draftsObserver: SharedDraftStoreObserver
     let onSaveNewPromise: (Promise) -> Void
 
     @Environment(\.dismiss) private var dismiss
-    @State private var drafts: [CapturedPromiseDraft] = []
     @State private var draftBeingResolved: CapturedPromiseDraft?
     @State private var isPresentingDraftResolution = false
 
     var body: some View {
         NavigationStack {
             Group {
-                if drafts.isEmpty {
+                if draftsObserver.drafts.isEmpty {
                     emptyState
                 } else {
                     ScrollView {
                         VStack(spacing: ClearskySpacing.xs) {
-                            ForEach(drafts, id: \.id) { draft in
+                            ForEach(draftsObserver.drafts, id: \.id) { draft in
                                 Button {
                                     draftBeingResolved = draft
                                     isPresentingDraftResolution = true
@@ -54,7 +63,6 @@ struct PendingDraftsView: View {
                         .foregroundStyle(ClearskyColor.secondaryInk)
                 }
             }
-            .onAppear { refresh() }
             .sheet(isPresented: $isPresentingDraftResolution) {
                 // `CapturedPromiseDraft` is not `Identifiable` (see `ClearskyCore`),
                 // so this uses `.sheet(isPresented:)` plus a separately-held
@@ -62,16 +70,11 @@ struct PendingDraftsView: View {
                 if let draft = draftBeingResolved {
                     NewPromiseView(draft: draft) { promise in
                         onSaveNewPromise(promise)
-                        sharedDraftStore.remove(id: draft.id)
-                        refresh()
+                        draftsObserver.remove(id: draft.id)
                     }
                 }
             }
         }
-    }
-
-    private func refresh() {
-        drafts = sharedDraftStore.loadAll()
     }
 
     private func row(for draft: CapturedPromiseDraft) -> some View {
@@ -113,8 +116,9 @@ struct PendingDraftsView: View {
 }
 
 #Preview("Empty") {
-    PendingDraftsView(
-        sharedDraftStore: SharedDraftStore(defaults: UserDefaults(suiteName: "pending-drafts-preview-empty-\(UUID().uuidString)")!),
+    let defaults = UserDefaults(suiteName: "pending-drafts-preview-empty-\(UUID().uuidString)")!
+    return PendingDraftsView(
+        draftsObserver: SharedDraftStoreObserver(store: SharedDraftStore(defaults: defaults), defaults: defaults),
         onSaveNewPromise: { _ in }
     )
 }
@@ -138,5 +142,6 @@ struct PendingDraftsView: View {
             source: .email
         )
     )
-    return PendingDraftsView(sharedDraftStore: store, onSaveNewPromise: { _ in })
+    let draftsObserver = SharedDraftStoreObserver(store: store, defaults: defaults)
+    return PendingDraftsView(draftsObserver: draftsObserver, onSaveNewPromise: { _ in })
 }
