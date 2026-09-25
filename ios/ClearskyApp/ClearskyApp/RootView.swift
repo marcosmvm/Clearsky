@@ -49,7 +49,7 @@ struct RootView: View {
             .tag(Tab.today)
 
             NavigationStack {
-                PromisesView(store: promiseStore)
+                PromisesView(store: promiseStore, calendarService: calendarService)
                     .toolbar { toolbarContent }
             }
             .tabItem { Label("Promises", systemImage: "checklist") }

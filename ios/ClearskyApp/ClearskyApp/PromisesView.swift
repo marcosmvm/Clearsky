@@ -23,6 +23,11 @@ import ClearskyCore
 struct PromisesView: View {
     @ObservedObject var store: PromiseStore
 
+    /// Creates and removes the real calendar holds a protected-time reschedule needs
+    /// — see `reschedule(_:newDueDate:calendarService:)` below. Same injected-not-
+    /// singleton pattern `RootView` already uses for its own `calendarService`.
+    let calendarService: CalendarHolding
+
     /// The promise mid-reschedule, if any — drives the "Give it a new time" sheet.
     /// `Promise` is `Identifiable`, so `.sheet(item:)` can key directly off it.
     @State private var reschedulingPromise: Promise?
@@ -126,23 +131,110 @@ struct PromisesView: View {
 
     // MARK: - Actions
 
-    /// "Give it a new time": resolves via `TriageStateMachine.transition(from:
-    /// .needsANewPlan, via: .reschedulePlan)`, replaces `dueDate` with the picked
-    /// value and `state` with the returned `.planned`, then saves through the store.
-    /// `dueDate` is a `let` on `Promise`, so the updated value is built through the
-    /// initializer rather than mutated in place.
+    /// "Give it a new time": resolves the rescheduled `Promise` (and its calendar
+    /// side effects, for a protected promise) via `reschedule(_:newDueDate:
+    /// calendarService:)` below, then saves through the store. Wrapped in a `Task`
+    /// because that resolution is `async` — creating/removing a calendar hold is a
+    /// real `EKEventStore` round trip — same "fire a `Task`, save when it resolves"
+    /// shape `RootView.handleSavedPromise`/`createCalendarHold` already use for the
+    /// same reason.
     private func giveItANewTime(_ promise: Promise, newDueDate: Date) {
-        guard let next = try? TriageStateMachine.transition(from: .needsANewPlan, via: .reschedulePlan) else { return }
-        let updated = Promise(
+        Task {
+            guard let updated = await Self.reschedule(
+                promise,
+                newDueDate: newDueDate,
+                calendarService: calendarService
+            ) else { return }
+            store.update(updated)
+        }
+    }
+
+    /// The actual reschedule logic, pulled out of `giveItANewTime` as a static
+    /// function (rather than a private instance method) so a test can call it
+    /// directly with `MockCalendarService` — no view, no real `EKEventStore`, no
+    /// `PromiseStore` — and assert on the `Promise` it returns.
+    ///
+    /// Resolves the new state via `TriageStateMachine.transition(from:
+    /// .needsANewPlan, via: .reschedulePlan)`, replaces `dueDate` with the picked
+    /// value, then handles the calendar hold this promise may be carrying:
+    ///
+    /// - `protectedTime == false`: a promise like this never has a hold in the first
+    ///   place (see `Promise.calendarEventIdentifier`'s doc comment) — no calendar
+    ///   calls are made, and the result's identifier is `nil`, preserving that
+    ///   invariant rather than assuming it.
+    /// - `protectedTime == true`: this is the fix for the real bug this function
+    ///   exists to close — rescheduling used to build the new `Promise` through the
+    ///   initializer without forwarding `calendarEventIdentifier` at all, so it
+    ///   silently defaulted to `nil`: the *old* hold was never removed (it sat
+    ///   orphaned on the calendar at the stale time, forever) and the rescheduled
+    ///   promise got no new hold. Here, if an old identifier exists it is removed via
+    ///   `calendarService.removeHold(eventIdentifier:)` before a new hold is created
+    ///   for `newDueDate` via `calendarService.createHold(for:)` — same 30-minute
+    ///   duration convention `RootView.createCalendarHold(for:)` uses — and the
+    ///   returned identifier becomes the updated promise's `calendarEventIdentifier`.
+    ///
+    /// Every calendar call is wrapped so a failure never blocks the reschedule
+    /// itself — same "the promise is already saved either way" pattern
+    /// `RootView.createCalendarHold(for:)` uses:
+    /// - Access denied/failed: the *old* identifier is left attached rather than
+    ///   dropped, since nothing was actually removed — the hold likely still sits on
+    ///   the calendar at the old time, and keeping the identifier means a later
+    ///   reschedule attempt can still find and remove it.
+    /// - Access granted but the old hold's removal or the new hold's creation fails:
+    ///   the identifier is cleared to `nil` once removal has actually been
+    ///   attempted, rather than kept pointing at an identifier that may no longer
+    ///   resolve to anything.
+    ///
+    /// Returns `nil` (matching the original guard-and-return-early behavior) only if
+    /// the state transition itself is rejected — which the fixed `.needsANewPlan` →
+    /// `.reschedulePlan` table entry never actually does today.
+    static func reschedule(
+        _ promise: Promise,
+        newDueDate: Date,
+        calendarService: CalendarHolding
+    ) async -> Promise? {
+        guard let next = try? TriageStateMachine.transition(from: .needsANewPlan, via: .reschedulePlan) else {
+            return nil
+        }
+
+        var updated = Promise(
             id: promise.id,
             personName: promise.personName,
             whatWasPromised: promise.whatWasPromised,
             dueDate: newDueDate,
             sourceText: promise.sourceText,
             protectedTime: promise.protectedTime,
-            state: next
+            state: next,
+            calendarEventIdentifier: promise.protectedTime ? promise.calendarEventIdentifier : nil
         )
-        store.update(updated)
+
+        guard promise.protectedTime else { return updated }
+
+        let accessGranted = (try? await calendarService.requestAccess()) ?? false
+        guard accessGranted else { return updated }
+
+        if let oldIdentifier = promise.calendarEventIdentifier {
+            try? await calendarService.removeHold(eventIdentifier: oldIdentifier)
+            updated.calendarEventIdentifier = nil
+        }
+
+        do {
+            let block = ProtectedTimeBlock(
+                id: promise.id,
+                start: newDueDate,
+                end: newDueDate.addingTimeInterval(30 * 60),
+                ownerTitle: promise.whatWasPromised,
+                ownerDetail: "With \(promise.personName)"
+            )
+            updated.calendarEventIdentifier = try await calendarService.createHold(for: block)
+        } catch {
+            // No writable calendar, or the write itself failed. The old hold (if
+            // any) is already removed above either way — the reschedule of the
+            // promise's date must still succeed and save even though this promise
+            // ends up with no calendar hold attached.
+        }
+
+        return updated
     }
 
     /// "Let it go": resolves via `TriageStateMachine.transition(from: .needsANewPlan,
@@ -457,6 +549,16 @@ private func makePreviewStore() -> PromiseStore {
     return store
 }
 
+/// A no-op `CalendarHolding` for previews only — never grants access, so a preview
+/// run never attempts a real EventKit call. Mirrors `RootView.swift`'s own
+/// `PreviewCalendarService`; kept as a separate (file-scoped `private`) copy here
+/// rather than shared, since neither file exposes its preview-only type to the other.
+private struct PreviewCalendarService: CalendarHolding {
+    func requestAccess() async throws -> Bool { false }
+    func createHold(for block: ProtectedTimeBlock) async throws -> String { "preview-event" }
+    func removeHold(eventIdentifier: String) async throws {}
+}
+
 #Preview("Promises") {
-    PromisesView(store: makePreviewStore())
+    PromisesView(store: makePreviewStore(), calendarService: PreviewCalendarService())
 }
