@@ -13,12 +13,14 @@
 		0DCDDCAD147E2C812447319C /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		124304DA5696454B68ACA7F5 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5079E7511BB4BAB38C6E4EF9 /* ClearskyCore */; };
 		198A2801134AD191C046760B /* TriageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DD752EC62880479CFFC85 /* TriageCardView.swift */; };
+		1A49C3FE06A76FA7D5528171 /* PrivacyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C80A6804ABBAA9BAC6617C /* PrivacyViewModelTests.swift */; };
 		1F460984BCF89C7B88C22578 /* DigestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FA12B739E4CC5FC1DD633 /* DigestView.swift */; };
 		2414292C551D44AE42D3A139 /* ConnectCalendarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE44EE3437E6A6440862C59 /* ConnectCalendarViewModelTests.swift */; };
 		265864D8D3D91AF958B50F2B /* WeeklyRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */; };
 		26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */; };
 		2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */; };
 		32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */; };
+		456701BCCA04C6EC110D990D /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322842CE25E5C46324E18CEC /* PrivacyView.swift */; };
 		47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509312DB134361F10A6D82 /* PromisesViewTests.swift */; };
 		543DB8DEFC474FBA920A8BEF /* ConnectCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD041E804297402148D6677 /* ConnectCalendarView.swift */; };
 		587073928568A855BB1957BC /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = EF3A5366202B1B6D822393C6 /* ClearskyCore */; };
@@ -89,6 +91,8 @@
 		1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarService.swift; sourceTree = "<group>"; };
 		2BE44EE3437E6A6440862C59 /* ConnectCalendarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCalendarViewModelTests.swift; sourceTree = "<group>"; };
 		2E35D44150B05D6DD6102EA7 /* PromisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesView.swift; sourceTree = "<group>"; };
+		322842CE25E5C46324E18CEC /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		44C80A6804ABBAA9BAC6617C /* PrivacyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModelTests.swift; sourceTree = "<group>"; };
 		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		4FD041E804297402148D6677 /* ConnectCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCalendarView.swift; sourceTree = "<group>"; };
 		58509312DB134361F10A6D82 /* PromisesViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesViewTests.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */,
 				B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */,
 				F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */,
+				322842CE25E5C46324E18CEC /* PrivacyView.swift */,
 				59D90515A7B24078E620FA1E /* PromiseDetailView.swift */,
 				EF7DFEF30476230E60827ED3 /* PromiseStore.swift */,
 				2E35D44150B05D6DD6102EA7 /* PromisesView.swift */,
@@ -233,6 +238,7 @@
 				E719C4CDEE048730C364C07A /* MockCalendarService.swift */,
 				98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */,
 				E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */,
+				44C80A6804ABBAA9BAC6617C /* PrivacyViewModelTests.swift */,
 				E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */,
 				58509312DB134361F10A6D82 /* PromisesViewTests.swift */,
 				F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */,
@@ -381,6 +387,7 @@
 				7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */,
 				9F575B511444562AA453C64B /* MockNotificationPermissionService.swift in Sources */,
 				C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */,
+				1A49C3FE06A76FA7D5528171 /* PrivacyViewModelTests.swift in Sources */,
 				AE67B762C7F09B2A0535DBB3 /* PromiseStoreTests.swift in Sources */,
 				47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */,
 				2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */,
@@ -413,6 +420,7 @@
 				03748BFC3FD3B853A4D416F7 /* NotificationPermissionRequesting.swift in Sources */,
 				E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */,
 				FABA10120F1C17D2FF1D2B67 /* PendingDraftsView.swift in Sources */,
+				456701BCCA04C6EC110D990D /* PrivacyView.swift in Sources */,
 				86E7A4BF2703FC79CC8AA59D /* PromiseDetailView.swift in Sources */,
 				689D277032BF9E283562F44F /* PromiseStore.swift in Sources */,
 				78A0C8B1FAE720BE0CC38DF1 /* PromisesView.swift in Sources */,
