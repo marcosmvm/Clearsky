@@ -2,7 +2,7 @@ import SwiftUI
 import ClearskyCore
 
 /// The app shell: three tabs — Today, Promises, Triage — sharing one injected
-/// `PromiseStore`, `SharedDraftStore` and `CalendarHolding`.
+/// `PromiseStore`, `SharedDraftStoreObserver` and `CalendarHolding`.
 ///
 /// Everything is passed in through `init` rather than reached via a global singleton
 /// (`ClearskyApp.swift` owns the real, on-disk/App-Group/EventKit-backed instances),
@@ -13,10 +13,14 @@ import ClearskyCore
 /// Triage is unchanged from the original app shell and still renders
 /// `SampleData.triageItems` — out of scope for this task ("Do not build Triage in
 /// this round"). Today and Promises both read real data through `promiseStore` and
-/// `sharedDraftStore`.
+/// `draftsObserver` (a `SharedDraftStoreObserver`, not a raw `SharedDraftStore` — see
+/// that type's doc comment for why a plain `.loadAll()` call here was the actual bug
+/// this task fixes: it never observed the underlying `UserDefaults`, so a draft the
+/// Share Extension appended while this app was already open didn't reliably show up
+/// until something unrelated forced a re-render).
 struct RootView: View {
     @ObservedObject var promiseStore: PromiseStore
-    let sharedDraftStore: SharedDraftStore
+    @ObservedObject var draftsObserver: SharedDraftStoreObserver
     let calendarService: CalendarHolding
 
     @State private var selectedTab: Tab = .today
@@ -27,9 +31,9 @@ struct RootView: View {
         case today, promises, triage
     }
 
-    init(promiseStore: PromiseStore, sharedDraftStore: SharedDraftStore, calendarService: CalendarHolding) {
+    init(promiseStore: PromiseStore, draftsObserver: SharedDraftStoreObserver, calendarService: CalendarHolding) {
         self.promiseStore = promiseStore
-        self.sharedDraftStore = sharedDraftStore
+        self.draftsObserver = draftsObserver
         self.calendarService = calendarService
     }
 
@@ -39,7 +43,7 @@ struct RootView: View {
                 TodayView(
                     items: SampleData.triageItems,
                     promiseStore: promiseStore,
-                    sharedDraftStore: sharedDraftStore,
+                    draftsObserver: draftsObserver,
                     onSaveNewPromise: handleSavedPromise,
                     onGoToPromises: { selectedTab = .promises }
                 )
@@ -64,7 +68,7 @@ struct RootView: View {
             NewPromiseView(draft: nil, onSave: handleSavedPromise)
         }
         .sheet(isPresented: $isPresentingPendingDrafts) {
-            PendingDraftsView(sharedDraftStore: sharedDraftStore, onSaveNewPromise: handleSavedPromise)
+            PendingDraftsView(draftsObserver: draftsObserver, onSaveNewPromise: handleSavedPromise)
         }
         .task {
             // Moves any `.planned` promise whose due date has already passed to
@@ -77,8 +81,8 @@ struct RootView: View {
     // MARK: - Toolbar
 
     /// Shared by both the Today and Promises tabs: a captured-drafts entry point
-    /// (badged with the pending count — this is what makes
-    /// `SharedDraftStore.loadAll()`'s contents actually reachable by a person; see
+    /// (badged with the pending count, read live off `draftsObserver` — this is what
+    /// makes the Share Extension's captured drafts actually reachable by a person; see
     /// `PendingDraftsView`) and the "+" that opens a hand-entered `NewPromiseView`
     /// (anticipated by that view's own doc comment: "a hand-entered promise started
     /// from the Promises list's '+' button").
@@ -113,7 +117,7 @@ struct RootView: View {
     }
 
     private var pendingDraftsCount: Int {
-        sharedDraftStore.loadAll().count
+        draftsObserver.count
     }
 
     // MARK: - Saving a promise (shared by the "+" button and a resolved pending draft)
@@ -176,27 +180,28 @@ private struct PreviewCalendarService: CalendarHolding {
     func removeHold(eventIdentifier: String) async throws {}
 }
 
-/// Builds a disposable, file-backed `PromiseStore` and a disposable `UserDefaults`
-/// suite for `SharedDraftStore` — same isolation pattern `PromisesView.swift`'s
-/// `makePreviewStore()` uses — so this preview never touches a real device's
-/// Documents directory or App Group container.
+/// Builds a disposable, file-backed `PromiseStore` and a `SharedDraftStoreObserver`
+/// over a disposable `UserDefaults` suite — same isolation pattern
+/// `PromisesView.swift`'s `makePreviewStore()` uses — so this preview never touches a
+/// real device's Documents directory or App Group container.
 @MainActor
-private func makeRootPreviewDependencies() -> (PromiseStore, SharedDraftStore) {
+private func makeRootPreviewDependencies() -> (PromiseStore, SharedDraftStoreObserver) {
     let promiseStoreURL = FileManager.default.temporaryDirectory
         .appendingPathComponent("root-view-preview-\(UUID().uuidString)")
         .appendingPathExtension("json")
     let draftsSuiteName = "root-view-preview-\(UUID().uuidString)"
+    let draftsDefaults = UserDefaults(suiteName: draftsSuiteName)!
     return (
         PromiseStore(fileURL: promiseStoreURL),
-        SharedDraftStore(defaults: UserDefaults(suiteName: draftsSuiteName)!)
+        SharedDraftStoreObserver(store: SharedDraftStore(defaults: draftsDefaults), defaults: draftsDefaults)
     )
 }
 
 #Preview {
-    let (promiseStore, sharedDraftStore) = makeRootPreviewDependencies()
+    let (promiseStore, draftsObserver) = makeRootPreviewDependencies()
     return RootView(
         promiseStore: promiseStore,
-        sharedDraftStore: sharedDraftStore,
+        draftsObserver: draftsObserver,
         calendarService: PreviewCalendarService()
     )
 }
