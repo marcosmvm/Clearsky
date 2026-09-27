@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03748BFC3FD3B853A4D416F7 /* NotificationPermissionRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */; };
 		0393435264DAC0F1C55AB0ED /* DigestCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60AFE7AAD31B688A9E06E9 /* DigestCalculatorTests.swift */; };
+		056A21AC9B3825AAAB858F65 /* FirstRunFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4DB6258AC10EFE40EF61E /* FirstRunFlowView.swift */; };
 		0C5476159C160033CC4639AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6280BEDFBE9479615734E2C /* Assets.xcassets */; };
 		0DCDDCAD147E2C812447319C /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		124304DA5696454B68ACA7F5 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5079E7511BB4BAB38C6E4EF9 /* ClearskyCore */; };
@@ -22,6 +23,7 @@
 		32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */; };
 		456701BCCA04C6EC110D990D /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322842CE25E5C46324E18CEC /* PrivacyView.swift */; };
 		47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509312DB134361F10A6D82 /* PromisesViewTests.swift */; };
+		53EA2415982522453086E1FA /* FirstRunFlowViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBB639DFD65B788F5F1181 /* FirstRunFlowViewTests.swift */; };
 		543DB8DEFC474FBA920A8BEF /* ConnectCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD041E804297402148D6677 /* ConnectCalendarView.swift */; };
 		587073928568A855BB1957BC /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = EF3A5366202B1B6D822393C6 /* ClearskyCore */; };
 		65A94DE5815474A75F332B79 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */; };
@@ -92,6 +94,7 @@
 		2BE44EE3437E6A6440862C59 /* ConnectCalendarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCalendarViewModelTests.swift; sourceTree = "<group>"; };
 		2E35D44150B05D6DD6102EA7 /* PromisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesView.swift; sourceTree = "<group>"; };
 		322842CE25E5C46324E18CEC /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		36FBB639DFD65B788F5F1181 /* FirstRunFlowViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunFlowViewTests.swift; sourceTree = "<group>"; };
 		44C80A6804ABBAA9BAC6617C /* PrivacyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModelTests.swift; sourceTree = "<group>"; };
 		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		4FD041E804297402148D6677 /* ConnectCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCalendarView.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationPermissionService.swift; sourceTree = "<group>"; };
 		986DD752EC62880479CFFC85 /* TriageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageCardView.swift; sourceTree = "<group>"; };
+		98E4DB6258AC10EFE40EF61E /* FirstRunFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunFlowView.swift; sourceTree = "<group>"; };
 		99D0E1ED311CB463936DE6CB /* ClearskyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClearskyApp.entitlements; sourceTree = "<group>"; };
 		9E2AAEF072DF8480794A7644 /* ClearskyCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ClearskyCore; path = ../ClearskyCore; sourceTree = SOURCE_ROOT; };
 		A7494BA30BE6FF5A56834B14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				5B9FA12B739E4CC5FC1DD633 /* DigestView.swift */,
 				008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */,
 				1B298FBB63A8DD875179E5A2 /* EventKitCalendarService.swift */,
+				98E4DB6258AC10EFE40EF61E /* FirstRunFlowView.swift */,
 				111D7444576901364A6A65EA /* NewPromiseView.swift */,
 				7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */,
 				B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */,
@@ -235,6 +240,7 @@
 				2BE44EE3437E6A6440862C59 /* ConnectCalendarViewModelTests.swift */,
 				0A60AFE7AAD31B688A9E06E9 /* DigestCalculatorTests.swift */,
 				77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */,
+				36FBB639DFD65B788F5F1181 /* FirstRunFlowViewTests.swift */,
 				E719C4CDEE048730C364C07A /* MockCalendarService.swift */,
 				98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */,
 				E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */,
@@ -384,6 +390,7 @@
 				2414292C551D44AE42D3A139 /* ConnectCalendarViewModelTests.swift in Sources */,
 				0393435264DAC0F1C55AB0ED /* DigestCalculatorTests.swift in Sources */,
 				FBD78EDA4DD72BA12FD468A1 /* EventKitCalendarServiceTests.swift in Sources */,
+				53EA2415982522453086E1FA /* FirstRunFlowViewTests.swift in Sources */,
 				7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */,
 				9F575B511444562AA453C64B /* MockNotificationPermissionService.swift in Sources */,
 				C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */,
@@ -416,6 +423,7 @@
 				1F460984BCF89C7B88C22578 /* DigestView.swift in Sources */,
 				CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */,
 				B975D90CAF8214D4F11F6436 /* EventKitCalendarService.swift in Sources */,
+				056A21AC9B3825AAAB858F65 /* FirstRunFlowView.swift in Sources */,
 				957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */,
 				03748BFC3FD3B853A4D416F7 /* NotificationPermissionRequesting.swift in Sources */,
 				E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */,

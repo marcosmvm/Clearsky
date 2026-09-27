@@ -22,6 +22,19 @@ struct ClearskyApp: App {
     /// a test can substitute `MockCalendarService`/a fake instead.
     private let calendarService: CalendarHolding = EventKitCalendarService()
 
+    /// The real, `UNUserNotificationCenter`-backed `NotificationPermissionRequesting`
+    /// conformer, mirroring `calendarService` immediately above — typed as the
+    /// protocol so `FirstRunFlowView` (the one call site that uses it) can be handed a
+    /// mock/no-op conformer in a preview or a test instead.
+    private let notificationPermissionService: NotificationPermissionRequesting = SystemNotificationPermissionService()
+
+    /// Whether this install has ever completed first run (connect calendar, then
+    /// notification permission — see `FirstRunFlowView`'s own doc comment for why
+    /// Sign-in and Inner circle are not part of that sequence yet). `false` on a brand
+    /// new install; flipped to `true` exactly once, by `FirstRunFlowView`'s own
+    /// `onFinished` closure below, and never flipped back.
+    @AppStorage("hasCompletedFirstRun") private var hasCompletedFirstRun = false
+
     /// Explicit `init()` only because `draftsObserver` needs the same `UserDefaults`
     /// instance passed to both the `SharedDraftStore` it wraps and its own
     /// notification subscription (see `SharedDraftStoreObserver.init`) — a single
@@ -36,11 +49,19 @@ struct ClearskyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView(
-                promiseStore: promiseStore,
-                draftsObserver: draftsObserver,
-                calendarService: calendarService
-            )
+            if hasCompletedFirstRun {
+                RootView(
+                    promiseStore: promiseStore,
+                    draftsObserver: draftsObserver,
+                    calendarService: calendarService
+                )
+            } else {
+                FirstRunFlowView(
+                    calendarService: calendarService,
+                    notificationPermissionService: notificationPermissionService,
+                    onFinished: { hasCompletedFirstRun = true }
+                )
+            }
         }
     }
 }
