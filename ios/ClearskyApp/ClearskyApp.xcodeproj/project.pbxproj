@@ -34,6 +34,7 @@
 		94B84E17C69B5B4D85273AC1 /* SharedDraftStoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29CC4707D033E0DE9BAFD74 /* SharedDraftStoreObserver.swift */; };
 		957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D7444576901364A6A65EA /* NewPromiseView.swift */; };
 		9F575B511444562AA453C64B /* MockNotificationPermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */; };
+		A0BFCD27EA39E4E20A817A0E /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58945EF1DF1168D20C049CD9 /* YouView.swift */; };
 		A4CBE9003109FB22C78DB53D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE7775AB900A1DF2519C802 /* TodayView.swift */; };
 		A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */; };
 		AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */; };
@@ -43,6 +44,7 @@
 		C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */; };
 		C1925905FF198269AE75544F /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */; };
 		CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */; };
+		CF07CDCF3242CF1402E97875 /* YouViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AEDF495858F47C2CA18531 /* YouViewTests.swift */; };
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */; };
 		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
@@ -96,6 +98,7 @@
 		4920AA6BDBF01BBDF02DA8EF /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		4FD041E804297402148D6677 /* ConnectCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCalendarView.swift; sourceTree = "<group>"; };
 		58509312DB134361F10A6D82 /* PromisesViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesViewTests.swift; sourceTree = "<group>"; };
+		58945EF1DF1168D20C049CD9 /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		59D90515A7B24078E620FA1E /* PromiseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseDetailView.swift; sourceTree = "<group>"; };
 		5B9FA12B739E4CC5FC1DD633 /* DigestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestView.swift; sourceTree = "<group>"; };
 		6AD00B9CF95A5E3906519477 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHolding.swift; sourceTree = "<group>"; };
 		8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearskyApp.swift; sourceTree = "<group>"; };
 		9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageView.swift; sourceTree = "<group>"; };
+		92AEDF495858F47C2CA18531 /* YouViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouViewTests.swift; sourceTree = "<group>"; };
 		93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationPermissionService.swift; sourceTree = "<group>"; };
 		986DD752EC62880479CFFC85 /* TriageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageCardView.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				986DD752EC62880479CFFC85 /* TriageCardView.swift */,
 				9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */,
 				CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */,
+				58945EF1DF1168D20C049CD9 /* YouView.swift */,
 			);
 			path = ClearskyApp;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */,
 				BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */,
 				00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */,
+				92AEDF495858F47C2CA18531 /* YouViewTests.swift */,
 			);
 			path = ClearskyAppTests;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */,
 				A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */,
 				26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */,
+				CF07CDCF3242CF1402E97875 /* YouViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +439,7 @@
 				198A2801134AD191C046760B /* TriageCardView.swift in Sources */,
 				AD3236EEF9C27979C22B7EF8 /* TriageView.swift in Sources */,
 				265864D8D3D91AF958B50F2B /* WeeklyRecapView.swift in Sources */,
+				A0BFCD27EA39E4E20A817A0E /* YouView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
