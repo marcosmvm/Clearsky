@@ -31,9 +31,9 @@ struct ClearskyApp: App {
     /// Whether this install has ever completed first run (connect calendar, then
     /// notification permission — see `FirstRunFlowView`'s own doc comment for why
     /// Sign-in and Inner circle are not part of that sequence yet). `false` on a brand
-    /// new install; flipped to `true` exactly once, by `FirstRunFlowView`'s own
-    /// `onFinished` closure below, and never flipped back.
-    @AppStorage("hasCompletedFirstRun") private var hasCompletedFirstRun = false
+    /// new install; flipped to `true` exactly once, by `RootRouterView`'s
+    /// `onFirstRunFinished` closure below, and never flipped back.
+    @AppStorage(FirstRunDefaultsKey.hasCompletedFirstRun) private var hasCompletedFirstRun = false
 
     /// Explicit `init()` only because `draftsObserver` needs the same `UserDefaults`
     /// instance passed to both the `SharedDraftStore` it wraps and its own
@@ -47,21 +47,20 @@ struct ClearskyApp: App {
         )
     }
 
+    /// A thin wrapper around `RootRouterView` — see that type's own doc comment for why
+    /// the actual `hasCompletedFirstRun` branch lives there instead of inline here: an
+    /// `App`/`Scene` can't be hosted in an XCTest, only a `View` can, so the branch
+    /// itself needs to live on a plain `View` to be testable at all.
     var body: some Scene {
         WindowGroup {
-            if hasCompletedFirstRun {
-                RootView(
-                    promiseStore: promiseStore,
-                    draftsObserver: draftsObserver,
-                    calendarService: calendarService
-                )
-            } else {
-                FirstRunFlowView(
-                    calendarService: calendarService,
-                    notificationPermissionService: notificationPermissionService,
-                    onFinished: { hasCompletedFirstRun = true }
-                )
-            }
+            RootRouterView(
+                hasCompletedFirstRun: hasCompletedFirstRun,
+                promiseStore: promiseStore,
+                draftsObserver: draftsObserver,
+                calendarService: calendarService,
+                notificationPermissionService: notificationPermissionService,
+                onFirstRunFinished: { hasCompletedFirstRun = true }
+            )
         }
     }
 }
