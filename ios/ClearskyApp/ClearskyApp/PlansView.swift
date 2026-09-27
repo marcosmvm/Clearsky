@@ -26,11 +26,17 @@ import ClearskyCore
 ///
 /// `PlansViewModel.loadProducts()` calls the real `Product.products(for:)` API (via
 /// `ProductCatalogFetching`/`StoreKitProductCatalog` below) against the three real App
-/// Store product identifiers `PricingPlan.productID` maps each plan to (a `private
-/// extension`, kept local to this file rather than added to `ClearskyCore` —
+/// Store product identifiers `PricingPlan.productID` maps each plan to (declared in an
+/// `extension` kept local to this file rather than added to `ClearskyCore` —
 /// `PricingPlan` is pure pricing data with no App Store Connect knowledge, and this
-/// keeps that true). Running the real app from Xcode (Cmd-R) genuinely resolves this
-/// against the local `Clearsky.storekit` configuration — the generated scheme's
+/// keeps that true; not marked `private` specifically so
+/// `PricingPlanProductIDTests.testExactProductIDStringValues` in
+/// `PlansViewModelTests.swift` can pin the three literal strings via `@testable import`
+/// — `@testable import` only upgrades `internal`/`public` visibility, never
+/// `private`/`fileprivate`, so a genuinely `private extension` here would make that
+/// pinning test impossible to write at all). Running the real app from Xcode (Cmd-R)
+/// genuinely resolves this against the local `Clearsky.storekit` configuration — the
+/// generated scheme's
 /// `LaunchAction` carries `StoreKitConfigurationFileReference` correctly. It does
 /// **not** currently resolve inside `ClearskyAppTests` run via `xcodebuild test`: the
 /// installed `xcodegen` (2.46.0) has no `storeKitConfiguration` field on a scheme's
@@ -315,7 +321,11 @@ enum PlanPricing {
 
 /// The real App Store product identifier behind each `PricingPlan` case. Kept local to
 /// this file rather than added to `ClearskyCore` — see `PlansView`'s type-level doc.
-private extension PricingPlan {
+/// Deliberately plain `extension` (internal), not `private extension`: `@testable
+/// import` only upgrades `internal`/`public` access to be visible from a test target,
+/// never `private`/`fileprivate` — see `PricingPlanProductIDTests` in
+/// `PlansViewModelTests.swift` for the literal-string pinning test this makes possible.
+extension PricingPlan {
     var productID: String {
         switch self {
         case .yearly: return "com.marcosmvm.clearsky.yearly"

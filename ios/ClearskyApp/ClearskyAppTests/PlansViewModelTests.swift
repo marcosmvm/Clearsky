@@ -156,6 +156,37 @@ final class PlansViewModelTests: XCTestCase {
     }
 }
 
+// MARK: - PricingPlanProductIDTests
+
+/// Pins the exact real App Store product identifier strings `PricingPlan.productID`
+/// (declared in a file-local `extension PricingPlan` in `PlansView.swift`) maps each
+/// case to.
+///
+/// Deliberately hard-coded literals on the right-hand side of each assertion (not,
+/// say, reading `Clearsky.storekit`'s own `"productID"` values via a shared helper the
+/// mapping also uses, and not comparing `PricingPlan.yearly.productID` against itself)
+/// — the same "independent, separately-typed source of truth" reasoning
+/// `FirstRunDefaultsKeyTests.testExactKeyStringValues` documents for
+/// `FirstRunDefaultsKey`. Nothing else in this codebase can ever exercise a real
+/// StoreKit fetch inside `xcodebuild test` (see this file's own type-level doc, and
+/// `PlansView`'s), which means every existing `PlansViewModelTests` case above only
+/// ever drives the throwing/empty-fake paths — none of them touch `productID` at all,
+/// so a typo introduced into the mapping (e.g. a stray trailing character on one ID)
+/// would previously ship with the entire suite still green: the static-fallback UI
+/// path would look identical, and the real-fetch path would just silently keep
+/// returning nothing extra, indistinguishable from the already-known-and-documented
+/// "the test scheme can't fetch real products here at all" gap. Confirmed via mutation
+/// testing (see this task's PR description for the exact before/after): appending "x"
+/// to `PricingPlan.yearly`'s mapped ID makes this test fail immediately, with every
+/// other test in the target still passing.
+final class PricingPlanProductIDTests: XCTestCase {
+    func testExactProductIDStringValues() {
+        XCTAssertEqual(PricingPlan.yearly.productID, "com.marcosmvm.clearsky.yearly")
+        XCTAssertEqual(PricingPlan.monthly.productID, "com.marcosmvm.clearsky.monthly")
+        XCTAssertEqual(PricingPlan.lifetime.productID, "com.marcosmvm.clearsky.lifetime")
+    }
+}
+
 // MARK: - Fakes
 
 /// Throws — simulates a network/StoreKit failure. Never fabricates a `Product`
