@@ -111,12 +111,40 @@ targets:
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/ClearskyApp.app/ClearskyApp"
         BUNDLE_LOADER: "$(TEST_HOST)"
 
+  # Real XCUITest target — distinct from ClearskyAppTests (a unit-test bundle
+  # hosted in-process via TEST_HOST/BUNDLE_LOADER above). A UI test bundle instead
+  # launches ClearskyApp as its own separate process in the simulator and drives it
+  # externally through the OS's UI-testing driver (XCUIApplication/XCUIElement),
+  # which is what actually lets a test simulate a real finger tap — see
+  # PromiseDetailNavigationUITests.swift's own doc comment for why the existing
+  # unit-test-hosted approach (PromisesViewNavigationTests) cannot do this.
+  # `TEST_TARGET_NAME` (not TEST_HOST/BUNDLE_LOADER) is the UI-testing bundle's way
+  # of naming which app target it drives.
+  ClearskyAppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: ClearskyAppUITests
+    dependencies:
+      - target: ClearskyApp
+    settings:
+      base:
+        PRODUCT_NAME: ClearskyAppUITests
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        TEST_TARGET_NAME: ClearskyApp
+
 schemes:
   ClearskyApp:
     build:
       targets:
         ClearskyApp: all
         ClearskyAppTests: [test]
+        ClearskyAppUITests: [test]
     run:
       config: Debug
       # Local StoreKit Testing only — no App Store Connect account needed to build
@@ -128,4 +156,5 @@ schemes:
       config: Debug
       targets:
         - ClearskyAppTests
+        - ClearskyAppUITests
       storeKitConfiguration: ClearskyApp/Clearsky.storekit

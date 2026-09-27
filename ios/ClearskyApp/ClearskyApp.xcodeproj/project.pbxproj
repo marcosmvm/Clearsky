@@ -44,6 +44,7 @@
 		C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */; };
 		C1925905FF198269AE75544F /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */; };
 		CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */; };
+		CD6806F8D39B11BD33EEA786 /* PromiseDetailNavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB142586428C213293169E5E /* PromiseDetailNavigationUITests.swift */; };
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
 		E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */; };
 		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
@@ -67,6 +68,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5E9D557A2D494A8BFCDF5392;
 			remoteInfo = ClearskyShareExtension;
+		};
+		BB61BB1A103081DE69C058B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7D4568DA67B80636FD5A766 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43D6CDA35720240E885F9A16;
+			remoteInfo = ClearskyApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -105,6 +113,7 @@
 		7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionRequesting.swift; sourceTree = "<group>"; };
 		77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarServiceTests.swift; sourceTree = "<group>"; };
 		80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHolding.swift; sourceTree = "<group>"; };
+		83C59264294566732DC4A5D2 /* ClearskyAppUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClearskyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearskyApp.swift; sourceTree = "<group>"; };
 		9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageView.swift; sourceTree = "<group>"; };
 		93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
@@ -125,6 +134,7 @@
 		E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionViewModelTests.swift; sourceTree = "<group>"; };
 		E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStoreTests.swift; sourceTree = "<group>"; };
 		E719C4CDEE048730C364C07A /* MockCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCalendarService.swift; sourceTree = "<group>"; };
+		EB142586428C213293169E5E /* PromiseDetailNavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseDetailNavigationUITests.swift; sourceTree = "<group>"; };
 		EF7DFEF30476230E60827ED3 /* PromiseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStore.swift; sourceTree = "<group>"; };
 		F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStoreObserverTests.swift; sourceTree = "<group>"; };
 		F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDraftsView.swift; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 			children = (
 				B17BE78F4A05864DAED9010A /* ClearskyApp */,
 				E47B294ACE77DE2BEE382EF6 /* ClearskyAppTests */,
+				EAC858C2465264CF4E1CB174 /* ClearskyAppUITests */,
 				29B34C1C7B4085904B4FE7E3 /* ClearskyShareExtension */,
 				E7C67DFC11E6F9B6B92CBD04 /* Packages */,
 				259AD775CBF766E78A9E2908 /* Shared */,
@@ -194,6 +205,7 @@
 			children = (
 				FACDDAFF6B992C6B31561041 /* ClearskyApp.app */,
 				BC4F49F7841AF23BBC258595 /* ClearskyAppTests.xctest */,
+				83C59264294566732DC4A5D2 /* ClearskyAppUITests.xctest */,
 				D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */,
 			);
 			name = Products;
@@ -259,6 +271,14 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		EAC858C2465264CF4E1CB174 /* ClearskyAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB142586428C213293169E5E /* PromiseDetailNavigationUITests.swift */,
+			);
+			path = ClearskyAppUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,6 +323,24 @@
 			productReference = D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		A2CCBB78B30C4CA4CC339CFC /* ClearskyAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4B07B6FEA90B535941AE98F /* Build configuration list for PBXNativeTarget "ClearskyAppUITests" */;
+			buildPhases = (
+				3E6556BD5715719E3F43B500 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5A8DBBFA5CEDC1E205DAC1B /* PBXTargetDependency */,
+			);
+			name = ClearskyAppUITests;
+			packageProductDependencies = (
+			);
+			productName = ClearskyAppUITests;
+			productReference = 83C59264294566732DC4A5D2 /* ClearskyAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C83ACEC2106A2E70CCC8D65D /* ClearskyAppTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08FDED7688CA71750CDBEB22 /* Build configuration list for PBXNativeTarget "ClearskyAppTests" */;
@@ -338,6 +376,10 @@
 					5E9D557A2D494A8BFCDF5392 = {
 						ProvisioningStyle = Automatic;
 					};
+					A2CCBB78B30C4CA4CC339CFC = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 43D6CDA35720240E885F9A16;
+					};
 					C83ACEC2106A2E70CCC8D65D = {
 						ProvisioningStyle = Automatic;
 					};
@@ -363,6 +405,7 @@
 				43D6CDA35720240E885F9A16 /* ClearskyApp */,
 				5E9D557A2D494A8BFCDF5392 /* ClearskyShareExtension */,
 				C83ACEC2106A2E70CCC8D65D /* ClearskyAppTests */,
+				A2CCBB78B30C4CA4CC339CFC /* ClearskyAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +440,14 @@
 				2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */,
 				A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */,
 				26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E6556BD5715719E3F43B500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6806F8D39B11BD33EEA786 /* PromiseDetailNavigationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +502,11 @@
 			isa = PBXTargetDependency;
 			target = 5E9D557A2D494A8BFCDF5392 /* ClearskyShareExtension */;
 			targetProxy = 8BF1D713746801F21DBC7E58 /* PBXContainerItemProxy */;
+		};
+		F5A8DBBFA5CEDC1E205DAC1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43D6CDA35720240E885F9A16 /* ClearskyApp */;
+			targetProxy = BB61BB1A103081DE69C058B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -568,6 +624,29 @@
 			};
 			name = Release;
 		};
+		2DCBCDDF368CD506B35A7FDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcosmvm.clearsky.ClearskyAppUITests;
+				PRODUCT_NAME = ClearskyAppUITests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClearskyApp;
+			};
+			name = Release;
+		};
 		3FEB111BCA645FDA1FB92B17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -654,6 +733,29 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		93BEBC93583CBCE7AACC25F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcosmvm.clearsky.ClearskyAppUITests;
+				PRODUCT_NAME = ClearskyAppUITests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClearskyApp;
 			};
 			name = Debug;
 		};
@@ -757,6 +859,15 @@
 			buildConfigurations = (
 				404A76F5A8DAA011652736EF /* Debug */,
 				17008ABEECBF0AD2883C8590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C4B07B6FEA90B535941AE98F /* Build configuration list for PBXNativeTarget "ClearskyAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BEBC93583CBCE7AACC25F4 /* Debug */,
+				2DCBCDDF368CD506B35A7FDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
