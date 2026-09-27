@@ -301,7 +301,7 @@ enum YouViewDefaultsKey {
 /// `DigestCalculator` already use in this codebase for their own pure computations.
 enum YouConnectedAccountsDisplay {
     static func calendarStatusText(connected: Bool) -> String {
-        connected ? "Calendar \u{2014} Connected" : "Calendar \u{2014} Not connected"
+        connected ? "Connected" : "Not connected"
     }
 }
 

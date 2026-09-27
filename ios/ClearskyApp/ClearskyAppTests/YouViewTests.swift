@@ -122,14 +122,14 @@ final class YouViewTests: XCTestCase {
     func test_calendarStatusText_whenConnected() {
         XCTAssertEqual(
             YouConnectedAccountsDisplay.calendarStatusText(connected: true),
-            "Calendar \u{2014} Connected"
+            "Connected"
         )
     }
 
     func test_calendarStatusText_whenNotConnected() {
         XCTAssertEqual(
             YouConnectedAccountsDisplay.calendarStatusText(connected: false),
-            "Calendar \u{2014} Not connected"
+            "Not connected"
         )
     }
 }
