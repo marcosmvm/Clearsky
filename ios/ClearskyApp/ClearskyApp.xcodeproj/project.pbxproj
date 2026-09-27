@@ -49,6 +49,7 @@
 		BF46DCC40AA4FEBF7CD069C6 /* CalendarHolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */; };
 		C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */; };
 		C1925905FF198269AE75544F /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785EB21A134B1D3B50C3D1 /* DesignTokens.swift */; };
+		CA005FC703FFA2900E17E192 /* RootViewYouTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5F7485F0631615A7626935 /* RootViewYouTabTests.swift */; };
 		CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */; };
 		CF07CDCF3242CF1402E97875 /* YouViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AEDF495858F47C2CA18531 /* YouViewTests.swift */; };
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
@@ -134,6 +135,7 @@
 		BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStoreTests.swift; sourceTree = "<group>"; };
 		BC4F49F7841AF23BBC258595 /* ClearskyAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClearskyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyRecapView.swift; sourceTree = "<group>"; };
+		CB5F7485F0631615A7626935 /* RootViewYouTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewYouTabTests.swift; sourceTree = "<group>"; };
 		CC4D10E8C4E285BBE358C419 /* PlansViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModelTests.swift; sourceTree = "<group>"; };
 		D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClearskyShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6280BEDFBE9479615734E2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				44C80A6804ABBAA9BAC6617C /* PrivacyViewModelTests.swift */,
 				E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */,
 				58509312DB134361F10A6D82 /* PromisesViewTests.swift */,
+				CB5F7485F0631615A7626935 /* RootViewYouTabTests.swift */,
 				F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */,
 				BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */,
 				00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */,
@@ -423,6 +426,7 @@
 				1A49C3FE06A76FA7D5528171 /* PrivacyViewModelTests.swift in Sources */,
 				AE67B762C7F09B2A0535DBB3 /* PromiseStoreTests.swift in Sources */,
 				47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */,
+				CA005FC703FFA2900E17E192 /* RootViewYouTabTests.swift in Sources */,
 				2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */,
 				A8FDC594D11223E121EB2CBB /* SharedDraftStoreTests.swift in Sources */,
 				26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */,

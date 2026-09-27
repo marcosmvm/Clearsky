@@ -65,6 +65,14 @@ final class SharedDraftStoreObserver: ObservableObject {
     /// `drafts.count` itself.
     var count: Int { drafts.count }
 
+    /// The raw `SharedDraftStore` this observer wraps, handed back out for a caller
+    /// that needs to pass it on to something that takes a `SharedDraftStore` directly
+    /// (e.g. `RootView` constructing `YouView(store:sharedDraftStore:)`, which itself
+    /// forwards it on to `PrivacyView`). A computed property, not a stored one — it
+    /// does not change `store`'s own `private` access level or add a second source of
+    /// truth, just exposes read access to the one already held above.
+    var sharedDraftStore: SharedDraftStore { store }
+
     /// Removes one draft by id — e.g. once the confirm/edit screen has resolved it —
     /// and reloads `drafts` immediately rather than waiting on the notification round
     /// trip, so the caller's own write is reflected without delay even before

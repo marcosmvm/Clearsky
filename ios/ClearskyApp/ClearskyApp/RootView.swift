@@ -1,7 +1,7 @@
 import SwiftUI
 import ClearskyCore
 
-/// The app shell: three tabs — Today, Promises, Triage — sharing one injected
+/// The app shell: four tabs — Today, Promises, Triage, You — sharing one injected
 /// `PromiseStore`, `SharedDraftStoreObserver` and `CalendarHolding`.
 ///
 /// Everything is passed in through `init` rather than reached via a global singleton
@@ -28,7 +28,7 @@ struct RootView: View {
     @State private var isPresentingPendingDrafts = false
 
     private enum Tab: Hashable {
-        case today, promises, triage
+        case today, promises, triage, you
     }
 
     init(promiseStore: PromiseStore, draftsObserver: SharedDraftStoreObserver, calendarService: CalendarHolding) {
@@ -62,6 +62,13 @@ struct RootView: View {
             TriageView(items: SampleData.triageItems)
                 .tabItem { Label("Triage", systemImage: "tray.full") }
                 .tag(Tab.triage)
+
+            NavigationStack {
+                YouView(store: promiseStore, sharedDraftStore: draftsObserver.sharedDraftStore)
+                    .toolbar { toolbarContent }
+            }
+            .tabItem { Label("You", systemImage: "person.crop.circle") }
+            .tag(Tab.you)
         }
         .tint(ClearskyColor.inkNavy)
         .sheet(isPresented: $isPresentingNewPromise) {
