@@ -1,6 +1,16 @@
 import SwiftUI
 import ClearskyCore
 
+/// Reports each row's rendered frame, in `PromisesView.body`'s own `"promisesRows"`
+/// coordinate space, keyed by `Promise.id` — see `PromisesView.onRowFramesChanged`'s
+/// doc comment for why this exists and how `PromisesViewNavigationTests` uses it.
+private struct PromiseRowFramePreferenceKey: PreferenceKey {
+    static var defaultValue: [String: CGRect] = [:]
+    static func reduce(value: inout [String: CGRect], nextValue: () -> [String: CGRect]) {
+        value.merge(nextValue()) { _, new in new }
+    }
+}
+
 /// The Promises list: every commitment the user has captured or been captured for,
 /// grouped by who owns the next move — not by raw status.
 ///
@@ -32,6 +42,29 @@ struct PromisesView: View {
     /// `Promise` is `Identifiable`, so `.sheet(item:)` can key directly off it.
     @State private var reschedulingPromise: Promise?
 
+    /// The promise whose row was tapped, if any — drives the push to
+    /// `PromiseDetailView` via `.navigationDestination(item:)` below. Same pattern as
+    /// `reschedulingPromise` immediately above: a plain `@State`, not a view model,
+    /// since `Promise` is already `Identifiable`.
+    @State private var selectedPromise: Promise?
+
+    /// Test-only hook: called with every row's rendered tap-target frame, keyed by
+    /// `Promise.id`, whenever `PromiseRowFramePreferenceKey` changes (see
+    /// `row(for:)`'s `.background(GeometryReader { ... })`) — `nil` at every real call
+    /// site (`RootView.swift`, previews). Deliberately a plain stored closure, not
+    /// `@State`: `PromisesViewNavigationTests` hosts this view in a real `UIWindow` to
+    /// measure its rows the same way the checker measured the previous (rejected)
+    /// background-`NavigationLink` construction's 0×0 frame directly, but
+    /// `UIHostingController.rootView`'s getter does not reflect a hosted view's live
+    /// internal `@State` updates — it simply returns whatever value was last
+    /// explicitly assigned to it, not SwiftUI's current render-tree state — so a
+    /// `@State` property here cannot be read back after hosting. A plain, non-`@State`
+    /// closure sidesteps that: it is copied into every internal re-render of this same
+    /// view value unchanged, so calling it writes straight into an object the test
+    /// itself owns and can read directly, with no dependency on `@State`'s
+    /// after-the-fact readability.
+    var onRowFramesChanged: (([String: CGRect]) -> Void)? = nil
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: ClearskySpacing.xl) {
@@ -61,6 +94,20 @@ struct PromisesView: View {
                 giveItANewTime(promise, newDueDate: newDueDate)
             }
         }
+        // The real fix for "tap a row, push its detail screen": a row-level
+        // `.onTapGesture` (see `row(for:)` below) sets `selectedPromise`, and this
+        // modifier is what actually turns that into a push — it must sit on a view
+        // inside the `NavigationStack` `RootView.swift` already wraps `PromisesView`
+        // in (confirmed there; `.navigationDestination` is inert without one).
+        .navigationDestination(item: $selectedPromise) { promise in
+            PromiseDetailView(promise: promise, store: store)
+        }
+        // Named so each row's `.background(GeometryReader { ... })` (in `row(for:)`)
+        // can report its frame in a stable space anchored to this view, for
+        // `onRowFramesChanged`/`PromisesViewNavigationTests` — see that property's doc
+        // comment.
+        .coordinateSpace(name: "promisesRows")
+        .onPreferenceChange(PromiseRowFramePreferenceKey.self) { onRowFramesChanged?($0) }
     }
 
     /// Every promise whose `Outcome` maps to `group` via `PromiseOwnership.group(for:)`.
@@ -97,6 +144,30 @@ struct PromisesView: View {
                 onGiveItANewTime: { reschedulingPromise = promise },
                 onLetItGo: { letItGo(promise) }
             )
+            // `.contentShape(Rectangle())` + `.onTapGesture` on the card itself, not a
+            // `NavigationLink` wrapping it: SwiftUI gives a child `Button`'s own tap
+            // gesture precedence over an ancestor's plain `.onTapGesture` in the same
+            // hierarchy — a tap that lands on one of the card's three exit buttons
+            // still fires that button's action, never this gesture, while a tap
+            // anywhere else on the card's `contentShape`-defined surface sets
+            // `selectedPromise`, which `.navigationDestination(item:)` above turns into
+            // a push. (The previous, rejected approach put an invisible
+            // `NavigationLink(destination:){ EmptyView() }` in `.background` instead —
+            // that construction lays out at 0x0 since a `NavigationLink` sizes itself
+            // to its label and an `EmptyView` label has no intrinsic size, so it was
+            // never actually tappable at all, on top of sitting behind this card's own
+            // opaque `.background(RoundedRectangle()...)` fill either way.)
+            .contentShape(Rectangle())
+            .onTapGesture { selectedPromise = promise }
+            .accessibilityIdentifier("promiseRow-\(promise.id)")
+            .background(
+                GeometryReader { proxy in
+                    Color.clear.preference(
+                        key: PromiseRowFramePreferenceKey.self,
+                        value: [promise.id: proxy.frame(in: .named("promisesRows"))]
+                    )
+                }
+            )
         } else {
             PromiseRow(
                 promise: promise,
@@ -108,6 +179,21 @@ struct PromisesView: View {
                 isDirectlyCompletable: PromiseOwnership.isDirectlyCompletable(promise.state),
                 isWaitingOnThem: PromiseOwnership.group(for: promise.state) == .notYourMove,
                 onComplete: { markKept(promise) }
+            )
+            // Same `.contentShape` + `.onTapGesture` technique as the `.needsANewPlan`
+            // branch above: `.planned`'s own tap-to-complete circle is a real `Button`,
+            // so it keeps precedence and wins the tap; everywhere else on the row sets
+            // `selectedPromise`, pushing `PromiseDetailView`.
+            .contentShape(Rectangle())
+            .onTapGesture { selectedPromise = promise }
+            .accessibilityIdentifier("promiseRow-\(promise.id)")
+            .background(
+                GeometryReader { proxy in
+                    Color.clear.preference(
+                        key: PromiseRowFramePreferenceKey.self,
+                        value: [promise.id: proxy.frame(in: .named("promisesRows"))]
+                    )
+                }
             )
         }
     }
