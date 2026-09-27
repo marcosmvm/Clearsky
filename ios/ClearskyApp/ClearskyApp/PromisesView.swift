@@ -97,6 +97,19 @@ struct PromisesView: View {
                 onGiveItANewTime: { reschedulingPromise = promise },
                 onLetItGo: { letItGo(promise) }
             )
+            // An invisible `NavigationLink` behind the card's own content rather than
+            // wrapping the card in one: SwiftUI hit-tests foreground content (the
+            // card's three exit buttons) before a background element, so the exits
+            // keep working exactly as before while a tap anywhere else on the card's
+            // surface pushes `PromiseDetailView`. Wrapping the card would instead have
+            // both the card's `Button`s and the `NavigationLink` racing for the same
+            // tap, breaking the exits.
+            .background(
+                NavigationLink(destination: PromiseDetailView(promise: promise, store: store)) {
+                    EmptyView()
+                }
+                .opacity(0)
+            )
         } else {
             PromiseRow(
                 promise: promise,
@@ -108,6 +121,16 @@ struct PromisesView: View {
                 isDirectlyCompletable: PromiseOwnership.isDirectlyCompletable(promise.state),
                 isWaitingOnThem: PromiseOwnership.group(for: promise.state) == .notYourMove,
                 onComplete: { markKept(promise) }
+            )
+            // Same background-link technique as the `.needsANewPlan` branch above:
+            // `.planned`'s own tap-to-complete circle (a real `Button`) stays a
+            // foreground hit target and wins the tap; everywhere else on the row
+            // pushes `PromiseDetailView`.
+            .background(
+                NavigationLink(destination: PromiseDetailView(promise: promise, store: store)) {
+                    EmptyView()
+                }
+                .opacity(0)
             )
         }
     }
