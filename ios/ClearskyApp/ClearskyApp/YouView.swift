@@ -22,17 +22,19 @@ import ClearskyCore
 ///
 /// ## What's real here vs. an honest placeholder
 ///
-/// - **Privacy**, **Weekly recap**, **Digest** — real `NavigationLink`s to the already-
-///   built `PrivacyView`/`WeeklyRecapView`/`DigestView`.
+/// - **Privacy**, **Weekly recap**, **Digest**, **Plan** — real `NavigationLink`s to the
+///   already-built `PrivacyView`/`WeeklyRecapView`/`DigestView`/`PaywallView`. Plan was
+///   an inert placeholder (naming a destination that didn't exist yet in this codebase)
+///   until PR #34 built `PaywallView`/`PlansView`; this file's own "wire it up" task
+///   swapped it for a real link — see `planSection`'s doc comment.
 /// - **Morning summary**, **Protect evenings** — real, persisted `@AppStorage` toggles
 ///   (see each property's own doc comment below for exactly what "real" does and does
 ///   not mean for each one).
 /// - **Connected accounts** — a real, persisted read of `calendarConnected` (see that
 ///   property's doc comment), rendered as inert, non-interactive text.
-/// - **Inner circle**, **Plan** — inert, non-interactive placeholders naming a
-///   destination/model that does not exist yet in this codebase, rather than a fake
-///   control or an invented number. See each section's doc comment for how that was
-///   confirmed.
+/// - **Inner circle** — an inert, non-interactive placeholder naming a destination/model
+///   that does not exist yet in this codebase, rather than a fake control or an invented
+///   number. See its own doc comment for how that was confirmed.
 struct YouView: View {
     @ObservedObject var store: PromiseStore
     let sharedDraftStore: SharedDraftStore
@@ -237,15 +239,18 @@ struct YouView: View {
 
     // MARK: - Plan
 
-    /// Inert — not tappable. No Paywall/Plans screen exists on `main` as of this task
-    /// (`grep -rin "PaywallView\|PlansView" ios/` returns nothing), so this shows the
-    /// real numbers `PricingPlan` already defines (the one place they live, per that
-    /// type's own doc comment, so the marketing site and app can never silently drift
-    /// apart) without linking anywhere. Mirrors `ConnectCalendarView.swift`'s "The
-    /// privacy note" doc-comment precedent for exactly this situation — a spec element
-    /// naming a destination that doesn't exist yet: if a Paywall/Plans screen lands
-    /// later, `planSection` below is the one place to swap in a real `NavigationLink` to
-    /// it.
+    /// A real `NavigationLink` to `PaywallView` — `PaywallView`'s own type-level doc
+    /// explains why its one action ("See plans") pushes into `PlansView`, not the other
+    /// way around, so this row's destination is `PaywallView`, matching Flow E "Trial to
+    /// paid": "Paywall → plans → start trial → Today." This used to be an inert
+    /// `YouInertRow` placeholder (see that type's doc comment) because no Paywall/Plans
+    /// screen existed on `main` yet; both landed in PR #34, so this is the "swap in a
+    /// real `NavigationLink`" follow-up that row's doc comment named as the next step.
+    /// Same `YouNavigationRow` + plain `NavigationLink` pattern as `privacySection`/
+    /// `momentsSection` above — this row has no inner tappable controls of its own, so
+    /// the `.navigationDestination(item:)` + `.onTapGesture` pattern `PromisesView.swift`
+    /// uses (needed only when a row's own buttons would otherwise race a wrapping link)
+    /// does not apply here.
     private var planSection: some View {
         VStack(alignment: .leading, spacing: ClearskySpacing.sm) {
             Text("PLAN")
@@ -253,10 +258,15 @@ struct YouView: View {
                 .tracking(0.08 * 12)
                 .foregroundStyle(ClearskyColor.muted)
 
-            YouInertRow(
-                title: "\(PricingPlan.yearly.displayPrice) \(PricingPlan.yearly.period)",
-                subtitle: "\(PricingPlan.trialDays)-day free trial. Manage plan \u{2014} not available yet."
-            )
+            NavigationLink {
+                PaywallView()
+            } label: {
+                YouNavigationRow(
+                    title: "\(PricingPlan.yearly.displayPrice) \(PricingPlan.yearly.period)",
+                    subtitle: "\(PricingPlan.trialDays)-day free trial. Manage plan."
+                )
+            }
+            .buttonStyle(.plain)
         }
     }
 

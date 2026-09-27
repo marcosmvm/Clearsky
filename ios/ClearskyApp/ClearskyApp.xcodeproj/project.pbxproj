@@ -55,6 +55,7 @@
 		CD6806F8D39B11BD33EEA786 /* PromiseDetailNavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB142586428C213293169E5E /* PromiseDetailNavigationUITests.swift */; };
 		CF07CDCF3242CF1402E97875 /* YouViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AEDF495858F47C2CA18531 /* YouViewTests.swift */; };
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
+		D68A41589996F952DC811424 /* PaywallPlansNavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836B320320878DAB7D5D30B2 /* PaywallPlansNavigationUITests.swift */; };
 		D79EACDEEE39D3303DA6E622 /* PaywallViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBE4A8BD77D8BD9770C71F /* PaywallViewTests.swift */; };
 		E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */; };
 		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
@@ -127,6 +128,7 @@
 		7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionRequesting.swift; sourceTree = "<group>"; };
 		77B57F94031312367FEA0CAC /* EventKitCalendarServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitCalendarServiceTests.swift; sourceTree = "<group>"; };
 		80B6106AD0E7DAB17A9B76D6 /* CalendarHolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHolding.swift; sourceTree = "<group>"; };
+		836B320320878DAB7D5D30B2 /* PaywallPlansNavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallPlansNavigationUITests.swift; sourceTree = "<group>"; };
 		83C59264294566732DC4A5D2 /* ClearskyAppUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClearskyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearskyApp.swift; sourceTree = "<group>"; };
 		9149D492E3EAEEEBF5ED2C93 /* TriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriageView.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 		EAC858C2465264CF4E1CB174 /* ClearskyAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				836B320320878DAB7D5D30B2 /* PaywallPlansNavigationUITests.swift */,
 				EB142586428C213293169E5E /* PromiseDetailNavigationUITests.swift */,
 			);
 			path = ClearskyAppUITests;
@@ -485,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68A41589996F952DC811424 /* PaywallPlansNavigationUITests.swift in Sources */,
 				CD6806F8D39B11BD33EEA786 /* PromiseDetailNavigationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
