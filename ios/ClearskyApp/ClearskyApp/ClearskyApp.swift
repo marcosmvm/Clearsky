@@ -30,6 +30,43 @@ struct ClearskyApp: App {
         return PromiseStore()
     }
 
+    /// Forces `hasCompletedFirstRun` (below) to `true` in the real `UserDefaults.standard`
+    /// when launched with `--uitest-skip-first-run` — `PromiseDetailNavigationUITests`
+    /// (`ClearskyAppUITests`) passes this so a genuinely fresh install (no prior
+    /// `UserDefaults` state at all, e.g. a brand-new simulator that has never run this app)
+    /// lands straight on `RootView`'s tab bar instead of `RootRouterView` first routing
+    /// through `FirstRunFlowView`'s onboarding sequence, which has no tab bar for a test
+    /// to find. Added since PR #31 ("First run flow") introduced that routing after this
+    /// test's original `--uitest-reset-promises` hook was written — that hook only ever
+    /// reset promise data, so it left first-run state untouched on a clean install.
+    ///
+    /// Deliberately its own dedicated flag rather than folded into
+    /// `--uitest-reset-promises`: the two hooks reset unrelated state (promise data vs.
+    /// first-run routing), and a future UI test that wants a fresh Promises list while
+    /// still exercising the real first-run flow needs to be able to pass one without the
+    /// other.
+    ///
+    /// Declared as its own instance property (assigned from this static function, same
+    /// shape as `promiseStore` immediately above) so it runs as a stored property's
+    /// default-value expression, evaluated in declaration order before `init()`'s body —
+    /// same timing rule `makePromiseStore()`'s own doc comment already establishes. In
+    /// practice `@AppStorage` (unlike `PromiseStore`) reads `UserDefaults` live on every
+    /// access rather than caching a value once at construction, so this would still work
+    /// declared after `hasCompletedFirstRun` too — kept above it anyway to match the
+    /// established convention and make the "runs first" intent obvious to a future reader.
+    @MainActor
+    private static func applyUITestFirstRunOverrideIfNeeded() {
+        if ProcessInfo.processInfo.arguments.contains("--uitest-skip-first-run") {
+            UserDefaults.standard.set(true, forKey: FirstRunDefaultsKey.hasCompletedFirstRun)
+        }
+    }
+
+    /// Triggers `applyUITestFirstRunOverrideIfNeeded()` at instance-property-init time —
+    /// see that function's doc comment. The `Void` value itself is never read; this
+    /// property exists only for its default-value expression's side effect.
+    @MainActor
+    private let uitestFirstRunOverride: Void = ClearskyApp.applyUITestFirstRunOverrideIfNeeded()
+
     /// Live view of the App Group inbox the Share Extension appends captured drafts
     /// to. Wraps a `SharedDraftStore` backed by the real App Group suite in production
     /// (falling back to `.standard` only if the group container is unavailable — e.g.

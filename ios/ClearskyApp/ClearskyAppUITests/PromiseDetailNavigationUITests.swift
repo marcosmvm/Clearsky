@@ -28,19 +28,42 @@ import XCTest
 /// `ClearskyApp.swift`'s `makePromiseStore()` doc comment: the Promises list renders
 /// its `emptyState` when `store.promises.isEmpty`, so nothing guarantees a row exists
 /// without this), this test:
-/// 1. Launches with `--uitest-reset-promises`, which `ClearskyApp.swift` checks for
-///    and deletes any persisted `promises.json` before `PromiseStore` reads it.
+/// 1. Launches with `--uitest-reset-promises` and `--uitest-skip-first-run`, which
+///    `ClearskyApp.swift` checks for and (respectively) deletes any persisted
+///    `promises.json` before `PromiseStore` reads it, and forces `hasCompletedFirstRun`
+///    to `true` before `RootRouterView` reads it. Both are required for a genuinely
+///    fresh simulator: without the second flag, a clean install (no prior
+///    `UserDefaults` state at all) routes to `FirstRunFlowView`'s onboarding sequence
+///    instead of the tab bar `setUp()` waits for — confirmed by running this test on a
+///    brand-new `xcrun simctl create` device, see the `xcuitest-fresh-install-first-run-gate`
+///    checker memory this fix responds to. `--uitest-reset-promises` alone was
+///    sufficient on a worker's already-used simulator (first run already completed
+///    there from a prior manual check), which is why this gap wasn't caught before.
 /// 2. Drives the real "+" > New promise flow (`RootView`'s toolbar button,
 ///    `NewPromiseView`'s form) to create exactly one promise, through the same UI a
 ///    person would use — this is itself extra, real proof that flow works too.
 /// 3. Taps the Promises tab, taps that promise's row (found by the
 ///    `"promiseRow-<id>"` accessibility identifier `PromisesView.row(for:)` sets),
-///    and asserts the detail screen that appears shows the *exact* person name this
-///    test typed in step 2 — not just "some back button appeared" (which a
-///    differently-broken navigation could also produce), but the specific promise's
-///    own content, which only renders if `.navigationDestination(item:
-///    $selectedPromise)` really pushed `PromiseDetailView(promise:)` for the promise
-///    that was actually tapped.
+///    and asserts BOTH that promise's exact person name AND a `PromiseDetailView`-only
+///    element ("THE EXACT WORDS" field-section label, from `PromiseDetailView.fieldSection`
+///    — never rendered by `PromisesView`/`PromiseRow`, confirmed via
+///    `grep -n "THE EXACT WORDS" ios/ClearskyApp/ClearskyApp/PromisesView.swift` finding
+///    nothing) are on screen. The person-name check alone is NOT sufficient: `PromiseRow`
+///    (the list row itself, still on screen if navigation silently no-ops) also renders
+///    `Text(promise.personName)` verbatim, so that assertion alone passes even with
+///    navigation completely broken — confirmed by commenting out this screen's
+///    `.onTapGesture`/`.navigationDestination(item:)` wiring locally and re-running just
+///    this test: with only the person-name assertion, it still passed; with the
+///    "THE EXACT WORDS" assertion added, it correctly failed. Restored immediately after
+///    confirming.
+///
+/// (An earlier commit on this branch explored an invisible `.background(NavigationLink)`
+/// for the row-tap-to-navigate wiring; that approach was rejected as a real 0×0 hit-test
+/// bug, not used in the final `PromisesView.swift`, which uses `.navigationDestination(item:)`
+/// + `.onTapGesture` instead — see the `swiftui-background-navigationlink-zero-size` and
+/// `clearsky-ios-build-conventions` project memory for the full history. Noting this here
+/// since the original commit introducing this test file predates that correction and its
+/// message still describes the rejected approach.)
 @MainActor
 final class PromiseDetailNavigationUITests: XCTestCase {
     private var app: XCUIApplication!
@@ -57,7 +80,7 @@ final class PromiseDetailNavigationUITests: XCTestCase {
         continueAfterFailure = false
 
         app = XCUIApplication()
-        app.launchArguments = ["--uitest-reset-promises"]
+        app.launchArguments = ["--uitest-reset-promises", "--uitest-skip-first-run"]
         app.launch()
 
         let tabBar = app.tabBars.element
@@ -130,6 +153,23 @@ final class PromiseDetailNavigationUITests: XCTestCase {
             "PromiseDetailView's person name did not appear after tapping the Promise row " +
             "— the tap either did not set `selectedPromise` or `.navigationDestination(item:)` " +
             "did not push PromiseDetailView"
+        )
+
+        // This assertion alone is NOT sufficient proof of navigation: `PromiseRow` (the
+        // list row itself) also renders `Text(promise.personName)` verbatim, so
+        // `detailPersonName` above would still be found even if the row is merely still
+        // on screen with navigation completely broken. `"THE EXACT WORDS"` is the
+        // field-section label `PromiseDetailView.fieldSection` renders and is never
+        // rendered anywhere in `PromisesView.swift`/`PromiseRow` — confirmed absent via
+        // `grep -n "THE EXACT WORDS" ios/ClearskyApp/ClearskyApp/PromisesView.swift`.
+        // Its presence can only mean `PromiseDetailView` is genuinely on screen.
+        let exactWordsLabel = app.staticTexts["THE EXACT WORDS"]
+        XCTAssertTrue(
+            exactWordsLabel.waitForExistence(timeout: 3),
+            "PromiseDetailView's \"THE EXACT WORDS\" section did not appear — the person-name " +
+            "check above can pass even with navigation broken (the list row shows the same " +
+            "name), so this is the assertion that actually distinguishes \"still on the list\" " +
+            "from \"navigated to detail\""
         )
 
         XCTAssertFalse(
