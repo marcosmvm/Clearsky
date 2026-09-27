@@ -6,7 +6,29 @@ struct ClearskyApp: App {
     /// `~/Documents/promises.json` (see `PromiseStore.defaultFileURL`). `@StateObject`
     /// so it survives view identity changes and SwiftUI owns its lifetime for the
     /// life of the app.
-    @StateObject private var promiseStore = PromiseStore()
+    @StateObject private var promiseStore = ClearskyApp.makePromiseStore()
+
+    /// Builds the app's real `PromiseStore`, first deleting any persisted
+    /// `~/Documents/promises.json` when launched with `--uitest-reset-promises` —
+    /// `PromiseDetailNavigationUITests` (`ClearskyAppUITests`) passes this so a real,
+    /// separate-process UI test run always starts from an empty Promises list
+    /// regardless of what a prior manual check or test run left on this simulator's
+    /// shared `com.marcosmvm.clearsky.app` container, then creates its own promise
+    /// through the real "+" > New promise flow before asserting on tap-through
+    /// navigation. Gated behind this exact, never-set-outside-tests argument so
+    /// production launches (and every other scheme/target) are unaffected. Must run
+    /// as this stored property's own initializer expression, not inside `init()`'s
+    /// body below — a stored property's default-value expression is evaluated before
+    /// any explicit `init()` statement executes, and `PromiseStore.init` already
+    /// reads the file the moment it is constructed, so deleting it any later would be
+    /// too late.
+    @MainActor
+    private static func makePromiseStore() -> PromiseStore {
+        if ProcessInfo.processInfo.arguments.contains("--uitest-reset-promises") {
+            try? FileManager.default.removeItem(at: PromiseStore.defaultFileURL)
+        }
+        return PromiseStore()
+    }
 
     /// Live view of the App Group inbox the Share Extension appends captured drafts
     /// to. Wraps a `SharedDraftStore` backed by the real App Group suite in production
