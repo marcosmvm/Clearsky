@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016CD381888F7C11F40BB346 /* PlansViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4D10E8C4E285BBE358C419 /* PlansViewModelTests.swift */; };
 		03748BFC3FD3B853A4D416F7 /* NotificationPermissionRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */; };
+		03820C54D321EA9F5E4B1DBF /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E14408474BADCA04B7234F /* PaywallView.swift */; };
 		0393435264DAC0F1C55AB0ED /* DigestCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60AFE7AAD31B688A9E06E9 /* DigestCalculatorTests.swift */; };
 		056A21AC9B3825AAAB858F65 /* FirstRunFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4DB6258AC10EFE40EF61E /* FirstRunFlowView.swift */; };
 		0A575BE3193E6A45C9F6EAA2 /* RootRouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F727B86884123C7B5220E2 /* RootRouterView.swift */; };
@@ -22,6 +24,7 @@
 		26AD61EC36CAD492BF0E544D /* WeeklyRecapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00720010EB5E94A1502AB3DD /* WeeklyRecapTests.swift */; };
 		2CE9DD7D72232A9D1D686039 /* SharedDraftStoreObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59DF89E58E8A86AD170FE68 /* SharedDraftStoreObserverTests.swift */; };
 		32DB5A3BB8D50A56E7221CCE /* ClearskyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84AECEC8847841F4814FA4 /* ClearskyApp.swift */; };
+		4276A62AFA0EDE6C20B9BDC0 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D69E89EB2E0C9205E54171 /* PlansView.swift */; };
 		456701BCCA04C6EC110D990D /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322842CE25E5C46324E18CEC /* PrivacyView.swift */; };
 		47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509312DB134361F10A6D82 /* PromisesViewTests.swift */; };
 		53EA2415982522453086E1FA /* FirstRunFlowViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBB639DFD65B788F5F1181 /* FirstRunFlowViewTests.swift */; };
@@ -49,6 +52,7 @@
 		CAEE140EF24BA2378162852B /* DomainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C9F2D6BDB14D737AFB3A9 /* DomainDisplay.swift */; };
 		CF07CDCF3242CF1402E97875 /* YouViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AEDF495858F47C2CA18531 /* YouViewTests.swift */; };
 		D083B96E6C3D574905EC9792 /* SharedDraftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */; };
+		D79EACDEEE39D3303DA6E622 /* PaywallViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBE4A8BD77D8BD9770C71F /* PaywallViewTests.swift */; };
 		E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */; };
 		E4E8510FECEA781E74A86254 /* ClearskyCore in Frameworks */ = {isa = PBXBuildFile; productRef = E23B5AA488A087FBAC631767 /* ClearskyCore */; };
 		EEBA12D302149BD429B02254 /* FirstRunDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71C994D8EA44F34E2B92939 /* FirstRunDefaultsKey.swift */; };
@@ -123,14 +127,18 @@
 		9E2AAEF072DF8480794A7644 /* ClearskyCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ClearskyCore; path = ../ClearskyCore; sourceTree = SOURCE_ROOT; };
 		A71C994D8EA44F34E2B92939 /* FirstRunDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunDefaultsKey.swift; sourceTree = "<group>"; };
 		A7494BA30BE6FF5A56834B14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		A8E14408474BADCA04B7234F /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		AF4B3B83CD2F8D2C98180DA9 /* SharedDraftStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStore.swift; sourceTree = "<group>"; };
 		B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionView.swift; sourceTree = "<group>"; };
 		B4C5C1494CB5ABAFC993749F /* ClearskyShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClearskyShareExtension.entitlements; sourceTree = "<group>"; };
 		BADFB4688E1A11E5B4C07BC1 /* SharedDraftStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStoreTests.swift; sourceTree = "<group>"; };
 		BC4F49F7841AF23BBC258595 /* ClearskyAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClearskyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8AF9F5D59724AEE118C036 /* WeeklyRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyRecapView.swift; sourceTree = "<group>"; };
+		CC4D10E8C4E285BBE358C419 /* PlansViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModelTests.swift; sourceTree = "<group>"; };
 		D23DC4DFF7295EE9FBE30B8A /* ClearskyShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClearskyShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6280BEDFBE9479615734E2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DBEBE4A8BD77D8BD9770C71F /* PaywallViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewTests.swift; sourceTree = "<group>"; };
+		E1D69E89EB2E0C9205E54171 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		E29CC4707D033E0DE9BAFD74 /* SharedDraftStoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDraftStoreObserver.swift; sourceTree = "<group>"; };
 		E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionViewModelTests.swift; sourceTree = "<group>"; };
 		E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStoreTests.swift; sourceTree = "<group>"; };
@@ -227,7 +235,9 @@
 				111D7444576901364A6A65EA /* NewPromiseView.swift */,
 				7056222DFB01C1B80E085007 /* NotificationPermissionRequesting.swift */,
 				B0B4497C3B888B6A4DD2AD25 /* NotificationsPermissionView.swift */,
+				A8E14408474BADCA04B7234F /* PaywallView.swift */,
 				F82D4429B9AD6DC53A7BD5CE /* PendingDraftsView.swift */,
+				E1D69E89EB2E0C9205E54171 /* PlansView.swift */,
 				322842CE25E5C46324E18CEC /* PrivacyView.swift */,
 				59D90515A7B24078E620FA1E /* PromiseDetailView.swift */,
 				EF7DFEF30476230E60827ED3 /* PromiseStore.swift */,
@@ -255,6 +265,8 @@
 				E719C4CDEE048730C364C07A /* MockCalendarService.swift */,
 				98472FE27B7B5FCFC95EEF84 /* MockNotificationPermissionService.swift */,
 				E65EB610E6520189399CAB56 /* NotificationsPermissionViewModelTests.swift */,
+				DBEBE4A8BD77D8BD9770C71F /* PaywallViewTests.swift */,
+				CC4D10E8C4E285BBE358C419 /* PlansViewModelTests.swift */,
 				44C80A6804ABBAA9BAC6617C /* PrivacyViewModelTests.swift */,
 				E70AA031A570FAD3768590A5 /* PromiseStoreTests.swift */,
 				58509312DB134361F10A6D82 /* PromisesViewTests.swift */,
@@ -406,6 +418,8 @@
 				7CC88D539B973CF5DC869984 /* MockCalendarService.swift in Sources */,
 				9F575B511444562AA453C64B /* MockNotificationPermissionService.swift in Sources */,
 				C0272BEE4353BF30B8F3B7C2 /* NotificationsPermissionViewModelTests.swift in Sources */,
+				D79EACDEEE39D3303DA6E622 /* PaywallViewTests.swift in Sources */,
+				016CD381888F7C11F40BB346 /* PlansViewModelTests.swift in Sources */,
 				1A49C3FE06A76FA7D5528171 /* PrivacyViewModelTests.swift in Sources */,
 				AE67B762C7F09B2A0535DBB3 /* PromiseStoreTests.swift in Sources */,
 				47498407EA4D5279AB6023F1 /* PromisesViewTests.swift in Sources */,
@@ -441,7 +455,9 @@
 				957F660BD6184C1B7820CC06 /* NewPromiseView.swift in Sources */,
 				03748BFC3FD3B853A4D416F7 /* NotificationPermissionRequesting.swift in Sources */,
 				E26C2BE96AE3B8BA35CB07D7 /* NotificationsPermissionView.swift in Sources */,
+				03820C54D321EA9F5E4B1DBF /* PaywallView.swift in Sources */,
 				FABA10120F1C17D2FF1D2B67 /* PendingDraftsView.swift in Sources */,
+				4276A62AFA0EDE6C20B9BDC0 /* PlansView.swift in Sources */,
 				456701BCCA04C6EC110D990D /* PrivacyView.swift in Sources */,
 				86E7A4BF2703FC79CC8AA59D /* PromiseDetailView.swift in Sources */,
 				689D277032BF9E283562F44F /* PromiseStore.swift in Sources */,
