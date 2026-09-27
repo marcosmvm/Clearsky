@@ -22,6 +22,19 @@ struct ClearskyApp: App {
     /// a test can substitute `MockCalendarService`/a fake instead.
     private let calendarService: CalendarHolding = EventKitCalendarService()
 
+    /// The real, `UNUserNotificationCenter`-backed `NotificationPermissionRequesting`
+    /// conformer, mirroring `calendarService` immediately above — typed as the
+    /// protocol so `FirstRunFlowView` (the one call site that uses it) can be handed a
+    /// mock/no-op conformer in a preview or a test instead.
+    private let notificationPermissionService: NotificationPermissionRequesting = SystemNotificationPermissionService()
+
+    /// Whether this install has ever completed first run (connect calendar, then
+    /// notification permission — see `FirstRunFlowView`'s own doc comment for why
+    /// Sign-in and Inner circle are not part of that sequence yet). `false` on a brand
+    /// new install; flipped to `true` exactly once, by `RootRouterView`'s
+    /// `onFirstRunFinished` closure below, and never flipped back.
+    @AppStorage(FirstRunDefaultsKey.hasCompletedFirstRun) private var hasCompletedFirstRun = false
+
     /// Explicit `init()` only because `draftsObserver` needs the same `UserDefaults`
     /// instance passed to both the `SharedDraftStore` it wraps and its own
     /// notification subscription (see `SharedDraftStoreObserver.init`) — a single
@@ -34,12 +47,19 @@ struct ClearskyApp: App {
         )
     }
 
+    /// A thin wrapper around `RootRouterView` — see that type's own doc comment for why
+    /// the actual `hasCompletedFirstRun` branch lives there instead of inline here: an
+    /// `App`/`Scene` can't be hosted in an XCTest, only a `View` can, so the branch
+    /// itself needs to live on a plain `View` to be testable at all.
     var body: some Scene {
         WindowGroup {
-            RootView(
+            RootRouterView(
+                hasCompletedFirstRun: hasCompletedFirstRun,
                 promiseStore: promiseStore,
                 draftsObserver: draftsObserver,
-                calendarService: calendarService
+                calendarService: calendarService,
+                notificationPermissionService: notificationPermissionService,
+                onFirstRunFinished: { hasCompletedFirstRun = true }
             )
         }
     }
